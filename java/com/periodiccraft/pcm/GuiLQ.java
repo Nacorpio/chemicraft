@@ -10,7 +10,7 @@ public class GuiLQ extends GuiContainer
 	private TileEntityLQ LQ;
 	
 	public GuiLQ(InventoryPlayer invPlayer, TileEntityLQ teLQ) {
-		super(new ContainerLQ(invPlayer, teLQ));
+		super(/* new ContainerLQ(invPlayer, teLQ) */null);
 		LQ = teLQ;
 	}
 
