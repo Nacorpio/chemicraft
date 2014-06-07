@@ -71,7 +71,7 @@ public class Substance {
 	}
 	
 	public final STATE getState() {
-		return (((temperature >= this.meltingPoint) ? STATE.SOLID : STATE.LIQUID));
+		return (((temperature >= this.meltingPoint && temperature < this.boilingPoint) ? (temperature < this.meltingPoint ? STATE.SOLID : STATE.LIQUID) : STATE.LIQUID));
 	}
 	
 	public final String getName() {
