@@ -4,6 +4,10 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+
 import com.periodiccraft.pcm.core.element.Compound;
 import com.periodiccraft.pcm.core.element.Substance;
 
@@ -11,6 +15,35 @@ public final class SubstanceRegistry {
 
 	public static final Map<Integer, Substance> substances = new HashMap<Integer, Substance>();
 	public static final Map<Integer, Compound> compounds = new HashMap<Integer, Compound>();
+	public static final Map<String, Substance> substance_bindings = new HashMap<String, Substance>();
+	
+	public static final void bindSubstance(String par1, Substance par2) {
+		if (!isSubstanceBound(par1)) {
+			substance_bindings.put(par1, par2);
+		}
+	}
+	
+	public static final Substance getSubstanceBinding(String par1) {
+		return substance_bindings.get(par1);
+	}
+	
+	public static final Substance getSubstanceBinding(ItemStack par1) {
+		return getSubstanceBinding(par1.getUnlocalizedName());
+	}
+	
+	public static final Substance getSubstanceBinding(Item par1) {
+		return getSubstanceBinding(par1.getUnlocalizedName());
+	}
+	
+	public static final Substance getSubstanceBinding(Block par1) {
+		return getSubstanceBinding(par1.getUnlocalizedName());
+	}
+	
+	public static final boolean isSubstanceBound(String par1) {
+		return substance_bindings.containsKey(par1);
+	}
+	
+	//
 	
 	public static final void addCompound(Compound par1) {
 		addCompound(substances.size() + 1, par1);
@@ -39,6 +72,8 @@ public final class SubstanceRegistry {
 		return compounds.containsKey(par1);
 	}
 	
+	//
+	
 	public static final void addSubstance(Substance par1) {
 		addSubstance(substances.size() + 1, par1);
 	}
@@ -60,6 +95,8 @@ public final class SubstanceRegistry {
 		}
 		return null;
 	}
+	
+	//
 	
 	public static final int getCount() {
 		return substances.size();

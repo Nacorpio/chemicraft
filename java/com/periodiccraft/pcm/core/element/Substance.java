@@ -58,6 +58,10 @@ public class Substance {
 		
 	}
 	
+	public final void setTemperature(float par1) {
+		this.temperature = par1;
+	}
+	
 	public final int getSubstanceId() {
 		return this.id;
 	}
@@ -92,6 +96,10 @@ public class Substance {
 	
 	public final float getMeltingPoint() {
 		return this.meltingPoint;
+	}
+	
+	public final float getTemperature() {
+		return this.temperature;
 	}
 	
 	public final float getHeatOfVaporization() {

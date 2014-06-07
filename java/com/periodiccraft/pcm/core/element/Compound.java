@@ -1,8 +1,10 @@
 package com.periodiccraft.pcm.core.element;
 
+import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
+
 public class Compound {
 
-	private Substance[] elements;
+	private SubstanceStack[] elements;
 	
 	private int id;
 	
@@ -10,6 +12,21 @@ public class Compound {
 	private String formula;
 	
 	private float atomicWeight;
+	
+	public Compound(int par1, String par2, float par3, SubstanceStack... par4) {
+		
+		this.id = par1;
+		this.name = par2;
+		this.atomicWeight = par3;
+		this.elements = par4;
+		
+		for (SubstanceStack var: elements) {
+			formula += var.getSymbol() + var.getCount();
+		}
+		
+		SubstanceRegistry.addCompound(this);
+		
+	}
 	
 	public final int getCompoundId() {
 		return this.id;
@@ -24,7 +41,7 @@ public class Compound {
 	}
 	
 	public final boolean containsElement(String par1) {
-		for (Substance var: elements) {
+		for (SubstanceStack var: elements) {
 			if (var.getName().equalsIgnoreCase(par1)) {
 				return true;
 			}
