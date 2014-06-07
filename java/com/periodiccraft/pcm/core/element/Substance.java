@@ -1,0 +1,101 @@
+package com.periodiccraft.pcm.core.element;
+
+import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
+
+public class Substance {
+
+	static enum CATEGORY {
+		ALKALI_METALS,
+		ALKALINE_EARTH_METALS,
+		TRANSITION_METALS,
+		POST_TRANSITION_METALS,
+		LANTHANIDES,
+		ACTINIDES,
+		HALOGENS,
+		NOBLE_GASES,
+		NON_METALS,
+		SEMI_METALS,
+		UNKNOWN;
+	}
+	
+	static enum STATE {
+		GAS,
+		LIQUID,
+		SOLID,
+		PLASMA;
+	}
+	
+	private int id;
+	
+	private String name;
+	private String symbol;
+	private String color;
+	
+	private float atomicWeight;
+	
+	private float temperature = 10.0F;
+	
+	private float boilingPoint;
+	private float meltingPoint;
+	private float heatOfVaporization;
+	
+	private CATEGORY category;
+	private STATE state;
+	
+	public Substance(int par, String par1, String par2, String par3, float par4, float par5, float par6, float par7, CATEGORY par8) {
+		
+		this.id = par;
+		this.name = par1;
+		this.symbol = par2;
+		this.color = par3;
+		this.atomicWeight = par4;
+		this.boilingPoint = par5;
+		this.meltingPoint = par6;
+		this.heatOfVaporization = par7;
+		this.category = par8;
+		
+		SubstanceRegistry.addSubstance(par, this);
+		
+	}
+	
+	public final int getSubstanceId() {
+		return this.id;
+	}
+	
+	public final CATEGORY getCategory() {
+		return this.category;
+	}
+	
+	public final STATE getState() {
+		return (((temperature >= this.meltingPoint) ? STATE.SOLID : STATE.LIQUID));
+	}
+	
+	public final String getName() {
+		return this.name;
+	}
+	
+	public final String getSymbol() {
+		return this.symbol;
+	}
+	
+	public final String getColor() {
+		return this.color;
+	}
+	
+	public final float getAtomicWeight() {
+		return this.atomicWeight;
+	}
+	
+	public final float getBoilingPoint() {
+		return this.boilingPoint;
+	}
+	
+	public final float getMeltingPoint() {
+		return this.meltingPoint;
+	}
+	
+	public final float getHeatOfVaporization() {
+		return this.heatOfVaporization;
+	}
+	
+}
