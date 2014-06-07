@@ -54,7 +54,7 @@ public class Substance {
 		this.heatOfVaporization = par7;
 		this.category = par8;
 		
-		SubstanceRegistry.addSubstance(par, this);
+		SubstanceRegistry.addSubstance(this);
 		
 	}
 	
