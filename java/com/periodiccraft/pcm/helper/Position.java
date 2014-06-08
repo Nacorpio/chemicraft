@@ -23,7 +23,7 @@ public class Position {
 	
 	/**
 	 * Returns the position of the specified {@link #ForgeDirection} when hopping the specified amount of steps.
-	 * Use this when you want to specify the amount of steps to hop, otherwise just use the other getPosition method.
+	 * Use this when you want to specify the amount of steps to hop, otherwise just use the other getPosition(ForgeDirection) method.
 	 * @param par1 the {@link #ForgeDirection}.
 	 * @param par2 the amount of steps to hop in the specified direction.
 	 * @return the new position.
