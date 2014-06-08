@@ -1,5 +1,7 @@
 package com.periodiccraft.pcm;
 
+import com.periodiccraft.pcm.core.guiblocks.LQClass;
+
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import cpw.mods.fml.common.Mod;
@@ -17,6 +19,7 @@ public class PeriodicCraft {
  
     public static Block LQ_Idle;
     public static Block LQ_Active;
+    public static final int guiIDLQ = 8;
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -26,7 +29,6 @@ public class PeriodicCraft {
     	
     	GameRegistry.registerBlock(LQ_Idle, LQ_Idle.getUnlocalizedName().substring(5));
     	GameRegistry.registerBlock(LQ_Active, LQ_Active.getUnlocalizedName().substring(5));
-    	
     }
     	    	 
     @EventHandler
