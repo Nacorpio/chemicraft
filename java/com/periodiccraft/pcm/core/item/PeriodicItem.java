@@ -1,5 +1,6 @@
 package com.periodiccraft.pcm.core.item;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -14,6 +15,7 @@ public class PeriodicItem extends Item {
 		
 		this.setUnlocalizedName(par1);
 		this.setTextureName(PeriodicCraft.MODID + ":" + this.getUnlocalizedName().substring(5));
+		this.setCreativeTab(CreativeTabs.tabMisc);
 		
 		GameRegistry.registerItem(this, par1);
 		
