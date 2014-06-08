@@ -1,10 +1,14 @@
 package com.periodiccraft.pcm.core.element;
 
+import net.minecraft.client.Minecraft;
+
+import com.periodiccraft.pcm.core.registry.ResearchRegistry;
+import com.periodiccraft.pcm.core.registry.ResearchRegistry.Research;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
 
 public class Substance {
 
-	static enum CATEGORY {
+	public static enum CATEGORY {
 		ALKALI_METALS,
 		ALKALINE_EARTH_METALS,
 		TRANSITION_METALS,
@@ -18,7 +22,7 @@ public class Substance {
 		UNKNOWN;
 	}
 	
-	static enum STATE {
+	public static enum STATE {
 		GAS,
 		LIQUID,
 		SOLID,
@@ -55,6 +59,7 @@ public class Substance {
 		this.category = par8;
 		
 		SubstanceRegistry.addSubstance(this);
+		ResearchRegistry.addResearch(this.id, new Research<Substance>(Minecraft.getMinecraft().thePlayer));
 		
 	}
 	

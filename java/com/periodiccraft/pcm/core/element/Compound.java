@@ -16,13 +16,10 @@ public class Compound {
 	private String formula;
 	private String objectAssoc;
 	
-	private float atomicWeight;
-	
-	public Compound(int par1, String par2, float par3, SubstanceStack... par4) {
+	public Compound(int par1, String par2, SubstanceStack... par4) {
 		
 		this.id = par1;
 		this.name = par2;
-		this.atomicWeight = par3;
 		this.elements = par4;
 		
 		for (SubstanceStack var: elements) {
