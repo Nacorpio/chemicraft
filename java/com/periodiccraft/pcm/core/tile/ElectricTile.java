@@ -1,5 +1,6 @@
 package com.periodiccraft.pcm.core.tile;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -21,13 +22,21 @@ public class ElectricTile extends PeriodicTile implements IElectric {
 		
 	}
 
+	public final void setAllowInput(boolean par1) {
+		this.allowInput = par1;
+	}
+	
+	public final void setAllowOutput(boolean par1) {
+		this.allowOutput = par1;
+	}
+	
 	@Override
-	public boolean getAllowInput() {
+	public final boolean getAllowInput() {
 		return this.allowInput;
 	}
 
 	@Override
-	public boolean getAllowOutput() {
+	public final boolean getAllowOutput() {
 		return this.allowOutput;
 	}
 
@@ -40,5 +49,34 @@ public class ElectricTile extends PeriodicTile implements IElectric {
 		return (var2 instanceof IElectric ? (ElectricTile) var2 : null);
 		
 	}
+	
+	public TileBasicEnergyStorage getElectricStorage(ForgeDirection par1) {
+		return (TileBasicEnergyStorage) getElectricTile(par1);
+	}
+	
+	@Override
+	public boolean canConnectWith(ForgeDirection par1) {
+		
+		Position var1 = getPosition().getPosition(par1);
+		TileEntity var2 = getWorld().getTileEntity(var1.getX(), var1.getY(), var1.getZ());
+		
+		return (var2 instanceof IElectric ? true : false);
+		
+	}
+
+	@Override
+	public int getConnections() {
+		int result = 0;
+		for (ForgeDirection var: ForgeDirection.values()) {
+			if (canConnectWith(var)) result++;
+		}
+		return result;
+	}
+
+	@Override
+	public void onElectricNeighborAdded(ForgeDirection par1, ElectricTile par2) {}
+
+	@Override
+	public void onElectricNeighborDestroyed(ForgeDirection par1, ElectricTile par3) {}
 	
 }
