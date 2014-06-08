@@ -2,6 +2,7 @@ package com.periodiccraft.pcm;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 
 import com.periodiccraft.pcm.core.block.BlockMachine;
 import com.periodiccraft.pcm.core.block.ores.OreCobalt;
@@ -10,11 +11,11 @@ import com.periodiccraft.pcm.core.block.ores.OreNickel;
 import com.periodiccraft.pcm.core.block.ores.OreTitanium;
 import com.periodiccraft.pcm.core.block.ores.OreZinc;
 import com.periodiccraft.pcm.core.element.Substance;
-import com.periodiccraft.pcm.core.element.Substance.TIER;
 import com.periodiccraft.pcm.core.guiblocks.LQClass;
 import com.periodiccraft.pcm.core.guiblocks.TileEntityLQ;
-import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
 import com.periodiccraft.pcm.core.tile.TileBasicEnergyStorage;
+import com.periodiccraft.pcm.creativetabs.TabPeriodic;
+import com.periodiccraft.pcm.creativetabs.TabPeriodicIcon;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -41,7 +42,12 @@ public class PeriodicCraft {
     public static Block oreNickel;
     public static Block oreCopper;
     public static Block oreZinc;
-
+    
+    //CreativeTab
+    public static Item tabPeriodicIcon;
+   	public static CreativeTabs tabPeriodic = new TabPeriodic(CreativeTabs.getNextID(), "tabPeriodic");
+    
+    
     public static Block blockMachine;
     
     @Instance(MODID)
@@ -53,9 +59,13 @@ public class PeriodicCraft {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
     	
+
+    	
     	LQ_Idle = new LQClass(false).setBlockName("LQIdle").setCreativeTab(CreativeTabs.tabBlock).setHardness(3.5F);
     	LQ_Active = new LQClass(true).setBlockName("LQActive").setCreativeTab(CreativeTabs.tabBlock).setHardness(3.5F).setLightLevel(0.625F);
-
+    	
+    	
+    	
     	//Ores
     	oreTitanium = new OreTitanium().setBlockName("oreTitanium").setCreativeTab(CreativeTabs.tabBlock).setHardness(4.5F).setBlockTextureName(PeriodicCraft.MODID + ":oreTitanium");
     	oreCobalt = new OreCobalt().setBlockName("oreCobalt").setCreativeTab(CreativeTabs.tabBlock).setHardness(4.5F).setBlockTextureName(PeriodicCraft.MODID + ":oreCobalt");
@@ -63,6 +73,9 @@ public class PeriodicCraft {
     	oreCopper = new OreCopper().setBlockName("oreCopper").setCreativeTab(CreativeTabs.tabBlock).setHardness(3.5F).setBlockTextureName(PeriodicCraft.MODID + ":oreCopper");
     	oreZinc = new OreZinc().setBlockName("oreZinc").setCreativeTab(CreativeTabs.tabBlock).setHardness(3.0F).setBlockTextureName(PeriodicCraft.MODID + ":oreZinc");
     	
+    	//Creative Tab
+    	tabPeriodicIcon = new TabPeriodicIcon().setUnlocalizedName("tabPeriodic");
+    	GameRegistry.registerItem(tabPeriodicIcon, tabPeriodicIcon.getUnlocalizedName().substring(5));
     	//Ores
     	GameRegistry.registerBlock(oreTitanium, oreTitanium.getUnlocalizedName().substring(5));
     	GameRegistry.registerBlock(oreCobalt, oreCobalt.getUnlocalizedName().substring(5));

@@ -15,7 +15,7 @@ public class PeriodicItem extends Item {
 		
 		this.setUnlocalizedName(par1);
 		this.setTextureName(PeriodicCraft.MODID + ":" + this.getUnlocalizedName().substring(5));
-		
+		this.setCreativeTab(PeriodicCraft.tabPeriodic);	
 		GameRegistry.registerItem(this, par1);
 		
 	}
