@@ -23,27 +23,31 @@ public class Compound {
 		this.elements = par4;
 		
 		for (SubstanceStack var: elements) {
-			formula += var.getSymbol() + var.getCount();
+			formula += var.getSubstance().getSymbol() + var.getCount();
 		}
 		
-		SubstanceRegistry.addCompound(this);
+		SubstanceRegistry.addCompound(par1, this);
 		
 	}
 	
-	public final void setObjectAssociation(Block par1) {
+	public final Compound setObjectAssociation(Block par1) {
 		this.objectAssoc = par1.getUnlocalizedName();
+		return this;
 	}
 	
-	public final void setObjectAssociation(Item par1) {
+	public final Compound setObjectAssociation(Item par1) {
 		this.objectAssoc = par1.getUnlocalizedName();
+		return this;
 	}
 	
-	public final void setObjectAssociation(ItemStack par1) {
+	public final Compound setObjectAssociation(ItemStack par1) {
 		this.objectAssoc = par1.getUnlocalizedName();
+		return this;
 	}
 	
-	public final void setObjectAssociation(String par1) {
+	public final Compound setObjectAssociation(String par1) {
 		this.objectAssoc = par1;
+		return this;
 	}
 	
 	public final String getObjectAssociation() {
@@ -62,13 +66,13 @@ public class Compound {
 		return this.formula;
 	}
 	
-	public final Substance[] getElements() {
+	public final SubstanceStack[] getElements() {
 		return this.elements;
 	}
 	
 	public final boolean containsElement(String par1) {
 		for (SubstanceStack var: elements) {
-			if (var.getName().equalsIgnoreCase(par1)) {
+			if (var.getSubstance().getName().equalsIgnoreCase(par1)) {
 				return true;
 			}
 		}
@@ -77,8 +81,8 @@ public class Compound {
 	
 	public final float getAtomicWeight() {
 		float total = 0;
-		for (Substance var: elements) {
-			total += var.getAtomicWeight();
+		for (SubstanceStack var: elements) {
+			total += var.getSubstance().getAtomicWeight();
 		}
 		return total;
 	}

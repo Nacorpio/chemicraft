@@ -10,12 +10,29 @@ import net.minecraft.item.ItemStack;
 
 import com.periodiccraft.pcm.core.element.Compound;
 import com.periodiccraft.pcm.core.element.Substance;
+import com.periodiccraft.pcm.core.item.PeriodicItem;
 
 public final class SubstanceRegistry {
 
 	public static final Map<Integer, Substance> substances = new HashMap<Integer, Substance>();
 	public static final Map<Integer, Compound> compounds = new HashMap<Integer, Compound>();
 	public static final Map<String, Substance> substance_bindings = new HashMap<String, Substance>();
+	
+	private static final void addItem(String par1, Substance par2) {
+		if (par1.length() > 0 && !par1.isEmpty()) {
+			PeriodicItem var1 = new PeriodicItem(par1);
+			bindSubstance(var1.getUnlocalizedName(), par2);	
+		}
+	}
+	
+	private static final void addItem(String par1, Compound par2) {
+		if (par1.length() > 0 && !par1.isEmpty()) {
+			PeriodicItem var1 = new PeriodicItem(par1);
+			par2.setObjectAssociation(var1);
+		}
+	}
+	
+	//
 	
 	public static final void bindSubstance(String par1, Substance par2) {
 		if (!isSubstanceBound(par1)) {

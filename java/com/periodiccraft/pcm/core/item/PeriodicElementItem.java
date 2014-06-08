@@ -16,6 +16,9 @@ public class PeriodicElementItem extends PeriodicItem {
 	
 	public PeriodicElementItem(String par1) {
 		super(par1);
+		if (!SubstanceRegistry.isSubstanceBound(this.getUnlocalizedName())) {
+			SubstanceRegistry.bindSubstance(this.getUnlocalizedName(), substance);
+		}
 		this.substance = SubstanceRegistry.getSubstanceBinding(this);
 	}
 	

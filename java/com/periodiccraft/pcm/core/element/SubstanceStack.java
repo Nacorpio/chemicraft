@@ -1,14 +1,27 @@
 package com.periodiccraft.pcm.core.element;
 
-public class SubstanceStack extends Substance {
+public class SubstanceStack {
 
+	private Substance substance;
+	
+	private float temperature;
 	private int count;
 	
-	public SubstanceStack(int count, float temperature, int par, String par1, String par2, String par3,
-			float par4, float par5, float par6, float par7, CATEGORY par8) {
-		super(par, par1, par2, par3, par4, par5, par6, par7, par8);
-		this.count = count;
-		this.setTemperature(temperature);
+	public SubstanceStack(Substance par1, int par2) {
+		this.substance = par1;
+		this.count = par2;
+	}
+	
+	public final Substance getSubstance() {
+		return this.substance;
+	}
+	
+	public final void setTemperature(float par1) {
+		this.temperature = par1;
+	}
+	
+	public final float getTemperature() {
+		return this.temperature;
 	}
 	
 	public final void setCount(int par1) {

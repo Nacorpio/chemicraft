@@ -58,7 +58,7 @@ public class Substance {
 		this.heatOfVaporization = par7;
 		this.category = par8;
 		
-		SubstanceRegistry.addSubstance(this);
+		SubstanceRegistry.addSubstance(par, this);
 		ResearchRegistry.addResearch(this.id, new Research<Substance>(Minecraft.getMinecraft().thePlayer));
 		
 	}
