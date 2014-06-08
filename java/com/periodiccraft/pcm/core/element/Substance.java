@@ -64,6 +64,7 @@ public class Substance {
 		
 		SubstanceRegistry.addSubstance(par, this);
 		ResearchRegistry.addResearch(this.id, new Research<Substance>(Minecraft.getMinecraft().thePlayer));
+		SubstanceRegistry.addItem("element" + this.name, this);
 		
 	}
 	
