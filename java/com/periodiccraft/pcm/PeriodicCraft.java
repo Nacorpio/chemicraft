@@ -7,6 +7,7 @@ import com.periodiccraft.pcm.core.block.BlockMachine;
 import com.periodiccraft.pcm.core.element.Substance;
 import com.periodiccraft.pcm.core.guiblocks.LQClass;
 import com.periodiccraft.pcm.core.guiblocks.TileEntityLQ;
+import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
 import com.periodiccraft.pcm.core.tile.TileBasicEnergyStorage;
 
 import cpw.mods.fml.common.Mod;
@@ -87,11 +88,11 @@ public class PeriodicCraft {
 
     	
     	//Substances
-    	new Substance(22, "Titanium", "Ti", "Silver", /* ATOMIC WEIGHT --> */ 47.867F, /* BOILING POINT --> */ 3287.0F, /* MELTING POINT --> */ 1668.0F, /* HEAT OF VAPORIZATION --> */ 223.80F, /* CATEGORY --> */ Substance.CATEGORY.TRANSITION_METALS);
-    	new Substance(27, "Cobalt", "Co", "Metallic Gray", 58.933F, 2927.0F, 1495.0F, 198.520F, Substance.CATEGORY.TRANSITION_METALS);
-    	new Substance(28, "Nickel", "Ni", "Gray Gold" , 58.693F, 2730.0F, 1455.0F, 199.570F, Substance.CATEGORY.TRANSITION_METALS);
-    	new Substance(29, "Copper", "Cu", "Red Orangy", 63.546F, 2562.0F, 1084.62F, 158.180F, Substance.CATEGORY.TRANSITION_METALS);
-    	new Substance(30, "Zinc", "Zn", "Silvery Greyish White", 65.380F, 907.0F, 419.530F, 60.555F, Substance.CATEGORY.TRANSITION_AND_POST_TRANSISTION_METALS);
+    	new Substance(22, "Titanium", "Ti", "Silver", /* ATOMIC WEIGHT --> */ 47.867F, /* BOILING POINT --> */ 3287.0F, /* MELTING POINT --> */ 1668.0F, /* HEAT OF VAPORIZATION --> */ 223.80F, /* CATEGORY --> */ Substance.CATEGORY.TRANSITION_METALS /* STATE -> */, Substance.STATE.SOLID);
+    	new Substance(27, "Cobalt", "Co", "Metallic Gray", 58.933F, 2927.0F, 1495.0F, 198.520F, Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.SOLID);
+    	new Substance(28, "Nickel", "Ni", "Gray Gold" , 58.693F, 2730.0F, 1455.0F, 199.570F, Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.SOLID);
+    	new Substance(29, "Copper", "Cu", "Red Orangy", 63.546F, 2562.0F, 1084.62F, 158.180F, Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.SOLID);
+    	new Substance(30, "Zinc", "Zn", "Silvery Greyish White", 65.380F, 907.0F, 419.530F, 60.555F, Substance.CATEGORY.TRANSITION_AND_POST_TRANSISTION_METALS, Substance.STATE.SOLID);
     	
     	SubstanceRegistry.getSubstance(22).getSymbol();
     	SubstanceRegistry.getSubstance(27).getSymbol();
