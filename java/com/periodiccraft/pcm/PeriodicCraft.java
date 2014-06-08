@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -19,6 +20,8 @@ public class PeriodicCraft {
  
     public static Block LQ_Idle;
     public static Block LQ_Active;
+    @Instance(MODID)
+	public static PeriodicCraft instance;
     public static final int guiIDLQ = 8;
     
     @EventHandler

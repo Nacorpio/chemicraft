@@ -9,11 +9,13 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -109,6 +111,27 @@ public class LQClass extends BlockContainer {
 			//((TileEntityLQ)world.getTileEntity(x, y, z)).setCustomName(itemstack.getDisplayName());
 		}
 	}
+	
+	
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+		if(world.isRemote) {
+			return true;
+		}else if(!player.isSneaking()) {
+			TileEntityLQ entity = (TileEntityLQ) world.getTileEntity(x, y, z);
+			if(entity != null) {
+				FMLNetworkHandler.openGui(player, PeriodicCraft.instance, PeriodicCraft.guiIDLQ, world, x, y, z);
+								
+			}
+			return true;
+			
+		}else{
+			return false;
+		}
+	}
+		
+		
+
+	
 
 
 	@Override

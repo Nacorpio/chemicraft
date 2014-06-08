@@ -8,9 +8,9 @@ import net.minecraft.inventory.Slot;
 
 public class SlotLQ extends Slot {
 
-
-	public SlotLQ(EntityPlayer player, TileEntityLQ teLQ, int i, int j, int k) {
-		// TODO Auto-generated constructor stub
+	public SlotLQ(EntityPlayer player, IInventory iiInventory, int i, int j, int k) {
+		super(iiInventory, i, j, k);
 	}
+
 
 }
