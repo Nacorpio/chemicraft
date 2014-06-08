@@ -9,7 +9,7 @@ import com.periodiccraft.pcm.core.element.Substance;
 
 public final class ResearchRegistry {
 
-	static class Research<T extends Substance> {
+	public static class Research<T extends Substance> {
 		
 		private int progress = 0;
 		private T substance;
@@ -58,27 +58,27 @@ public final class ResearchRegistry {
 		
 	}
 	
-	public Map<Integer, Research<Substance>> researches = new HashMap<Integer, Research<Substance>>();
+	public static final Map<Integer, Research<Substance>> researches = new HashMap<Integer, Research<Substance>>();
 	
-	public final void addResearch(int par1, Research<Substance> par2) {
+	public static final void addResearch(int par1, Research<Substance> par2) {
 		if (!hasResearch(par1)) {
 			researches.put(par1, par2);
 		}
 	}
 	
-	public final Research<Substance> getResearch(int par1) {
+	public static final Research<Substance> getResearch(int par1) {
 		return researches.get(par1);
 	}
 	
-	public final boolean hasResearch(int par1) {
+	public static final boolean hasResearch(int par1) {
 		return researches.containsKey(par1);
 	}
 	
-	public final int getProgress(int par1) {
+	public static final int getProgress(int par1) {
 		return getResearch(par1).getProgress();
 	}
 	
-	public final boolean isComplete(int par1) {
+	public static final boolean isComplete(int par1) {
 		return getResearch(par1).isComplete();
 	}
 	
