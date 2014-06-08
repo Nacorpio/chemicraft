@@ -30,20 +30,24 @@ public class Compound {
 		
 	}
 	
-	public final void setObjectAssociation(Block par1) {
+	public final Compound setObjectAssociation(Block par1) {
 		this.objectAssoc = par1.getUnlocalizedName();
+		return this;
 	}
 	
-	public final void setObjectAssociation(Item par1) {
+	public final Compound setObjectAssociation(Item par1) {
 		this.objectAssoc = par1.getUnlocalizedName();
+		return this;
 	}
 	
-	public final void setObjectAssociation(ItemStack par1) {
+	public final Compound setObjectAssociation(ItemStack par1) {
 		this.objectAssoc = par1.getUnlocalizedName();
+		return this;
 	}
 	
-	public final void setObjectAssociation(String par1) {
+	public final Compound setObjectAssociation(String par1) {
 		this.objectAssoc = par1;
+		return this;
 	}
 	
 	public final String getObjectAssociation() {
