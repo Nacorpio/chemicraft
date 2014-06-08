@@ -9,6 +9,11 @@ import com.periodiccraft.pcm.core.guiblocks.LQClass;
 import com.periodiccraft.pcm.core.guiblocks.TileEntityLQ;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
 import com.periodiccraft.pcm.core.tile.TileBasicEnergyStorage;
+import com.periodiccraft.pcm.ores.OreCobalt;
+import com.periodiccraft.pcm.ores.OreCopper;
+import com.periodiccraft.pcm.ores.OreNickel;
+import com.periodiccraft.pcm.ores.OreTitanium;
+import com.periodiccraft.pcm.ores.OreZinc;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -28,8 +33,7 @@ public class PeriodicCraft {
     
     public static Block LQ_Idle;
     public static Block LQ_Active;
-    
-<<<<<<< HEAD
+
     //ores
     public static Block oreTitanium;
     public static Block oreCobalt;
@@ -53,11 +57,11 @@ public class PeriodicCraft {
 
    
     	//Ores
-    	oreTitanium = new OreTitanium().setBlockName("oreTitanium").setCreativeTab(CreativeTabs.tabBlock).setHardness(4.5F);
-    	oreCobalt = new OreCobalt().setBlockName("oreCobalt").setCreativeTab(CreativeTabs.tabBlock).setHardness(4.5F);
-    	oreNickel = new OreNickel().setBlockName("oreNickel").setCreativeTab(CreativeTabs.tabBlock).setHardness(4.0F);
-    	oreCopper = new OreCopper().setBlockName("oreCopper").setCreativeTab(CreativeTabs.tabBlock).setHardness(3.5F);
-    	oreZinc = new OreZinc().setBlockName("oreZinc").setCreativeTab(CreativeTabs.tabBlock).setHardness(3.0F);
+    	oreTitanium = new OreTitanium().setBlockName("oreTitanium").setCreativeTab(CreativeTabs.tabBlock).setHardness(4.5F).setBlockTextureName(PeriodicCraft.MODID + ":oreTitanium");
+    	oreCobalt = new OreCobalt().setBlockName("oreCobalt").setCreativeTab(CreativeTabs.tabBlock).setHardness(4.5F).setBlockTextureName(PeriodicCraft.MODID + ":oreCobalt");
+    	oreNickel = new OreNickel().setBlockName("oreNickel").setCreativeTab(CreativeTabs.tabBlock).setHardness(4.0F).setBlockTextureName(PeriodicCraft.MODID + ":oreNickel");
+    	oreCopper = new OreCopper().setBlockName("oreCopper").setCreativeTab(CreativeTabs.tabBlock).setHardness(3.5F).setBlockTextureName(PeriodicCraft.MODID + ":oreCopper");
+    	oreZinc = new OreZinc().setBlockName("oreZinc").setCreativeTab(CreativeTabs.tabBlock).setHardness(3.0F).setBlockTextureName(PeriodicCraft.MODID + ":oreZinc");
     	
     	//Ores
     	GameRegistry.registerBlock(oreTitanium, oreTitanium.getUnlocalizedName().substring(5));
@@ -94,11 +98,6 @@ public class PeriodicCraft {
     	new Substance(29, "Copper", "Cu", "Red Orangy", 63.546F, 2562.0F, 1084.62F, 158.180F, Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.SOLID);
     	new Substance(30, "Zinc", "Zn", "Silvery Greyish White", 65.380F, 907.0F, 419.530F, 60.555F, Substance.CATEGORY.TRANSITION_AND_POST_TRANSISTION_METALS, Substance.STATE.SOLID);
     	
-    	SubstanceRegistry.getSubstance(22).getSymbol();
-    	SubstanceRegistry.getSubstance(27).getSymbol();
-    	SubstanceRegistry.getSubstance(28).getSymbol();
-    	SubstanceRegistry.getSubstance(29).getSymbol();
-    	SubstanceRegistry.getSubstance(30).getSymbol();
     	//Maybe Compounds?
     	
     	
