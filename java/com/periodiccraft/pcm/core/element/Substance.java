@@ -44,9 +44,11 @@ public class Substance {
 	private float heatOfVaporization;
 	
 	private CATEGORY category;
+	
+	private STATE defaultState;
 	private STATE state;
 	
-	public Substance(int par, String par1, String par2, String par3, float par4, float par5, float par6, float par7, CATEGORY par8) {
+	public Substance(int par, String par1, String par2, String par3, float par4, float par5, float par6, float par7, CATEGORY par8, STATE par9) {
 		
 		this.id = par;
 		this.name = par1;
@@ -57,6 +59,7 @@ public class Substance {
 		this.meltingPoint = par6;
 		this.heatOfVaporization = par7;
 		this.category = par8;
+		this.defaultState = par9;
 		
 		SubstanceRegistry.addSubstance(par, this);
 		ResearchRegistry.addResearch(this.id, new Research<Substance>(Minecraft.getMinecraft().thePlayer));
@@ -73,6 +76,10 @@ public class Substance {
 	
 	public final CATEGORY getCategory() {
 		return this.category;
+	}
+	
+	public final STATE getDefaultState() {
+		return this.defaultState;
 	}
 	
 	public final STATE getState() {

@@ -1,11 +1,12 @@
 package com.periodiccraft.pcm.core.tile;
 
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import com.periodiccraft.pcm.api.energy.IElectric;
+import com.periodiccraft.pcm.api.energy.IElectricStorage;
+import com.periodiccraft.pcm.helper.ChatUtil;
 import com.periodiccraft.pcm.helper.Position;
 
 public class ElectricTile extends PeriodicTile implements IElectric {
@@ -74,7 +75,11 @@ public class ElectricTile extends PeriodicTile implements IElectric {
 	}
 
 	@Override
-	public void onElectricNeighborAdded(ForgeDirection par1, ElectricTile par2) {}
+	public void onElectricNeighborAdded(ForgeDirection par1, ElectricTile par2) {
+		TileBasicEnergyStorage var1 = (TileBasicEnergyStorage) par2;
+		var1.setEnergy(1000);
+		ChatUtil.sendChatMessage(ChatUtil.StringHandler.green + "An electrical neighbor was added. " + (par2 instanceof IElectricStorage ? "(Energy: " + var1.getEnergy() + "/" + var1.getCapacity() + ")" : "(Not a storage)"));
+	}
 
 	@Override
 	public void onElectricNeighborDestroyed(ForgeDirection par1, ElectricTile par3) {}

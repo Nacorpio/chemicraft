@@ -1,4 +1,4 @@
-package com.periodiccraft.api.reaction;
+package com.periodiccraft.pcm.api.reaction;
 
 public enum EnumReactionType {
 	

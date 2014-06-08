@@ -5,6 +5,8 @@ import net.minecraft.world.World;
 
 import com.periodiccraft.pcm.helper.Position;
 
+import cpw.mods.fml.common.registry.GameRegistry;
+
 public class PeriodicTile extends TileEntity {
 
 	private World world;

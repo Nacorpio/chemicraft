@@ -1,13 +1,14 @@
 package com.periodiccraft.pcm;
 
+import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
+
+import com.periodiccraft.pcm.core.block.BlockMachine;
 import com.periodiccraft.pcm.core.element.Substance;
 import com.periodiccraft.pcm.core.guiblocks.LQClass;
 import com.periodiccraft.pcm.core.guiblocks.TileEntityLQ;
-import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
+import com.periodiccraft.pcm.core.tile.TileBasicEnergyStorage;
 
-import net.minecraft.block.Block;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -25,6 +26,7 @@ public class PeriodicCraft {
     public static Block LQ_Idle;
     public static Block LQ_Active;
     
+    public static Block blockMachine;
     
     @Instance(MODID)
 	public static PeriodicCraft instance;
@@ -37,14 +39,16 @@ public class PeriodicCraft {
     	
     	LQ_Idle = new LQClass(false).setBlockName("LQIdle").setCreativeTab(CreativeTabs.tabBlock).setHardness(3.5F);
     	LQ_Active = new LQClass(true).setBlockName("LQActive").setCreativeTab(CreativeTabs.tabBlock).setHardness(3.5F).setLightLevel(0.625F);
-   
+   	
+    	blockMachine = new BlockMachine().setBlockName("blockMachine").setCreativeTab(CreativeTabs.tabBlock).setHardness(5.0F).setStepSound(Block.soundTypeStone);
     	
     	GameRegistry.registerBlock(LQ_Idle, LQ_Idle.getUnlocalizedName().substring(5));
     	GameRegistry.registerBlock(LQ_Active, LQ_Active.getUnlocalizedName().substring(5));
+    	GameRegistry.registerBlock(blockMachine, blockMachine.getUnlocalizedName().substring(5));
     	
-    	GameRegistry.registerTileEntity(TileEntityLQ.class, "LQ");
-    	
-    	SubstanceRegistry.getSubstance(0).getSymbol();
+    	GameRegistry.registerTileEntity(TileEntityLQ.class, "tileLQ");
+    	GameRegistry.registerTileEntity(TileBasicEnergyStorage.class, "tileBEnergyStorage");
+
     }
     	    	 
     @EventHandler

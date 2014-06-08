@@ -13,6 +13,7 @@ public class TileBasicEnergyStorage extends ElectricTile implements IElectric, I
 	
 	public TileBasicEnergyStorage(World par1, int par2, boolean par3, boolean par4) {
 		super(par1, par2, par3, par4);
+		this.setEnergy(1000);
 		this.setAllowInput(true);
 	}
 

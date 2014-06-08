@@ -1,4 +1,4 @@
-package com.periodiccraft.api.reaction;
+package com.periodiccraft.pcm.api.reaction;
 
 import java.util.ArrayList;
 import java.util.HashMap;

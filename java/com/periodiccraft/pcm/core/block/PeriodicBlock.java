@@ -5,13 +5,15 @@ import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
+import com.periodiccraft.pcm.PeriodicCraft;
 import com.periodiccraft.pcm.core.tile.PeriodicTile;
+
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class PeriodicBlock extends BlockContainer {
 
-	protected PeriodicBlock(String par1, Material p_i45386_1_) {
+	protected PeriodicBlock(Material p_i45386_1_) {
 		super(p_i45386_1_);
-		this.setBlockName(par1);
 	}
 
 	@Override
