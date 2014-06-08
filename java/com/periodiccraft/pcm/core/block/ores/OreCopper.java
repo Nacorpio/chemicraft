@@ -1,15 +1,13 @@
-package com.periodiccraft.pcm.ores;
+package com.periodiccraft.pcm.core.block.ores;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
-public class OreTitanium extends Block 
+public class OreCopper extends Block
 {
 
-	public OreTitanium() {
+	public OreCopper() {
 		super(Material.rock);
 	}
 
 }
-
-	
