@@ -38,8 +38,8 @@ public class ContainerLQ extends Container {
 	}
 
 	@Override
-	public boolean canInteractWith(EntityPlayer var1) {
-		return false;
+	public boolean canInteractWith(EntityPlayer player) {
+		return LQ.isUseableByPlayer(player);
 	}
 
 }

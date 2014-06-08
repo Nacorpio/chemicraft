@@ -114,9 +114,12 @@ public class LQClass extends BlockContainer {
 	
 	
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		if(world.isRemote) {
+		if(world.isRemote) 
+		{
 			return true;
-		}else if(!player.isSneaking()) {
+		}
+		else if(!player.isSneaking()) 
+		{
 			TileEntityLQ entity = (TileEntityLQ) world.getTileEntity(x, y, z);
 			if(entity != null) {
 				FMLNetworkHandler.openGui(player, PeriodicCraft.instance, PeriodicCraft.guiIDLQ, world, x, y, z);
@@ -124,7 +127,9 @@ public class LQClass extends BlockContainer {
 			}
 			return true;
 			
-		}else{
+		}
+		else
+		{
 			return false;
 		}
 	}
@@ -135,8 +140,8 @@ public class LQClass extends BlockContainer {
 
 
 	@Override
-	public TileEntity createNewTileEntity(World var1, int var2) {
-		return null;
+	public TileEntity createNewTileEntity(World world, int i) {
+		return new TileEntityLQ();
 	}
 
 }

@@ -8,8 +8,16 @@ import net.minecraft.tileentity.TileEntity;
 public class TileEntityLQ extends TileEntity implements IInventory {
 
 	private ItemStack slots[];
+	
+	public int dualPower;
+	public int dualCookTime;
+	
+	private String customName;
+	
 	public TileEntityLQ() {
 		slots = new ItemStack[4];
+		
+
 	}
 	@Override
 	public int getSizeInventory() {
@@ -36,26 +44,34 @@ public class TileEntityLQ extends TileEntity implements IInventory {
 		// TODO Auto-generated method stub
 		
 	}
+	
 	@Override
 	public String getInventoryName() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.hasCustomInventoryName() ? this.customName : "container.LQ";
 	}
+	
 	@Override
 	public boolean hasCustomInventoryName() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.customName != null && this.customName.length() > 0;
+		
 	}
+	
 	@Override
 	public int getInventoryStackLimit() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer var1) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isUseableByPlayer(EntityPlayer player) {
+		if(worldObj.getTileEntity(xCoord, yCoord, zCoord) != this) {
+			return false;
+	}else{
+		
+		return player.getDistanceSq((double)xCoord, (double)yCoord, (double)zCoord) <= 64;
 	}
+}
+		
+		
+		
 	@Override
 	public void openInventory() {
 		// TODO Auto-generated method stub
