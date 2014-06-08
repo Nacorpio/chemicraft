@@ -23,7 +23,7 @@ public class Compound {
 		this.elements = par4;
 		
 		for (SubstanceStack var: elements) {
-			formula += var.getSymbol() + var.getCount();
+			formula += var.getSubstance().getSymbol() + var.getCount();
 		}
 		
 		SubstanceRegistry.addCompound(this);
@@ -66,13 +66,13 @@ public class Compound {
 		return this.formula;
 	}
 	
-	public final Substance[] getElements() {
+	public final SubstanceStack[] getElements() {
 		return this.elements;
 	}
 	
 	public final boolean containsElement(String par1) {
 		for (SubstanceStack var: elements) {
-			if (var.getName().equalsIgnoreCase(par1)) {
+			if (var.getSubstance().getName().equalsIgnoreCase(par1)) {
 				return true;
 			}
 		}
@@ -81,8 +81,8 @@ public class Compound {
 	
 	public final float getAtomicWeight() {
 		float total = 0;
-		for (Substance var: elements) {
-			total += var.getAtomicWeight();
+		for (SubstanceStack var: elements) {
+			total += var.getSubstance().getAtomicWeight();
 		}
 		return total;
 	}
