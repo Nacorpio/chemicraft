@@ -27,7 +27,7 @@ public class PeriodicElementItem extends PeriodicItem {
 		if (par1ItemStack != null && par2EntityPlayer != null) {
 			par3List.add(substance.getSymbol());
 			if (ResearchRegistry.hasResearch(substance.getSubstanceId())) {
-				Research<Substance> r = ResearchRegistry.getResearch(substance.getSubstanceId()); 
+				Research r = ResearchRegistry.getResearch(substance.getSubstanceId()); 
 				par3List.add("Research: " + (r.isComplete() ? "Complete" : r.getProgress() + "/100"));
 			}			
 		}

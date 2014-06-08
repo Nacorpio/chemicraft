@@ -9,15 +9,16 @@ import com.periodiccraft.pcm.core.element.Substance;
 
 public final class ResearchRegistry {
 
-	public static class Research<T extends Substance> {
+	public static class Research {
 		
 		private int progress = 0;
-		private T substance;
+		private Substance substance;
 
 		private EntityPlayer linkedPlayer;
 		
-		public Research(EntityPlayer par1) {
-			this.linkedPlayer = par1;
+		public Research(Substance par1, EntityPlayer par2) {
+			this.substance = par1;
+			this.linkedPlayer = par2;
 		}
 		
 		public final void decrement(int par1) {
@@ -58,15 +59,15 @@ public final class ResearchRegistry {
 		
 	}
 	
-	public static final Map<Integer, Research<Substance>> researches = new HashMap<Integer, Research<Substance>>();
+	public static final Map<Integer, Research> researches = new HashMap<Integer, Research>();
 	
-	public static final void addResearch(int par1, Research<Substance> par2) {
+	public static final void addResearch(int par1, Research par2) {
 		if (!hasResearch(par1)) {
 			researches.put(par1, par2);
 		}
 	}
 	
-	public static final Research<Substance> getResearch(int par1) {
+	public static final Research getResearch(int par1) {
 		return researches.get(par1);
 	}
 	

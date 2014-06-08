@@ -1,7 +1,9 @@
-package com.periodiccraft.pcm.api.reaction;
+package com.periodiccraft.pcm.core.registry;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import com.periodiccraft.pcm.api.reaction.IReaction;
 
 public class ReactionRegistry {
 	

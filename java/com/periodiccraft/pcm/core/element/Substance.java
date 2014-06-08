@@ -63,7 +63,7 @@ public class Substance {
 		this.defaultState = par9;
 		
 		SubstanceRegistry.addSubstance(par, this);
-		ResearchRegistry.addResearch(this.id, new Research<Substance>(Minecraft.getMinecraft().thePlayer));
+		ResearchRegistry.addResearch(this.id, new Research(this, Minecraft.getMinecraft().thePlayer));
 		SubstanceRegistry.addItem("element" + this.name, this);
 		
 	}
