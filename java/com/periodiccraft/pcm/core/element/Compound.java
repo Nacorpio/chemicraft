@@ -1,5 +1,9 @@
 package com.periodiccraft.pcm.core.element;
 
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
 
 public class Compound {
@@ -10,6 +14,7 @@ public class Compound {
 	
 	private String name;
 	private String formula;
+	private String objectAssoc;
 	
 	private float atomicWeight;
 	
@@ -28,6 +33,26 @@ public class Compound {
 		
 	}
 	
+	public final void setObjectAssociation(Block par1) {
+		this.objectAssoc = par1.getUnlocalizedName();
+	}
+	
+	public final void setObjectAssociation(Item par1) {
+		this.objectAssoc = par1.getUnlocalizedName();
+	}
+	
+	public final void setObjectAssociation(ItemStack par1) {
+		this.objectAssoc = par1.getUnlocalizedName();
+	}
+	
+	public final void setObjectAssociation(String par1) {
+		this.objectAssoc = par1;
+	}
+	
+	public final String getObjectAssociation() {
+		return this.objectAssoc;
+	}
+	
 	public final int getCompoundId() {
 		return this.id;
 	}
@@ -38,6 +63,10 @@ public class Compound {
 	
 	public final String getFormula() {
 		return this.formula;
+	}
+	
+	public final Substance[] getElements() {
+		return this.elements;
 	}
 	
 	public final boolean containsElement(String par1) {
