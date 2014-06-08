@@ -2,9 +2,11 @@ package com.periodiccraft.pcm.core.element;
 
 import net.minecraft.client.Minecraft;
 
+import com.periodiccraft.pcm.PeriodicCraft;
 import com.periodiccraft.pcm.core.registry.ResearchRegistry;
 import com.periodiccraft.pcm.core.registry.ResearchRegistry.Research;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
+import com.periodiccraft.pcm.helper.ChatUtil;
 
 public class Substance {
 
@@ -30,6 +32,32 @@ public class Substance {
 		PLASMA;
 	}
 	
+	public static enum TIER {
+		
+		ONE("I", ChatUtil.StringHandler.cyan),
+		TWO("II", ChatUtil.StringHandler.dark_cyan),
+		THREE("III", ChatUtil.StringHandler.blue),
+		FOUR("IV", ChatUtil.StringHandler.purple),
+		FIVE("V", ChatUtil.StringHandler.red);
+		
+		private String text;
+		private String color;
+		
+		TIER(String par1, String par2) {
+			this.text = par1;
+			this.color = par2;
+		}
+		
+		public final String getText() {
+			return this.text;
+		}
+		
+		public final String getColor() {
+			return this.color;
+		}
+		
+	}
+	
 	private int id;
 	
 	private String name;
@@ -46,6 +74,7 @@ public class Substance {
 	
 	private CATEGORY category;
 	
+	private TIER tier = TIER.ONE;
 	private STATE defaultState;
 	private STATE state;
 	
@@ -64,8 +93,18 @@ public class Substance {
 		
 		SubstanceRegistry.addSubstance(par, this);
 		ResearchRegistry.addResearch(this.id, new Research(this, Minecraft.getMinecraft().thePlayer));
+		SubstanceRegistry.bindSubstance(PeriodicCraft.MODID + ":item.element" + this.name, this);
 		SubstanceRegistry.addItem("element" + this.name, this);
 		
+	}
+	
+	public final Substance setTier(TIER par1) {
+		this.tier = par1;
+		return this;
+	}
+	
+	public final TIER getTier() {
+		return this.tier;
 	}
 	
 	public final void setTemperature(float par1) {

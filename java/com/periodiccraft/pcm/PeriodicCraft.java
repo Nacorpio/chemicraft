@@ -78,7 +78,6 @@ public class PeriodicCraft {
     	GameRegistry.registerTileEntity(TileEntityLQ.class, "tileLQ");
     	GameRegistry.registerTileEntity(TileBasicEnergyStorage.class, "tileBEnergyStorage");
 
-
     }
     	    	 
     @EventHandler

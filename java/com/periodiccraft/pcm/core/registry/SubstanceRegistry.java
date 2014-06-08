@@ -8,9 +8,13 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import com.periodiccraft.pcm.PeriodicCraft;
 import com.periodiccraft.pcm.core.element.Compound;
 import com.periodiccraft.pcm.core.element.Substance;
+import com.periodiccraft.pcm.core.item.PeriodicElementItem;
 import com.periodiccraft.pcm.core.item.PeriodicItem;
+
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public final class SubstanceRegistry {
 
@@ -20,7 +24,7 @@ public final class SubstanceRegistry {
 	
 	public static final void addItem(String par1, Substance par2) {
 		if (par1.length() > 0 && !par1.isEmpty()) {
-			PeriodicItem var1 = new PeriodicItem(par1);
+			PeriodicElementItem var1 = new PeriodicElementItem(par1);
 			bindSubstance(var1.getUnlocalizedName(), par2);	
 		}
 	}
@@ -35,9 +39,7 @@ public final class SubstanceRegistry {
 	//
 	
 	public static final void bindSubstance(String par1, Substance par2) {
-		if (!isSubstanceBound(par1)) {
-			substance_bindings.put(par1, par2);
-		}
+		substance_bindings.put(par1, par2);
 	}
 	
 	public static final Substance getSubstanceBinding(String par1) {

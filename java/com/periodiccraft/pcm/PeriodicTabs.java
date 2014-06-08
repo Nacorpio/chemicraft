@@ -1,7 +1,9 @@
 package com.periodiccraft.pcm;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public final class PeriodicTabs {
 
@@ -19,8 +21,7 @@ public final class PeriodicTabs {
 
 		@Override
 		public Item getTabIconItem() {
-			// TODO Auto-generated method stub
-			return null;
+			return Items.feather;
 		}
 		
 	};
