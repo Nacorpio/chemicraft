@@ -41,6 +41,7 @@ public class PeriodicElementItem extends PeriodicItem {
 		}	
 		
 		par3List.add("Symbol: " + ChatUtil.StringHandler.green + var1.getSymbol());
+		par3List.add("State: " + ChatUtil.StringHandler.green + var1.getState().getText());
 		par3List.add("Tier: " + var1.getTier().getColor() + var1.getTier().getText());
 		
 	}

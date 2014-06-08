@@ -26,10 +26,22 @@ public class Substance {
 	}
 	
 	public static enum STATE {
-		GAS,
-		LIQUID,
-		SOLID,
-		PLASMA;
+		
+		GAS("Gas"),
+		LIQUID("Liquid"),
+		SOLID("Solid"),
+		PLASMA("Plasma");
+		
+		private String text;
+		
+		STATE(String par1) {
+			this.text = par1;
+		}
+		
+		public final String getText() {
+			return this.text;
+		}
+		
 	}
 	
 	public static enum TIER {
