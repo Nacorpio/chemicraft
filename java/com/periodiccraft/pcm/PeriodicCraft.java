@@ -23,6 +23,8 @@ public class PeriodicCraft {
     public static final String MODID = "pcm";
     public static final String VERSION = "0.0.0.0.1";
  
+    
+    
     public static Block LQ_Idle;
     public static Block LQ_Active;
     
@@ -55,6 +57,10 @@ public class PeriodicCraft {
     public void postInit(FMLPostInitializationEvent event) {
 
     	new Substance(0, "Titanium", "Ti", "Silver", /* ATOMIC WEIGHT --> */ 47.867F, /* BOILING POINT --> */ 3287.0F, /* MELTING POINT --> */ 1668.0F, /* HEAT OF VAPORIZATION --> */ 223.80F, /* CATEGORY --> */ Substance.CATEGORY.TRANSITION_METALS);
+    	new Substance(27, "Cobalt", "Co", "Metallic Gray", 58.933F, 2927.0F, 1495.0F, 198.520F, Substance.CATEGORY.TRANSITION_METALS);
+    	new Substance(28, "Nickel", "Ni", "Gray Gold" , 58.693F, 2730.0F, 1455.0F, 199.570F, Substance.CATEGORY.TRANSITION_METALS);
+    	new Substance(29, "Copper", "Cu", "Metallic Gray", 63.546F, 2562.0F, 1084.62F, 158.180F, Substance.CATEGORY.TRANSITION_METALS);
+    	new Substance(30, "Zinc", "Zn", "Metallic Gray", 65.380F, 907.0F, 419.530F, 60.555F, Substance.CATEGORY.TRANSITION_AND_POST_TRANSISTION_METALS);
     	
     }
     
