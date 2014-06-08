@@ -3,6 +3,7 @@ package com.periodiccraft.pcm;
 import com.periodiccraft.pcm.core.element.Substance;
 import com.periodiccraft.pcm.core.guiblocks.LQClass;
 import com.periodiccraft.pcm.core.guiblocks.TileEntityLQ;
+import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
@@ -40,6 +41,8 @@ public class PeriodicCraft {
     	GameRegistry.registerBlock(LQ_Active, LQ_Active.getUnlocalizedName().substring(5));
     	
     	GameRegistry.registerTileEntity(TileEntityLQ.class, "LQ");
+    	
+    	SubstanceRegistry.getSubstance(0);
     }
     	    	 
     @EventHandler
