@@ -61,6 +61,10 @@ public final class ResearchRegistry {
 	
 	public static final Map<Integer, Research> researches = new HashMap<Integer, Research>();
 	
+	public static final void addResearch(Substance par1, Research par2) {
+		addResearch(par1.getSubstanceId(), par2);
+	}
+	
 	public static final void addResearch(int par1, Research par2) {
 		if (!hasResearch(par1)) {
 			researches.put(par1, par2);

@@ -10,6 +10,7 @@ import com.periodiccraft.pcm.core.block.ores.OreNickel;
 import com.periodiccraft.pcm.core.block.ores.OreTitanium;
 import com.periodiccraft.pcm.core.block.ores.OreZinc;
 import com.periodiccraft.pcm.core.element.Substance;
+import com.periodiccraft.pcm.core.element.Substance.TIER;
 import com.periodiccraft.pcm.core.guiblocks.LQClass;
 import com.periodiccraft.pcm.core.guiblocks.TileEntityLQ;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
