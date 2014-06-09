@@ -9,7 +9,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import cpw.mods.fml.common.IWorldGenerator;
 
-public class TitaniumGenClass implements IWorldGenerator 
+public class OreGenClass implements IWorldGenerator 
 {
 
 	@Override
@@ -41,6 +41,13 @@ public class TitaniumGenClass implements IWorldGenerator
 			
 			(new WorldGenMinable(PeriodicCraft.oreTitanium, 10)).generate(world, random, chunkX, chunkY, chunkZ);
 			
+		}
+		for(int k = 0; k < 50; k++) {
+			int chunkX = x + random.nextInt(16);
+			int chunkY = random.nextInt(256);
+			int chunkZ = z + random.nextInt(16);
+			
+			(new WorldGenMinable(PeriodicCraft.oreVanadium, 10)).generate(world, random, chunkX, chunkY, chunkZ);
 		}
 	}
 

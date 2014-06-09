@@ -3,7 +3,6 @@ package com.periodiccraft.pcm;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-
 import com.periodiccraft.pcm.core.block.BlockMachine;
 import com.periodiccraft.pcm.core.block.ores.OreChromium;
 import com.periodiccraft.pcm.core.block.ores.OreCobalt;
@@ -16,8 +15,7 @@ import com.periodiccraft.pcm.core.block.ores.OreZinc;
 import com.periodiccraft.pcm.core.element.Substance;
 import com.periodiccraft.pcm.core.guiblocks.LQClass;
 import com.periodiccraft.pcm.core.guiblocks.TileEntityLQ;
-import com.periodiccraft.pcm.core.oregens.TitaniumGenClass;
-import com.periodiccraft.pcm.core.oregens.VanadiumGenClass;
+import com.periodiccraft.pcm.core.oregens.OreGenClass;
 import com.periodiccraft.pcm.core.tile.TileBasicEnergyStorage;
 import com.periodiccraft.pcm.creativetabs.TabPeriodic;
 import com.periodiccraft.pcm.creativetabs.TabPeriodicIcon;
@@ -53,17 +51,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
     
     //Generation
-    public static TitaniumGenClass TitaniumGen = new TitaniumGenClass();
+    public static OreGenClass OreGen = new OreGenClass();
+
     
-    public static VanadiumGenClass VanadiumGen = new VanadiumGenClass();
-    /*
-    public static ChromiumGenClass ChromiumGen = new ChromiumGenClass(); 
-    public static MangeneseGenClass MangeneseGen = new MangeneseGenClasss(); 
-    public static CobaltGenClass CobaltGen = new CobaltGenClass(); 
-    public static NickelGenClass NickelGen = new NickelGenClass(); 
-    public static CopperGenClass CopperGen = new CopperGenClass(); 
-    public static ZincGenClass ZincGen = new ZincGenClass(); 
-    */
     
     //CreativeTab(s)
     public static Item tabPeriodicIcon;
@@ -128,17 +118,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
     	//Generation
     	
-    	GameRegistry.registerWorldGenerator(TitaniumGen, 0);
+    	GameRegistry.registerWorldGenerator(OreGen, 0);
     	
-    	GameRegistry.registerWorldGenerator(VanadiumGen, 1);
-    	/*
-    	GameRegistry.registerWorldGenerator(ChromiumGen, 2);
-    	GameRegistry.registerWorldGenerator(MangeneseGen, 3);
-    	GameRegistry.registerWorldGenerator(CobaltGen, 4);
-    	GameRegistry.registerWorldGenerator(NickelGen, 5);
-    	GameRegistry.registerWorldGenerator(CopperGen, 6);
-    	GameRegistry.registerWorldGenerator(ZincGen, 7);
-    	*/
+    	
     	
     	
     }
