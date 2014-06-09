@@ -23,6 +23,8 @@ public class WrappedGenerator implements IWorldGenerator {
 		private int blocksPerVein = 7;
 		private int veinsPerChunk = 10;
 		
+		private int[] dimensions = new int[] {};
+		
 		private boolean overworld = true;
 		private boolean nether = false;
 		private boolean end = false;
@@ -41,6 +43,15 @@ public class WrappedGenerator implements IWorldGenerator {
 			this.maxHeight = par2;
 			this.blocksPerVein = par3;
 			this.veinsPerChunk = par4;
+		}
+		
+		public final int[] getDimensions() {
+			return this.dimensions;
+		}
+		
+		public final Instruction setDimensions(int[] par1) {
+			this.dimensions = par1;
+			return this;
 		}
 		
 		/**
@@ -141,10 +152,26 @@ public class WrappedGenerator implements IWorldGenerator {
 				if (var.end) {
 					generateInEnd(var, world, random, chunkX * 16, chunkZ * 16);
 				}
+			} else {
+				for (int v: var.getDimensions()) {
+					if (var1 == v)
+						this.generateInDimension(var, world, random, chunkX * 16, chunkZ * 16);
+				}
 			}
 		}
 	}
 
+	private void generateInDimension(Instruction par1, World world, Random random, int x, int z) {
+		for(int k = 0; k < par1.getVeinsPerChunk(); k++) {
+			int chunkX = x + random.nextInt(16);
+			int chunkY = random.nextInt(par1.getMaxHeight());
+			int chunkZ = z + random.nextInt(16);
+			
+			(new WorldGenMinable(par1.getBlockType(), par1.getBlocksPerVein())).generate(world, random, chunkX, chunkY, chunkZ);
+			
+		}
+	}
+	
 	private void generateInEnd(Instruction par1, World world, Random random, int x, int z) {
 		for(int k = 0; k < par1.getVeinsPerChunk(); k++) {
 			int chunkX = x + random.nextInt(16);
