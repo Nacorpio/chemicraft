@@ -106,14 +106,14 @@ import cpw.mods.fml.common.registry.GameRegistry;
     	//Generation
     	{generator = new WrappedGenerator(0, 
     			// new GenerationProperty(block, max_height, blocks_per_vein, veins_per_chunk)
-    			new GenerationProperty(oreTitanium, 64, 5, 7),
-    			new GenerationProperty(oreVanadium, 64, 5, 7),
-    			new GenerationProperty(oreChromium, 64, 5, 7),
-    			new GenerationProperty(oreMangenese, 64, 5, 7),
-    			new GenerationProperty(oreCobalt, 64, 5, 7),
-		    	new GenerationProperty(oreNickel, 64, 5, 7),
-		    	new GenerationProperty(oreCopper, 64, 5, 7),
-		    	new GenerationProperty(oreZinc, 64, 5, 7)
+    			new GenerationProperty(oreTitanium, 64, 5, 7).setOverworld(true),
+    			new GenerationProperty(oreVanadium, 64, 5, 7).setOverworld(true),
+    			new GenerationProperty(oreChromium, 64, 5, 7).setOverworld(true),
+    			new GenerationProperty(oreMangenese, 64, 5, 7).setOverworld(true),
+    			new GenerationProperty(oreCobalt, 64, 5, 7).setOverworld(true),
+		    	new GenerationProperty(oreNickel, 64, 5, 7).setOverworld(true),
+		    	new GenerationProperty(oreCopper, 64, 5, 7).setOverworld(true),
+		    	new GenerationProperty(oreZinc, 64, 5, 7).setOverworld(true)
     	);}
     	
     	
