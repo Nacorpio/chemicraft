@@ -36,7 +36,7 @@ public class OreGenClass implements IWorldGenerator
 	private void generateInOverworld(World world, Random random, int x, int z) {
 		for(int k = 0; k < 50; k++) {
 			int chunkX = x + random.nextInt(16);
-			int chunkY = random.nextInt(256);
+			int chunkY = random.nextInt(150);
 			int chunkZ = z + random.nextInt(16);
 			
 			(new WorldGenMinable(PeriodicCraft.oreTitanium, 10)).generate(world, random, chunkX, chunkY, chunkZ);
@@ -44,7 +44,7 @@ public class OreGenClass implements IWorldGenerator
 		}
 		for(int k = 0; k < 50; k++) {
 			int chunkX = x + random.nextInt(16);
-			int chunkY = random.nextInt(256);
+			int chunkY = random.nextInt(150);
 			int chunkZ = z + random.nextInt(16);
 			
 			(new WorldGenMinable(PeriodicCraft.oreVanadium, 10)).generate(world, random, chunkX, chunkY, chunkZ);
