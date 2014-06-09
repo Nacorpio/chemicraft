@@ -21,7 +21,7 @@ public class TileEntityLQ extends TileEntity implements IInventory {
 	@Override
 	public int getSizeInventory() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 4;
 	}
 	@Override
 	public ItemStack getStackInSlot(int var1) {
