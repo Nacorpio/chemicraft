@@ -78,6 +78,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
     	oreNickel = new OreNickel().setBlockName("oreNickel").setCreativeTab(CreativeTabs.tabBlock).setHardness(4.0F).setBlockTextureName(PeriodicCraft.MODID + ":oreNickel");
     	oreCopper = new OreCopper().setBlockName("oreCopper").setCreativeTab(CreativeTabs.tabBlock).setHardness(3.5F).setBlockTextureName(PeriodicCraft.MODID + ":oreCopper");
     	oreZinc = new OreZinc().setBlockName("oreZinc").setCreativeTab(CreativeTabs.tabBlock).setHardness(3.0F).setBlockTextureName(PeriodicCraft.MODID + ":oreZinc");
+    	
     	GameRegistry.registerBlock(oreTitanium, oreTitanium.getUnlocalizedName().substring(5));
     	GameRegistry.registerBlock(oreVanadium, oreVanadium.getUnlocalizedName().substring(5));
     	GameRegistry.registerBlock(oreChromium, oreChromium.getUnlocalizedName().substring(5));
