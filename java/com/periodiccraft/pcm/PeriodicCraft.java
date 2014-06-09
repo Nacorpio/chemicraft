@@ -20,7 +20,7 @@ import com.periodiccraft.pcm.core.oregens.OreGenClass;
 import com.periodiccraft.pcm.creativetabs.TabPeriodic;
 import com.periodiccraft.pcm.creativetabs.TabPeriodicIcon;
 import com.periodiccraft.pcm.helper.WrappedGenerator;
-import com.periodiccraft.pcm.helper.WrappedGenerator.GenerationProperty;
+import com.periodiccraft.pcm.helper.WrappedGenerator.Instruction;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -105,15 +105,15 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
     	//Generation
     	{generator = new WrappedGenerator(0, 
-    			// new GenerationProperty(block, max_height, blocks_per_vein, veins_per_chunk)
-    			new GenerationProperty(oreTitanium, 64, 5, 7).setOverworld(true),
-    			new GenerationProperty(oreVanadium, 64, 5, 7).setOverworld(true),
-    			new GenerationProperty(oreChromium, 64, 5, 7).setOverworld(true),
-    			new GenerationProperty(oreMangenese, 64, 5, 7).setOverworld(true),
-    			new GenerationProperty(oreCobalt, 64, 5, 7).setOverworld(true),
-		    	new GenerationProperty(oreNickel, 64, 5, 7).setOverworld(true),
-		    	new GenerationProperty(oreCopper, 64, 5, 7).setOverworld(true),
-		    	new GenerationProperty(oreZinc, 64, 5, 7).setOverworld(true)
+    			// new Instruction(block, max_height, blocks_per_vein, veins_per_chunk)
+    			new Instruction(oreTitanium, 64, 5, 7).setOverworld(true),
+    			new Instruction(oreVanadium, 64, 5, 7).setOverworld(true),
+    			new Instruction(oreChromium, 64, 5, 7).setOverworld(true),
+    			new Instruction(oreMangenese, 64, 5, 7).setOverworld(true),
+    			new Instruction(oreCobalt, 64, 5, 7).setOverworld(true),
+		    	new Instruction(oreNickel, 64, 5, 7).setOverworld(true),
+		    	new Instruction(oreCopper, 64, 5, 7).setOverworld(true),
+		    	new Instruction(oreZinc, 64, 5, 7).setOverworld(true)
     	);}
     	
     	

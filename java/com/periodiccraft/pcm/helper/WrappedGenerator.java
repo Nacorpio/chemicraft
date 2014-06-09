@@ -15,7 +15,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class WrappedGenerator implements IWorldGenerator {
 
-	public static class GenerationProperty {
+	public static class Instruction {
 		
 		private Block blockType;
 		
@@ -36,7 +36,7 @@ public class WrappedGenerator implements IWorldGenerator {
 		 * @param par3 the maximum amount of blocks that can be generated in a vein.
 		 * @param par4 the amount of veins to generate in each chunk.
 		 */
-		public GenerationProperty(Block par1, int par2, int par3, int par4) {
+		public Instruction(Block par1, int par2, int par3, int par4) {
 			this.blockType = par1;
 			this.maxHeight = par2;
 			this.blocksPerVein = par3;
@@ -48,7 +48,7 @@ public class WrappedGenerator implements IWorldGenerator {
 		 * @param par1 true/false.
 		 * @return the property for structuring convenience.
 		 */
-		public final GenerationProperty setOverworld(boolean par1) {
+		public final Instruction setOverworld(boolean par1) {
 			this.overworld = par1;
 			return this;
 		}
@@ -58,7 +58,7 @@ public class WrappedGenerator implements IWorldGenerator {
 		 * @param par1 true/false.
 		 * @return the property for structuring convenience.
 		 */
-		public final GenerationProperty setNether(boolean par1) {
+		public final Instruction setNether(boolean par1) {
 			this.nether = par1;
 			return this;
 		}
@@ -68,7 +68,7 @@ public class WrappedGenerator implements IWorldGenerator {
 		 * @param par1 true/false.
 		 * @return the property for structuring convenience.
 		 */
-		public final GenerationProperty setEnd(boolean par1) {
+		public final Instruction setEnd(boolean par1) {
 			this.end = par1;
 			return this;
 		}
@@ -115,11 +115,11 @@ public class WrappedGenerator implements IWorldGenerator {
 		
 	}
 	
-	private Map<String, GenerationProperty> generations = new HashMap<String, GenerationProperty>();
+	private Map<String, Instruction> generations = new HashMap<String, Instruction>();
 	
-	public WrappedGenerator(int par1, GenerationProperty... par2) {
+	public WrappedGenerator(int par1, Instruction... par2) {
 		GameRegistry.registerWorldGenerator(this, par1);
-		for (GenerationProperty var: par2) {
+		for (Instruction var: par2) {
 			if (var.getBlocksPerVein() > 0 && var.getVeinsPerChunk() > 0 && var.getMaxHeight() > 0)
 				generations.put(var.getBlockType().getUnlocalizedName(), var);
 		}
@@ -127,7 +127,7 @@ public class WrappedGenerator implements IWorldGenerator {
 	
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		for (GenerationProperty var: this.generations.values()) {
+		for (Instruction var: this.generations.values()) {
 			int var1 = world.provider.dimensionId;
 			if (var1 == -1) {
 				if (var.nether) {	
@@ -145,7 +145,7 @@ public class WrappedGenerator implements IWorldGenerator {
 		}
 	}
 
-	private void generateInEnd(GenerationProperty par1, World world, Random random, int x, int z) {
+	private void generateInEnd(Instruction par1, World world, Random random, int x, int z) {
 		for(int k = 0; k < par1.getVeinsPerChunk(); k++) {
 			int chunkX = x + random.nextInt(16);
 			int chunkY = random.nextInt(par1.getMaxHeight());
@@ -156,7 +156,7 @@ public class WrappedGenerator implements IWorldGenerator {
 		}
 	}
 	
-	private void generateInOverworld(GenerationProperty par1, World world, Random random, int x, int z) {
+	private void generateInOverworld(Instruction par1, World world, Random random, int x, int z) {
 		for(int k = 0; k < par1.getVeinsPerChunk(); k++) {
 			int chunkX = x + random.nextInt(16);
 			int chunkY = random.nextInt(par1.getMaxHeight());
@@ -167,7 +167,7 @@ public class WrappedGenerator implements IWorldGenerator {
 		}
 	}
 	
-	private void generateInNether(GenerationProperty par1, World world, Random random, int x, int z) {
+	private void generateInNether(Instruction par1, World world, Random random, int x, int z) {
 		for(int k = 0; k < par1.getVeinsPerChunk(); k++) {
 			int chunkX = x + random.nextInt(16);
 			int chunkY = random.nextInt(par1.getMaxHeight());
