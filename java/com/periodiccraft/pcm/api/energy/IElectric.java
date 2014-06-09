@@ -2,6 +2,7 @@ package com.periodiccraft.pcm.api.energy;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import com.periodiccraft.pcm.core.tile.ElectricTile;
@@ -20,20 +21,13 @@ public interface IElectric {
 	 */
 	boolean getAllowOutput();
 	
+	void addConnection();
+	
 	/**
 	 * Returns how many connections there are to this electrical object.
 	 * @return the amount of connections.
 	 */
 	int getConnections();
-	
-	/**
-	 * Attempts to get an electrical object from the specified direction.<br>
-	 * The object must implement the interface {@link #IElectric} to be 
-	 * considered an electrical object.
-	 * @param par1 the direction to get the electrical object from.
-	 * @return the electrical object ({@link #TileEntity}).
-	 */
-	TileEntity getElectricTile(ForgeDirection par1);
 	
 	/**
 	 * Returns whether this electrical object can be connected with the
@@ -53,5 +47,7 @@ public interface IElectric {
 	void onElectricNeighborAdded(ForgeDirection par1, ElectricTile par2);
 	
 	void onElectricNeighborDestroyed(ForgeDirection par1, ElectricTile par3);
+	
+	void onElectricActivated(World par1, EntityPlayer par2);
 	
 }

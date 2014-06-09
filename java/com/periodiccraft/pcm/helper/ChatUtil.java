@@ -27,16 +27,12 @@ public final class ChatUtil {
 	}
 	
 	public static final void sendChatMessage(String par2) {
-		Minecraft.getMinecraft().ingameGUI.getChatGUI().printChatMessage(createEIChatComponent(par2));
+		Minecraft.getMinecraft().ingameGUI.getChatGUI().printChatMessage(createEIChatComponent(TooltipUtil.tooltipFormat(par2)));
 	}
 	
 	private static IChatComponent createEIChatComponent(String string) {
 		ChatComponentText EIComponent = new ChatComponentText(string);
 		return EIComponent;
-	}
-	
-	public static final void sendChatMessage(String par1, String par2) {
-		sendChatMessage("[" + par1 + EnumChatFormatting.RESET + "]: " + par2);
 	}
 	
 }

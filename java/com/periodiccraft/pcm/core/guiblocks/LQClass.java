@@ -25,9 +25,6 @@ public class LQClass extends BlockContainer {
 	private final boolean isActive;
 	private static boolean keepInventory = true;
 	
-	
-	
-	
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFront;
 		
@@ -141,7 +138,7 @@ public class LQClass extends BlockContainer {
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int i) {
-		return new TileEntityLQ();
+		return new TileEntityLQ(world, i);
 	}
 
 }

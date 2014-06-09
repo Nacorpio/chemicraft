@@ -20,6 +20,8 @@ public class PeriodicElectricBlock extends PeriodicBlock {
 		super(p_i45386_1_);
 	}
 
+	
+	
 	public boolean onBlockActivated(World par1, int par2, int par3, int par4, EntityPlayer par5, int par6, float par7, float par8, float par9) {
 
 		if (!par1.isRemote) {
@@ -30,7 +32,7 @@ public class PeriodicElectricBlock extends PeriodicBlock {
 			if (var2 instanceof IElectric && var2 instanceof IElectricStorage) {
 				
 				TileBasicEnergyStorage var3 = (TileBasicEnergyStorage) var2;
-				ChatUtil.sendChatMessage(ChatUtil.StringHandler.green + "Energy: (" + var3.getEnergy() + "/" + var3.getCapacity() + ")");
+				var3.onElectricActivated(par1, par5);
 				
 			}
 			
@@ -67,7 +69,7 @@ public class PeriodicElectricBlock extends PeriodicBlock {
 		
 	}
 	
-	@Override
+	/*@Override
 	public void onBlockAdded(World par1, int par2, int par3, int par4) {
 		
 		Position var1 = new Position(par2, par3, par4);
@@ -84,15 +86,15 @@ public class PeriodicElectricBlock extends PeriodicBlock {
 				ElectricTile tile = (ElectricTile) par1.getTileEntity(par2, par3, par4);
 				ElectricTile eTile = (ElectricTile) varTile1;
 					
-				ChatUtil.sendChatMessage(ChatUtil.StringHandler.green + "Found an electic block. (" + var.name() + ")");
-					
+				ChatUtil.sendChatMessage(ChatUtil.StringHandler.green + "Found an electric block. (" + var.name() + ")");
+				
 				eTile.onElectricNeighborAdded(var.getOpposite(), tile);
 					
 			}	
 			
 		}
 		
-	}
+	}*/
 	
 	@Override
 	public void onNeighborBlockChange(World par1, int par2, int par3, int par4, Block par5) {

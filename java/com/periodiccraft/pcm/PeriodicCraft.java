@@ -3,6 +3,8 @@ package com.periodiccraft.pcm;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+
+import com.periodiccraft.pcm.core.block.BlockDiskManager;
 import com.periodiccraft.pcm.core.block.BlockMachine;
 import com.periodiccraft.pcm.core.block.ores.OreChromium;
 import com.periodiccraft.pcm.core.block.ores.OreCobalt;
@@ -61,8 +63,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
     
     //Energy?
     public static Block blockMachine;
-    
-    
+    public static Block blockDiskManager; 
     
     //Instance
     @Instance(MODID)
@@ -106,11 +107,13 @@ import cpw.mods.fml.common.registry.GameRegistry;
     	
     	//Energy
     	blockMachine = new BlockMachine().setBlockName("blockMachine").setCreativeTab(CreativeTabs.tabBlock).setHardness(5.0F).setStepSound(Block.soundTypeStone);
+    	blockDiskManager = new BlockDiskManager().setBlockName("blockDiskManager").setCreativeTab(CreativeTabs.tabBlock).setHardness(5.0F).setStepSound(Block.soundTypeStone);
     	
     	//Machines
     	GameRegistry.registerBlock(LQ_Idle, LQ_Idle.getUnlocalizedName().substring(5));
     	GameRegistry.registerBlock(LQ_Active, LQ_Active.getUnlocalizedName().substring(5));
     	GameRegistry.registerBlock(blockMachine, blockMachine.getUnlocalizedName().substring(5));
+    	GameRegistry.registerBlock(blockDiskManager, blockDiskManager.getUnlocalizedName().substring(5));
     	
     	//Tile Entities
     	GameRegistry.registerTileEntity(TileEntityLQ.class, "tileLQ");

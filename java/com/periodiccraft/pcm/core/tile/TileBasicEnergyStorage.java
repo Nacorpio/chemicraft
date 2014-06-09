@@ -14,9 +14,18 @@ public class TileBasicEnergyStorage extends ElectricTile implements IElectric, I
 	public TileBasicEnergyStorage(World par1, int par2, boolean par3, boolean par4) {
 		super(par1, par2, par3, par4);
 		this.setEnergy(1000);
-		this.setAllowInput(true);
 	}
 
+	@Override
+	public final boolean getAllowInput() {
+		return true;
+	}
+	
+	@Override
+	public final boolean getAllowOutput() {
+		return true;
+	}
+	
 	@Override
 	public float getEnergy() {
 		return this.energy;
@@ -35,21 +44,36 @@ public class TileBasicEnergyStorage extends ElectricTile implements IElectric, I
 
 	@Override
 	public void incrementEnergy(float par1) {
-		if (this.canIncrement(par1))
+		if (canIncrement(par1)) {
 			this.energy += par1;
+		} else {
+			float var1 = this.energy + par1 - this.capacity;
+			this.energy += var1;
+		}
 	}
 
 	@Override
 	public void decrementEnergy(float par1) {
-		if (this.canDecrement(par1))
+		if (canDecrement(par1)) {
 			this.energy -= par1;
+		} else {
+			float var1 = this.energy - par1 + this.capacity;
+			this.energy -= var1;
+		}
 	}
 
+	public void outputEnergy(TileBasicEnergyStorage par1, float par2) {
+		if (par1.getAllowInput() && this.getAllowOutput()) {
+			decrementEnergy(par2);
+			par1.incrementEnergy(par2);
+		}
+	}
+	
 	@Override
 	public void outputEnergy(ForgeDirection par1, float par2) {
 		if (this.canConnectWith(par1)) {
 			
-			TileBasicEnergyStorage target = this.getElectricStorage(par1);
+			TileBasicEnergyStorage target = (TileBasicEnergyStorage) getPosition().getElectricTile(par1);
 			
 			if (target.getAllowInput() && this.getAllowOutput() && target.canIncrement(par2)) {
 				

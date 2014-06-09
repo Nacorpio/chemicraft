@@ -18,7 +18,10 @@ public class Position {
 	 * @return the new position.
 	 */
 	public Position getPosition(ForgeDirection par1) {
-		return getPosition(par1, 1);
+		if (!par1.equals(ForgeDirection.UNKNOWN)) {
+			return getPosition(par1, 1);
+		}
+		return null;
 	}
 	
 	/**
@@ -82,6 +85,10 @@ public class Position {
 	 */
 	public final int getZ() {
 		return this.z;
+	}
+	
+	public final String toString() {
+		return "[" + x + ", " + y + ", " + z + "]";
 	}
 	
 }
