@@ -116,8 +116,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 		    	new Instruction(oreZinc, 64, 5, 7).setOverworld(true)
     	);}
     	
-    	
-    	GameRegistry.registerWorldGenerator(OreGen, 0); 	
+    	//GameRegistry.registerWorldGenerator(OreGen, 0); 	
     	
     }
     	    	 

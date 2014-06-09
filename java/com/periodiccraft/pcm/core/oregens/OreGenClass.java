@@ -61,7 +61,7 @@ public class OreGenClass implements IWorldGenerator
 			int chunkX = x + random.nextInt(16);
 			int chunkY = random.nextInt(60);
 			int chunkZ = z + random.nextInt(16);
-			
+
 			(new WorldGenMinable(PeriodicCraft.oreMangenese, 10)).generate(world, random, chunkX, chunkY, chunkZ);
 		}
 		for(int k = 0; k < 10; k++) {

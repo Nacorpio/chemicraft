@@ -45,6 +45,10 @@ public class WrappedGenerator implements IWorldGenerator {
 			this.veinsPerChunk = par4;
 		}
 		
+		public final void setEnabled(boolean par1) {
+			this.enabled = par1;
+		}
+		
 		public final int[] getDimensions() {
 			return this.dimensions;
 		}

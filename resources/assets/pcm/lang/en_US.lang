@@ -1,6 +1,9 @@
 tile.LQIdle.name=Liquid Dissasembler
 tile.LQActive.name=Liquid DissasemblerActive
 tile.oreTitanium.name=Titanium Ore
+tile.oreVanadium.name=Vanadium Ore
+tile.oreChromium.name=Chromium Ore
+tile.oreMangenese.name=Mangenese Ore
 tile.oreCobalt.name=Colbalt Ore
 tile.oreNickel.name=Nickel Ore
 tile.oreCopper.name=Copper Ore
@@ -8,6 +11,7 @@ tile.oreZinc.name=Zinc Ore
 tile.blockMachine.name=Machine Block
 
 item.elementHydrogen.name=Hydrogen
+item.elementManganese.name=Mangenese Ingot
 item.elementHelium.name=Helium
 item.elementLithium.name=Lithium Cube
 item.elementTitanium.name=Titanium Ingot
