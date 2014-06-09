@@ -5,9 +5,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import com.periodiccraft.pcm.api.energy.IElectric;
-import com.periodiccraft.pcm.core.tile.ElectricTile;
-
 public class WorldPosition extends Position {
 
 	private World world;
@@ -53,49 +50,6 @@ public class WorldPosition extends Position {
 		TileEntity[] var1 = new TileEntity[6];
 		for (int i = 0; i < ForgeDirection.values().length - 1; i++) {
 			var1[i] = getTileEntity(ForgeDirection.values()[i]);
-		}
-		return var1;
-	}
-	
-	//
-	
-	public final boolean isElectricTile(ForgeDirection par1, int par2) {
-		return getTileEntity(par1, par2) instanceof IElectric;
-	}
-	
-	public final boolean isElectricTile(ForgeDirection par1) {
-		return isElectricTile(par1, 1);
-	}
-	
-	public final boolean isElectricTile() {
-		return getTileEntity() instanceof IElectric;
-	}
-	
-	//
-	
-	public final ElectricTile getElectricTile(ForgeDirection par1, int par2) {
-		return (getTileEntity(par1, par2) instanceof IElectric ? (ElectricTile) getTileEntity(par1, par2) : null);
-	}
-	
-	public final ElectricTile getElectricTile(ForgeDirection par1) {
-		return getElectricTile(par1, 1);
-	}
-	
-	public final ElectricTile getElectricTile() {
-		return (getTileEntity() instanceof IElectric ? (ElectricTile) getTileEntity() : null);
-	}
-	
-	/**
-	 * Returns an array of every electrical TileEntity in each direction.
-	 * @return an array of electrical TileEntities.
-	 */
-	public final ElectricTile[] getElectricTileEntities() {
-		ElectricTile[] var1 = new ElectricTile[6];
-		for (int i = 0; i < ForgeDirection.values().length - 1; i++) {
-			TileEntity var2 = getTileEntity(ForgeDirection.values()[i]);
-			if (var2 instanceof IElectric) {
-				var1[i] = (ElectricTile) var2;
-			}
 		}
 		return var1;
 	}

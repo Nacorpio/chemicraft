@@ -3,11 +3,10 @@ package com.periodiccraft.pcm.core.guiblocks;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-import com.periodiccraft.pcm.core.tile.ElectricTile;
-
-public class TileEntityLQ extends ElectricTile implements IInventory {
+public class TileEntityLQ extends TileEntity implements IInventory {
 
 	private ItemStack slots[];
 	
@@ -17,7 +16,6 @@ public class TileEntityLQ extends ElectricTile implements IInventory {
 	private String customName;
 	
 	public TileEntityLQ(World par1, int par2) {
-		super(par1, par2, true, true);
 		slots = new ItemStack[4];
 	}
 	@Override

@@ -4,8 +4,6 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
-import com.periodiccraft.pcm.core.block.BlockDiskManager;
-import com.periodiccraft.pcm.core.block.BlockMachine;
 import com.periodiccraft.pcm.core.block.ores.OreChromium;
 import com.periodiccraft.pcm.core.block.ores.OreCobalt;
 import com.periodiccraft.pcm.core.block.ores.OreCopper;
@@ -18,7 +16,6 @@ import com.periodiccraft.pcm.core.element.Substance;
 import com.periodiccraft.pcm.core.guiblocks.LQClass;
 import com.periodiccraft.pcm.core.guiblocks.TileEntityLQ;
 import com.periodiccraft.pcm.core.oregens.OreGenClass;
-import com.periodiccraft.pcm.core.tile.TileBasicEnergyStorage;
 import com.periodiccraft.pcm.creativetabs.TabPeriodic;
 import com.periodiccraft.pcm.creativetabs.TabPeriodicIcon;
 
@@ -50,20 +47,13 @@ import cpw.mods.fml.common.registry.GameRegistry;
     public static Block oreNickel;
     public static Block oreCopper;
     public static Block oreZinc;
-
     
     //Generation
     public static OreGenClass OreGen = new OreGenClass();
 
-    
-    
     //CreativeTab(s)
     public static Item tabPeriodicIcon;
    	public static CreativeTabs tabPeriodic = new TabPeriodic(CreativeTabs.getNextID(), "tabPeriodic");
-    
-    //Energy?
-    public static Block blockMachine;
-    public static Block blockDiskManager; 
     
     //Instance
     @Instance(MODID)
@@ -74,14 +64,10 @@ import cpw.mods.fml.common.registry.GameRegistry;
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-    	
-
-    	
+    	  	
     	//Machines
     	LQ_Idle = new LQClass(false).setBlockName("LQIdle").setCreativeTab(CreativeTabs.tabBlock).setHardness(3.5F);
-    	LQ_Active = new LQClass(true).setBlockName("LQActive").setCreativeTab(CreativeTabs.tabBlock).setHardness(3.5F).setLightLevel(0.625F);
-    	
-    	
+    	LQ_Active = new LQClass(true).setBlockName("LQActive").setCreativeTab(CreativeTabs.tabBlock).setHardness(3.5F).setLightLevel(0.625F);	
     	
     	//Ores
     	oreTitanium = new OreTitanium().setBlockName("oreTitanium").setCreativeTab(tabPeriodic).setHardness(5.0F).setBlockTextureName(PeriodicCraft.MODID + ":oreTitanium");
@@ -105,26 +91,16 @@ import cpw.mods.fml.common.registry.GameRegistry;
     	tabPeriodicIcon = new TabPeriodicIcon().setUnlocalizedName("tabPeriodic");
     	GameRegistry.registerItem(tabPeriodicIcon, tabPeriodicIcon.getUnlocalizedName().substring(5));
     	
-    	//Energy
-    	blockMachine = new BlockMachine().setBlockName("blockMachine").setCreativeTab(CreativeTabs.tabBlock).setHardness(5.0F).setStepSound(Block.soundTypeStone);
-    	blockDiskManager = new BlockDiskManager().setBlockName("blockDiskManager").setCreativeTab(CreativeTabs.tabBlock).setHardness(5.0F).setStepSound(Block.soundTypeStone);
-    	
     	//Machines
     	GameRegistry.registerBlock(LQ_Idle, LQ_Idle.getUnlocalizedName().substring(5));
     	GameRegistry.registerBlock(LQ_Active, LQ_Active.getUnlocalizedName().substring(5));
-    	GameRegistry.registerBlock(blockMachine, blockMachine.getUnlocalizedName().substring(5));
-    	GameRegistry.registerBlock(blockDiskManager, blockDiskManager.getUnlocalizedName().substring(5));
     	
     	//Tile Entities
     	GameRegistry.registerTileEntity(TileEntityLQ.class, "tileLQ");
-    	GameRegistry.registerTileEntity(TileBasicEnergyStorage.class, "tileBEnergyStorage");
 
     	//Generation
     	
-    	GameRegistry.registerWorldGenerator(OreGen, 0);
-    	
-    	
-    	
+    	GameRegistry.registerWorldGenerator(OreGen, 0); 	
     	
     }
     	    	 
