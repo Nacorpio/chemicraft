@@ -6,6 +6,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
+import com.periodiccraft.pcm.PeriodicCraft;
 import com.periodiccraft.pcm.PeriodicTabs;
 import com.periodiccraft.pcm.core.element.Substance;
 import com.periodiccraft.pcm.core.registry.ResearchRegistry;
@@ -20,6 +21,7 @@ public class PeriodicElementItem extends PeriodicItem {
 	public PeriodicElementItem(String par1) {
 		
 		super(par1);
+		this.setCreativeTab(PeriodicCraft.tabPeriodic);	
 		
 		if (!SubstanceRegistry.isSubstanceBound(this.getUnlocalizedName())) {
 			SubstanceRegistry.bindSubstance(this.getUnlocalizedName(), substance);

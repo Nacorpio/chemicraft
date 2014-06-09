@@ -34,20 +34,42 @@ public class OreGenClass implements IWorldGenerator
 	}
 
 	private void generateInOverworld(World world, Random random, int x, int z) {
-		for(int k = 0; k < 50; k++) {
+		for(int k = 0; k < 25; k++) {
 			int chunkX = x + random.nextInt(16);
-			int chunkY = random.nextInt(150);
+			int chunkY = random.nextInt(50);
 			int chunkZ = z + random.nextInt(16);
 			
 			(new WorldGenMinable(PeriodicCraft.oreTitanium, 10)).generate(world, random, chunkX, chunkY, chunkZ);
 			
 		}
-		for(int k = 0; k < 50; k++) {
+		
+		for(int k = 0; k < 30; k++) {
 			int chunkX = x + random.nextInt(16);
-			int chunkY = random.nextInt(150);
+			int chunkY = random.nextInt(100);
 			int chunkZ = z + random.nextInt(16);
 			
 			(new WorldGenMinable(PeriodicCraft.oreVanadium, 10)).generate(world, random, chunkX, chunkY, chunkZ);
+		}
+		for(int k = 0; k < 35; k++) {
+			int chunkX = x + random.nextInt(16);
+			int chunkY = random.nextInt(90);
+			int chunkZ = z + random.nextInt(16);
+			
+			(new WorldGenMinable(PeriodicCraft.oreChromium, 10)).generate(world, random, chunkX, chunkY, chunkZ);
+		}
+		for(int k = 0; k < 20; k++) {
+			int chunkX = x + random.nextInt(16);
+			int chunkY = random.nextInt(60);
+			int chunkZ = z + random.nextInt(16);
+			
+			(new WorldGenMinable(PeriodicCraft.oreMangenese, 10)).generate(world, random, chunkX, chunkY, chunkZ);
+		}
+		for(int k = 0; k < 10; k++) {
+			int chunkX = x + random.nextInt(16);
+			int chunkY = random.nextInt(20);
+			int chunkZ = z + random.nextInt(16);
+			
+			(new WorldGenMinable(PeriodicCraft.oreCobalt, 10)).generate(world, random, chunkX, chunkY, chunkZ);
 		}
 	}
 

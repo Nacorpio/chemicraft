@@ -129,7 +129,10 @@ import cpw.mods.fml.common.registry.GameRegistry;
     public void postInit(FMLPostInitializationEvent event) {
  	
     	//Substances
-    	new Substance(22, "Titanium", "Ti", "Silvery", 47.867F, 3287.0F, 1668.0F, 223.80F, Substance.CATEGORY.TRANSITION_METALS /* STATE -> */, Substance.STATE.SOLID);
+    	new Substance(1, "Hydrogen", "H", "Colorless", 1.008F, -252.879F, -259.160F, 0.904F, Substance.CATEGORY.NON_METALS, Substance.STATE.GAS);
+    	new Substance(2, "Helium", "He", "Colorless", 4.003F, -268.928F, -272.20F, 0.083F, Substance.CATEGORY.NOBLE_GASES, Substance.STATE.GAS);
+    	new Substance(3, "Lithium", "Li", "Silvery White", 6.94F, 1330.50F, 180.50F, 136.0F, Substance.CATEGORY.ALKALI_METALS, Substance.STATE.SOLID);
+    	new Substance(22, "Titanium", "Ti", "Silvery", 47.867F, 3287.0F, 1668.0F, 223.80F, Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.SOLID);
     	new Substance(23, "Vanadium", "V", "Silverish", 50.942F, 3380.0F, 1890.0F, 233.794F, Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.SOLID);
     	new Substance(24, "Chromium", "Cr", "Gray", 51.996F, 2670.0F, 1857.0F, 347.0F, Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.SOLID);
     	new Substance(25, "Manganese", "Mn", "Silvery Gray", 54.940F, 1962.0F, 1245.0F, 221.0F, Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.SOLID);   	
