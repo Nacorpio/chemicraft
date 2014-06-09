@@ -2,17 +2,9 @@ package com.periodiccraft.pcm;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 
-import com.periodiccraft.pcm.core.block.ores.OreChromium;
-import com.periodiccraft.pcm.core.block.ores.OreCobalt;
-import com.periodiccraft.pcm.core.block.ores.OreCopper;
-import com.periodiccraft.pcm.core.block.ores.OreMangenese;
-import com.periodiccraft.pcm.core.block.ores.OreNickel;
-import com.periodiccraft.pcm.core.block.ores.OreTitanium;
-import com.periodiccraft.pcm.core.block.ores.OreVanadium;
-import com.periodiccraft.pcm.core.block.ores.OreZinc;
+import com.periodiccraft.pcm.core.block.ores.PeriodicOre;
 import com.periodiccraft.pcm.core.element.Substance;
 import com.periodiccraft.pcm.core.guiblocks.LQClass;
 import com.periodiccraft.pcm.core.guiblocks.TileEntityLQ;
@@ -42,14 +34,14 @@ import cpw.mods.fml.common.registry.GameRegistry;
     public static Block LQ_Active;
 
     //Ores
-    public static Block oreTitanium;
-    public static Block oreVanadium;
-    public static Block oreChromium;
-    public static Block oreMangenese;
-    public static Block oreCobalt;
-    public static Block oreNickel;
-    public static Block oreCopper;
-    public static Block oreZinc;
+    public static PeriodicOre oreTitanium;
+    public static PeriodicOre oreVanadium;
+    public static PeriodicOre oreChromium;
+    public static PeriodicOre oreMangenese;
+    public static PeriodicOre oreCobalt;
+    public static PeriodicOre oreNickel;
+    public static PeriodicOre oreCopper;
+    public static PeriodicOre oreZinc;
     
     //Generation
     public static OreGenClass OreGen = new OreGenClass();
@@ -78,23 +70,14 @@ import cpw.mods.fml.common.registry.GameRegistry;
     	LQ_Active = new LQClass(true).setBlockName("LQActive").setCreativeTab(CreativeTabs.tabBlock).setHardness(3.5F).setLightLevel(0.625F);	
     	
     	//Ores
-    	oreTitanium = new OreTitanium().setBlockName("oreTitanium").setCreativeTab(tabPeriodic).setHardness(5.0F).setBlockTextureName(PeriodicCraft.MODID + ":oreTitanium");
-    	oreVanadium = new OreVanadium().setBlockName("oreVanadium").setCreativeTab(tabPeriodic).setHardness(4.0F).setBlockTextureName(PeriodicCraft.MODID + ":oreVanadium");
-    	oreChromium = new OreChromium().setBlockName("oreChromium").setCreativeTab(tabPeriodic).setHardness(3.5F).setBlockTextureName(PeriodicCraft.MODID + ":oreChromium");
-    	oreMangenese = new OreMangenese().setBlockName("oreMangenese").setCreativeTab(tabPeriodic).setHardness(4.0F).setBlockTextureName(PeriodicCraft.MODID + ":oreVanadium");
-    	oreCobalt = new OreCobalt().setBlockName("oreCobalt").setCreativeTab(CreativeTabs.tabBlock).setHardness(4.5F).setBlockTextureName(PeriodicCraft.MODID + ":oreCobalt");
-    	oreNickel = new OreNickel().setBlockName("oreNickel").setCreativeTab(CreativeTabs.tabBlock).setHardness(4.0F).setBlockTextureName(PeriodicCraft.MODID + ":oreNickel");
-    	oreCopper = new OreCopper().setBlockName("oreCopper").setCreativeTab(CreativeTabs.tabBlock).setHardness(3.5F).setBlockTextureName(PeriodicCraft.MODID + ":oreCopper");
-    	oreZinc = new OreZinc().setBlockName("oreZinc").setCreativeTab(CreativeTabs.tabBlock).setHardness(3.0F).setBlockTextureName(PeriodicCraft.MODID + ":oreZinc");
-    	
-    	GameRegistry.registerBlock(oreTitanium, oreTitanium.getUnlocalizedName().substring(5));
-    	GameRegistry.registerBlock(oreVanadium, oreVanadium.getUnlocalizedName().substring(5));
-    	GameRegistry.registerBlock(oreChromium, oreChromium.getUnlocalizedName().substring(5));
-    	GameRegistry.registerBlock(oreMangenese, oreMangenese.getUnlocalizedName().substring(5));
-    	GameRegistry.registerBlock(oreCobalt, oreCobalt.getUnlocalizedName().substring(5));
-    	GameRegistry.registerBlock(oreNickel, oreNickel.getUnlocalizedName().substring(5));
-    	GameRegistry.registerBlock(oreCopper, oreCopper.getUnlocalizedName().substring(5));
-    	GameRegistry.registerBlock(oreZinc, oreZinc.getUnlocalizedName().substring(5));
+    	oreTitanium = new PeriodicOre("oreTitanium", 5.0F);
+    	oreVanadium = new PeriodicOre("oreVanadium", 4.0F);
+    	oreChromium = new PeriodicOre("oreChromium", 3.5F);
+    	oreMangenese = new PeriodicOre("oreMangenese", 4.0F);
+    	oreCobalt = new PeriodicOre("oreCobalt", 4.5F);
+    	oreNickel = new PeriodicOre("oreNickel", 4.0F);
+    	oreCopper = new PeriodicOre("oreCopper", 3.5F);
+    	oreZinc = new PeriodicOre("oreZinc", 3.0F);
     	
     	//Creative Tab(s)
     	tabPeriodicIcon = new TabPeriodicIcon().setUnlocalizedName("tabPeriodic");

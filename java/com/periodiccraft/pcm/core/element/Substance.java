@@ -11,18 +11,30 @@ import com.periodiccraft.pcm.helper.ChatUtil;
 public class Substance {
 
 	public static enum CATEGORY {
-		ALKALI_METALS,
-		ALKALINE_EARTH_METALS,
-		TRANSITION_METALS,
-		TRANSITION_AND_POST_TRANSISTION_METALS,
-		POST_TRANSITION_METALS,
-		LANTHANIDES,
-		ACTINIDES,
-		HALOGENS,
-		NOBLE_GASES,
-		NON_METALS,
-		SEMI_METALS,
-		UNKNOWN;
+		
+		ALKALI_METALS("Alkali Metals"),
+		ALKALINE_EARTH_METALS("Alkali Earth Metals"),
+		TRANSITION_METALS("Transition Metals"),
+		TRANSITION_AND_POST_TRANSISTION_METALS("Transition & Post Transition Metals"),
+		POST_TRANSITION_METALS("Post Transition Metals"),
+		LANTHANIDES("Lanthanides"),
+		ACTINIDES("Actinides"),
+		HALOGENS("Halogens"),
+		NOBLE_GASES("Noble Gases"),
+		NON_METALS("Non-metals"),
+		SEMI_METALS("Semi-metals"),
+		UNKNOWN("Unknown");
+		
+		private String text;
+		
+		CATEGORY(String par1) {
+			this.text = par1;
+		}
+		
+		public final String getText() {
+			return this.text;
+		}
+		
 	}
 	
 	public static enum STATE {
