@@ -2,6 +2,7 @@ package com.periodiccraft.pcm;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 
 import com.periodiccraft.pcm.core.block.ores.OreChromium;
@@ -18,6 +19,8 @@ import com.periodiccraft.pcm.core.guiblocks.TileEntityLQ;
 import com.periodiccraft.pcm.core.oregens.OreGenClass;
 import com.periodiccraft.pcm.creativetabs.TabPeriodic;
 import com.periodiccraft.pcm.creativetabs.TabPeriodicIcon;
+import com.periodiccraft.pcm.helper.WrappedGenerator;
+import com.periodiccraft.pcm.helper.WrappedGenerator.GenerationProperty;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -50,6 +53,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
     
     //Generation
     public static OreGenClass OreGen = new OreGenClass();
+    public static WrappedGenerator generator;
 
     //CreativeTab(s)
     public static Item tabPeriodicIcon;
@@ -100,6 +104,18 @@ import cpw.mods.fml.common.registry.GameRegistry;
     	GameRegistry.registerTileEntity(TileEntityLQ.class, "tileLQ");
 
     	//Generation
+    	{generator = new WrappedGenerator(0, 
+    			// new GenerationProperty(block, max_height, blocks_per_vein, veins_per_chunk)
+    			new GenerationProperty(oreTitanium, 64, 5, 7),
+    			new GenerationProperty(oreVanadium, 64, 5, 7),
+    			new GenerationProperty(oreChromium, 64, 5, 7),
+    			new GenerationProperty(oreMangenese, 64, 5, 7),
+    			new GenerationProperty(oreCobalt, 64, 5, 7),
+		    	new GenerationProperty(oreNickel, 64, 5, 7),
+		    	new GenerationProperty(oreCopper, 64, 5, 7),
+		    	new GenerationProperty(oreZinc, 64, 5, 7)
+    	);}
+    	
     	
     	GameRegistry.registerWorldGenerator(OreGen, 0); 	
     	

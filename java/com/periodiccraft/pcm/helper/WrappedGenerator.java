@@ -29,6 +29,13 @@ public class WrappedGenerator implements IWorldGenerator {
 		
 		private boolean enabled = true;
 	
+		/**
+		 * Create a new generation instructions for the generator.
+		 * @param par1 the block type to use when generating.
+		 * @param par2 the maximum height the blocks will appear on (64 is surface).
+		 * @param par3 the maximum amount of blocks that can be generated in a vein.
+		 * @param par4 the amount of veins to generate in each chunk.
+		 */
 		public GenerationProperty(Block par1, int par2, int par3, int par4) {
 			this.blockType = par1;
 			this.maxHeight = par2;
@@ -36,34 +43,72 @@ public class WrappedGenerator implements IWorldGenerator {
 			this.veinsPerChunk = par4;
 		}
 		
-		public final void setOverworld(boolean par1) {
+		/**
+		 * Allow the block to generate in the overworld (0).
+		 * @param par1 true/false.
+		 * @return the property for structuring convenience.
+		 */
+		public final GenerationProperty setOverworld(boolean par1) {
 			this.overworld = par1;
+			return this;
 		}
 		
-		public final void setNether(boolean par1) {
+		/**
+		 * Allow the block to generate in the nether (-1).
+		 * @param par1 true/false.
+		 * @return the property for structuring convenience.
+		 */
+		public final GenerationProperty setNether(boolean par1) {
 			this.nether = par1;
+			return this;
 		}
 		
-		public final void setEnd(boolean par1) {
+		/**
+		 * Allow the block to generate in the nether (1).
+		 * @param par1 true/false.
+		 * @return the property for structuring convenience.
+		 */
+		public final GenerationProperty setEnd(boolean par1) {
 			this.end = par1;
+			return this;
 		}
 		
+		/**
+		 * Whether this generator instruction is enabled.
+		 * @return if the instruction is enabled.
+		 */
 		public final boolean isEnabled() {
 			return this.enabled;
 		}
 		
+		/**
+		 * Returns the block type to use when generating.
+		 * @return the block type.
+		 */
 		public final Block getBlockType() {
 			return this.blockType;
 		}
 		
+		/**
+		 * The maximum height that the block can be generated on.
+		 * @return the max height.
+		 */
 		public final int getMaxHeight() {
 			return this.maxHeight;
 		}
 		
+		/**
+		 * The maximum amount of blocks that can be generated in every vein.
+		 * @return the amount of blocks per vein.
+		 */
 		public final int getBlocksPerVein() {
 			return this.blocksPerVein;
 		}
 		
+		/**
+		 * The amount of veins to generate in each chunk.
+		 * @return the amount of veins per chunk.
+		 */
 		public final int getVeinsPerChunk() {
 			return this.veinsPerChunk;
 		}
@@ -75,7 +120,8 @@ public class WrappedGenerator implements IWorldGenerator {
 	public WrappedGenerator(int par1, GenerationProperty... par2) {
 		GameRegistry.registerWorldGenerator(this, par1);
 		for (GenerationProperty var: par2) {
-			generations.put(var.getBlockType().getUnlocalizedName(), var);
+			if (var.getBlocksPerVein() > 0 && var.getVeinsPerChunk() > 0 && var.getMaxHeight() > 0)
+				generations.put(var.getBlockType().getUnlocalizedName(), var);
 		}
 	}
 	
