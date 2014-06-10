@@ -123,10 +123,15 @@ import cpw.mods.fml.common.registry.GameRegistry;
     public void postInit(FMLPostInitializationEvent event) {
  	
     	//Substances
+    	
     	new Substance(1, "Hydrogen", "H", "Colorless", 1.008F, -252.879F, -259.160F, 0.904F, Substance.CATEGORY.NON_METALS, Substance.STATE.GAS);
     	new Substance(2, "Helium", "He", "Colorless", 4.003F, -268.928F, -272.20F, 0.083F, Substance.CATEGORY.NOBLE_GASES, Substance.STATE.GAS);
     	new Substance(3, "Lithium", "Li", "Silvery White", 6.94F, 1330.50F, 180.50F, 136.0F, Substance.CATEGORY.ALKALI_METALS, Substance.STATE.SOLID);
-    	new Substance(18, "Argon", "Ar", "Colorless", 39.948F, -185.34F, -189.34F, 6.53F, Substance.CATEGORY.NOBLE_GASES, Substance.STATE.GAS);
+    	new Substance(4, "Beryllium", "Be", "White Gray", 9.0120F, 2970.0F, 1287.0F, 292.0F, Substance.CATEGORY.ALKALINE_EARTH_METALS, Substance.STATE.SOLID);
+    	new Substance(5, "Boron", "B", "Black Brown", 10.81F, 3927.0F, 2076.0F, 508.0F, Substance.CATEGORY.METALOID, Substance.STATE.SOLID);
+    	new Substance(6, "Carbon", "C", "Black", 12.011F,  4827.0F, 3550.0F, 117.0F, Substance.CATEGORY.NON_METALS, Substance.STATE.SOLID);
+    	new Substance(7, "Nitrogen", "Ni", "Colorless", 14.007F, -195.795F, 210.0F, 5.56F, Substance.CATEGORY.NON_METALS, Substance.STATE.GAS);	
+      	new Substance(18, "Argon", "Ar", "Colorless", 39.948F, -185.34F, -189.34F, 6.53F, Substance.CATEGORY.NOBLE_GASES, Substance.STATE.GAS);
     	new Substance(22, "Titanium", "Ti", "Silvery", 47.867F, 3287.0F, 1668.0F, 223.80F, Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.SOLID);
     	new Substance(23, "Vanadium", "V", "Silverish", 50.942F, 3380.0F, 1890.0F, 233.794F, Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.SOLID);
     	new Substance(24, "Chromium", "Cr", "Gray", 51.996F, 2670.0F, 1857.0F, 347.0F, Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.SOLID);
@@ -136,6 +141,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
     	new Substance(28, "Nickel", "Ni", "Gray Gold" , 58.693F, 2730.0F, 1455.0F, 199.570F, Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.SOLID);
     	new Substance(29, "Copper", "Cu", "Red Orangy", 63.546F, 2562.0F, 1084.62F, 158.180F, Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.SOLID);
     	new Substance(30, "Zinc", "Zn", "Silvery Greyish White", 65.380F, 907.0F, 419.530F, 60.555F, Substance.CATEGORY.TRANSITION_AND_POST_TRANSISTION_METALS, Substance.STATE.SOLID);
+    	
+    	//Liquids
     	new Substance(80, "Mercury", "Hg", "Gray", 200.592F, 356.73F, -38.8290F, 59.11F, Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.LIQUID);
     	
     	

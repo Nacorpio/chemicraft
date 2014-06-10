@@ -16,6 +16,7 @@ public class Substance {
 		
 		ALKALI_METALS("Alkali Metals"),
 		ALKALINE_EARTH_METALS("Alkali Earth Metals"),
+		METALOID("Metaloid"),
 		TRANSITION_METALS("Transition Metals"),
 		TRANSITION_AND_POST_TRANSISTION_METALS("Transition & Post Transition Metals"),
 		POST_TRANSITION_METALS("Post Transition Metals"),

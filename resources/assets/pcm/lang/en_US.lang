@@ -9,8 +9,12 @@ tile.oreNickel.name=Nickel Ore
 tile.oreCopper.name=Copper Ore
 tile.oreZinc.name=Zinc Ore
 tile.blockMachine.name=Machine Block
-
+item.elementNitrogen.name=Nitrogen
+item.elementBeryllium.name=Beryllium
+item.elementBoron.name=Boron
+item.elementCarbon.name=Carbon
 item.elementHydrogen.name=Hydrogen
+item.elementArgon.name=Argon
 item.elementManganese.name=Mangenese Ingot
 item.elementHelium.name=Helium
 item.elementLithium.name=Lithium Cube

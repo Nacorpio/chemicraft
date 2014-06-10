@@ -27,7 +27,7 @@ public class PeriodicElementItem extends PeriodicItem {
 			SubstanceRegistry.bindSubstance(this.getUnlocalizedName(), substance);
 		}
 		
-		this.setCreativeTab(CreativeTabs.tabMisc);
+		this.setCreativeTab(PeriodicCraft.tabPeriodic);
 		this.substance = SubstanceRegistry.getSubstanceBinding(this);
 		
 	}
