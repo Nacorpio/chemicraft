@@ -98,6 +98,8 @@ public class Substance {
 	private float boilingPoint;
 	private float meltingPoint;
 	private float heatOfVaporization;
+	private float density;
+	
 	
 	private Atom atom;
 	
@@ -107,7 +109,7 @@ public class Substance {
 	private STATE defaultState;
 	private STATE state;
 	
-	public Substance(int par, String par1, String par2, String par3, float par4, float par5, float par6, float par7, CATEGORY par8, STATE par9) {
+	public Substance(int par, String par1, String par2, String par3, float par4, float par5, float par6, float par7, float par8, CATEGORY par9, STATE par10) {
 		
 		this.atomicNumber = par;
 		this.name = par1;
@@ -117,8 +119,10 @@ public class Substance {
 		this.boilingPoint = par5;
 		this.meltingPoint = par6;
 		this.heatOfVaporization = par7;
-		this.category = par8;
-		this.defaultState = par9;
+		this.density = par8;
+		this.category = par9;
+		this.defaultState = par10;
+		
 		
 		this.atom = new Atom(this.name, atomicNumber, ((int) Math.round(this.atomicWeight)) - this.atomicNumber, this.atomicWeight);
 		
