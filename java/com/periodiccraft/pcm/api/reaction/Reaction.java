@@ -11,10 +11,10 @@ public class Reaction implements IReaction {
 	
 	private EnumReactionType type;
 	
-	public Reaction(Stack<Atom>[] par1, Stack<Atom>[] par2, EnumReactionType par4) {
-		this.input1 = par1;
-		this.input2 = par2;
-		this.type = par4;
+	public Reaction(Stack<Atom>[] par1, Stack<Atom>[] par2, EnumReactionType par3) {
+		input1 = par1;
+		input2 = par2;
+		type = par3;
 	}
 	
 	public final Stack<Atom>[] getInput1() {
