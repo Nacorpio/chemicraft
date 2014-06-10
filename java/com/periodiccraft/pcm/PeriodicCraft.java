@@ -41,6 +41,10 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
     
     //Ores
+    public static PeriodicOre oreLithium;
+    public static PeriodicOre oreBoron;
+    public static PeriodicOre oreCarbon;
+    public static PeriodicOre oreBeryllium;
     public static PeriodicOre oreTitanium;
     public static PeriodicOre oreVanadium;
     public static PeriodicOre oreChromium;
@@ -85,6 +89,10 @@ import cpw.mods.fml.common.registry.GameRegistry;
     	oreNickel = new PeriodicOre("oreNickel", 4.0F);
     	oreCopper = new PeriodicOre("oreCopper", 3.5F);
     	oreZinc = new PeriodicOre("oreZinc", 3.0F);
+    	oreLithium = new PeriodicOre("oreLithium", 4.0F);
+    	oreBoron = new PeriodicOre("oreBoron", 3.5F);
+    	oreCarbon = new PeriodicOre("oreCarbon", 4.5F);
+    	oreBeryllium = new PeriodicOre("Beryllium", 3.5F);
     	
     	//Creative Tab(s)
     	tabPeriodicIcon = new TabPeriodicIcon().setUnlocalizedName("tabPeriodic");
@@ -105,6 +113,10 @@ import cpw.mods.fml.common.registry.GameRegistry;
     	//Generation
     	{generator = new WrappedGenerator(0, 
     			// new Instruction(block, max_height, blocks_per_vein, veins_per_chunk)
+    			new Instruction(oreLithium, 64, 5, 7).setOverworld(true),
+    			new Instruction(oreBoron, 64, 5, 7).setOverworld(true),
+    			new Instruction(oreCarbon, 64, 5, 7).setOverworld(true),
+    			new Instruction(oreBeryllium , 64, 5, 7).setOverworld(true),
     			new Instruction(oreTitanium, 64, 5, 7).setOverworld(true),
     			new Instruction(oreVanadium, 64, 5, 7).setOverworld(true),
     			new Instruction(oreChromium, 64, 5, 7).setOverworld(true),
