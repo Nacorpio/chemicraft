@@ -11,6 +11,8 @@ public final class ResearchRegistry {
 
 	public static class Research {
 		
+		private boolean unlocked = false;
+		
 		private int progress = 0;
 		private Substance substance;
 
@@ -21,10 +23,20 @@ public final class ResearchRegistry {
 			this.linkedPlayer = par2;
 		}
 		
+		public final void setUnlocked(boolean par1) {
+			this.unlocked = par1;
+		}
+		
+		public final boolean isUnlocked() {
+			return this.unlocked;
+		}
+		
 		public final void decrement(int par1) {
-			if (progress - par1 >= 0) {
-				progress -= par1;
-			}
+			if (isUnlocked()) {
+				if (progress - par1 >= 0) {
+					progress -= par1;
+				}
+			}	
 		}
 		
 		public final void decrement() {
@@ -32,9 +44,11 @@ public final class ResearchRegistry {
 		}
 		
 		public final void increment(int par1) {
-			if (progress + par1 <= 100) {
-				progress += par1;
-			}
+			if (isUnlocked()) {
+				if (progress + par1 <= 100) {
+					progress += par1;
+				}
+			}		
 		}
 		
 		public final void increment() {

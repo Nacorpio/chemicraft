@@ -155,6 +155,12 @@ import cpw.mods.fml.common.registry.GameRegistry;
     	new Substance(5, "Boron", "B", "Black Brown", 10.81F, 3927.0F, 2076.0F, 508.0F, Substance.CATEGORY.METALOID, Substance.STATE.SOLID);
     	new Substance(6, "Carbon", "C", "Black", 12.011F,  4827.0F, 3550.0F, 117.0F, Substance.CATEGORY.NON_METALS, Substance.STATE.SOLID);
     	new Substance(7, "Nitrogen", "Ni", "Colorless", 14.007F, -195.795F, 210.0F, 5.56F, Substance.CATEGORY.NON_METALS, Substance.STATE.GAS);	
+    	new Substance(8, "Oxygen", "O", "Colorless", 15.999F, -182.962F, -218.79F, 6.82F, Substance.CATEGORY.NON_METALS, Substance.STATE.GAS);
+    	new Substance(9, "Fluorine", "F", "Bright Yellow", 18.998F, -188.11F, -219.67F, 6.51F, Substance.CATEGORY.NON_METALS, Substance.STATE.GAS);
+    	new Substance(10, "Neon", "Ne", "Colorless", 20.180F, -246.046F, -248.59F, 1.71F, Substance.CATEGORY.NOBLE_GASES, Substance.STATE.GAS);
+    	new Substance(11, "Sodium", "Na", "Silvery White Metallic", 22.989F, 882.940F, 97.794F, 97.42F, Substance.CATEGORY.ALKALI_METALS, Substance.STATE.SOLID);
+    	new Substance(12, "Magnesium", "Mg", "Shiny Gray", 24.305F, 1091F, 650F, 128F, Substance.CATEGORY.ALKALINE_EARTH_METALS, Substance.STATE.SOLID);
+    	
       	new Substance(18, "Argon", "Ar", "Colorless", 39.948F, -185.34F, -189.34F, 6.53F, Substance.CATEGORY.NOBLE_GASES, Substance.STATE.GAS);
     	new Substance(22, "Titanium", "Ti", "Silvery", 47.867F, 3287.0F, 1668.0F, 223.80F, Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.SOLID);
     	new Substance(23, "Vanadium", "V", "Silverish", 50.942F, 3380.0F, 1890.0F, 233.794F, Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.SOLID);
