@@ -3,14 +3,12 @@ package com.periodiccraft.pcm;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidRegistry;
 
 import com.periodiccraft.pcm.core.block.ores.PeriodicOre;
 import com.periodiccraft.pcm.core.element.Substance;
-import com.periodiccraft.pcm.core.fluids.BlockMercuryFluid;
 import com.periodiccraft.pcm.core.guiblocks.LQClass;
 import com.periodiccraft.pcm.core.guiblocks.TileEntityLQ;
+import com.periodiccraft.pcm.core.item.PeriodicItem;
 import com.periodiccraft.pcm.core.oregens.OreGenClass;
 import com.periodiccraft.pcm.creativetabs.TabPeriodic;
 import com.periodiccraft.pcm.creativetabs.TabPeriodicIcon;
@@ -37,6 +35,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
     public static Block LQ_Active;
 
     
+    // Items
+    public static Item bookOfResearch;
+    
     //Fluids
 
     
@@ -60,7 +61,16 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
     //CreativeTab(s)
     public static Item tabPeriodicIcon;
+    
    	public static CreativeTabs tabPeriodic = new TabPeriodic(CreativeTabs.getNextID(), "tabPeriodic");
+   	public static CreativeTabs tabResearch = new TabPeriodic(CreativeTabs.getNextID(), "tabResearch") {
+   		
+   		@Override
+   		public Item getTabIconItem() {
+   			return PeriodicCraft.bookOfResearch;
+   		}
+   		
+   	};
     
    	
    	//Liquids
@@ -94,13 +104,15 @@ import cpw.mods.fml.common.registry.GameRegistry;
     	oreCarbon = new PeriodicOre("oreCarbon", 4.5F);
     	oreBeryllium = new PeriodicOre("Beryllium", 3.5F);
     	
+    	// Items
+    	bookOfResearch = new PeriodicItem("bookOfResearch").setCreativeTab(tabResearch);
+    	
     	//Creative Tab(s)
     	tabPeriodicIcon = new TabPeriodicIcon().setUnlocalizedName("tabPeriodic");
     	GameRegistry.registerItem(tabPeriodicIcon, tabPeriodicIcon.getUnlocalizedName().substring(5));
     	
     	
     	//Fluids
- 
     	
     	
     	//Machines

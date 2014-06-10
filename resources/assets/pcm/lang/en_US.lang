@@ -34,5 +34,7 @@ item.elementNickel.name=Nickel Ingot
 item.elementCopper.name=Copper Ingot
 item.elementZinc.name=Zinc Ingot
 
+item.bookOfResearch.name=Book of Research
 
+itemGroup.tabResearch=Researching
 itemGroup.tabPeriodic=Elements
