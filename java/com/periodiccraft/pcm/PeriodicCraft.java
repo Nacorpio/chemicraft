@@ -153,8 +153,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
     	new Substance(28, "Nickel", "Ni", "Gray Gold" , 58.693F, 2730.0F, 1455.0F, 199.570F, Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.SOLID);
     	new Substance(29, "Copper", "Cu", "Red Orangy", 63.546F, 2562.0F, 1084.62F, 158.180F, Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.SOLID);
     	new Substance(30, "Zinc", "Zn", "Silvery Greyish White", 65.380F, 907.0F, 419.530F, 60.555F, Substance.CATEGORY.TRANSITION_AND_POST_TRANSISTION_METALS, Substance.STATE.SOLID);
-    	
-    	//Liquids
     	new Substance(80, "Mercury", "Hg", "Gray", 200.592F, 356.73F, -38.8290F, 59.11F, Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.LIQUID);
     	
     	
