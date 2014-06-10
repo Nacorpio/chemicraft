@@ -3,9 +3,12 @@ package com.periodiccraft.pcm;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 
 import com.periodiccraft.pcm.core.block.ores.PeriodicOre;
 import com.periodiccraft.pcm.core.element.Substance;
+import com.periodiccraft.pcm.core.fluids.BlockMercuryFluid;
 import com.periodiccraft.pcm.core.guiblocks.LQClass;
 import com.periodiccraft.pcm.core.guiblocks.TileEntityLQ;
 import com.periodiccraft.pcm.core.oregens.OreGenClass;
@@ -33,6 +36,10 @@ import cpw.mods.fml.common.registry.GameRegistry;
     public static Block LQ_Idle;
     public static Block LQ_Active;
 
+    
+    //Fluids
+
+    
     //Ores
     public static PeriodicOre oreTitanium;
     public static PeriodicOre oreVanadium;
@@ -83,6 +90,11 @@ import cpw.mods.fml.common.registry.GameRegistry;
     	tabPeriodicIcon = new TabPeriodicIcon().setUnlocalizedName("tabPeriodic");
     	GameRegistry.registerItem(tabPeriodicIcon, tabPeriodicIcon.getUnlocalizedName().substring(5));
     	
+    	
+    	//Fluids
+ 
+    	
+    	
     	//Machines
     	GameRegistry.registerBlock(LQ_Idle, LQ_Idle.getUnlocalizedName().substring(5));
     	GameRegistry.registerBlock(LQ_Active, LQ_Active.getUnlocalizedName().substring(5));
@@ -114,6 +126,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
     	new Substance(1, "Hydrogen", "H", "Colorless", 1.008F, -252.879F, -259.160F, 0.904F, Substance.CATEGORY.NON_METALS, Substance.STATE.GAS);
     	new Substance(2, "Helium", "He", "Colorless", 4.003F, -268.928F, -272.20F, 0.083F, Substance.CATEGORY.NOBLE_GASES, Substance.STATE.GAS);
     	new Substance(3, "Lithium", "Li", "Silvery White", 6.94F, 1330.50F, 180.50F, 136.0F, Substance.CATEGORY.ALKALI_METALS, Substance.STATE.SOLID);
+    	new Substance(18, "Argon", "Ar", "Colorless", 39.948F, -185.34F, -189.34F, 6.53F, Substance.CATEGORY.NOBLE_GASES, Substance.STATE.GAS);
     	new Substance(22, "Titanium", "Ti", "Silvery", 47.867F, 3287.0F, 1668.0F, 223.80F, Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.SOLID);
     	new Substance(23, "Vanadium", "V", "Silverish", 50.942F, 3380.0F, 1890.0F, 233.794F, Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.SOLID);
     	new Substance(24, "Chromium", "Cr", "Gray", 51.996F, 2670.0F, 1857.0F, 347.0F, Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.SOLID);

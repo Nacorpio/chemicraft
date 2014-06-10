@@ -3,6 +3,8 @@ package com.periodiccraft.pcm.core.element;
 import net.minecraft.client.Minecraft;
 
 import com.periodiccraft.pcm.PeriodicCraft;
+import com.periodiccraft.pcm.core.element.Substance.CATEGORY;
+import com.periodiccraft.pcm.core.element.Substance.STATE;
 import com.periodiccraft.pcm.core.registry.ResearchRegistry;
 import com.periodiccraft.pcm.core.registry.ResearchRegistry.Research;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
@@ -122,6 +124,8 @@ public class Substance {
 		
 	}
 	
+	
+
 	public final Substance setTier(TIER par1) {
 		this.tier = par1;
 		return this;
