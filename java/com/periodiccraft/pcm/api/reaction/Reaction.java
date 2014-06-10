@@ -9,13 +9,11 @@ public class Reaction implements IReaction {
 	private Stack<Atom>[] input1;
 	private Stack<Atom>[] input2;
 	
-	private Stack<Atom>[] output;
 	private EnumReactionType type;
 	
-	public Reaction(Stack<Atom>[] par1, Stack<Atom>[] par2, Stack<Atom>[] par3, EnumReactionType par4) {
+	public Reaction(Stack<Atom>[] par1, Stack<Atom>[] par2, EnumReactionType par4) {
 		this.input1 = par1;
 		this.input2 = par2;
-		this.output = par3;
 		this.type = par4;
 	}
 	
@@ -25,10 +23,6 @@ public class Reaction implements IReaction {
 	
 	public final Stack<Atom>[] getInput2() {
 		return this.input2;
-	}
-	
-	public final Stack<Atom>[] getOutput() {
-		return this.output;
 	}
 	
 	@Override
@@ -67,7 +61,7 @@ public class Reaction implements IReaction {
 	}
 
 	public final String getFormula() {
-		return ChemUtil.getFormula(input1) + " + " + ChemUtil.getFormula(input2) + " -> " + ChemUtil.getFormula(output);
+		return ChemUtil.getFormula(input1) + " + " + ChemUtil.getFormula(input2);
 	}
 	
 }
