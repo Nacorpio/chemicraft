@@ -109,7 +109,7 @@ public final class SubstanceRegistry {
 	
 	public static final Substance getSubstance(String par1) {
 		for (Substance var: getSubstances()) {
-			if (var.getSymbol().equalsIgnoreCase(par1)) 
+			if (var.getName().equalsIgnoreCase(par1)) 
 				return var;
 		}
 		return null;

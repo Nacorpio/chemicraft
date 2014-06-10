@@ -85,7 +85,7 @@ public class Substance {
 		
 	}
 	
-	private int id;
+	private int atomicNumber;
 	
 	private String name;
 	private String symbol;
@@ -99,6 +99,8 @@ public class Substance {
 	private float meltingPoint;
 	private float heatOfVaporization;
 	
+	private Atom atom;
+	
 	private CATEGORY category;
 	
 	private TIER tier = TIER.ONE;
@@ -107,7 +109,7 @@ public class Substance {
 	
 	public Substance(int par, String par1, String par2, String par3, float par4, float par5, float par6, float par7, CATEGORY par8, STATE par9) {
 		
-		this.id = par;
+		this.atomicNumber = par;
 		this.name = par1;
 		this.symbol = par2;
 		this.color = par3;
@@ -118,10 +120,18 @@ public class Substance {
 		this.category = par8;
 		this.defaultState = par9;
 		
+		this.atom = new Atom(this.name, atomicNumber, ((int) Math.round(this.atomicWeight)) - this.atomicNumber, this.atomicWeight);
+		
 		SubstanceRegistry.addSubstance(par, this);
-		ResearchRegistry.addResearch(this.id, new Research(this, Minecraft.getMinecraft().thePlayer));
+		ResearchRegistry.addResearch(atomicNumber, new Research(this, Minecraft.getMinecraft().thePlayer));
 		SubstanceRegistry.bindSubstance(PeriodicCraft.MODID + ":item.element" + this.name, this);
-		SubstanceRegistry.addItem("element" + this.name, this);
+		
+		if (par9.equals(STATE.SOLID) || par9.equals(STATE.GAS) || par9.equals(STATE.PLASMA)) {
+			SubstanceRegistry.addItem("element" + this.name, this);
+		} else {
+			// LIQUID
+			// Add the liquid automatically, somehow.
+		}
 		
 	}
 	
@@ -140,8 +150,8 @@ public class Substance {
 		this.temperature = par1;
 	}
 	
-	public final int getSubstanceId() {
-		return this.id;
+	public final int getAtomicNumber() {
+		return this.atomicNumber;
 	}
 	
 	public final CATEGORY getCategory() {

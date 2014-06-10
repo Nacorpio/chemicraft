@@ -37,8 +37,8 @@ public class PeriodicElementItem extends PeriodicItem {
 		
 		Substance var1 = SubstanceRegistry.getSubstanceBinding(getUnlocalizedName());
 		
-		if (ResearchRegistry.hasResearch(var1.getSubstanceId())) {
-			Research r = ResearchRegistry.getResearch(var1.getSubstanceId()); 
+		if (ResearchRegistry.hasResearch(var1.getAtomicNumber())) {
+			Research r = ResearchRegistry.getResearch(var1.getAtomicNumber()); 
 			par3List.add("Research: " + ChatUtil.StringHandler.green + (r.isComplete() ? "Complete" : r.getProgress() + "/100"));
 		}	
 		

@@ -8,7 +8,7 @@ import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
 
 public class Compound {
 
-	private SubstanceStack[] elements;
+	private Stack<Atom>[] atoms;
 	
 	private int id;
 	
@@ -16,14 +16,14 @@ public class Compound {
 	private String formula;
 	private String objectAssoc;
 	
-	public Compound(int par1, String par2, SubstanceStack... par4) {
+	public Compound(int par1, String par2, Stack<Atom>... par4) {
 		
 		this.id = par1;
 		this.name = par2;
-		this.elements = par4;
+		this.atoms = par4;
 		
-		for (SubstanceStack var: elements) {
-			formula += var.getSubstance().getSymbol() + var.getCount();
+		for (Stack<Atom> var: atoms) {
+			formula += var.getType().getSubstance().getSymbol() + var.getCount();
 		}
 		
 		SubstanceRegistry.addCompound(par1, this);
@@ -66,13 +66,13 @@ public class Compound {
 		return this.formula;
 	}
 	
-	public final SubstanceStack[] getElements() {
-		return this.elements;
+	public final Stack<Atom>[] getElements() {
+		return this.atoms;
 	}
 	
 	public final boolean containsElement(String par1) {
-		for (SubstanceStack var: elements) {
-			if (var.getSubstance().getName().equalsIgnoreCase(par1)) {
+		for (Stack<Atom> var: atoms) {
+			if (var.getType().getSubstance().getName().equalsIgnoreCase(par1)) {
 				return true;
 			}
 		}
@@ -81,8 +81,8 @@ public class Compound {
 	
 	public final float getAtomicWeight() {
 		float total = 0;
-		for (SubstanceStack var: elements) {
-			total += var.getSubstance().getAtomicWeight();
+		for (Stack<Atom> var: atoms) {
+			total += var.getType().getSubstance().getAtomicWeight();
 		}
 		return total;
 	}
