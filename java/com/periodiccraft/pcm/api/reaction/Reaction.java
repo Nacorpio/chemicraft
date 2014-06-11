@@ -2,6 +2,7 @@ package com.periodiccraft.pcm.api.reaction;
 
 import com.periodiccraft.pcm.core.element.Atom;
 import com.periodiccraft.pcm.core.element.Stack;
+import com.periodiccraft.pcm.core.registry.ReactionRegistry;
 import com.periodiccraft.pcm.helper.ChemUtil;
 
 public class Reaction implements IReaction {
@@ -56,7 +57,10 @@ public class Reaction implements IReaction {
 
 	@Override
 	public Stack<Atom>[] react() {
-		// TODO Auto-generated method stub
+		if (ReactionRegistry.hasRecipe(input1, input2)) {
+			ReactionRecipe var1 = ReactionRegistry.getRecipe(input1, input2);
+			return var1.getProduct();
+		}
 		return null;
 	}
 

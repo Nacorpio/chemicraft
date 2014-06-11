@@ -61,11 +61,11 @@ public class Substance {
 	
 	public static enum TIER {
 		
-		ONE("I", ChatUtil.StringHandler.cyan),
-		TWO("II", ChatUtil.StringHandler.dark_cyan),
-		THREE("III", ChatUtil.StringHandler.blue),
-		FOUR("IV", ChatUtil.StringHandler.purple),
-		FIVE("V", ChatUtil.StringHandler.red);
+		ONE("I", ChatUtil.Colors.cyan),
+		TWO("II", ChatUtil.Colors.dark_cyan),
+		THREE("III", ChatUtil.Colors.blue),
+		FOUR("IV", ChatUtil.Colors.purple),
+		FIVE("V", ChatUtil.Colors.red);
 		
 		private String text;
 		private String color;
