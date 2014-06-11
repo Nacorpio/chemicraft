@@ -2,14 +2,19 @@ package com.periodiccraft.pcm;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 
 import com.periodiccraft.pcm.core.block.ores.PeriodicOre;
+import com.periodiccraft.pcm.core.element.Atom;
+import com.periodiccraft.pcm.core.element.Compound;
+import com.periodiccraft.pcm.core.element.Stack;
 import com.periodiccraft.pcm.core.element.Substance;
 import com.periodiccraft.pcm.core.guiblocks.LQClass;
 import com.periodiccraft.pcm.core.guiblocks.TileEntityLQ;
 import com.periodiccraft.pcm.core.item.PeriodicItem;
 import com.periodiccraft.pcm.core.oregens.OreGenClass;
+import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
 import com.periodiccraft.pcm.creativetabs.TabPeriodic;
 import com.periodiccraft.pcm.creativetabs.TabPeriodicIcon;
 import com.periodiccraft.pcm.helper.WrappedGenerator;
@@ -80,6 +85,9 @@ public class PeriodicCraft {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 
+		// Okay okay that name is already taken I apologize.
+		com.periodiccraft.pcm.EventHandler.instance = new com.periodiccraft.pcm.EventHandler();
+		
 		// Machines
 		LQ_Idle = new LQClass(false).setBlockName("LQIdle")
 				.setCreativeTab(CreativeTabs.tabBlock).setHardness(3.5F);
@@ -187,6 +195,12 @@ public class PeriodicCraft {
 		new Substance(12, "Magnesium", "Mg", "Shiny Gray", 24.305F, 1091F,
 				650F, 128.0F, 1.738F, Substance.CATEGORY.ALKALINE_EARTH_METALS,
 				Substance.STATE.SOLID);
+		
+		//---
+		
+		new Substance(14, "Silicon", "Si", "Shiny Gray", 28.085F, 3265.0F,
+				1414.0F, 383.0F, 2.329F, Substance.CATEGORY.METALOID,
+				Substance.STATE.SOLID);
 
 		new Substance(18, "Argon", "Ar", "Colorless", 39.948F, -185.34F,
 				-189.34F, 6.53F, 1.784F, Substance.CATEGORY.NOBLE_GASES,
@@ -203,6 +217,8 @@ public class PeriodicCraft {
 		new Substance(25, "Manganese", "Mn", "Silvery Gray", 54.940F, 1962.0F,
 				1245.0F, 221.0F, 7.21F, Substance.CATEGORY.TRANSITION_METALS,
 				Substance.STATE.SOLID);
+		
+		
 		/*
 		 *  Iron(FE) 
 		 * 
@@ -225,7 +241,10 @@ public class PeriodicCraft {
 				Substance.STATE.LIQUID);
 
 		// Maybe Compounds?
-
+		
+		// Just for testing	- The substances should be somewhere, getting them from the SubstanceRegistry is impractical.
+		Compound quartz = new Compound(1, "Quartz", new Stack<Atom>(SubstanceRegistry.getSubstance("Silicon").getAtom(), 1), new Stack<Atom>(SubstanceRegistry.getSubstance("Oxygen").getAtom(), 2));
+		SubstanceRegistry.bindCompound(Items.quartz.getUnlocalizedName(), quartz);
 	}
 
 }

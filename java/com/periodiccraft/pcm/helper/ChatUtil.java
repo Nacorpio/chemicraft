@@ -15,7 +15,7 @@ public final class ChatUtil {
 		public static String dark_red = "\u00a74";
 		public static String dark_purple = "\u00a75";
 		public static String dark_yellow = "\u00a76";
-	        public static String gray = "\u00a77";
+		public static String gray = "\u00a77";
 		public static String dark_gray = "\u00a78";
 		public static String blue = "\u00a79";
 		public static String green = "\u00a7A";
@@ -23,7 +23,7 @@ public final class ChatUtil {
 		public static String red = "\u00a7C";
 		public static String purple = "\u00a7D";
 		public static String yellow = "\u00a7E";
-	        public static String white = "\u00a7F";
+        public static String white = "\u00a7F";
 	}
 	
 	public static final void sendChatMessage(String par2) {
@@ -35,4 +35,18 @@ public final class ChatUtil {
 		return EIComponent;
 	}
 	
+	public static String getLowerValue(int value) 
+	{
+		String s1 = Integer.toString(value);
+		String out = "";
+
+		for(int i = 0; i < s1.length(); i++)
+		{
+			int i1 = Integer.parseInt(String.valueOf(s1.charAt(i)));
+			i1 = i1 + 8320;
+			out = out + (char)i1;	
+		}
+
+		return out;
+	}
 }

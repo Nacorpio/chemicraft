@@ -182,6 +182,10 @@ public class Substance {
 		return this.color;
 	}
 	
+	public final Atom getAtom() {
+		return atom;
+	}
+	
 	public final float getAtomicWeight() {
 		return this.atomicWeight;
 	}

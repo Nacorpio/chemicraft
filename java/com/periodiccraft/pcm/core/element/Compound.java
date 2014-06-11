@@ -4,7 +4,9 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import com.periodiccraft.pcm.core.registry.ResearchRegistry;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
+import com.periodiccraft.pcm.helper.ChatUtil;
 
 public class Compound {
 
@@ -13,7 +15,7 @@ public class Compound {
 	private int id;
 	
 	private String name;
-	private String formula;
+	private String formula = "";
 	private String objectAssoc;
 	
 	public Compound(int par1, String par2, Stack<Atom>... par4) {
@@ -23,7 +25,7 @@ public class Compound {
 		this.atoms = par4;
 		
 		for (Stack<Atom> var: atoms) {
-			formula += var.getType().getSubstance().getSymbol() + var.getCount();
+			formula += var.getType().getSubstance().getSymbol() + ChatUtil.getLowerValue(var.getCount());
 		}
 		
 		SubstanceRegistry.addCompound(par1, this);
@@ -66,6 +68,17 @@ public class Compound {
 		return this.formula;
 	}
 	
+	public String getObfuscatedFormula()
+	{
+		if(ResearchRegistry.hasResearched(this, null)) return getFormula();
+		String formula = "";
+		for(Stack<Atom> var: atoms) 
+		{
+			formula += (ResearchRegistry.hasResearch(var.getType().getSubstance().getAtomicNumber()) ? var.getType().getSubstance().getSymbol() : "?") + ChatUtil.getLowerValue(var.getCount());
+		}
+		return formula;
+	}
+	
 	public final Stack<Atom>[] getElements() {
 		return this.atoms;
 	}
@@ -86,5 +99,4 @@ public class Compound {
 		}
 		return total;
 	}
-	
 }

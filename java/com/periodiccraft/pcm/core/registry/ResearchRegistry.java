@@ -5,6 +5,9 @@ import java.util.Map;
 
 import net.minecraft.entity.player.EntityPlayer;
 
+import com.periodiccraft.pcm.core.element.Atom;
+import com.periodiccraft.pcm.core.element.Compound;
+import com.periodiccraft.pcm.core.element.Stack;
 import com.periodiccraft.pcm.core.element.Substance;
 
 public final class ResearchRegistry {
@@ -92,6 +95,24 @@ public final class ResearchRegistry {
 	
 	public static final boolean hasResearch(int par1) {
 		return researches.containsKey(par1);
+	}
+	
+	//I had a SubstanceResearchClient that contained all the Substances that were researched by the given player.
+	//I'll leave it like that for now. Think of how Thaumcraft does all of it's research.
+	public static boolean hasResearched(int par1, String player) 
+	{
+		return researches.containsKey(par1);
+	}
+	
+	//Player bound.
+	public static boolean hasResearched(Compound compound, String player)
+	{
+		for(Stack<Atom> s : compound.getElements())
+		{
+			Atom a = s.getType();
+			if(!hasResearch(a.getSubstance().getAtomicNumber())) return false;
+		}
+		return true;
 	}
 	
 	public static final int getProgress(int par1) {

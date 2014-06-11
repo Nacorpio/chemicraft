@@ -20,7 +20,12 @@ public final class SubstanceRegistry {
 
 	public static final Map<Integer, Substance> substances = new HashMap<Integer, Substance>();
 	public static final Map<Integer, Compound> compounds = new HashMap<Integer, Compound>();
+	
+	//I would only bind Compounds.
 	public static final Map<String, Substance> substance_bindings = new HashMap<String, Substance>();
+	public static final Map<String, Compound> compound_bindings = new HashMap<String, Compound>();
+	
+	//Why are all these Methods final? You won't change them anyway.
 	
 	public static final void addItem(String par1, Substance par2) {
 		if (par1.length() > 0 && !par1.isEmpty()) {
@@ -42,8 +47,16 @@ public final class SubstanceRegistry {
 		substance_bindings.put(par1, par2);
 	}
 	
+	public static final void bindCompound(String par1, Compound par2) {
+		compound_bindings.put(par1, par2);
+	}
+	
 	public static final Substance getSubstanceBinding(String par1) {
 		return substance_bindings.get(par1);
+	}
+	
+	public static Compound getCompoundBinding(String par1) {
+		return compound_bindings.get(par1);
 	}
 	
 	public static final Substance getSubstanceBinding(ItemStack par1) {
@@ -58,8 +71,24 @@ public final class SubstanceRegistry {
 		return getSubstanceBinding(par1.getUnlocalizedName());
 	}
 	
+	public static Compound getCompoundBinding(ItemStack par1) {
+		return getCompoundBinding(par1.getUnlocalizedName());
+	}
+	
+	public static Compound getCompoundBinding(Item par1) {
+		return getCompoundBinding(par1.getUnlocalizedName());
+	}
+	
+	public static Compound getCompoundBinding(Block par1) {
+		return getCompoundBinding(par1.getUnlocalizedName());
+	}
+	
 	public static final boolean isSubstanceBound(String par1) {
 		return substance_bindings.containsKey(par1);
+	}
+	
+	public static final boolean isCompoundBound(String par1) {
+		return compound_bindings.containsKey(par1);
 	}
 	
 	//
