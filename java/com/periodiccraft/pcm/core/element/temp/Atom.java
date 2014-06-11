@@ -29,6 +29,10 @@ public class Atom {
 	private float heatOfVaporization;
 	private float density;
 	
+	private int protons;
+	private int neutrons;
+	private int electrons;
+	
 	private PHASE phase;
 	
 	public Atom(int par1, float par2, float par3, float par4, float par5, float par6, PHASE par7) {
@@ -40,6 +44,16 @@ public class Atom {
 		this.density = par6;
 		this.phase = par7;
 	}
+	
+	public boolean isPositive() {
+		return protons > electrons;
+	}
+	
+	public boolean isNegative() {
+		return electrons > protons;
+	}
+	
+	//
 	
 	public int getAtomicNumber() {
 		return atomicNumber;
