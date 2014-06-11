@@ -4,12 +4,15 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 
 import com.periodiccraft.pcm.core.block.ores.PeriodicOre;
 import com.periodiccraft.pcm.core.element.Atom;
 import com.periodiccraft.pcm.core.element.Compound;
 import com.periodiccraft.pcm.core.element.Stack;
 import com.periodiccraft.pcm.core.element.Substance;
+import com.periodiccraft.pcm.core.fluids.BlockMercuryFluid;
 import com.periodiccraft.pcm.core.guiblocks.LQClass;
 import com.periodiccraft.pcm.core.guiblocks.TileEntityLQ;
 import com.periodiccraft.pcm.core.item.PeriodicItem;
@@ -27,7 +30,13 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = PeriodicCraft.MODID, version = PeriodicCraft.VERSION)
+@Mod
+	(	
+	modid = PeriodicCraft.MODID,
+	version = PeriodicCraft.VERSION
+	)
+
+
 public class PeriodicCraft {
 
 	public static final String MODID = "pcm";
@@ -41,7 +50,9 @@ public class PeriodicCraft {
 	public static Item bookOfResearch;
 
 	// Fluids
-
+	public Fluid mercury = new Fluid("mercury");
+	
+	
 	// Ores
 	public static PeriodicOre oreLithium;
 	public static PeriodicOre oreBoron;
@@ -109,6 +120,9 @@ public class PeriodicCraft {
 		oreCarbon = new PeriodicOre("oreCarbon", 4.5F);
 		oreBeryllium = new PeriodicOre("Beryllium", 3.5F);
 
+		
+		
+		
 		// Items
 		bookOfResearch = new PeriodicItem("bookOfResearch")
 				.setCreativeTab(tabResearch);
@@ -121,6 +135,9 @@ public class PeriodicCraft {
 
 		// Fluids
 
+		
+			
+		
 		// Machines
 		GameRegistry.registerBlock(LQ_Idle, LQ_Idle.getUnlocalizedName()
 				.substring(5));
@@ -240,9 +257,7 @@ public class PeriodicCraft {
 				-38.8290F, 59.11F, Substance.CATEGORY.TRANSITION_METALS,
 				Substance.STATE.LIQUID);
 
-		// Maybe Compounds?
-		
-		// Just for testing	- The substances should be somewhere, getting them from the SubstanceRegistry is impractical.
+		//Compounds
 		
 		Compound quartz = new Compound(1, "Quartz", new Stack<Atom>(SubstanceRegistry.getSubstance("Silicon").getAtom(), 1), new Stack<Atom>(SubstanceRegistry.getSubstance("Oxygen").getAtom(), 2));
 		SubstanceRegistry.bindCompound(Items.quartz.getUnlocalizedName(), quartz);
