@@ -48,6 +48,7 @@ public final class ResearchRegistry {
 				if (progress + par1 <= 100) {
 					progress += par1;
 				}
+
 			}		
 		}
 		

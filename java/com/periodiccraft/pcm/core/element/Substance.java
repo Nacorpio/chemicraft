@@ -197,6 +197,9 @@ public class Substance {
 	public final float getTemperature() {
 		return this.temperature;
 	}
+	public final float getDensity() {
+		return this.density;
+	}
 	
 	public final float getHeatOfVaporization() {
 		return this.heatOfVaporization;

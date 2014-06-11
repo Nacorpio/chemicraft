@@ -21,15 +21,15 @@ public class PeriodicElementItem extends PeriodicItem {
 	public PeriodicElementItem(String par1) {
 		
 		super(par1);
-		this.setCreativeTab(PeriodicCraft.tabPeriodic);	
+		this.setCreativeTab(CreativeTabs.tabAllSearch);	
 		
 		if (!SubstanceRegistry.isSubstanceBound(this.getUnlocalizedName())) {
 			SubstanceRegistry.bindSubstance(this.getUnlocalizedName(), substance);
 		}
 		
-		this.setCreativeTab(PeriodicCraft.tabPeriodic);
-		this.substance = SubstanceRegistry.getSubstanceBinding(this);
 		
+		this.substance = SubstanceRegistry.getSubstanceBinding(this);
+		this.setCreativeTab(CreativeTabs.tabAllSearch);
 	}
 	
 	@Override
@@ -42,9 +42,17 @@ public class PeriodicElementItem extends PeriodicItem {
 			par3List.add("Research: " + ChatUtil.StringHandler.green + (r.isComplete() ? "Complete" : r.getProgress() + "/100"));
 		}	
 		
+		
 		par3List.add("Symbol: " + ChatUtil.StringHandler.green + var1.getSymbol());
 		par3List.add("State: " + ChatUtil.StringHandler.green + var1.getDefaultState().getText());
 		par3List.add("Tier: " + var1.getTier().getColor() + var1.getTier().getText());
+		
+		//New Findings
+		
+		if(ResearchRegistry.isComplete(100)) {
+			par3List.add("Density: " + ChatUtil.StringHandler.red + var1.getDensity());
+		}
+		
 		
 	}
 
