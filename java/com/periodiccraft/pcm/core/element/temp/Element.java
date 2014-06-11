@@ -71,17 +71,12 @@ public class Element extends Atom {
 	private CATEGORY category;
 	private TIER tier = TIER.ONE;
 	
-	public Element(Atom par, String par1, String par2, int par3, CATEGORY par4, TIER par5) {
-		this(par, par1, par2, par3, par4);
-		this.tier = par5;
-	}
-	
-	public Element(Atom par, String par1, String par2, int par3, CATEGORY par4) {
-		super(par.getAtomicNumber(), par.getAtomicWeight(), par.getBoilingPoint(), par.getMeltingPoint(), par.getHeatOfVaporization(), par.getDensity(), par.getPhase());
-		this.name = par1;
-		this.symbol = par2;
-		this.color = par3;
-		this.category = par4;
+	public Element(String name, String symbol, int color, CATEGORY category, int atomicNmbr, float atomicWght, float boilingPoint, float meltingPoint, float heatOfVap, float density, PHASE phase, TIER tier) {
+		super(atomicNmbr, atomicWght, boilingPoint, meltingPoint, heatOfVap, density, phase);
+		this.name = name;
+		this.symbol = symbol;
+		this.color = color;
+		this.category = category;
 	}
 	
 	public String getName() {

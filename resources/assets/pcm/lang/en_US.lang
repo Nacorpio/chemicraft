@@ -40,6 +40,9 @@ item.elementMagnesium.name=Magnesium
 item.elementSilicon.name=Silcon
 item.elementMercury.name=Mercury
 
+item.unknownShard.name=???
+item.unknownIngot.name=???
+
 item.bookOfResearch.name=Book of Research
 
 itemGroup.tabResearch=Researching
