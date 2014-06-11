@@ -245,6 +245,9 @@ public class PeriodicCraft {
 		// Just for testing	- The substances should be somewhere, getting them from the SubstanceRegistry is impractical.
 		Compound quartz = new Compound(1, "Quartz", new Stack<Atom>(SubstanceRegistry.getSubstance("Silicon").getAtom(), 1), new Stack<Atom>(SubstanceRegistry.getSubstance("Oxygen").getAtom(), 2));
 		SubstanceRegistry.bindCompound(Items.quartz.getUnlocalizedName(), quartz);
+		Compound diamond = new Compound(2, "Diamond", new Stack<Atom>(SubstanceRegistry.getSubstance("Carbon").getAtom(), 8));
+		SubstanceRegistry.bindCompound(Items.diamond.getUnlocalizedName(), diamond);
+		
 	}
 
 }
