@@ -12,6 +12,7 @@ import com.periodiccraft.pcm.core.element.Stack;
 import com.periodiccraft.pcm.core.element.Substance;
 import com.periodiccraft.pcm.core.guiblocks.LQClass;
 import com.periodiccraft.pcm.core.guiblocks.TileEntityLQ;
+import com.periodiccraft.pcm.core.item.PeriodicElementItemUnknown;
 import com.periodiccraft.pcm.core.item.PeriodicItem;
 import com.periodiccraft.pcm.core.oregens.OreGenClass;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
@@ -63,6 +64,10 @@ public class PeriodicCraft {
 	// CreativeTab(s)
 	public static Item tabPeriodicIcon;
 
+	// Other
+	public static PeriodicElementItemUnknown unknownShard;
+	public static PeriodicElementItemUnknown unknownIngot;
+	
 	public static CreativeTabs tabPeriodic = new TabPeriodic(
 			CreativeTabs.getNextID(), "tabPeriodic");
 	public static CreativeTabs tabResearch = new TabPeriodic(
@@ -112,6 +117,9 @@ public class PeriodicCraft {
 		// Items
 		bookOfResearch = new PeriodicItem("bookOfResearch")
 				.setCreativeTab(tabResearch);
+		
+		unknownShard = new PeriodicElementItemUnknown("unknownShard");
+		unknownIngot = new PeriodicElementItemUnknown("unknownIngot");
 
 		// Creative Tab(s)
 		tabPeriodicIcon = new TabPeriodicIcon()

@@ -32,7 +32,7 @@ public class PeriodicElementItem extends PeriodicItem {
 	}
 	
 	@Override
-	public final void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
+	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		
 		Substance var1 = SubstanceRegistry.getSubstanceBinding(getUnlocalizedName());
 		

@@ -55,28 +55,56 @@ public class Atom {
 	
 	//
 	
+	protected void setAtomicNumber(int par1) {
+		this.atomicNumber = par1;
+	}
+	
 	public int getAtomicNumber() {
 		return atomicNumber;
+	}
+	
+	protected void setAtomicWeight(float par1) {
+		this.atomicWeight = par1;
 	}
 	
 	public float getAtomicWeight() {
 		return atomicWeight;
 	}
 	
+	protected void setBoilingPoint(float par1) {
+		this.boilingPoint = par1;
+	}
+	
 	public float getBoilingPoint() {
 		return boilingPoint;
+	}
+	
+	protected void setMeltingPoint(float par1) {
+		this.meltingPoint = par1;
 	}
 	
 	public float getMeltingPoint() {
 		return meltingPoint;
 	}
 	
+	protected void setHeatOfVaporization(float par1) {
+		this.heatOfVaporization = par1;
+	}
+	
 	public float getHeatOfVaporization() {
 		return heatOfVaporization;
 	}
 	
+	protected void setDensity(float par1) {
+		this.density = par1;
+	}
+	
 	public float getDensity() {
 		return density;
+	}
+	
+	protected void setPhase(PHASE par1) {
+		this.phase = par1;
 	}
 	
 	public PHASE getPhase() {
