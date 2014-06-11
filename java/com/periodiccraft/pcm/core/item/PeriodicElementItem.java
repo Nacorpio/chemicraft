@@ -21,15 +21,14 @@ public class PeriodicElementItem extends PeriodicItem {
 	public PeriodicElementItem(String par1) {
 		
 		super(par1);
-		this.setCreativeTab(CreativeTabs.tabAllSearch);	
+		this.setCreativeTab(PeriodicCraft.tabPeriodic);	
 		
 		if (!SubstanceRegistry.isSubstanceBound(this.getUnlocalizedName())) {
 			SubstanceRegistry.bindSubstance(this.getUnlocalizedName(), substance);
 		}
 		
-		
-		this.substance = SubstanceRegistry.getSubstanceBinding(this);
-		this.setCreativeTab(CreativeTabs.tabAllSearch);
+		this.substance = SubstanceRegistry.getSubstanceBinding(this.getUnlocalizedName());
+
 	}
 	
 	@Override
@@ -49,7 +48,7 @@ public class PeriodicElementItem extends PeriodicItem {
 		
 		//New Findings
 		
-		if(ResearchRegistry.isComplete(100)) {
+		if(ResearchRegistry.getResearch(var1.getAtomicNumber()).isComplete()) {
 			par3List.add("Density: " + ChatUtil.StringHandler.red + var1.getDensity());
 		}
 		

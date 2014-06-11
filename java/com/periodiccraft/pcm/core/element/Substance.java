@@ -130,12 +130,12 @@ public class Substance {
 		ResearchRegistry.addResearch(atomicNumber, new Research(this, Minecraft.getMinecraft().thePlayer));
 		SubstanceRegistry.bindSubstance(PeriodicCraft.MODID + ":item.element" + this.name, this);
 		
-		if (par9.equals(STATE.SOLID) || par9.equals(STATE.GAS) || par9.equals(STATE.PLASMA)) {
+		//if (par9.equals(STATE.SOLID) || par9.equals(STATE.GAS) || par9.equals(STATE.PLASMA)) {
 			SubstanceRegistry.addItem("element" + this.name, this);
-		} else {
+		//} else {
 			// LIQUID
 			// Add the liquid automatically, somehow.
-		}
+		//}
 		
 	}
 	
