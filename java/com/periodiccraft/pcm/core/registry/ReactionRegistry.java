@@ -29,6 +29,15 @@ public class ReactionRegistry {
 		return recipes.get(par1);
 	}
 	
+	public static final boolean hasRecipe(Stack<Atom>[] par1, Stack<Atom>[] par2) {
+		for (ReactionRecipe var: getRecipes()) {
+			if (ChemUtil.isStackArrayEqualTo(var.getInputOne(), par1) && ChemUtil.isStackArrayEqualTo(var.getInputTwo(), par2)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public static final boolean hasRecipe(String par1) {
 		return recipes.containsKey(par1);
 	}

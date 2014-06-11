@@ -38,18 +38,18 @@ public class PeriodicElementItem extends PeriodicItem {
 		
 		if (ResearchRegistry.hasResearch(var1.getAtomicNumber())) {
 			Research r = ResearchRegistry.getResearch(var1.getAtomicNumber()); 
-			par3List.add("Research: " + ChatUtil.StringHandler.green + (r.isComplete() ? "Complete" : r.getProgress() + "/100"));
+			par3List.add("Research: " + ChatUtil.Colors.green + (r.isComplete() ? "Complete" : r.getProgress() + "/100"));
 		}	
 		
 		
-		par3List.add("Symbol: " + ChatUtil.StringHandler.green + var1.getSymbol());
-		par3List.add("State: " + ChatUtil.StringHandler.green + var1.getDefaultState().getText());
+		par3List.add("Symbol: " + ChatUtil.Colors.green + var1.getSymbol());
+		par3List.add("State: " + ChatUtil.Colors.green + var1.getDefaultState().getText());
 		par3List.add("Tier: " + var1.getTier().getColor() + var1.getTier().getText());
 		
 		//New Findings
 		
 		if(ResearchRegistry.getResearch(var1.getAtomicNumber()).isComplete()) {
-			par3List.add("Density: " + ChatUtil.StringHandler.red + var1.getDensity());
+			par3List.add("Density: " + ChatUtil.Colors.red + var1.getDensity());
 		}
 		
 		

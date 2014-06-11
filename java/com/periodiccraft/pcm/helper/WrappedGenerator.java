@@ -45,14 +45,29 @@ public class WrappedGenerator implements IWorldGenerator {
 			this.veinsPerChunk = par4;
 		}
 		
+		/**
+		 * Set whether this instruction should be ran when the world generation starts.<br>
+		 * Set to false if you want the instruction to be ignored by the wrapper.
+		 * @param par1 the value.
+		 */
 		public final void setEnabled(boolean par1) {
 			this.enabled = par1;
 		}
 		
+		/**
+		 * Returns the dimensions to run this instruction on. Just set to <b>null</b>.<br>
+		 * if you don't have any additional dimension to generate on.
+		 * @return the dimensions.
+		 */
 		public final int[] getDimensions() {
 			return this.dimensions;
 		}
 		
+		/**
+		 * Set the dimensions to run this instruction on.
+		 * @param par1 an {@link #Integer} array representing the dimension id's to run.
+		 * @return the Instruction for construction conveniences. 
+		 */
 		public final Instruction setDimensions(int[] par1) {
 			this.dimensions = par1;
 			return this;
@@ -61,7 +76,7 @@ public class WrappedGenerator implements IWorldGenerator {
 		/**
 		 * Allow the block to generate in the overworld (0).
 		 * @param par1 true/false.
-		 * @return the property for structuring convenience.
+		 * @return the Instruction for structuring convenience.
 		 */
 		public final Instruction setOverworld(boolean par1) {
 			this.overworld = par1;
@@ -71,7 +86,7 @@ public class WrappedGenerator implements IWorldGenerator {
 		/**
 		 * Allow the block to generate in the nether (-1).
 		 * @param par1 true/false.
-		 * @return the property for structuring convenience.
+		 * @return the Instruction for structuring convenience.
 		 */
 		public final Instruction setNether(boolean par1) {
 			this.nether = par1;
@@ -81,7 +96,7 @@ public class WrappedGenerator implements IWorldGenerator {
 		/**
 		 * Allow the block to generate in the nether (1).
 		 * @param par1 true/false.
-		 * @return the property for structuring convenience.
+		 * @return the Instruction for structuring convenience.
 		 */
 		public final Instruction setEnd(boolean par1) {
 			this.end = par1;
