@@ -25,7 +25,8 @@ public class Compound {
 		this.atoms = par4;
 		
 		for (Stack<Atom> var: atoms) {
-			formula += var.getType().getSubstance().getSymbol() + ChatUtil.getLowerValue(var.getCount());
+			int var1 = var.getCount();
+			formula += var.getType().getSubstance().getSymbol() + (var1 > 1 ? ChatUtil.getLowerValue(var1) : "");
 		}
 		
 		SubstanceRegistry.addCompound(par1, this);
