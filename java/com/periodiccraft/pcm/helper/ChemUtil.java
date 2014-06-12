@@ -1,11 +1,56 @@
 package com.periodiccraft.pcm.helper;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import com.periodiccraft.pcm.core.element.Atom;
 import com.periodiccraft.pcm.core.element.IMolecule;
-import com.periodiccraft.pcm.core.element.Element;
 
 public final class ChemUtil {
 
+	public static final boolean isFormula(String formula) {
+		String pattern = "([A-Z][a-z]?)(\\d*)";
+		return formula.matches(pattern);		
+	}
+	
+	public static final String[] getAtoms(String formula) {
+		
+		String[] result = new String[]{};
+		
+		Pattern var1 = Pattern.compile("([A-Z][a-z]?)(\\d*)");
+		Matcher var2 = var1.matcher(formula);
+		
+		while (var2.find()) {
+			result[result.length] = var2.group();
+		}
+		
+		return result;
+		
+	}
+	
+	// 1 character --> C
+	// 2 characters --> Either Cu or C2
+	// 3 characters --> Either Cu1 or C10
+	
+//	public static final Atom getAtomBySymbol(String par1) {
+//		Atom result;
+//		if (isFormula(par1) && par1.length() >= 1) {
+//			
+//			if (par1.length() == 2) {
+//				
+//				char firstChar = par1.charAt(0);
+//				char scndChar = par1.charAt(1);
+//				
+//				if (Character.isAlphabetic(scndChar) && Character.isLowerCase(scndChar)) {
+//					// Cu
+//					
+//				}
+//				
+//			}
+//			
+//		}
+//	}
+	
 	public static final boolean isCompound(IMolecule[] par1) {
 		if (par1.length == 1) {
 			// Only one or more of the SAME element.
