@@ -104,6 +104,7 @@ public class Element extends Atom{
 		this.color = color;
 		this.category = category;
 
+
 		IMolecule m = new SimpleMolecule(1, this);
 		
 		SubstanceRegistry.addSubstance(atomicNumber, this);
@@ -148,6 +149,8 @@ public class Element extends Atom{
 	public final String getSymbol() {
 		return this.symbol;
 	}
+	
+
 	
 	public final int getColor() {
 		return this.color;

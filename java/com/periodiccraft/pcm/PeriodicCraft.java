@@ -239,16 +239,19 @@ public class PeriodicCraft {
 		new Element("Carbon", 6, "C", 0x000000, Element.CATEGORY.NON_METALS, 6, 6, 6, 
 				4827.0F, 3550.0F, 117.0F, 2.00F, 12.011F, 
 				Element.STATE.SOLID);
-		/*
-		new Element(7, "Nitrogen", "Ni", "Colorless", 14.007F, -195.795F,
-				210.0F, 5.56F, 1.251F, Element.CATEGORY.NON_METALS,
-				Element.STATE.GAS);
-		new Element(8, "Oxygen", "O", "Colorless", 15.999F, -182.962F,
-				-218.79F, 6.82F, 1.429F, Element.CATEGORY.NON_METALS,
-				Element.STATE.GAS);
-		new Element(9, "Fluorine", "F", "Bright Yellow", 18.998F, -188.11F,
-				-219.67F, 6.51F, 1.696F, Element.CATEGORY.NON_METALS,
-				Element.STATE.GAS);
+		
+		//Setting all Colorless Material to White for now. + Nitrogen Shows up as gas...
+		new Element("Nitrogen", 7, "Ni", 0xFFFFFF, Element.CATEGORY.NON_METALS, 7, 7, 7,
+				-195.795F, -209.0F, 5.560F, 14.007F, 1.2510F, Element.STATE.GAS);
+		
+		
+				
+		new Element("Oxygen", 8, "O", 0xFFFFFF, Element.CATEGORY.NON_METALS, 8, 8, 8, -182.962F,
+				-218.79F, 6.82F, 1.429F, 15.999F, Element.STATE.GAS);
+		
+		new Element("Fluorine", 9, "F", 0xCCFF00, Element.CATEGORY.HALOGENS, 10, 9, 5, -188.11F,
+				-219.67F, 6.51F, 1.696F, 18.998F, Element.STATE.GAS);
+			/*
 		new Element(10, "Neon", "Ne", "Colorless", 20.180F, -246.046F,
 				-248.59F, 1.71F, 0.9002F, Element.CATEGORY.NOBLE_GASES,
 				Element.STATE.GAS);
