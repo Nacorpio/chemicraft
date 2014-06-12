@@ -8,51 +8,55 @@ import net.minecraft.item.ItemStack;
 
 import com.periodiccraft.pcm.PeriodicCraft;
 import com.periodiccraft.pcm.PeriodicTabs;
-import com.periodiccraft.pcm.core.element.Substance;
+import com.periodiccraft.pcm.core.element.Atom;
+import com.periodiccraft.pcm.core.element.Element;
+import com.periodiccraft.pcm.core.element.Molecule;
 import com.periodiccraft.pcm.core.registry.ResearchRegistry;
 import com.periodiccraft.pcm.core.registry.ResearchRegistry.Research;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
+import com.periodiccraft.pcm.helper.BiomeTeperature;
 import com.periodiccraft.pcm.helper.ChatUtil;
 
 public class PeriodicElementItem extends PeriodicItem {
 
-	private Substance substance;
+	private Molecule substance;
 	
-	public PeriodicElementItem(String par1) {
+	public PeriodicElementItem(String par1, Molecule substance) {
 		
 		super(par1);
 		this.setCreativeTab(PeriodicCraft.tabPeriodic);	
 		
-		if (!SubstanceRegistry.isSubstanceBound(this.getUnlocalizedName())) {
-			SubstanceRegistry.bindSubstance(this.getUnlocalizedName(), substance);
+		if (!SubstanceRegistry.isCompoundBound(this.getUnlocalizedName())) {
+			SubstanceRegistry.bindCompound(this.getUnlocalizedName(), substance);
 		}
 		
-		this.substance = SubstanceRegistry.getSubstanceBinding(this.getUnlocalizedName());
+		this.substance = substance;
 
 	}
 	
 	@Override
 	public final void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		
-		Substance var1 = SubstanceRegistry.getSubstanceBinding(getUnlocalizedName());
-		
-		if (ResearchRegistry.hasResearch(var1.getAtomicNumber())) {
-			Research r = ResearchRegistry.getResearch(var1.getAtomicNumber()); 
-			par3List.add("Research: " + ChatUtil.Colors.green + (r.isComplete() ? "Complete" : r.getProgress() + "/100"));
+		Molecule var1 = SubstanceRegistry.getCompoundBinding(getUnlocalizedName());
+		if(!var1.isCompound() && var1.getFirstAtom() instanceof Element)
+		{
+			Element e = (Element)var1.getFirstAtom();
+			if (ResearchRegistry.hasResearch(e.getAtomicNumber())) {
+				Research r = ResearchRegistry.getResearch(e.getAtomicNumber()); 
+				par3List.add("Research: " + ChatUtil.Colors.green + (r.isComplete() ? "Complete" : r.getProgress() + "/100"));
+			}	
+			
+			
+			par3List.add("Symbol: " + ChatUtil.Colors.green + e.getSymbol());
+			par3List.add("State: " + ChatUtil.Colors.green + e.getState(BiomeTeperature.getDefaultTemperature()).getText());
+			par3List.add("Tier: " + e.getTier().getColor() + e.getTier().getText());
+			
+			//New Findings
+			
+			if(ResearchRegistry.getResearch(e.getAtomicNumber()).isComplete()) {
+				par3List.add("Density: " + ChatUtil.Colors.red + e.getDensity());
+			}
 		}	
-		
-		
-		par3List.add("Symbol: " + ChatUtil.Colors.green + var1.getSymbol());
-		par3List.add("State: " + ChatUtil.Colors.green + var1.getDefaultState().getText());
-		par3List.add("Tier: " + var1.getTier().getColor() + var1.getTier().getText());
-		
-		//New Findings
-		
-		if(ResearchRegistry.getResearch(var1.getAtomicNumber()).isComplete()) {
-			par3List.add("Density: " + ChatUtil.Colors.red + var1.getDensity());
-		}
-		
-		
 	}
 
 }

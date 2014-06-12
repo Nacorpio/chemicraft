@@ -6,6 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import com.periodiccraft.pcm.PeriodicCraft;
+import com.periodiccraft.pcm.PeriodicTabs;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 

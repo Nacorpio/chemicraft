@@ -1,34 +1,50 @@
 package com.periodiccraft.pcm.core.element;
 
+import com.periodiccraft.pcm.core.element.Element.STATE;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
-public class Atom {
+public class Atom implements Cloneable {
 	
-	private String name;
+	protected int electrons;
+	protected int neutrons;
+	protected int protons;
 	
-	private int electrons;
-	private int neutrons;
-	private int protons;
+	protected float boilingPoint;
+	protected float meltingPoint;
+	protected float heatOfVaporization;
+	protected float density;
+	protected float weight;
 	
-	private float weight;
+	protected int amount = 1;
 	
-	public Atom(String par1, int par2, int par3, float par4) {
-		this.name = par1;
-		this.protons = par2;
-		this.neutrons = par3;
+	private STATE state;
+	
+	public Atom(int electrons, int neutrons, int protons, float boilingPoint, float meltingPoint, float heatOfVaporization, float density, float weight, STATE state)
+	{
 		this.protons = electrons;
-		this.weight = par4;
+		this.neutrons = neutrons;
+		this.protons = protons;
+		
+		this.boilingPoint = boilingPoint;
+		this.meltingPoint = meltingPoint;
+		this.heatOfVaporization = heatOfVaporization;
+		this.density = density;
+		
+		this.weight = weight;
+		this.state = state;
 	}
 	
-	public final String getName() {
-		return name;
+	public Atom setAmount(int amount)
+	{
+		this.amount = amount;
+		return this;
 	}
 	
-	public final Substance getSubstance() {
-		return SubstanceRegistry.getSubstance(name);
+	public int getAmount() {
+		return amount;
 	}
 	
 	public final boolean isPositive() {
@@ -37,6 +53,10 @@ public class Atom {
 	
 	public final boolean isNegative() {
 		return electrons > protons;
+	}
+	
+	public int getCharge() {
+		return protons - electrons;
 	}
 	
 	public final int getElectrons() {
@@ -54,5 +74,14 @@ public class Atom {
 	public final float getWeight() {
 		return this.weight;
 	}
-	
+
+	@Override
+	public Atom clone() {
+		try {
+			return (Atom)super.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}		
 }

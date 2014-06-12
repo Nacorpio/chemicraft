@@ -6,9 +6,8 @@ import java.util.Map;
 import net.minecraft.entity.player.EntityPlayer;
 
 import com.periodiccraft.pcm.core.element.Atom;
-import com.periodiccraft.pcm.core.element.Compound;
-import com.periodiccraft.pcm.core.element.Stack;
-import com.periodiccraft.pcm.core.element.Substance;
+import com.periodiccraft.pcm.core.element.Molecule;
+import com.periodiccraft.pcm.core.element.Element;
 
 public final class ResearchRegistry {
 
@@ -17,11 +16,11 @@ public final class ResearchRegistry {
 		private boolean unlocked = false;
 		
 		private int progress = 0;
-		private Substance substance;
+		private Element substance;
 
 		private EntityPlayer linkedPlayer;
 		
-		public Research(Substance par1, EntityPlayer par2) {
+		public Research(Element par1, EntityPlayer par2) {
 			this.substance = par1;
 			this.linkedPlayer = par2;
 		}
@@ -67,7 +66,7 @@ public final class ResearchRegistry {
 			return this.linkedPlayer;
 		}
 		
-		public final Substance getSubstance() {
+		public final Element getSubstance() {
 			return this.substance;
 		}
 		
@@ -79,7 +78,7 @@ public final class ResearchRegistry {
 	
 	public static final Map<Integer, Research> researches = new HashMap<Integer, Research>();
 	
-	public static final void addResearch(Substance par1, Research par2) {
+	public static final void addResearch(Element par1, Research par2) {
 		addResearch(par1.getAtomicNumber(), par2);
 	}
 	
@@ -97,20 +96,22 @@ public final class ResearchRegistry {
 		return researches.containsKey(par1);
 	}
 	
-	//I had a SubstanceResearchClient that contained all the Substances that were researched by the given player.
-	//I'll leave it like that for now. Think of how Thaumcraft does all of it's research.
+	//NOTE I had a SubstanceResearchClient that contained all the Substances that were researched by the given player.
+	//NOTE I'll leave it like that for now. Think of how Thaumcraft does all of it's research.
 	public static boolean hasResearched(int par1, String player) 
 	{
 		return researches.containsKey(par1);
 	}
 	
-	//Player bound.
-	public static boolean hasResearched(Compound compound, String player)
+	//NOTE Player bound.
+	public static boolean hasResearched(Molecule molecule, String player)
 	{
-		for(Stack<Atom> s : compound.getElements())
+		for(Atom a : molecule.getAtoms())
 		{
-			Atom a = s.getType();
-			if(!hasResearch(a.getSubstance().getAtomicNumber())) return false;
+			if(a instanceof Element)
+			{
+				if(!hasResearch(((Element)a).getAtomicNumber())) return false;
+			}
 		}
 		return true;
 	}

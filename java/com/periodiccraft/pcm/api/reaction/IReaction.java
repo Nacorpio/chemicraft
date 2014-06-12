@@ -1,15 +1,13 @@
 package com.periodiccraft.pcm.api.reaction;
 
-import com.periodiccraft.pcm.core.element.Atom;
-import com.periodiccraft.pcm.core.element.Stack;
-import com.periodiccraft.pcm.core.element.SubstanceStack;
+import com.periodiccraft.pcm.core.element.Molecule;
 
 public interface IReaction {
 	
-	public boolean canReact(Stack<Atom>[] par1, Stack<Atom>[] par2);
+	public boolean canReact(Molecule[] par1, Molecule[] par2);
 	public String getName();
 	public EnumReactionType getType();
 	public int getRequiredEnergyLevel();
 	public int getEnergyOutcome();
-	public Stack<Atom>[] react();
+	public Molecule[] react();
 }

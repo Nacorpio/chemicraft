@@ -1,7 +1,7 @@
 package com.periodiccraft.pcm;
 
-import com.periodiccraft.pcm.core.element.Compound;
-import com.periodiccraft.pcm.core.element.Substance;
+import com.periodiccraft.pcm.core.element.Element;
+import com.periodiccraft.pcm.core.element.Molecule;
 import com.periodiccraft.pcm.core.item.PeriodicItem;
 import com.periodiccraft.pcm.core.registry.ResearchRegistry;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
@@ -29,8 +29,8 @@ public class EventHandler
 	public void onItemTooltip(ItemTooltipEvent event)
 	{
 		if(event.itemStack.getItem() instanceof PeriodicItem) return;
-		Compound c = SubstanceRegistry.getCompoundBinding(event.itemStack);
-		if(c == null) return;
-		event.toolTip.add(Colors.green + c.getObfuscatedFormula());
+		Molecule m = SubstanceRegistry.getCompoundBinding(event.itemStack);
+		if(m == null) return;
+		event.toolTip.add(Colors.green + m.getObfuscatedFormula());
 	}
 }

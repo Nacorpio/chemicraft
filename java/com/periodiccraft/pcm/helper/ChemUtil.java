@@ -1,12 +1,12 @@
 package com.periodiccraft.pcm.helper;
 
 import com.periodiccraft.pcm.core.element.Atom;
-import com.periodiccraft.pcm.core.element.Stack;
-import com.periodiccraft.pcm.core.element.Substance;
+import com.periodiccraft.pcm.core.element.Molecule;
+import com.periodiccraft.pcm.core.element.Element;
 
 public final class ChemUtil {
 
-	public static final boolean isCompound(Stack<Atom>[] par1) {
+	public static final boolean isCompound(Molecule[] par1) {
 		if (par1.length == 1) {
 			// Only one or more of the SAME element.
 			return true;
@@ -14,44 +14,27 @@ public final class ChemUtil {
 		return false;
 	}
 	
-	public static final String getFormula(Stack<Atom>[] par1) {
+	public static final String getFormula(Molecule[] par1) {
 		String formula = "";
-		for (Stack<Atom> var: par1) {
-			formula += var.getType().getSubstance().getSymbol() + var.getCount();
+		int i = 0;
+		for (Molecule var: par1) {
+			i++;
+			formula += var.getCount() + var.getFormula() + (i < par1.length ? " + " : "");
 		}
 		return formula;
 	}
 
-	public static final boolean stackContains(Stack<Atom>[] par1, Atom[] par2) {
-		for (int i = 0; i < par1.length; i++) {
-			if (par1[i].getType().getName().equals(par2[i].getName())) {
-				continue;
-			} else {
-				return false;
-			}
-		}
-		return true;
-	}
-	
-	public static final boolean stackContains(Stack<Atom>[] par1, Atom par2) {
-		for (Stack<Atom> var: par1) {
-			if (var.getType().getName().equals(par2.getName())) {
+	public static final boolean stackContains(Molecule par1, Atom par2) {
+		Atom[] atoms = par1.getAtoms();
+		for (int i = 0; i < atoms.length; i++) {
+			if (atoms[i].equals(par2)) {
 				return true;
-			}
+			} 
 		}
 		return false;
 	}
 	
-	public static final boolean stackContains(Stack<Atom>[] par1, Substance par2) {
-		for (Stack<Atom> var: par1) {
-			if (var.getType().getSubstance().getName().equals(par2.getName())) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	public static final boolean isStackArrayEqualTo(Stack<Atom>[] par1, Stack<Atom>[] par2) {
+	public static final boolean isStackArrayEqualTo(Molecule[] par1, Molecule[] par2) {
 		for (int i = 0; i < par1.length; i++) {
 			if (isStackEqualTo(par1[i], par2[i])) {
 				continue;
@@ -62,8 +45,8 @@ public final class ChemUtil {
 		return true;
 	}
 	
-	public static final boolean isStackEqualTo(Stack<Atom> par1, Stack<Atom> par2) {
-		return (par1.getType().getName().equals(par2.getType().getName())) && par1.getCount() == par2.getCount();
+	public static final boolean isStackEqualTo(Molecule par1, Molecule par2) {
+		return par1.equals(par2);
 	}
 	
 }

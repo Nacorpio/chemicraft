@@ -1,36 +1,35 @@
 package com.periodiccraft.pcm.api.reaction;
 
-import com.periodiccraft.pcm.core.element.Atom;
-import com.periodiccraft.pcm.core.element.Stack;
-import com.periodiccraft.pcm.core.element.Substance;
+import com.periodiccraft.pcm.core.element.Molecule;
+import com.periodiccraft.pcm.core.element.Element;
 
 public class ReactionRecipe implements IReactionRecipe {
 
-	private Stack<Atom>[] input1;
-	private Stack<Atom>[] input2;
+	private Molecule[] input1;
+	private Molecule[] input2;
 	
-	private Stack<Atom>[] output;
+	private Molecule[] output;
 	
-	public ReactionRecipe(Stack<Atom>[] par1, Stack<Atom>[] par2, Stack<Atom>... par3) {
+	public ReactionRecipe(Molecule[] par1, Molecule[] par2, Molecule... par3) {
 		this.input1 = par1;
 		this.input2 = par2;
 		this.output = par3;
 	}
 	
 	@Override
-	public Stack<Atom>[] getInputOne() {
+	public Molecule[] getInputOne() {
 		return this.input1;
 	}
 
 	
 	
 	@Override
-	public Stack<Atom>[] getInputTwo() {
+	public Molecule[] getInputTwo() {
 		return this.input2;
 	}
 
 	@Override
-	public Stack<Atom>[] getProduct() {
+	public Molecule[] getProduct() {
 		return this.output;
 	}
 

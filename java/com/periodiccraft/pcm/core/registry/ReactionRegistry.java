@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 import com.periodiccraft.pcm.api.reaction.ReactionRecipe;
 import com.periodiccraft.pcm.core.element.Atom;
-import com.periodiccraft.pcm.core.element.Stack;
+import com.periodiccraft.pcm.core.element.Molecule;
 import com.periodiccraft.pcm.helper.ChemUtil;
 
 public class ReactionRegistry {
@@ -16,7 +16,7 @@ public class ReactionRegistry {
 		recipes.put(par1, par2);
 	}
 	
-	public static final ReactionRecipe getRecipe(Stack<Atom>[] par1, Stack<Atom>[] par2) {
+	public static final ReactionRecipe getRecipe(Molecule[] par1, Molecule[] par2) {
 		for (ReactionRecipe var: getRecipes()) {
 			if (ChemUtil.isStackArrayEqualTo(var.getInputOne(), par1) && ChemUtil.isStackArrayEqualTo(var.getInputTwo(), par2)) {
 				return var;
@@ -29,7 +29,7 @@ public class ReactionRegistry {
 		return recipes.get(par1);
 	}
 	
-	public static final boolean hasRecipe(Stack<Atom>[] par1, Stack<Atom>[] par2) {
+	public static final boolean hasRecipe(Molecule[] par1, Molecule[] par2) {
 		for (ReactionRecipe var: getRecipes()) {
 			if (ChemUtil.isStackArrayEqualTo(var.getInputOne(), par1) && ChemUtil.isStackArrayEqualTo(var.getInputTwo(), par2)) {
 				return true;

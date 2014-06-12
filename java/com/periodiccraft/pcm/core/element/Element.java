@@ -3,14 +3,14 @@ package com.periodiccraft.pcm.core.element;
 import net.minecraft.client.Minecraft;
 
 import com.periodiccraft.pcm.PeriodicCraft;
-import com.periodiccraft.pcm.core.element.Substance.CATEGORY;
-import com.periodiccraft.pcm.core.element.Substance.STATE;
+import com.periodiccraft.pcm.core.element.Element.CATEGORY;
+import com.periodiccraft.pcm.core.element.Element.STATE;
 import com.periodiccraft.pcm.core.registry.ResearchRegistry;
 import com.periodiccraft.pcm.core.registry.ResearchRegistry.Research;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
 import com.periodiccraft.pcm.helper.ChatUtil;
 
-public class Substance {
+public class Element extends Atom{
 
 	public static enum CATEGORY {
 		
@@ -89,69 +89,42 @@ public class Substance {
 	
 	private String name;
 	private String symbol;
-	private String color;
+	private int color;
 	
-	private float atomicWeight;
-	
-	private float temperature = 10.0F;
-	
-	private float boilingPoint;
-	private float meltingPoint;
-	private float heatOfVaporization;
-	private float density;
-	
-	
-	private Atom atom;
-	
-	private CATEGORY category;
-	
+	private CATEGORY category;	
 	private TIER tier = TIER.ONE;
-	private STATE defaultState;
-	private STATE state;
 	
-	public Substance(int par, String par1, String par2, String par3, float par4, float par5, float par6, float par7, float par8, CATEGORY par9, STATE par10) {
+	public Element(String name, int atomicNumber, String symbol, int color, CATEGORY category, int electrons, int neutrons, int protons, float boilingPoint, float meltingPoint, float heatOfVaporization, float density, float weight, STATE state) 
+	{	
+		super(electrons, neutrons, protons, boilingPoint, meltingPoint, heatOfVaporization, density, weight, state);
 		
-		this.atomicNumber = par;
-		this.name = par1;
-		this.symbol = par2;
-		this.color = par3;
-		this.atomicWeight = par4;
-		this.boilingPoint = par5;
-		this.meltingPoint = par6;
-		this.heatOfVaporization = par7;
-		this.density = par8;
-		this.category = par9;
-		this.defaultState = par10;
+		this.atomicNumber = atomicNumber;
+		this.name = name;
+		this.symbol = symbol;
+		this.color = color;
+		this.category = category;
+
+		Molecule m = new Molecule(1, this);
 		
-		
-		this.atom = new Atom(this.name, atomicNumber, ((int) Math.round(this.atomicWeight)) - this.atomicNumber, this.atomicWeight);
-		
-		SubstanceRegistry.addSubstance(par, this);
+		SubstanceRegistry.addSubstance(atomicNumber, this);
 		ResearchRegistry.addResearch(atomicNumber, new Research(this, Minecraft.getMinecraft().thePlayer));
-		SubstanceRegistry.bindSubstance(PeriodicCraft.MODID + ":item.element" + this.name, this);
 		
 		//if (par9.equals(STATE.SOLID) || par9.equals(STATE.GAS) || par9.equals(STATE.PLASMA)) {
-			SubstanceRegistry.addItem("element" + this.name, this);
+			SubstanceRegistry.addItem("element" + this.name, m);
 		//} else {
 			// LIQUID
 			// Add the liquid automatically, somehow.
-		//}
-		
+		//}	
 	}
 	
 	
-
-	public final Substance setTier(TIER par1) {
+	public final Element setTier(TIER par1) {
 		this.tier = par1;
 		return this;
 	}
 	
 	public final TIER getTier() {
 		return this.tier;
-	}
-	
-	public final void setTemperature(float par1) {
-		this.temperature = par1;
 	}
 	
 	public final int getAtomicNumber() {
@@ -162,11 +135,8 @@ public class Substance {
 		return this.category;
 	}
 	
-	public final STATE getDefaultState() {
-		return this.defaultState;
-	}
-	
-	public final STATE getState() {
+	//TODO Carbon is no Liquid.
+	public final STATE getState(float temperature) {
 		return (((temperature >= this.meltingPoint && temperature < this.boilingPoint) ? STATE.SOLID : STATE.LIQUID));
 	}
 	
@@ -178,18 +148,10 @@ public class Substance {
 		return this.symbol;
 	}
 	
-	public final String getColor() {
+	public final int getColor() {
 		return this.color;
 	}
-	
-	public final Atom getAtom() {
-		return atom;
-	}
-	
-	public final float getAtomicWeight() {
-		return this.atomicWeight;
-	}
-	
+
 	public final float getBoilingPoint() {
 		return this.boilingPoint;
 	}
@@ -197,10 +159,7 @@ public class Substance {
 	public final float getMeltingPoint() {
 		return this.meltingPoint;
 	}
-	
-	public final float getTemperature() {
-		return this.temperature;
-	}
+
 	public final float getDensity() {
 		return this.density;
 	}
