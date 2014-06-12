@@ -21,8 +21,8 @@ public class BlockMercuryFluid extends BlockFluidClassic {
     protected IIcon flowingIcon;
     
     public BlockMercuryFluid(Fluid fluid, Material material) {
-            super(fluid, material);
-            setCreativeTab(PeriodicCraft.tabPeriodic);
+            super(fluid, Material.water);
+            
     }
     
     @Override
@@ -32,8 +32,8 @@ public class BlockMercuryFluid extends BlockFluidClassic {
     
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister register) {
-            stillIcon = register.registerIcon(PeriodicCraft.MODID + ":mercuryStill");
-            flowingIcon = register.registerIcon(PeriodicCraft.MODID + ":mercuryFlowing");
+            stillIcon = register.registerIcon(PeriodicCraft.MODID + ":mercury_still");
+            flowingIcon = register.registerIcon(PeriodicCraft.MODID + ":mercury_flowing");
     }
     
     @Override

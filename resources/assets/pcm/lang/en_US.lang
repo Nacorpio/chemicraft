@@ -14,8 +14,11 @@ tile.oreBoron.name=Boron Ore
 tile.oreCarbon.name=Carbon Ore
 tile.oreBeryllium.name=Beryllium Ore
 tile.blockMachine.name=Machine Block
+tile.oreBeryillium.name=Beryllium Ore
+tile.oreManganese.name=Manganese Ore
 
-
+item.elementFluorine.name=Flourine
+item.elementOxygen.name=Oxygen
 item.elementNitrogen.name=Nitrogen
 item.elementBeryllium.name=Beryllium
 item.elementBoron.name=Boron
@@ -33,6 +36,14 @@ item.elementCobalt.name=Cobalt Ingot
 item.elementNickel.name=Nickel Ingot
 item.elementCopper.name=Copper Ingot
 item.elementZinc.name=Zinc Ingot
+item.elementSodium.name=Sodium
+item.elementNeon.name=Neon
+item.elementMagnesium.name=Magnesium
+item.elementSilicon.name=Silcon
+item.elementMercury.name=Mercury
+
+item.unknownShard.name=???
+item.unknownIngot.name=???
 
 item.bookOfResearch.name=Book of Research
 

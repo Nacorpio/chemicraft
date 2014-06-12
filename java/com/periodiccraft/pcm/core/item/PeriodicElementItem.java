@@ -35,7 +35,7 @@ public class PeriodicElementItem extends PeriodicItem {
 	}
 	
 	@Override
-	public final void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
+	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		
 		Molecule var1 = SubstanceRegistry.getCompoundBinding(getUnlocalizedName());
 		if(!var1.isCompound() && var1.getFirstAtom() instanceof Element)
@@ -53,10 +53,25 @@ public class PeriodicElementItem extends PeriodicItem {
 			
 			//New Findings
 			
-			if(ResearchRegistry.getResearch(e.getAtomicNumber()).isComplete()) {
-				par3List.add("Density: " + ChatUtil.Colors.red + e.getDensity());
+			if(ResearchRegistry.getResearch(e.getAtomicNumber()).getProgress() >= 20) {
+				par3List.add("Density: " + ChatUtil.Colors.cyan + e.getDensity());
+			}
+			
+			if(ResearchRegistry.getResearch(e.getAtomicNumber()).getProgress() == 50) {
+				par3List.add("Boiling Point: " + ChatUtil.Colors.red + e.getBoilingPoint());
+				par3List.add("Melting Point: " + ChatUtil.Colors.red + e.getMeltingPoint());
+			}
+			
+			if(ResearchRegistry.getResearch(e.getAtomicNumber()).getProgress() == 50) {
+				par3List.add("Boiling Point: " + ChatUtil.Colors.red + e.getBoilingPoint());
+				par3List.add("Melting Point: " + ChatUtil.Colors.red + e.getMeltingPoint());
+				
+			if(ResearchRegistry.getResearch(e.getAtomicNumber()).getProgress() == 50) {
+				par3List.add("Atomic Weight: " + ChatUtil.Colors.blue + e.getWeight());
+				}
 			}
 		}	
 	}
-
 }
+
+
