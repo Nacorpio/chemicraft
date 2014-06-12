@@ -15,6 +15,8 @@ tile.oreCarbon.name=Carbon Ore
 tile.oreBeryllium.name=Beryllium Ore
 tile.blockMachine.name=Machine Block
 tile.oreBeryillium.name=Beryllium Ore
+tile.oreManganese.name=Manganese Ore
+
 item.elementFluorine.name=Flourine
 item.elementOxygen.name=Oxygen
 item.elementNitrogen.name=Nitrogen

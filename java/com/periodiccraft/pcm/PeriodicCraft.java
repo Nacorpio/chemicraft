@@ -64,7 +64,7 @@ public class PeriodicCraft {
 	public static PeriodicOre oreTitanium;
 	public static PeriodicOre oreVanadium;
 	public static PeriodicOre oreChromium;
-	public static PeriodicOre oreMangenese;
+	public static PeriodicOre oreManganese;
 	public static PeriodicOre oreCobalt;
 	public static PeriodicOre oreNickel;
 	public static PeriodicOre oreCopper;
@@ -121,7 +121,7 @@ public class PeriodicCraft {
 		oreTitanium = new PeriodicOre("oreTitanium", 5.0F);
 		oreVanadium = new PeriodicOre("oreVanadium", 4.0F);
 		oreChromium = new PeriodicOre("oreChromium", 3.5F);
-		oreMangenese = new PeriodicOre("oreMangenese", 4.0F);
+		oreManganese = new PeriodicOre("oreManganese", 4.0F);
 		oreCobalt = new PeriodicOre("oreCobalt", 4.5F);
 		oreNickel = new PeriodicOre("oreNickel", 4.0F);
 		oreCopper = new PeriodicOre("oreCopper", 3.5F);
@@ -204,7 +204,7 @@ public class PeriodicCraft {
 					new Instruction(oreTitanium, 64, 5, 7).setOverworld(true),
 					new Instruction(oreVanadium, 64, 5, 7).setOverworld(true),
 					new Instruction(oreChromium, 64, 5, 7).setOverworld(true),
-					new Instruction(oreMangenese, 64, 5, 7).setOverworld(true),
+					new Instruction(oreManganese, 64, 5, 7).setOverworld(true),
 					new Instruction(oreCobalt, 64, 5, 7).setOverworld(true),
 					new Instruction(oreNickel, 64, 5, 7).setOverworld(true),
 					new Instruction(oreCopper, 64, 5, 7).setOverworld(true),
