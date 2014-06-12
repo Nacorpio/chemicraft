@@ -7,17 +7,38 @@ import com.periodiccraft.pcm.core.element.Atom;
 import com.periodiccraft.pcm.core.element.IMolecule;
 
 public final class ChemUtil {
-
+	
+	public static final String SIMPLE_FORMULA = "([A-Z][a-z]?)(\\d*)";
+	public static final String STRUCT_FORMULA = "([-=]?)([A-Z][a-z]?)+([-=]?)";
+	
 	public static final boolean isFormula(String formula) {
-		String pattern = "([A-Z][a-z]?)(\\d*)";
-		return formula.matches(pattern);		
+		return formula.matches(SIMPLE_FORMULA);		
 	}
 	
-	public static final String[] getAtoms(String formula) {
+	public static final boolean isStructuralFormula(String par1) {
+		return par1.matches(STRUCT_FORMULA);
+	}
+	
+	public static final String[] getStructuralDecompilation(String par1) {
 		
 		String[] result = new String[]{};
 		
-		Pattern var1 = Pattern.compile("([A-Z][a-z]?)(\\d*)");
+		Pattern var1 = Pattern.compile(STRUCT_FORMULA);
+		Matcher var2 = var1.matcher(par1);
+		
+		while (var2.find()) {
+			result[result.length] = var2.group();
+		}
+		
+		return result;
+		
+	}
+	
+	public static final String[] getAtomsDecompilation(String formula) {
+		
+		String[] result = new String[]{};
+		
+		Pattern var1 = Pattern.compile(SIMPLE_FORMULA);
 		Matcher var2 = var1.matcher(formula);
 		
 		while (var2.find()) {
