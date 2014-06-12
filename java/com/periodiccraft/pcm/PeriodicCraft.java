@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
@@ -67,6 +68,9 @@ public class PeriodicCraft {
 	public static PeriodicOre oreNickel;
 	public static PeriodicOre oreCopper;
 	public static PeriodicOre oreZinc;
+	
+
+
 
 	// Generation
 	public static OreGenClass OreGen = new OreGenClass();
@@ -272,6 +276,9 @@ public class PeriodicCraft {
 		Compound diamond = new Compound(2, "Diamond", new Stack<Atom>(SubstanceRegistry.getSubstance("Carbon").getAtom(), 8));
 		SubstanceRegistry.bindCompound(Items.diamond.getUnlocalizedName(), diamond);
 		
+		//Dungeon Spawns?
+	    WeightedRandomChestContent[] field_111189_a = new WeightedRandomChestContent[] {new WeightedRandomChestContent(unknownShard, 0, 5, 10, 10)};
+
 	}
 
 }
