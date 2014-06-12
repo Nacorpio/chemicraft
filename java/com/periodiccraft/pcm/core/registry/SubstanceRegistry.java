@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import com.periodiccraft.pcm.PeriodicCraft;
 import com.periodiccraft.pcm.core.element.Element;
 import com.periodiccraft.pcm.core.element.Molecule;
+import com.periodiccraft.pcm.core.element.MoleculeStack;
 import com.periodiccraft.pcm.core.item.PeriodicElementItem;
 import com.periodiccraft.pcm.core.item.PeriodicItem;
 
@@ -21,33 +22,33 @@ public final class SubstanceRegistry {
 	public static final Map<Integer, Element> substances = new HashMap<Integer, Element>();
 	public static final Map<Integer, Molecule> compounds = new HashMap<Integer, Molecule>();
 	
-	public static final Map<String, Molecule> compound_bindings = new HashMap<String, Molecule>();
+	public static final Map<String, MoleculeStack> compound_bindings = new HashMap<String, MoleculeStack>();
 	
-	public static final void addItem(String par1, Molecule par2) {
+	public static final void addItem(String par1, Molecule par2, float mass) {
 		if (par1.length() > 0 && !par1.isEmpty()) {
 			PeriodicItem var1 = new PeriodicElementItem(par1, par2);
-			bindCompound(par1, par2);
+			bindCompound(par1, par2, mass);
 		}
 	}
 	
 	//
-	public static final void bindCompound(String par1, Molecule par2) {
-		compound_bindings.put(par1, par2);
+	public static final void bindCompound(String par1, Molecule par2, float mass) {
+		compound_bindings.put(par1, new MoleculeStack(mass, par2));
 	}
 
-	public static Molecule getCompoundBinding(String par1) {
+	public static MoleculeStack getCompoundBinding(String par1) {
 		return compound_bindings.get(par1);
 	}
 	
-	public static Molecule getCompoundBinding(ItemStack par1) {
+	public static MoleculeStack getCompoundBinding(ItemStack par1) {
 		return getCompoundBinding(par1.getUnlocalizedName());
 	}
 	
-	public static Molecule getCompoundBinding(Item par1) {
+	public static MoleculeStack getCompoundBinding(Item par1) {
 		return getCompoundBinding(par1.getUnlocalizedName());
 	}
 	
-	public static Molecule getCompoundBinding(Block par1) {
+	public static MoleculeStack getCompoundBinding(Block par1) {
 		return getCompoundBinding(par1.getUnlocalizedName());
 	}
 	

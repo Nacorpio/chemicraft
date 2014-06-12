@@ -27,7 +27,7 @@ public class PeriodicElementItem extends PeriodicItem {
 		this.setCreativeTab(PeriodicCraft.tabPeriodic);	
 		
 		if (!SubstanceRegistry.isCompoundBound(this.getUnlocalizedName())) {
-			SubstanceRegistry.bindCompound(this.getUnlocalizedName(), substance);
+			SubstanceRegistry.bindCompound(this.getUnlocalizedName(), substance, 1000F);
 		}
 		
 		this.substance = substance;
@@ -37,7 +37,7 @@ public class PeriodicElementItem extends PeriodicItem {
 	@Override
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		
-		Molecule var1 = SubstanceRegistry.getCompoundBinding(getUnlocalizedName());
+		Molecule var1 = SubstanceRegistry.getCompoundBinding(getUnlocalizedName()).getMolecule();
 		if(!var1.isCompound() && var1.getFirstAtom() instanceof Element)
 		{
 			Element e = (Element)var1.getFirstAtom();

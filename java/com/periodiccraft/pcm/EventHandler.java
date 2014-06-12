@@ -29,7 +29,7 @@ public class EventHandler
 	public void onItemTooltip(ItemTooltipEvent event)
 	{
 		if(event.itemStack.getItem() instanceof PeriodicItem) return;
-		Molecule m = SubstanceRegistry.getCompoundBinding(event.itemStack);
+		Molecule m = SubstanceRegistry.getCompoundBinding(event.itemStack).getMolecule();
 		if(m == null) return;
 		event.toolTip.add(Colors.green + m.getObfuscatedFormula());
 	}

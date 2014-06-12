@@ -293,12 +293,13 @@ public class PeriodicCraft {
 		new Substance(30, "Zinc", "Zn", "Silvery Greyish White", 65.380F,
 		*/
 		
-		// Just for testing	- The substances should be somewhere, getting them from the SubstanceRegistry is impractical.
+		//NOTE Just for testing	- The substances should be somewhere, getting them from the SubstanceRegistry is impractical.
 //		Compound quartz = new Compound(1, "Quartz", new Stack<Atom>(SubstanceRegistry.getSubstance("Silicon").getAtom(), 1), new Stack<Atom>(SubstanceRegistry.getSubstance("Oxygen").getAtom(), 2));
 //		SubstanceRegistry.bindCompound(Items.quartz.getUnlocalizedName(), quartz);
 		
 		Molecule diamond = new Molecule(2, "Diamond", SubstanceRegistry.getSubstance("Carbon").setAmount(8));
-		SubstanceRegistry.bindCompound(Items.diamond.getUnlocalizedName(), diamond);
+		//NOTE 1kg of diamond?
+		SubstanceRegistry.bindCompound(Items.diamond.getUnlocalizedName(), diamond, 1000F);
 
 		/*
 		Compound quartz = new Compound(1, "Quartz", new Stack<Atom>(SubstanceRegistry.getSubstance("Silicon").getAtom(), 1), new Stack<Atom>(SubstanceRegistry.getSubstance("Oxygen").getAtom(), 2));

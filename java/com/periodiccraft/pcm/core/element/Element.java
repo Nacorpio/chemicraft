@@ -110,7 +110,8 @@ public class Element extends Atom{
 		ResearchRegistry.addResearch(atomicNumber, new Research(this, Minecraft.getMinecraft().thePlayer));
 		
 		//if (par9.equals(STATE.SOLID) || par9.equals(STATE.GAS) || par9.equals(STATE.PLASMA)) {
-			SubstanceRegistry.addItem("element" + this.name, m);
+		//TODO How much of it now?	
+		SubstanceRegistry.addItem("element" + this.name, m, 1000F);
 		//} else {
 			// LIQUID
 			// Add the liquid automatically, somehow.
