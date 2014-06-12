@@ -133,11 +133,31 @@ public class PeriodicCraft {
 		
 		/*
 		 * ATTENTION!
-		 * I think we should have the chemical compositions of compounds in the research book
-		 * and then when you craft those, lets say in a molecular crafting table, you gain research on that item.
-		 * So if you crafted diamond, for example, you would need to get 8 carbon atoms and then craft them in formentioned crafting table
-		 * You would gain 20 research points on Carbon.
+		 * For research, I think we should do this.
+		 * We Include some BASIC elements into the Research Book 
+		 * you see, stuff that is defaulted as 100 research.
+		 * from these elements, you know the basic attributes of elements
+		 * and they are in your research book by default.
+		 * also some helpful tips in the book, 
+		 * such as what Compounds and Substances are.
+		 * After that, you can find out new substances by either:
+		 * 1. Finding Unknown Substances and Analyzing Them. 
+		 * (Unknown Substances are ALWAYS tier I)
+		 * 2. Crafting the Liquid or Solid or Gas(I Guess) Disassembler and Disassembling 
+		 * the basic compounds such as coal, diamond, quartz, dirt, water, etc.
+		 * (I think the recipe should be 2 Glass, 3 Iron, 1 Redstone Torch and 3 Redstone Blocks)
+		 * 3. Finding These Basic Substances and Analyzing Them
+		 * (Ores and Accessible Gases such as Oxygen)
 		 * 
+		 * ADDING research points, again emphasizing "ADDING" research
+		 * points to an item(something you already know the base info about)
+		 * can be done by studying the substance.
+		 * So Microscopes, Maybe an "Advanced Analyzer"?
+		 * Microscopes can only be done one time to add research points, and its random from 30-50,
+		 * Advanced Analyzer adds a flat rate? maybe 60 or whatevers left inside your research, like if you have 50 research, it just stops at 100?
+		 * Just throwing ideas out :)
+		 * 
+		 * - Andy
 		 */
 		
 		

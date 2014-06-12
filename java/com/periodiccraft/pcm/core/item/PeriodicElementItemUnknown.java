@@ -2,6 +2,7 @@ package com.periodiccraft.pcm.core.item;
 
 import java.util.List;
 
+import com.periodiccraft.pcm.PeriodicCraft;
 import com.periodiccraft.pcm.helper.ChatUtil;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,6 +12,7 @@ public class PeriodicElementItemUnknown extends PeriodicElementItem {
 
 	public PeriodicElementItemUnknown(String par1) {
 		super(par1);
+		this.setCreativeTab(PeriodicCraft.tabPeriodic);
 	}
 
 	@Override
@@ -21,6 +23,7 @@ public class PeriodicElementItemUnknown extends PeriodicElementItem {
 		}
 		
 		par3List.add(ChatUtil.Colors.gray + "???");
+		par3List.add(ChatUtil.Colors.bold + "I Know Nothing About This.");
 		
 	}
 		
