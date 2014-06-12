@@ -6,7 +6,7 @@ import java.util.Map;
 import net.minecraft.entity.player.EntityPlayer;
 
 import com.periodiccraft.pcm.core.element.Atom;
-import com.periodiccraft.pcm.core.element.Molecule;
+import com.periodiccraft.pcm.core.element.IMolecule;
 import com.periodiccraft.pcm.core.element.Element;
 
 public final class ResearchRegistry {
@@ -104,9 +104,9 @@ public final class ResearchRegistry {
 	}
 	
 	//NOTE Player bound.
-	public static boolean hasResearched(Molecule molecule, String player)
+	public static boolean hasResearched(IMolecule IMolecule, String player)
 	{
-		for(Atom a : molecule.getAtoms())
+		for(Atom a : IMolecule.getAtoms())
 		{
 			if(a instanceof Element)
 			{

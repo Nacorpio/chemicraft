@@ -58,7 +58,7 @@ public final class ChatUtil {
 		{
 			int i1 = Integer.parseInt(String.valueOf(s1.charAt(i)));
 			i1 = i1 + 8320;
-			out = out + (char)i1;	
+			out = out + (char)i1;
 		}
 
 		return out;

@@ -1,23 +1,26 @@
 package com.periodiccraft.pcm.core.element;
 
+import java.util.TreeMap;
+
 import com.periodiccraft.pcm.core.registry.ResearchRegistry;
+import com.periodiccraft.pcm.helper.BiomeTeperature;
 import com.periodiccraft.pcm.helper.ChatUtil;
 
-public class Molecule {
+public class SimpleMolecule implements IMolecule{
 
 	private Atom[] atoms;
 	
-	private float temperature;
+	private float temperature = BiomeTeperature.getDefaultTemperature();
 	private int count;
 	private String name;
 	private String formula = "";
 	
-	public Molecule(int count, Atom... contents) {
+	
+	public SimpleMolecule(int count, Atom... contents) {
 		this.atoms = contents;
 		this.count = count;
 		this.formula += count > 1 ? count : "";
-		//NOTE The only case where an Atom is not an Element is when it is an Isotope or Ion. Somehow we have to compare it to the elements that were
-		//NOTE already registered to check which one. For now it's just "?"
+		//NOTE The only case where an Atom is not an Element is when it is an Isotope or Ion. Somehow we have to compare it to the elements that were already registered to check which one. For now it's just "?"
 		//TODO Add charge to the formula?
 		for(Atom a : contents) {
 			if(a instanceof Element) {
@@ -28,43 +31,53 @@ public class Molecule {
 		}
 	}
 	
-	public Molecule(int count, String name, Atom... contents) {
+	public SimpleMolecule(int count, String name, Atom... contents) {
 		this(count, contents);
 		this.name = name;
 	}
 	
+	@Override
 	public boolean isCompound() {
 		return atoms.length > 1;
 	}
 	
+	@Override
 	public Atom getFirstAtom() {
 		return atoms[0];
 	}
 	
+	@Override
 	public final Atom[] getAtoms() {
 		return this.atoms;
 	}
 	
+	@Override
 	public final void setTemperature(float par1) {
 		this.temperature = par1;
 	}
 	
+	@Override
 	public final float getTemperature() {
 		return this.temperature;
 	}
 	
-	public final void setCount(int par1) {
+	@Override
+	public final IMolecule setCount(int par1) {
 		this.count = par1;
+		return this;
 	}
 	
+	@Override
 	public final int getCount() {
 		return this.count;
 	}
 
+	@Override
 	public String getFormula() {
 		return formula;
 	}
 	
+	@Override
 	public String getObfuscatedFormula() {
 		if(ResearchRegistry.hasResearched(this, null)) return getFormula();
 		
@@ -81,10 +94,12 @@ public class Molecule {
 		return formula;
 	}
 	
+	@Override
 	public boolean hasName() {
 		return name != null;
 	}
 	
+	@Override
 	public String getName() {
 		return name;
 	}

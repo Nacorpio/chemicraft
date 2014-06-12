@@ -1,33 +1,33 @@
 package com.periodiccraft.pcm.api.reaction;
 
 import com.periodiccraft.pcm.core.element.Atom;
-import com.periodiccraft.pcm.core.element.Molecule;
+import com.periodiccraft.pcm.core.element.IMolecule;
 import com.periodiccraft.pcm.core.registry.ReactionRegistry;
 import com.periodiccraft.pcm.helper.ChemUtil;
 
 public class Reaction implements IReaction {
 
-	private Molecule[] input1;
-	private Molecule[] input2;
+	private IMolecule[] input1;
+	private IMolecule[] input2;
 	
 	private EnumReactionType type;
 	
-	public Reaction(Molecule[] par1, Molecule[] par2, EnumReactionType par3) {
+	public Reaction(IMolecule[] par1, IMolecule[] par2, EnumReactionType par3) {
 		input1 = par1;
 		input2 = par2;
 		type = par3;
 	}
 	
-	public final Molecule[] getInput1() {
+	public final IMolecule[] getInput1() {
 		return this.input1;
 	}
 	
-	public final Molecule[] getInput2() {
+	public final IMolecule[] getInput2() {
 		return this.input2;
 	}
 	
 	@Override
-	public boolean canReact(Molecule[] par1, Molecule[] par2) {
+	public boolean canReact(IMolecule[] par1, IMolecule[] par2) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -56,7 +56,7 @@ public class Reaction implements IReaction {
 	}
 
 	@Override
-	public Molecule[] react() {
+	public IMolecule[] react() {
 		if (ReactionRegistry.hasRecipe(input1, input2)) {
 			ReactionRecipe var1 = ReactionRegistry.getRecipe(input1, input2);
 			return var1.getProduct();

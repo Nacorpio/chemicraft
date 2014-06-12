@@ -1,35 +1,35 @@
 package com.periodiccraft.pcm.api.reaction;
 
-import com.periodiccraft.pcm.core.element.Molecule;
+import com.periodiccraft.pcm.core.element.IMolecule;
 import com.periodiccraft.pcm.core.element.Element;
 
 public class ReactionRecipe implements IReactionRecipe {
 
-	private Molecule[] input1;
-	private Molecule[] input2;
+	private IMolecule[] input1;
+	private IMolecule[] input2;
 	
-	private Molecule[] output;
+	private IMolecule[] output;
 	
-	public ReactionRecipe(Molecule[] par1, Molecule[] par2, Molecule... par3) {
+	public ReactionRecipe(IMolecule[] par1, IMolecule[] par2, IMolecule... par3) {
 		this.input1 = par1;
 		this.input2 = par2;
 		this.output = par3;
 	}
 	
 	@Override
-	public Molecule[] getInputOne() {
+	public IMolecule[] getInputOne() {
 		return this.input1;
 	}
 
 	
 	
 	@Override
-	public Molecule[] getInputTwo() {
+	public IMolecule[] getInputTwo() {
 		return this.input2;
 	}
 
 	@Override
-	public Molecule[] getProduct() {
+	public IMolecule[] getProduct() {
 		return this.output;
 	}
 

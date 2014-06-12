@@ -11,9 +11,9 @@ import net.minecraftforge.fluids.FluidRegistry;
 
 import com.periodiccraft.pcm.core.block.ores.PeriodicOre;
 import com.periodiccraft.pcm.core.element.Atom;
-import com.periodiccraft.pcm.core.element.Molecule;
+import com.periodiccraft.pcm.core.element.IMolecule;
 import com.periodiccraft.pcm.core.element.Element;
-
+import com.periodiccraft.pcm.core.element.SimpleMolecule;
 import com.periodiccraft.pcm.core.fluids.BlockMercuryFluid;
 import com.periodiccraft.pcm.core.guiblocks.LQClass;
 import com.periodiccraft.pcm.core.guiblocks.TileEntityLQ;
@@ -297,7 +297,7 @@ public class PeriodicCraft {
 //		Compound quartz = new Compound(1, "Quartz", new Stack<Atom>(SubstanceRegistry.getSubstance("Silicon").getAtom(), 1), new Stack<Atom>(SubstanceRegistry.getSubstance("Oxygen").getAtom(), 2));
 //		SubstanceRegistry.bindCompound(Items.quartz.getUnlocalizedName(), quartz);
 		
-		Molecule diamond = new Molecule(2, "Diamond", SubstanceRegistry.getSubstance("Carbon").setAmount(8));
+		IMolecule diamond = new SimpleMolecule(2, "Diamond", SubstanceRegistry.getSubstance("Carbon").setAmount(8));
 		//NOTE 1kg of diamond?
 		SubstanceRegistry.bindCompound(Items.diamond.getUnlocalizedName(), diamond, 1000F);
 

@@ -2,10 +2,10 @@ package com.periodiccraft.pcm.core.element;
 
 public class MoleculeStack {
 	
-	private Molecule molecule;
+	private IMolecule molecule;
 	private float mass;
 	
-	public MoleculeStack(float mass, Molecule molecule) {
+	public MoleculeStack(float mass, IMolecule molecule) {
 		this.mass = mass;
 		this.molecule = molecule;
 	}
@@ -18,7 +18,7 @@ public class MoleculeStack {
 		return mass;
 	}
 	
-	public Molecule getMolecule() {
+	public IMolecule getIMolecule() {
 		return molecule;
 	}
 }
