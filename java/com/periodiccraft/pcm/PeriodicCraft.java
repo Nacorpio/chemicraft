@@ -83,6 +83,7 @@ public class PeriodicCraft {
 	// Other
 	public static PeriodicElementItemUnknown unknownShard;
 	public static PeriodicElementItemUnknown unknownIngot;
+	public static PeriodicElementItemUnknown unknownGas;
 	
 	public static CreativeTabs tabPeriodic = new TabPeriodic(
 			CreativeTabs.getNextID(), "tabPeriodic");
@@ -165,8 +166,10 @@ public class PeriodicCraft {
 		bookOfResearch = new PeriodicItem("bookOfResearch")
 				.setCreativeTab(tabResearch);
 		
+		// Unknown items
 		unknownShard = new PeriodicElementItemUnknown("unknownShard");
 		unknownIngot = new PeriodicElementItemUnknown("unknownIngot");
+		unknownGas = new PeriodicElementItemUnknown("unknownGas");
 
 		// Creative Tab(s)
 		tabPeriodicIcon = new TabPeriodicIcon()
