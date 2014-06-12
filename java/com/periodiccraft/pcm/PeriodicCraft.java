@@ -2,6 +2,7 @@ package com.periodiccraft.pcm;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.WeightedRandomChestContent;
@@ -130,6 +131,14 @@ public class PeriodicCraft {
 		oreBeryllium = new PeriodicOre("Beryllium", 3.5F);
 
 		
+		/*
+		 * ATTENTION!
+		 * I think we should have the chemical compositions of compounds in the research book
+		 * and then when you craft those, lets say in a molecular crafting table, you gain research on that item.
+		 * So if you crafted diamond, for example, you would need to get 8 carbon atoms and then craft them in formentioned crafting table
+		 * You would gain 20 research points on Carbon.
+		 * 
+		 */
 		
 		
 		// Items
@@ -245,9 +254,7 @@ public class PeriodicCraft {
 				Substance.STATE.SOLID);
 		new Substance(25, "Manganese", "Mn", "Silvery Gray", 54.940F, 1962.0F,
 				1245.0F, 221.0F, 7.21F, Substance.CATEGORY.TRANSITION_METALS,
-				Substance.STATE.SOLID);
-		
-		
+				Substance.STATE.SOLID);		
 		/*
 		 *  Iron(FE) 
 		 * 
@@ -273,8 +280,23 @@ public class PeriodicCraft {
 		
 		Compound quartz = new Compound(1, "Quartz", new Stack<Atom>(SubstanceRegistry.getSubstance("Silicon").getAtom(), 1), new Stack<Atom>(SubstanceRegistry.getSubstance("Oxygen").getAtom(), 2));
 		SubstanceRegistry.bindCompound(Items.quartz.getUnlocalizedName(), quartz);
+		
 		Compound diamond = new Compound(2, "Diamond", new Stack<Atom>(SubstanceRegistry.getSubstance("Carbon").getAtom(), 8));
 		SubstanceRegistry.bindCompound(Items.diamond.getUnlocalizedName(), diamond);
+		
+		Compound coal = new Compound(3, "Coal", new Stack<Atom>(SubstanceRegistry.getSubstance("Carbon").getAtom(), 2), new Stack<Atom>(SubstanceRegistry.getSubstance("Hydrogen").getAtom(), 1), new Stack<Atom>(SubstanceRegistry.getSubstance("Nitrogen").getAtom(), 1));
+		SubstanceRegistry.bindCompound(Items.coal.getUnlocalizedName(), coal);
+		
+		Compound sugar = new Compound(4, "Sugar", new Stack<Atom>(SubstanceRegistry.getSubstance("Carbon").getAtom(), 12), new Stack<Atom>(SubstanceRegistry.getSubstance("Hydrogen").getAtom(), 22), new Stack<Atom>(SubstanceRegistry.getSubstance("Oxygen").getAtom(), 11));
+		SubstanceRegistry.bindCompound(Items.sugar.getUnlocalizedName(), sugar);
+		
+		Compound water = new Compound(5, "Water", new Stack<Atom>(SubstanceRegistry.getSubstance("Hydrogen").getAtom(), 2), new Stack<Atom>(SubstanceRegistry.getSubstance("Oxygen").getAtom(), 1));
+		//Should this be bucket water or block water?
+		SubstanceRegistry.bindCompound(Blocks.water.getUnlocalizedName(), water);
+		
+		Compound wheat = new Compound(6, "Wheat", new Stack<Atom>(SubstanceRegistry.getSubstance("Carbon").getAtom(), 6), new Stack<Atom>(SubstanceRegistry.getSubstance("Hydrogen").getAtom(), 10), new Stack<Atom>(SubstanceRegistry.getSubstance("Oxygen").getAtom(), 5));
+		SubstanceRegistry.bindCompound(Items.wheat.getUnlocalizedName(), wheat);
+		
 		
 		//Dungeon Spawns?
 	    WeightedRandomChestContent[] field_111189_a = new WeightedRandomChestContent[] {new WeightedRandomChestContent(unknownShard, 0, 5, 10, 10)};
