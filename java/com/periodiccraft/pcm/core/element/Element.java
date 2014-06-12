@@ -138,7 +138,7 @@ public class Element extends Atom{
 	
 	//TODO Carbon is no Liquid.
 	public final STATE getState(float temperature) {
-		return (((temperature >= this.meltingPoint && temperature < this.boilingPoint) ? STATE.SOLID : STATE.LIQUID));
+		return (((temperature < this.meltingPoint && temperature < this.boilingPoint) ? STATE.SOLID : STATE.LIQUID));
 	}
 	
 	public final String getName() {
