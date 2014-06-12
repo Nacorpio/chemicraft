@@ -1,5 +1,9 @@
 package com.periodiccraft.pcm;
 
+import java.awt.event.KeyAdapter;
+
+import org.lwjgl.input.Keyboard;
+
 import com.periodiccraft.pcm.core.element.Element;
 import com.periodiccraft.pcm.core.element.Molecule;
 import com.periodiccraft.pcm.core.item.PeriodicItem;
@@ -9,6 +13,7 @@ import com.periodiccraft.pcm.helper.ChatUtil;
 import com.periodiccraft.pcm.helper.ChatUtil.Colors;
 import com.periodiccraft.pcm.helper.ChemUtil;
 
+import net.java.games.input.Component.Identifier.Key;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -29,8 +34,13 @@ public class EventHandler
 	public void onItemTooltip(ItemTooltipEvent event)
 	{
 		if(event.itemStack.getItem() instanceof PeriodicItem) return;
-		Molecule m = SubstanceRegistry.getCompoundBinding(event.itemStack).getMolecule();
-		if(m == null) return;
-		event.toolTip.add(Colors.green + m.getObfuscatedFormula());
+		System.out.println("@@@@DEBUG@@@@: ITEMSTACK NAME: " + event.itemStack.getUnlocalizedName() + "[" + event.itemStack.getDisplayName() + "]");
+		if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
+			// event.toolTip.add("HOLDING SHIFT!!");
+		}
+		//Molecule m = SubstanceRegistry.getCompoundBinding(event.itemStack).getMolecule();
+		//if(m == null) return;
+		//event.toolTip.add(Colors.green + m.getObfuscatedFormula());
 	}
+	
 }
