@@ -245,7 +245,7 @@ public class PeriodicCraft {
 				Element.STATE.SOLID);
 		
 		//NOTE Setting all Colorless Material to White for now. + Nitrogen Shows up as gas...
-		new Element("Nitrogen", 7, "Ni", 0xFFFFFF, Element.CATEGORY.NON_METALS, 7, 7, 7,
+		new Element("Nitrogen", 7, "N", 0xFFFFFF, Element.CATEGORY.NON_METALS, 7, 7, 7,
 				-195.795F, -209.0F, 5.560F, 14.007F, 1.2510F, Element.STATE.GAS);			
 		
 			
@@ -345,6 +345,26 @@ public class PeriodicCraft {
 				"  H  H  H  H  H    "
 				);
 		
+		IMolecule cocaine = new OrganicMolecule(1, "Cocaine",
+				"             H          ",
+				"             -          ",
+				"           H-C-H        ",
+				"             -          ",
+				"  H     H  O=C          ",
+				"  -     -    -          ",
+				"H-C-N---C----C-H        ",
+				"  - -   -    -          ",
+				"  H - H-C-H  -          ",
+				"    -   -    -          ",
+				"  H-C---C-H  -   H-C=C-H",
+				"    -   -    -     - -  ",
+				"    -   H    -   H-C C-H",
+				"    -        -     = =  ",
+				"  H-C--------C-O-C-C-C  ",
+				"    -        -   =   -  ",
+				"    H        H   O   H  "
+				);
+		
 		/*NOTE Maybe something like this? We would need a pre-parser for that. Is the syntax understandable?	
 		IMolecule glucose = new OrganicMolecule(1, "Glucose",
 				"          H   ",
@@ -354,10 +374,11 @@ public class PeriodicCraft {
 				);
 		 */
 		
-		System.out.println("Ethanol atoms: " + ethanol.getAtoms().length);
+		System.out.println(ethanol);
 		System.out.println(methane);
 		System.out.println(ethene);
 		System.out.println(glucose);
+		System.out.println(cocaine);
 		
 		SubstanceRegistry.bindCompound(Items.sugar.getUnlocalizedName(), glucose, 50F);
 		
