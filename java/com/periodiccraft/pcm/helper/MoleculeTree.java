@@ -27,6 +27,7 @@ public class MoleculeTree
 		this.amount = amount;
 	}
 	
+	//TODO When dealing with Elements that are longer then just 1 letter, it should automatically insert whitespaces to push the matrix in place.
 	public MoleculeTree(String... structure)
 	{	
 		ArrayList<ArrayList<String>> matrix = new ArrayList<ArrayList<String>>();

@@ -342,8 +342,8 @@ public class PeriodicCraft {
 		IMolecule glucose = new OrganicMolecule(1, "Glucose",
 				"          H  ",
 				"          -  ",
-				"H-5*(-R1-)C=O",
-				"R1=","H","-","C","-","O","-","H", ";"
+				"H-5*(-$R1-)C=O",
+				"$R1=","H","-","C","-","O","-","H", ";"
 				);
 		 */
 		
