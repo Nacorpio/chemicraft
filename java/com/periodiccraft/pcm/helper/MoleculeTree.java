@@ -182,12 +182,13 @@ public class MoleculeTree
 	{
 		return new SimpleMolecule(1, getAtoms(getRoot()));
 	}
-	
+
 	public Atom[] getAtoms(MoleculeNode node)
 	{
 		ArrayList<Atom> list = new ArrayList<Atom>();
 		getAtomsRaw(node, list);
 		HashMap<Atom, Integer> map = new HashMap<Atom, Integer>();
+		
 		for(Atom a : list)
 		{
 			Integer i = map.get(a);
@@ -195,19 +196,20 @@ public class MoleculeTree
 			else i++;
 			map.put(a, i);
 		}
+
 		list.clear();
 		for(Atom a : map.keySet())
 		{
 			Integer amount = map.get(a);
 			list.add(a.clone().setAmount(amount));
 		}
-		return (Atom[]) list.toArray();
+		return list.toArray(new Atom[list.size()]);
 	}
 	
 	private void getAtomsRaw(MoleculeNode node, List<Atom> list)
 	{
-		if(node.isLeaf()) list.add(node.getValue());
-		else for(MoleculeNode n2 : node.children) getAtomsRaw(n2, list);
+		list.add(node.getValue());
+		for(MoleculeNode n2 : node.children) getAtomsRaw(n2, list);
 	}
 	
 	public MoleculeNode getRoot()

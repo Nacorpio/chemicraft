@@ -6,6 +6,7 @@ import org.lwjgl.input.Keyboard;
 
 import com.periodiccraft.pcm.core.element.Element;
 import com.periodiccraft.pcm.core.element.IMolecule;
+import com.periodiccraft.pcm.core.element.MoleculeStack;
 import com.periodiccraft.pcm.core.item.PeriodicItem;
 import com.periodiccraft.pcm.core.registry.ResearchRegistry;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
@@ -34,13 +35,12 @@ public class EventHandler
 	public void onItemTooltip(ItemTooltipEvent event)
 	{
 		if(event.itemStack.getItem() instanceof PeriodicItem) return;
-		System.out.println("@@@@DEBUG@@@@: ITEMSTACK NAME: " + event.itemStack.getUnlocalizedName() + "[" + event.itemStack.getDisplayName() + "]");
-		if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
-			// event.toolTip.add("HOLDING SHIFT!!");
-		}
-		//Molecule m = SubstanceRegistry.getCompoundBinding(event.itemStack).getMolecule();
-		//if(m == null) return;
-		//event.toolTip.add(Colors.green + m.getObfuscatedFormula());
+		MoleculeStack m = SubstanceRegistry.getCompoundBinding(event.itemStack);
+		if(m == null) return;
+		//TODO Possibly also apply research to the molecule's name.
+		event.toolTip.add(m.getMass() + "g of");
+		event.toolTip.add(Colors.italic + m.getIMolecule().getName());
+		event.toolTip.add(Colors.green + "(" + m.getIMolecule().getObfuscatedFormula() + ")");
 	}
 	
 }

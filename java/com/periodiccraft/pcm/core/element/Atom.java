@@ -86,6 +86,20 @@ public class Atom implements Cloneable {
 	}
 	
 	@Override
+	public boolean equals(Object obj) 
+	{
+		if(obj == null) return false;
+		if(!(obj instanceof Atom))return false;
+		Atom a2 = (Atom)obj;
+		return a2.protons == protons && a2.electrons == electrons && a2.neutrons == neutrons;
+	}
+	
+	@Override
+	public int hashCode() {
+		return protons * electrons * neutrons;
+	}
+
+	@Override
 	public String toString()
 	{		
 		return "Atom(" + getProtons() + ", " + getNeutrons() + ", " + getElectrons() + ")";

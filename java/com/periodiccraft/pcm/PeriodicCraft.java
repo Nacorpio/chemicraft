@@ -340,8 +340,8 @@ public class PeriodicCraft {
 		
 		/*NOTE Maybe something like this? We would need a pre-parser for that. Is the syntax understandable?	
 		IMolecule glucose = new OrganicMolecule(1, "Glucose",
-				"          H  ",
-				"          -  ",
+				"          H   ",
+				"          -   ",
 				"H-5*(-$R1-)C=O",
 				"$R1=","H","-","C","-","O","-","H", ";"
 				);
@@ -350,6 +350,8 @@ public class PeriodicCraft {
 		System.out.println(methane);
 		System.out.println(ethene);
 		System.out.println(glucose);
+		
+		SubstanceRegistry.bindCompound(Items.sugar.getUnlocalizedName(), glucose, 50F);
 		
 		/*
 		Compound quartz = new Compound(1, "Quartz", new Stack<Atom>(SubstanceRegistry.getSubstance("Silicon").getAtom(), 1), new Stack<Atom>(SubstanceRegistry.getSubstance("Oxygen").getAtom(), 2));

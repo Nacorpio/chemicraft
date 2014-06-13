@@ -10,7 +10,7 @@ import com.periodiccraft.pcm.core.registry.ResearchRegistry.Research;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
 import com.periodiccraft.pcm.helper.ChatUtil;
 
-public class Element extends Atom{
+public class Element extends Atom {
 
 	public static enum CATEGORY {
 		
@@ -175,5 +175,4 @@ public class Element extends Atom{
 	public final float getHeatOfVaporization() {
 		return this.heatOfVaporization;
 	}
-	
 }
