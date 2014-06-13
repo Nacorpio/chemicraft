@@ -244,6 +244,7 @@ public class PeriodicCraft {
 		new Element("Nitrogen", 7, "Ni", 0xFFFFFF, Element.CATEGORY.NON_METALS, 7, 7, 7,
 				-195.795F, -209.0F, 5.560F, 14.007F, 1.2510F, Element.STATE.GAS);
 		
+	
 		
 				
 		new Element("Oxygen", 8, "O", 0xFFFFFF, Element.CATEGORY.NON_METALS, 8, 8, 8, -182.962F,
@@ -251,16 +252,19 @@ public class PeriodicCraft {
 		
 		new Element("Fluorine", 9, "F", 0xCCFF00, Element.CATEGORY.HALOGENS, 10, 9, 5, -188.11F,
 				-219.67F, 6.51F, 1.696F, 18.998F, Element.STATE.GAS);
+		
+			
+		new Element("Neon", 10, "Ne", 0xFFFFFF, Element.CATEGORY.NOBLE_GASES, 7, 7, 7, -246.046F,
+				-248.59F, 1.71F, 0.9002F, 20.180F, Element.STATE.GAS);
+				
 			/*
-		new Element(10, "Neon", "Ne", "Colorless", 20.180F, -246.046F,
-				-248.59F, 1.71F, 0.9002F, Element.CATEGORY.NOBLE_GASES,
-				Element.STATE.GAS);
 		new Element(11, "Sodium", "Na", "Silvery White Metallic", 22.989F,
 				882.940F, 97.794F, 97.42F, 0.968F,
 				Element.CATEGORY.ALKALI_METALS, Element.STATE.SOLID);
 		new Element(12, "Magnesium", "Mg", "Shiny Gray", 24.305F, 1091F,
 				650F, 128.0F, 1.738F, Element.CATEGORY.ALKALINE_EARTH_METALS,
 				Element.STATE.SOLID);
+		
 		
 		//---
 		
@@ -296,9 +300,10 @@ public class PeriodicCraft {
 		new Substance(30, "Zinc", "Zn", "Silvery Greyish White", 65.380F,
 		*/
 		
-		//NOTE Just for testing	- The substances should be somewhere, getting them from the SubstanceRegistry is impractical.
-//		Compound quartz = new Compound(1, "Quartz", new Stack<Atom>(SubstanceRegistry.getSubstance("Silicon").getAtom(), 1), new Stack<Atom>(SubstanceRegistry.getSubstance("Oxygen").getAtom(), 2));
-//		SubstanceRegistry.bindCompound(Items.quartz.getUnlocalizedName(), quartz);
+		/*NOTE Just for testing	- The substances should be somewhere, getting them from the SubstanceRegistry is impractical.
+	    Compound quartz = new Compound(1, "Quartz", new Stack<Atom>(SubstanceRegistry.getSubstance("Silicon").getAtom(), 1), new Stack<Atom>(SubstanceRegistry.getSubstance("Oxygen").getAtom(), 2));
+	    SubstanceRegistry.bindCompound(Items.quartz.getUnlocalizedName(), quartz);
+		*/
 		
 		IMolecule diamond = new SimpleMolecule(2, "Diamond", SubstanceRegistry.getSubstance("Carbon").setAmount(8));
 		//NOTE 1kg of diamond?
@@ -324,9 +329,11 @@ public class PeriodicCraft {
 		SubstanceRegistry.bindCompound(Items.wheat.getUnlocalizedName(), wheat);
 		
 		*/
+		
 		//Dungeon Spawns?
 	    WeightedRandomChestContent[] field_111189_a = new WeightedRandomChestContent[] {new WeightedRandomChestContent(unknownShard, 0, 5, 10, 10)};
 
+	    
 	}
 
 }
