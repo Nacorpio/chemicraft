@@ -14,7 +14,7 @@ import com.periodiccraft.pcm.core.element.IMolecule;
 import com.periodiccraft.pcm.core.registry.ResearchRegistry;
 import com.periodiccraft.pcm.core.registry.ResearchRegistry.Research;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
-import com.periodiccraft.pcm.helper.BiomeTeperature;
+import com.periodiccraft.pcm.helper.BiomeTemperature;
 import com.periodiccraft.pcm.helper.ChatUtil;
 
 public class PeriodicElementItem extends PeriodicItem {
@@ -48,7 +48,7 @@ public class PeriodicElementItem extends PeriodicItem {
 			
 			
 			par3List.add("Symbol: " + ChatUtil.Colors.green + e.getSymbol());
-			par3List.add("State: " + ChatUtil.Colors.green + e.getState(BiomeTeperature.getDefaultTemperature()).getText());
+			par3List.add("State: " + ChatUtil.Colors.green + e.getState(BiomeTemperature.getDefaultTemperature()).getText());
 			par3List.add("Tier: " + e.getTier().getColor() + e.getTier().getText());
 			
 			//New Findings

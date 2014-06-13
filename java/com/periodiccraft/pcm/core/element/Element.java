@@ -120,6 +120,12 @@ public class Element extends Atom{
 	}
 	
 	
+	@Override
+	public String toString()
+	{		
+		return getSymbol();
+	}
+
 	public final Element setTier(TIER par1) {
 		this.tier = par1;
 		return this;
@@ -149,8 +155,6 @@ public class Element extends Atom{
 	public final String getSymbol() {
 		return this.symbol;
 	}
-	
-
 	
 	public final int getColor() {
 		return this.color;

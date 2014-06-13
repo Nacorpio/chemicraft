@@ -1,12 +1,12 @@
 package com.periodiccraft.pcm.core.element;
 
-import com.periodiccraft.pcm.helper.BiomeTeperature;
+import com.periodiccraft.pcm.helper.BiomeTemperature;
 import com.periodiccraft.pcm.helper.MoleculeTree;
 
 public class OrganicMolecule implements IMolecule
 {
 	MoleculeTree moleculeTree;
-	private float temperature = BiomeTeperature.getDefaultTemperature();
+	private float temperature = BiomeTemperature.getDefaultTemperature();
 	private int count;
 	private String name;
 	
@@ -73,4 +73,9 @@ public class OrganicMolecule implements IMolecule
 		return name;
 	}
 
+	@Override
+	public String toString() 
+	{
+		return "OrganicMolecule[name=\"" + getName() + "\"" + ", structure=\"" + moleculeTree.getRoot().toString() + "\"]";
+	}
 }

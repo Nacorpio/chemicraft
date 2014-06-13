@@ -109,6 +109,15 @@ public final class SubstanceRegistry {
 		return null;
 	}
 	
+	//TODO Maybe we should do something like a multiKeyMap so we don't have to loop all the elements.
+	public static final Element getSubstanceBySymbol(String par1) {
+		for (Element var: getSubstances()) {
+			if (var.getSymbol().equalsIgnoreCase(par1)) 
+				return (Element) var.clone();
+		}
+		return null;
+	}
+	
 	//
 	
 	public static final int getCount() {

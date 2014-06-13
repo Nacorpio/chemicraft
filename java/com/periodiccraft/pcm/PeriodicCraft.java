@@ -13,6 +13,7 @@ import com.periodiccraft.pcm.core.block.ores.PeriodicOre;
 import com.periodiccraft.pcm.core.element.Atom;
 import com.periodiccraft.pcm.core.element.IMolecule;
 import com.periodiccraft.pcm.core.element.Element;
+import com.periodiccraft.pcm.core.element.OrganicMolecule;
 import com.periodiccraft.pcm.core.element.SimpleMolecule;
 import com.periodiccraft.pcm.core.fluids.BlockMercuryFluid;
 import com.periodiccraft.pcm.core.guiblocks.LQClass;
@@ -219,10 +220,13 @@ public class PeriodicCraft {
 
 		// Substances
 		//TODO Redo these.
-		/*
-		new Element(1, "Hydrogen", "H", "Colorless", 1.008F, -252.879F,
-				-259.160F, 0.904F, 0.08988F, Element.CATEGORY.NON_METALS,
+		//TODO Please use NOTES
+		//NOTE Way too much NOTES in here... And comments.
+		
+		new Element("Hydrogen", 1, "H", 0xFFFFFF, Element.CATEGORY.NON_METALS, 1, 0, 1,
+				1.008F, -252.879F, -259.160F, 0.904F, 0.08988F,
 				Element.STATE.GAS);
+		/*
 		new Element(2, "Helium", "He", "Colorless", 4.003F, -268.928F,
 				-272.20F, 0.083F, 0.1786F, Element.CATEGORY.NOBLE_GASES,
 				Element.STATE.GAS);
@@ -240,13 +244,11 @@ public class PeriodicCraft {
 				4827.0F, 3550.0F, 117.0F, 2.00F, 12.011F, 
 				Element.STATE.SOLID);
 		
-		//Setting all Colorless Material to White for now. + Nitrogen Shows up as gas...
+		//NOTE Setting all Colorless Material to White for now. + Nitrogen Shows up as gas...
 		new Element("Nitrogen", 7, "Ni", 0xFFFFFF, Element.CATEGORY.NON_METALS, 7, 7, 7,
-				-195.795F, -209.0F, 5.560F, 14.007F, 1.2510F, Element.STATE.GAS);
+				-195.795F, -209.0F, 5.560F, 14.007F, 1.2510F, Element.STATE.GAS);			
 		
-	
-		
-				
+			
 		new Element("Oxygen", 8, "O", 0xFFFFFF, Element.CATEGORY.NON_METALS, 8, 8, 8, -182.962F,
 				-218.79F, 6.82F, 1.429F, 15.999F, Element.STATE.GAS);
 		
@@ -257,7 +259,7 @@ public class PeriodicCraft {
 		new Element("Neon", 10, "Ne", 0xFFFFFF, Element.CATEGORY.NOBLE_GASES, 7, 7, 7, -246.046F,
 				-248.59F, 1.71F, 0.9002F, 20.180F, Element.STATE.GAS);
 				
-			/*
+		/*
 		new Element(11, "Sodium", "Na", "Silvery White Metallic", 22.989F,
 				882.940F, 97.794F, 97.42F, 0.968F,
 				Element.CATEGORY.ALKALI_METALS, Element.STATE.SOLID);
@@ -300,8 +302,9 @@ public class PeriodicCraft {
 		new Substance(30, "Zinc", "Zn", "Silvery Greyish White", 65.380F,
 		*/
 		
-		/*NOTE Just for testing	- The substances should be somewhere, getting them from the SubstanceRegistry is impractical.
-	    Compound quartz = new Compound(1, "Quartz", new Stack<Atom>(SubstanceRegistry.getSubstance("Silicon").getAtom(), 1), new Stack<Atom>(SubstanceRegistry.getSubstance("Oxygen").getAtom(), 2));
+		//NOTE Just for testing	- The substances should be somewhere, getting them from the SubstanceRegistry is impractical. Note that you have to .clone() them to create new instances.
+	    
+		/*Compound quartz = new Compound(1, "Quartz", new Stack<Atom>(SubstanceRegistry.getSubstance("Silicon").getAtom(), 1), new Stack<Atom>(SubstanceRegistry.getSubstance("Oxygen").getAtom(), 2));
 	    SubstanceRegistry.bindCompound(Items.quartz.getUnlocalizedName(), quartz);
 		*/
 		
@@ -309,6 +312,45 @@ public class PeriodicCraft {
 		//NOTE 1kg of diamond?
 		SubstanceRegistry.bindCompound(Items.diamond.getUnlocalizedName(), diamond, 1000F);
 
+		IMolecule methane = new OrganicMolecule(1, "Methane", 
+				"  H  ",
+				"  -  ",
+				"H-C-H",
+				"  -  ",
+				"  H  "
+				);
+		
+		IMolecule ethene = new OrganicMolecule(1, "Ethene", 
+				"  H H  ",
+				"  - -  ",
+				"H-C=C-H",
+				"  - -  ",
+				"  H H  "
+				);
+		
+		IMolecule glucose = new OrganicMolecule(1, "Glucose",
+				"  H  H  H  H  H H  ",
+				"  -  -  -  -  - -  ",
+				"H-C--C--C--C--C-C=O",
+				"  -  -  -  -  -    ",
+				"  O  O  O  O  O    ",
+				"  -  -  -  -  -    ",
+				"  H  H  H  H  H    "
+				);
+		
+		/*NOTE Maybe something like this? We would need a pre-parser for that. Is the syntax understandable?	
+		IMolecule glucose = new OrganicMolecule(1, "Glucose",
+				"          H  ",
+				"          -  ",
+				"H-5*(-R1-)C=O",
+				"R1=","H","-","C","-","O","-","H", ";"
+				);
+		 */
+		
+		System.out.println(methane);
+		System.out.println(ethene);
+		System.out.println(glucose);
+		
 		/*
 		Compound quartz = new Compound(1, "Quartz", new Stack<Atom>(SubstanceRegistry.getSubstance("Silicon").getAtom(), 1), new Stack<Atom>(SubstanceRegistry.getSubstance("Oxygen").getAtom(), 2));
 		SubstanceRegistry.bindCompound(Items.quartz.getUnlocalizedName(), quartz);

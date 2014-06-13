@@ -1,6 +1,6 @@
 package com.periodiccraft.pcm.helper;
 
-public class BiomeTeperature 
+public class BiomeTemperature 
 {
 	public static float getDefaultTemperature()
 	{

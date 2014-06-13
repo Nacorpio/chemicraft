@@ -83,5 +83,11 @@ public class Atom implements Cloneable {
 			e.printStackTrace();
 		}
 		return null;
-	}		
+	}
+	
+	@Override
+	public String toString()
+	{		
+		return "Atom(" + getProtons() + ", " + getNeutrons() + ", " + getElectrons() + ")";
+	}
 }

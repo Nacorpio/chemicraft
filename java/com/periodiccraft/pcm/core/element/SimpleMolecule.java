@@ -3,14 +3,14 @@ package com.periodiccraft.pcm.core.element;
 import java.util.TreeMap;
 
 import com.periodiccraft.pcm.core.registry.ResearchRegistry;
-import com.periodiccraft.pcm.helper.BiomeTeperature;
+import com.periodiccraft.pcm.helper.BiomeTemperature;
 import com.periodiccraft.pcm.helper.ChatUtil;
 
 public class SimpleMolecule implements IMolecule{
 
 	private Atom[] atoms;
 	
-	private float temperature = BiomeTeperature.getDefaultTemperature();
+	private float temperature = BiomeTemperature.getDefaultTemperature();
 	private int count;
 	private String name;
 	private String formula = "";
