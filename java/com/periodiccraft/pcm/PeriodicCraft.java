@@ -320,6 +320,13 @@ public class PeriodicCraft {
 				"  H  "
 				);
 		
+		IMolecule ethanol = new OrganicMolecule(1, "Ethanol",
+				"  H H    ",
+				"  - -    " ,
+				"H-C-C-O-H",
+				"  - -    ",
+				"  H H    ");
+		
 		IMolecule ethene = new OrganicMolecule(1, "Ethene", 
 				"  H H  ",
 				"  - -  ",
@@ -347,6 +354,7 @@ public class PeriodicCraft {
 				);
 		 */
 		
+		System.out.println("Ethanol atoms: " + ethanol.getAtoms().length);
 		System.out.println(methane);
 		System.out.println(ethene);
 		System.out.println(glucose);
