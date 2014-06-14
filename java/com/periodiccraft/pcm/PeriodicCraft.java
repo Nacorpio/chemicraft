@@ -386,6 +386,12 @@ public class PeriodicCraft {
 		ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(
 				new WeightedRandomChestContent(new ItemStack(unknownShard), 1,
 						10, 5));
+		ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(
+				new WeightedRandomChestContent(new ItemStack(unknownIngot), 1,
+						10, 5));
+		ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(
+				new WeightedRandomChestContent(new ItemStack(unknownGas), 1,
+						10, 5));
 
 	}
 
