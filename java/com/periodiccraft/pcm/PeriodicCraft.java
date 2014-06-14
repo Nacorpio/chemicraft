@@ -290,14 +290,26 @@ public class PeriodicCraft {
 		SubstanceRegistry.bindCompound(Items.diamond.getUnlocalizedName(),
 				diamond, 1000F);
 
-		IMolecule methane = new OrganicMolecule(1, "Methane", "  H  ", "  -  ",
-				"H-C-H", "  -  ", "  H  ");
+		IMolecule methane = new OrganicMolecule(1, "Methane",
+				"  H  ",
+				"  -  ",
+				"H-C-H",
+				"  -  ",
+				"  H  ");
 
-		IMolecule ethanol = new OrganicMolecule(1, "Ethanol", "  H H    ",
-				"  - -    ", "H-C-C-O-H", "  - -    ", "  H H    ");
+		IMolecule ethanol = new OrganicMolecule(1, "Ethanol", 
+				"  H H    ",
+				"  - -    ",
+				"H-C-C-O-H",
+				"  - -    ",
+				"  H H    ");
 
-		IMolecule ethene = new OrganicMolecule(1, "Ethene", "  H H  ",
-				"  - -  ", "H-C=C-H", "  - -  ", "  H H  ");
+		IMolecule ethene = new OrganicMolecule(1, "Ethene",
+				"  H H  ",
+				"  - -  ",
+				"H-C=C-H",
+				"  - -  ",
+				"  H H  ");
 
 		IMolecule glucose = new OrganicMolecule(1, "Glucose",
 				"  H  H  H  H  H H  ", "  -  -  -  -  - -  ",
@@ -306,14 +318,22 @@ public class PeriodicCraft {
 				"  H  H  H  H  H    ");
 
 		IMolecule cocaine = new OrganicMolecule(1, "Cocaine",
-				"             H          ", "             -          ",
-				"           H-C-H        ", "             -          ",
-				"  H     H  O=C          ", "  -     -    -          ",
-				"H-C-N---C----C-H        ", "  - -   -    -          ",
-				"  H - H-C-H  -          ", "    -   -    -          ",
-				"  H-C---C-H  -   H-C=C-H", "    -   -    -     - -  ",
-				"    -   H    -   H-C C-H", "    -        -     = =  ",
-				"  H-C--------C-O-C-C-C  ", "    -        -   =   -  ",
+				"             H          ", 
+				"             -          ",
+				"           H-C-H        ", 
+				"             -          ",
+				"  H     H  O=C          ", 
+				"  -     -    -          ",
+				"H-C-N---C----C-H        ", 
+				"  - -   -    -          ",
+				"  H - H-C-H  -          ", 
+				"    -   -    -          ",
+				"  H-C---C-H  -   H-C=C-H", 
+				"    -   -    -     - -  ",
+				"    -   H    -   H-C C-H", 
+				"    -        -     = =  ",
+				"  H-C--------C-O-C-C-C  ", 
+				"    -        -   =   -  ",
 				"    H        H   O   H  ");
 
 		/*
