@@ -33,13 +33,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod
-	(	
-	modid = PeriodicCraft.MODID,
-	version = PeriodicCraft.VERSION
-	)
-
-
+@Mod(modid = PeriodicCraft.MODID, version = PeriodicCraft.VERSION)
 public class PeriodicCraft {
 
 	public static final String MODID = "pcm";
