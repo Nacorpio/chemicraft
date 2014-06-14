@@ -413,7 +413,7 @@ public class PeriodicCraft {
 				new WeightedRandomChestContent(new ItemStack(unknownGas), 1,
 						10, 5));
 
-	}
+	} 
 
 }
 
