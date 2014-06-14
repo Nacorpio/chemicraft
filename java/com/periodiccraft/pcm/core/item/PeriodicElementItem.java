@@ -56,19 +56,9 @@ public class PeriodicElementItem extends PeriodicItem {
 			if(ResearchRegistry.getResearch(e.getAtomicNumber()).getProgress() >= 20) {
 				par3List.add("Density: " + ChatUtil.Colors.cyan + e.getDensity());
 			}
-			
-			if(ResearchRegistry.getResearch(e.getAtomicNumber()).getProgress() == 50) {
-				par3List.add("Boiling Point: " + ChatUtil.Colors.red + e.getBoilingPoint());
-				par3List.add("Melting Point: " + ChatUtil.Colors.red + e.getMeltingPoint());
-			}
-			
-			if(ResearchRegistry.getResearch(e.getAtomicNumber()).getProgress() == 50) {
-				par3List.add("Boiling Point: " + ChatUtil.Colors.red + e.getBoilingPoint());
-				par3List.add("Melting Point: " + ChatUtil.Colors.red + e.getMeltingPoint());
 				
 			if(ResearchRegistry.getResearch(e.getAtomicNumber()).getProgress() == 50) {
 				par3List.add("Atomic Weight: " + ChatUtil.Colors.blue + e.getWeight());
-				}
 			}
 		}	
 	}
