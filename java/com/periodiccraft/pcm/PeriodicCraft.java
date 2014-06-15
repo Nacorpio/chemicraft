@@ -3,15 +3,15 @@
 //Put TODO and Notifications Here.
 
 /*
-* 
-* NOTE Setting all Colorless Material to White for now.
-* 
-* TODO Redo the Substances.
-* TODO Redo the Compounds.
-* NOTE that every Compound(IMolecule) is 1kg. TODO maybe we should describe that when we are initializing it?
-* TODO Figure out which dungeon spawn works
-*/
-		
+ * 
+ * NOTE Setting all Colorless Material to White for now.
+ * 
+ * TODO Redo the Substances.
+ * TODO Redo the Compounds.
+ * NOTE that every Compound(IMolecule) is 1kg. TODO maybe we should describe that when we are initializing it?
+ * TODO Figure out which dungeon spawn works
+ * TODO Fix the Issue Where Gases show up as liquids.....
+ */
 
 package com.periodiccraft.pcm;
 
@@ -51,7 +51,7 @@ public class PeriodicCraft {
 
 	public static final String MODID = "pcm";
 	public static final String VERSION = "0.0.0.0.1";
-	//Just a Commit Test..............
+	// Just a Commit Test..............
 
 	// Machines and Stuff
 	public static Block LQ_Idle;
@@ -76,6 +76,7 @@ public class PeriodicCraft {
 	public static PeriodicOre oreNickel;
 	public static PeriodicOre oreCopper;
 	public static PeriodicOre oreZinc;
+	public static PeriodicOre oreAluminum;
 
 	// Generation
 	public static WrappedGenerator generator;
@@ -132,7 +133,7 @@ public class PeriodicCraft {
 		oreBoron = new PeriodicOre("oreBoron", 3.5F);
 		oreCarbon = new PeriodicOre("oreCarbon", 4.5F);
 		oreBeryllium = new PeriodicOre("Beryllium", 3.5F);
-
+		oreAluminum = new PeriodicOre("Aluminum", 4.0F);
 
 		// Items
 		bookOfResearch = new PeriodicItem("bookOfResearch")
@@ -162,9 +163,11 @@ public class PeriodicCraft {
 
 		// Generation
 		{
-			generator = new WrappedGenerator(0,
-					// new Instruction(block, max_height, blocks_per_vein, veins_per_chunk)
-					
+			generator = new WrappedGenerator(
+					0,
+					// new Instruction(block, max_height, blocks_per_vein,
+					// veins_per_chunk)
+
 					new Instruction(oreLithium, 64, 5, 7).setOverworld(true),
 					new Instruction(oreBoron, 64, 5, 7).setOverworld(true),
 					new Instruction(oreCarbon, 64, 5, 7).setOverworld(true),
@@ -176,10 +179,9 @@ public class PeriodicCraft {
 					new Instruction(oreCobalt, 64, 5, 7).setOverworld(true),
 					new Instruction(oreNickel, 64, 5, 7).setOverworld(true),
 					new Instruction(oreCopper, 64, 5, 7).setOverworld(true),
-					new Instruction(oreZinc, 64, 5, 7).setOverworld(true));
+					new Instruction(oreZinc, 64, 5, 7).setOverworld(true),
+					new Instruction(oreAluminum, 64, 5, 7).setOverworld(true));
 		}
-
-		
 
 	}
 
@@ -204,13 +206,13 @@ public class PeriodicCraft {
 				Element.CATEGORY.ALKALINE_EARTH_METALS, 4, 5, 4, 2970.0F,
 				1287.0F, 292.0F, 1.85F, 9.012F, Element.STATE.SOLID);
 
-		new Element("Boron", 5, "B", 0x383838, Element.CATEGORY.METALOID, 5, 6, 5, 3927.0F, 2076.0F,
-				508.0F, 2.08F, 10.81F, Element.STATE.SOLID);
+		new Element("Boron", 5, "B", 0x383838, Element.CATEGORY.METALOID, 5, 6,
+				5, 3927.0F, 2076.0F, 508.0F, 2.08F, 10.81F, Element.STATE.SOLID);
 
 		new Element("Carbon", 6, "C", 0x000000, Element.CATEGORY.NON_METALS, 6,
 				6, 6, 4827.0F, 3550.0F, 117.0F, 2.00F, 12.011F,
 				Element.STATE.SOLID);
-		
+
 		new Element("Nitrogen", 7, "N", 0xFFFFFF, Element.CATEGORY.NON_METALS,
 				7, 7, 7, -195.795F, -209.0F, 5.560F, 14.007F, 1.2510F,
 				Element.STATE.GAS);
@@ -235,16 +237,22 @@ public class PeriodicCraft {
 				Element.CATEGORY.ALKALINE_EARTH_METALS, 12, 12, 12, 1091F,
 				650F, 128.0F, 1.738F, 24.305F, Element.STATE.SOLID);
 
-		
+		new Element("Aluminum", 13, "Al", 0xCCCCCC, Element.CATEGORY.METALOID,
+				13, 14, 13, 2467.0F, 660.37F, 26.99F, 284.0F, 2.70F,
+				Element.STATE.SOLID).setTier(Element.TIER.TWO);
 
-		
+		new Element("Silicon", 14, "Si", 0xCCCCCC, Element.CATEGORY.METALOID,
+				14, 14, 14, 3265.0F, 1414.0F, 383.0F, 2.329F, 28.085F,
+				Element.STATE.SOLID);
+
+		new Element("Argon", 18, "Ar", 0xFFFFFF, Element.CATEGORY.NOBLE_GASES, 18, 22, 18, -185.34F,
+				-189.34F, 6.53F, 1.784F, 39.948F,
+				Element.STATE.GAS);
+
 		/*
 		 * 
 		 * //---
 		 * 
-		 * new Element(14, "Silicon", "Si", "Shiny Gray", 28.085F, 3265.0F,
-		 * 1414.0F, 383.0F, 2.329F, Element.CATEGORY.METALOID,
-		 * Element.STATE.SOLID);
 		 * 
 		 * new Substance(18, "Argon", "Ar", "Colorless", 39.948F, -185.34F,
 		 * -189.34F, 6.53F, 1.784F, Substance.CATEGORY.NOBLE_GASES,
@@ -284,32 +292,19 @@ public class PeriodicCraft {
 		 * quartz);
 		 */
 
-
 		IMolecule diamond = new SimpleMolecule(2, "Diamond", SubstanceRegistry
 				.getSubstance("Carbon").setAmount(8));
 		SubstanceRegistry.bindCompound(Items.diamond.getUnlocalizedName(),
 				diamond, 1000F);
 
-		IMolecule methane = new OrganicMolecule(1, "Methane",
-				"  H  ",
-				"  -  ",
-				"H-C-H",
-				"  -  ",
-				"  H  ");
+		IMolecule methane = new OrganicMolecule(1, "Methane", "  H  ", "  -  ",
+				"H-C-H", "  -  ", "  H  ");
 
-		IMolecule ethanol = new OrganicMolecule(1, "Ethanol", 
-				"  H H    ",
-				"  - -    ",
-				"H-C-C-O-H",
-				"  - -    ",
-				"  H H    ");
+		IMolecule ethanol = new OrganicMolecule(1, "Ethanol", "  H H    ",
+				"  - -    ", "H-C-C-O-H", "  - -    ", "  H H    ");
 
-		IMolecule ethene = new OrganicMolecule(1, "Ethene",
-				"  H H  ",
-				"  - -  ",
-				"H-C=C-H",
-				"  - -  ",
-				"  H H  ");
+		IMolecule ethene = new OrganicMolecule(1, "Ethene", "  H H  ",
+				"  - -  ", "H-C=C-H", "  - -  ", "  H H  ");
 
 		IMolecule glucose = new OrganicMolecule(1, "Glucose",
 				"  H  H  H  H  H H  ", "  -  -  -  -  - -  ",
@@ -318,22 +313,14 @@ public class PeriodicCraft {
 				"  H  H  H  H  H    ");
 
 		IMolecule cocaine = new OrganicMolecule(1, "Cocaine",
-				"             H          ", 
-				"             -          ",
-				"           H-C-H        ", 
-				"             -          ",
-				"  H     H  O=C          ", 
-				"  -     -    -          ",
-				"H-C-N---C----C-H        ", 
-				"  - -   -    -          ",
-				"  H - H-C-H  -          ", 
-				"    -   -    -          ",
-				"  H-C---C-H  -   H-C=C-H", 
-				"    -   -    -     - -  ",
-				"    -   H    -   H-C C-H", 
-				"    -        -     = =  ",
-				"  H-C--------C-O-C-C-C  ", 
-				"    -        -   =   -  ",
+				"             H          ", "             -          ",
+				"           H-C-H        ", "             -          ",
+				"  H     H  O=C          ", "  -     -    -          ",
+				"H-C-N---C----C-H        ", "  - -   -    -          ",
+				"  H - H-C-H  -          ", "    -   -    -          ",
+				"  H-C---C-H  -   H-C=C-H", "    -   -    -     - -  ",
+				"    -   H    -   H-C C-H", "    -        -     = =  ",
+				"  H-C--------C-O-C-C-C  ", "    -        -   =   -  ",
 				"    H        H   O   H  ");
 
 		/*
@@ -351,7 +338,6 @@ public class PeriodicCraft {
 
 		SubstanceRegistry.bindCompound(Items.sugar.getUnlocalizedName(),
 				glucose, 50F);
-
 
 		/*
 		 * Compound quartz = new Compound(1, "Quartz", new
@@ -402,7 +388,6 @@ public class PeriodicCraft {
 		 * WeightedRandomChestContent(unknownShard, 0, 5, 10, 10)};
 		 */
 
-
 		ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(
 				new WeightedRandomChestContent(new ItemStack(unknownShard), 1,
 						10, 5));
@@ -413,7 +398,6 @@ public class PeriodicCraft {
 				new WeightedRandomChestContent(new ItemStack(unknownGas), 1,
 						10, 5));
 
-	} 
+	}
 
 }
-
