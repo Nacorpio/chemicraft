@@ -31,6 +31,7 @@ import com.periodiccraft.pcm.core.element.OrganicMolecule;
 import com.periodiccraft.pcm.core.element.SimpleMolecule;
 import com.periodiccraft.pcm.core.guiblocks.LQClass;
 import com.periodiccraft.pcm.core.guiblocks.TileEntityLQ;
+import com.periodiccraft.pcm.core.item.Ethanol;
 import com.periodiccraft.pcm.core.item.PeriodicElementItemUnknown;
 import com.periodiccraft.pcm.core.item.PeriodicItem;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
@@ -59,6 +60,7 @@ public class PeriodicCraft {
 
 	// Items
 	public static Item bookOfResearch;
+	public static Item Ethanol;
 
 	// Fluids
 	public Fluid mercury = new Fluid("mercury");
@@ -138,6 +140,9 @@ public class PeriodicCraft {
 		// Items
 		bookOfResearch = new PeriodicItem("bookOfResearch")
 				.setCreativeTab(tabResearch);
+		
+		Ethanol = new Ethanol().setUnlocalizedName("Ethanol").setCreativeTab(tabPeriodic);
+		GameRegistry.registerItem(Ethanol, Ethanol.getUnlocalizedName().substring(5));
 
 		// Unknown items
 		unknownShard = new PeriodicElementItemUnknown("unknownShard");
@@ -296,12 +301,20 @@ public class PeriodicCraft {
 				.getSubstance("Carbon").setAmount(8));
 		SubstanceRegistry.bindCompound(Items.diamond.getUnlocalizedName(),
 				diamond, 1000F);
-
+		
+		IMolecule water = new SimpleMolecule(1, "Water", SubstanceRegistry.getSubstance("Hydrogen").setAmount(2), SubstanceRegistry.getSubstance("Oxygen").setAmount(1));
+		SubstanceRegistry.bindCompound(Items.water_bucket.getUnlocalizedName(), water, 1000F);
+		
+		
+		
+		
+		
 		IMolecule methane = new OrganicMolecule(1, "Methane", "  H  ", "  -  ",
 				"H-C-H", "  -  ", "  H  ");
 
 		IMolecule ethanol = new OrganicMolecule(1, "Ethanol", "  H H    ",
 				"  - -    ", "H-C-C-O-H", "  - -    ", "  H H    ");
+		SubstanceRegistry.bindCompound(PeriodicCraft.Ethanol.getUnlocalizedName(), ethanol, 1000F);
 
 		IMolecule ethene = new OrganicMolecule(1, "Ethene", "  H H  ",
 				"  - -  ", "H-C=C-H", "  - -  ", "  H H  ");
