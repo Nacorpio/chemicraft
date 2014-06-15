@@ -135,4 +135,11 @@ public class GuiResearch extends Gui {
             GL11.glEnable(GL11.GL_DEPTH_TEST);
         }
     }
+
+    public void NewAchievement()
+    {
+        this.achievement = null;
+        this.k = 0L;
+    
+    }
 }
