@@ -152,8 +152,9 @@ public class Element extends Atom {
 		}else{
 			return STATE.GAS;					
 		}
-		//TODO What is the default temperature? don't we have to add that to specify temperature?
 		
+		//TODO What is the default temperature? don't we have to add that to specify temperature?
+		//TODO Add A System when cooked, it changes temperature, same as freezing. Maybe a machine? "Freezer" Lol.
 			
 		
 		//return(((temperature < this.meltingPoint && temperature < this.boilingPoint) ? STATE.SOLID : STATE.LIQUID));
