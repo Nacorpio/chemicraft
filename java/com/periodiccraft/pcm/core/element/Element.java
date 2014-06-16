@@ -2,9 +2,6 @@ package com.periodiccraft.pcm.core.element;
 
 import net.minecraft.client.Minecraft;
 
-import com.periodiccraft.pcm.PeriodicCraft;
-import com.periodiccraft.pcm.core.element.Element.CATEGORY;
-import com.periodiccraft.pcm.core.element.Element.STATE;
 import com.periodiccraft.pcm.core.registry.ResearchRegistry;
 import com.periodiccraft.pcm.core.registry.ResearchRegistry.Research;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
@@ -145,7 +142,24 @@ public class Element extends Atom {
 	
 	//TODO Carbon is no Liquid.
 	public final STATE getState(float temperature) {
-		return (((temperature < this.meltingPoint && temperature < this.boilingPoint) ? STATE.SOLID : STATE.LIQUID));
+		
+		if(temperature < this.meltingPoint && temperature < this.boilingPoint) { 
+			return STATE.SOLID;		
+			
+		}else if(temperature > this.boilingPoint && temperature < this.boilingPoint){
+			return STATE.LIQUID;
+			
+		}else{
+			return STATE.GAS;					
+		}
+		//TODO What is the default temperature? don't we have to add that to specify temperature?
+		
+			
+		
+		//return(((temperature < this.meltingPoint && temperature < this.boilingPoint) ? STATE.SOLID : STATE.LIQUID));
+
+	
+		
 	}
 	
 	public final String getName() {
@@ -174,5 +188,10 @@ public class Element extends Atom {
 	
 	public final float getHeatOfVaporization() {
 		return this.heatOfVaporization;
+		
 	}
+	
+
 }
+	
+
