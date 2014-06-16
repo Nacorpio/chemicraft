@@ -2,7 +2,7 @@ package com.periodiccraft.pcm.api.electricity.data;
 
 public class Packet implements IEnergyPacket {
 
-	static enum META {
+	public static enum META {
 
 		ERROR(-1),
 		DATA(0),

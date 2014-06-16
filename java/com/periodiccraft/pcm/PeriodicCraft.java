@@ -171,22 +171,31 @@ public class PeriodicCraft {
 		{
 			generator = new WrappedGenerator(
 					0,
+					
 					// new Instruction(block, max_height, blocks_per_vein,
 					// veins_per_chunk)
 
-					new Instruction(oreLithium, 64, 5, 7).setOverworld(true),
-					new Instruction(oreBoron, 64, 5, 7).setOverworld(true),
-					new Instruction(oreCarbon, 64, 5, 7).setOverworld(true),
-					new Instruction(oreBeryllium, 64, 5, 7).setOverworld(true),
-					new Instruction(oreTitanium, 64, 5, 7).setOverworld(true),
-					new Instruction(oreVanadium, 64, 5, 7).setOverworld(true),
-					new Instruction(oreChromium, 64, 5, 7).setOverworld(true),
-					new Instruction(oreManganese, 64, 5, 7).setOverworld(true),
-					new Instruction(oreCobalt, 64, 5, 7).setOverworld(true),
-					new Instruction(oreNickel, 64, 5, 7).setOverworld(true),
-					new Instruction(oreCopper, 64, 5, 7).setOverworld(true),
-					new Instruction(oreZinc, 64, 5, 7).setOverworld(true),
-					new Instruction(oreAluminum, 64, 5, 7).setOverworld(true));
+					/*
+					 * We gotta start balancing this soon enough.
+					 * All the ores can't be generated at the same rate.
+					 * Just make sure that you put different rates at each one.
+					 */
+					
+					new Instruction(oreLithium, 64, 5, 7),
+					new Instruction(oreBoron, 64, 5, 7),
+					new Instruction(oreCarbon, 64, 5, 7),
+					new Instruction(oreBeryllium, 64, 5, 7),
+					new Instruction(oreTitanium, 64, 5, 7),
+					new Instruction(oreVanadium, 64, 5, 7),
+					new Instruction(oreChromium, 64, 5, 7),
+					new Instruction(oreManganese, 64, 5, 7),
+					new Instruction(oreCobalt, 64, 5, 7),
+					new Instruction(oreNickel, 64, 5, 7),
+					new Instruction(oreCopper, 64, 5, 7),
+					new Instruction(oreZinc, 64, 5, 7),
+					new Instruction(oreAluminum, 64, 5, 7)
+					
+			);
 		}
 
 	}
@@ -308,6 +317,18 @@ public class PeriodicCraft {
 		SubstanceRegistry.bindCompound(Items.diamond.getUnlocalizedName(),
 				diamond, 1000F);
 
+<<<<<<< HEAD
+		 IMolecule chloroform = new OrganicMolecule(1, "Chloroform",
+				    " H 		",
+				    " - 		",
+				    " C 		",
+				    " - 		",
+				   "Cl--------Cl",
+				    "    =		",
+				    "    Cl		"
+				    );
+		
+=======
 		IMolecule water = new SimpleMolecule(1, "Water", SubstanceRegistry
 				.getSubstance("Hydrogen").setAmount(2), SubstanceRegistry
 				.getSubstance("Oxygen").setAmount(1));
@@ -315,6 +336,7 @@ public class PeriodicCraft {
 				water, 1000F);
 
 		// Organic Molecules
+>>>>>>> 5b7249efa8b7f09d2fec41ef983888ad22cb210a
 		IMolecule methane = new OrganicMolecule(1, "Methane",
 				"  H  ",
 				"  -  ",
