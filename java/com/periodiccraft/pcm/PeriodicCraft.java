@@ -5,8 +5,7 @@
 /*
  * 
  * NOTE Setting all Colorless Material to White for now.
- * 
- * TODO Redo the Substances.
+ * TODO Add More Substances. TODO Make 1-100
  * TODO Redo the Compounds.
  * NOTE that every Compound(IMolecule) is 1kg. TODO maybe we should describe that when we are initializing it?
  * TODO Figure out which dungeon spawn works
@@ -140,9 +139,11 @@ public class PeriodicCraft {
 		// Items
 		bookOfResearch = new PeriodicItem("bookOfResearch")
 				.setCreativeTab(tabResearch);
-		
-		Ethanol = new Ethanol().setUnlocalizedName("Ethanol").setCreativeTab(tabPeriodic);
-		GameRegistry.registerItem(Ethanol, Ethanol.getUnlocalizedName().substring(5));
+
+		Ethanol = new Ethanol().setUnlocalizedName("Ethanol").setCreativeTab(
+				tabPeriodic);
+		GameRegistry.registerItem(Ethanol, Ethanol.getUnlocalizedName()
+				.substring(5));
 
 		// Unknown items
 		unknownShard = new PeriodicElementItemUnknown("unknownShard");
@@ -250,39 +251,43 @@ public class PeriodicCraft {
 				14, 14, 14, 3265.0F, 1414.0F, 383.0F, 2.329F, 28.085F,
 				Element.STATE.SOLID);
 
-		new Element("Argon", 18, "Ar", 0xFFFFFF, Element.CATEGORY.NOBLE_GASES, 18, 22, 18, -185.34F,
-				-189.34F, 6.53F, 1.784F, 39.948F,
+		new Element("Argon", 18, "Ar", 0xFFFFFF, Element.CATEGORY.NOBLE_GASES,
+				18, 22, 18, -185.34F, -189.34F, 6.53F, 1.784F, 39.948F,
 				Element.STATE.GAS);
 
-		/*
-		 * 
-		 * //---
-		 * 
-		 * 
-		 * new Substance(18, "Argon", "Ar", "Colorless", 39.948F, -185.34F,
-		 * -189.34F, 6.53F, 1.784F, Substance.CATEGORY.NOBLE_GASES,
-		 * Substance.STATE.GAS); new Substance(22, "Titanium", "Ti", "Silvery",
-		 * 47.867F, 3287.0F, 1668.0F, 223.80F, 4.506F,
-		 * Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.SOLID); new
-		 * Substance(23, "Vanadium", "V", "Silverish", 50.942F, 3380.0F,
-		 * 1890.0F, 233.794F, 6.0F, Substance.CATEGORY.TRANSITION_METALS,
-		 * Substance.STATE.SOLID); new Substance(24, "Chromium", "Cr", "Gray",
-		 * 51.996F, 2670.0F, 1857.0F, 347.0F, 7.19F,
-		 * Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.SOLID); new
-		 * Substance(25, "Manganese", "Mn", "Silvery Gray", 54.940F, 1962.0F,
-		 * 1245.0F, 221.0F, 7.21F, Substance.CATEGORY.TRANSITION_METALS,
-		 * Substance.STATE.SOLID);
-		 * 
-		 * new Substance(27, "Cobalt", "Co", "Metallic Gray", 58.933F, 2927.0F,
-		 * 1495.0F, 198.520F, 8.90F, Substance.CATEGORY.TRANSITION_METALS,
-		 * Substance.STATE.SOLID); new Substance(28, "Nickel", "Ni",
-		 * "Gray Gold", 58.693F, 2730.0F, 1455.0F, 199.570F, 8.908F,
-		 * Substance.CATEGORY.TRANSITION_METALS, Substance.STATE.SOLID); new
-		 * Substance(29, "Copper", "Cu", "Red Orangy", 63.546F, 2562.0F,
-		 * 1084.62F, 158.180F, 8.96F ,Substance.CATEGORY.TRANSITION_METALS,
-		 * Substance.STATE.SOLID); new Substance(30, "Zinc", "Zn",
-		 * "Silvery Greyish White", 65.380F,
-		 */
+		new Element("Titanium", 22, "Ti", 0xCCCCCC,
+				Element.CATEGORY.TRANSITION_METALS, 22, 26, 22, 3287.0F,
+				1668.0F, 223.80F, 4.506F, 47.867F, Element.STATE.SOLID);
+
+		new Element("Vanadium", 23, "V", 0xCCCCCC,
+				Element.CATEGORY.TRANSITION_METALS, 23, 28, 23, 3380.0F,
+				1890.0F, 233.794F, 6.0F, 50.942F, Element.STATE.SOLID);
+
+		new Element("Chromium", 24, "Cr", 0x555555,
+				Element.CATEGORY.TRANSITION_METALS, 24, 28, 24, 2670.0F,
+				1857.0F, 347.0F, 7.19F, 51.996F, Element.STATE.SOLID);
+
+		new Element("Manganese", 25, "Mn", 0xAAAAAA,
+				Element.CATEGORY.TRANSITION_METALS, 25, 30, 25, 1962.0F,
+				1245.0F, 221.0F, 7.21F, 54.940F, Element.STATE.SOLID);
+
+		new Element("Cobalt", 27, "Co", 0xAAAAAA,
+				Element.CATEGORY.TRANSITION_METALS, 27, 32, 27, 2927.0F,
+				1495.0F, 198.520F, 8.90F, 58.933F, Element.STATE.SOLID);
+
+		new Element("Nickel", 28, "Ni", 0xEBCEAC,
+				Element.CATEGORY.TRANSITION_METALS, 28, 31, 28, 2730.0F,
+				1455.0F, 199.570F, 8.908F, 58.693F, Element.STATE.SOLID);
+
+		new Element("Copper", 29, "Cu", 0xCD6600,
+				Element.CATEGORY.TRANSITION_METALS, 29, 35, 29, 2562.0F,
+				1084.62F, 158.180F, 8.96F, 63.546F, Element.STATE.SOLID);
+		 
+		new Element("Zinc", 30, "Zn", 0xCCCCCC,
+				Element.CATEGORY.TRANSITION_METALS, 30, 35, 30, 907.0F,
+				419.58F, 115.0F, 7.133F, 65.380F, Element.STATE.SOLID);
+
+
 
 		// NOTE Just for testing - The substances should be somewhere, getting
 		// them from the SubstanceRegistry is impractical. Note that you have to
@@ -297,24 +302,24 @@ public class PeriodicCraft {
 		 * quartz);
 		 */
 
+		// Simple Molecules
 		IMolecule diamond = new SimpleMolecule(2, "Diamond", SubstanceRegistry
 				.getSubstance("Carbon").setAmount(8));
 		SubstanceRegistry.bindCompound(Items.diamond.getUnlocalizedName(),
 				diamond, 1000F);
-		
-		IMolecule water = new SimpleMolecule(1, "Water", SubstanceRegistry.getSubstance("Hydrogen").setAmount(2), SubstanceRegistry.getSubstance("Oxygen").setAmount(1));
-		SubstanceRegistry.bindCompound(Items.water_bucket.getUnlocalizedName(), water, 1000F);
-		
-		
-		
-		
-		
+
+		IMolecule water = new SimpleMolecule(1, "Water", SubstanceRegistry
+				.getSubstance("Hydrogen").setAmount(2), SubstanceRegistry
+				.getSubstance("Oxygen").setAmount(1));
+		SubstanceRegistry.bindCompound(Items.water_bucket.getUnlocalizedName(),
+				water, 1000F);
+
+		// Organic Molecules
 		IMolecule methane = new OrganicMolecule(1, "Methane", "  H  ", "  -  ",
 				"H-C-H", "  -  ", "  H  ");
 
 		IMolecule ethanol = new OrganicMolecule(1, "Ethanol", "  H H    ",
 				"  - -    ", "H-C-C-O-H", "  - -    ", "  H H    ");
-		SubstanceRegistry.bindCompound(PeriodicCraft.Ethanol.getUnlocalizedName(), ethanol, 1000F);
 
 		IMolecule ethene = new OrganicMolecule(1, "Ethene", "  H H  ",
 				"  - -  ", "H-C=C-H", "  - -  ", "  H H  ");
@@ -335,6 +340,15 @@ public class PeriodicCraft {
 				"    -   H    -   H-C C-H", "    -        -     = =  ",
 				"  H-C--------C-O-C-C-C  ", "    -        -   =   -  ",
 				"    H        H   O   H  ");
+
+		/*
+		 * IMolecule chloroform = new OrganicMolecule(1, "Chloroform", " H ",
+		 * " - ", " C ", " - ", "Cl--------Cl", "    =", "    Cl" );
+		 */
+
+		// Organic Molecules
+		SubstanceRegistry.bindCompound(
+				PeriodicCraft.Ethanol.getUnlocalizedName(), ethanol, 1000F);
 
 		/*
 		 * NOTE Maybe something like this? We would need a pre-parser for that.
