@@ -142,9 +142,8 @@ public class Element extends Atom {
 	
 	//TODO Carbon is no Liquid.
 	public final STATE getState(float temperature) {
-<<<<<<< HEAD
-		return (((temperature < this.meltingPoint && temperature < this.boilingPoint) ? (temperature < this.heatOfVaporization ? STATE.SOLID : STATE.GAS) : STATE.LIQUID));
-=======
+
+		//return (((temperature < this.meltingPoint && temperature < this.boilingPoint) ? (temperature < this.heatOfVaporization ? STATE.SOLID : STATE.GAS) : STATE.LIQUID));
 		
 		if(temperature < this.meltingPoint && temperature < this.boilingPoint) { 
 			return STATE.SOLID;		
@@ -160,11 +159,8 @@ public class Element extends Atom {
 		//TODO Add A System when cooked, it changes temperature, same as freezing. Maybe a machine? "Freezer" Lol.
 			
 		
-		//return(((temperature < this.meltingPoint && temperature < this.boilingPoint) ? STATE.SOLID : STATE.LIQUID));
+		//return(((temperature < this.meltingPoint && temperature < this.boilingPoint) ? STATE.SOLID : STATE.LIQUID));		
 
-	
-		
->>>>>>> 5b7249efa8b7f09d2fec41ef983888ad22cb210a
 	}
 	
 	public final String getName() {

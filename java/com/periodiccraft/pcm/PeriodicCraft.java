@@ -317,7 +317,6 @@ public class PeriodicCraft {
 		SubstanceRegistry.bindCompound(Items.diamond.getUnlocalizedName(),
 				diamond, 1000F);
 
-<<<<<<< HEAD
 		 IMolecule chloroform = new OrganicMolecule(1, "Chloroform",
 				    " H 		",
 				    " - 		",
@@ -328,7 +327,6 @@ public class PeriodicCraft {
 				    "    Cl		"
 				    );
 		
-=======
 		IMolecule water = new SimpleMolecule(1, "Water", SubstanceRegistry
 				.getSubstance("Hydrogen").setAmount(2), SubstanceRegistry
 				.getSubstance("Oxygen").setAmount(1));
@@ -336,7 +334,6 @@ public class PeriodicCraft {
 				water, 1000F);
 
 		// Organic Molecules
->>>>>>> 5b7249efa8b7f09d2fec41ef983888ad22cb210a
 		IMolecule methane = new OrganicMolecule(1, "Methane",
 				"  H  ",
 				"  -  ",
