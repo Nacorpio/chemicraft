@@ -51,7 +51,7 @@ public class PeriodicCraft {
 
 	public static final String MODID = "pcm";
 	public static final String VERSION = "0.0.0.0.1";
-	// Just a Commit Test..............
+	
 
 	// Machines and Stuff
 	public static Block LQ_Idle;
@@ -140,7 +140,7 @@ public class PeriodicCraft {
 		bookOfResearch = new PeriodicItem("bookOfResearch")
 				.setCreativeTab(tabResearch);
 
-		Ethanol = new Ethanol().setUnlocalizedName("Ethanol").setCreativeTab(
+		Ethanol = new Ethanol(0, 0.0F, false).setUnlocalizedName("Ethanol").setCreativeTab(
 				tabPeriodic);
 		GameRegistry.registerItem(Ethanol, Ethanol.getUnlocalizedName()
 				.substring(5));
@@ -315,30 +315,53 @@ public class PeriodicCraft {
 				water, 1000F);
 
 		// Organic Molecules
-		IMolecule methane = new OrganicMolecule(1, "Methane", "  H  ", "  -  ",
-				"H-C-H", "  -  ", "  H  ");
+		IMolecule methane = new OrganicMolecule(1, "Methane",
+				"  H  ",
+				"  -  ",
+				"H-C-H",
+				"  -  ",
+				"  H  ");
 
-		IMolecule ethanol = new OrganicMolecule(1, "Ethanol", "  H H    ",
-				"  - -    ", "H-C-C-O-H", "  - -    ", "  H H    ");
+		IMolecule ethanol = new OrganicMolecule(1, "Ethanol",
+				"  H H    ",
+				"  - -    ",
+				"H-C-C-O-H",
+				"  - -    ",
+				"  H H    ");
 
-		IMolecule ethene = new OrganicMolecule(1, "Ethene", "  H H  ",
-				"  - -  ", "H-C=C-H", "  - -  ", "  H H  ");
+		IMolecule ethene = new OrganicMolecule(1, "Ethene",
+				"  H H  ",
+				"  - -  ",
+				"H-C=C-H",
+				"  - -  ",
+				"  H H  ");
 
 		IMolecule glucose = new OrganicMolecule(1, "Glucose",
-				"  H  H  H  H  H H  ", "  -  -  -  -  - -  ",
-				"H-C--C--C--C--C-C=O", "  -  -  -  -  -    ",
-				"  O  O  O  O  O    ", "  -  -  -  -  -    ",
+				"  H  H  H  H  H H  ",
+				"  -  -  -  -  - -  ",
+				"H-C--C--C--C--C-C=O",
+				"  -  -  -  -  -    ",
+				"  O  O  O  O  O    ",
+				"  -  -  -  -  -    ",
 				"  H  H  H  H  H    ");
 
 		IMolecule cocaine = new OrganicMolecule(1, "Cocaine",
-				"             H          ", "             -          ",
-				"           H-C-H        ", "             -          ",
-				"  H     H  O=C          ", "  -     -    -          ",
-				"H-C-N---C----C-H        ", "  - -   -    -          ",
-				"  H - H-C-H  -          ", "    -   -    -          ",
-				"  H-C---C-H  -   H-C=C-H", "    -   -    -     - -  ",
-				"    -   H    -   H-C C-H", "    -        -     = =  ",
-				"  H-C--------C-O-C-C-C  ", "    -        -   =   -  ",
+				"             H          ",
+				"             -          ",
+				"           H-C-H        ",
+				"             -          ",
+				"  H     H  O=C          ",
+				"  -     -    -          ",
+				"H-C-N---C----C-H        ",
+				"  - -   -    -          ",
+				"  H - H-C-H  -          ",
+				"    -   -    -          ",
+				"  H-C---C-H  -   H-C=C-H",
+				"    -   -    -     - -  ",
+				"    -   H    -   H-C C-H",
+				"    -        -     = =  ",
+				"  H-C--------C-O-C-C-C  ",
+				"    -        -   =   -  ",
 				"    H        H   O   H  ");
 
 		/*
