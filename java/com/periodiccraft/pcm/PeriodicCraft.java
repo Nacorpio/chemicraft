@@ -23,6 +23,7 @@ import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.fluids.Fluid;
 
+import com.periodiccraft.pcm.core.block.moleculartable;
 import com.periodiccraft.pcm.core.block.ores.PeriodicOre;
 import com.periodiccraft.pcm.core.element.Element;
 import com.periodiccraft.pcm.core.element.IMolecule;
@@ -56,6 +57,9 @@ public class PeriodicCraft {
 	// Machines and Stuff
 	public static Block LQ_Idle;
 	public static Block LQ_Active;
+	public static Block MolecularTable;
+	public static final int guiIDMolecularTable = 1;
+	public static final int guiIDLQ = 2;
 
 	// Items
 	public static Item bookOfResearch;
@@ -107,7 +111,7 @@ public class PeriodicCraft {
 	// Instance
 	@Instance(MODID)
 	public static PeriodicCraft instance;
-	public static final int guiIDLQ = 8;
+
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
@@ -140,32 +144,34 @@ public class PeriodicCraft {
 		bookOfResearch = new PeriodicItem("bookOfResearch")
 				.setCreativeTab(tabResearch);
 
+		//Workbench
+		MolecularTable = new moleculartable().setBlockName("Molecular Crafting Table");
+	
+		
 		Ethanol = new Ethanol(0, 0.0F, false).setUnlocalizedName("Ethanol").setCreativeTab(
 				tabPeriodic);
-		GameRegistry.registerItem(Ethanol, Ethanol.getUnlocalizedName()
-				.substring(5));
 
 		// Unknown items
 		unknownShard = new PeriodicElementItemUnknown("unknownShard");
 		unknownIngot = new PeriodicElementItemUnknown("unknownIngot");
 		unknownGas = new PeriodicElementItemUnknown("unknownGas");
-
+		
 		// Creative Tab(s)
 		tabPeriodicIcon = new TabPeriodicIcon()
 				.setUnlocalizedName("tabPeriodic");
+		
+		
+		
 		GameRegistry.registerItem(tabPeriodicIcon, tabPeriodicIcon
 				.getUnlocalizedName().substring(5));
-
-		// Fluids
-
-		// Machines
 		GameRegistry.registerBlock(LQ_Idle, LQ_Idle.getUnlocalizedName()
 				.substring(5));
 		GameRegistry.registerBlock(LQ_Active, LQ_Active.getUnlocalizedName()
 				.substring(5));
-
-		// Tile Entities
+		GameRegistry.registerItem(Ethanol, Ethanol.getUnlocalizedName()
+				.substring(5));
 		GameRegistry.registerTileEntity(TileEntityLQ.class, "tileLQ");
+		GameRegistry.registerBlock(MolecularTable, MolecularTable.getUnlocalizedName().substring(5));
 
 		// Generation
 		{
