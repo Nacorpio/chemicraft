@@ -3,6 +3,18 @@ package com.periodiccraft.pcm.api.data;
 public interface IField extends ISerializable {
 
 	/**
+	 * Returns the index of the field.
+	 * @return the index.
+	 */
+	int getIndex();
+	
+	/**
+	 * Set the data of this field.
+	 * @param par1 the data.
+	 */
+	void setData(Object par1);
+	
+	/**
 	 * Returns the data of this field.
 	 * @return the data.
 	 */

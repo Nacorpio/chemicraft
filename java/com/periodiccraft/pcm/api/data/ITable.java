@@ -64,4 +64,32 @@ public interface ITable extends ISerializable {
 	 */
 	List<IColumn> getColumns();
 	
+	/**
+	 * Returns the field in the specified data field at the specified index.
+	 * @param par1 the data field index.
+	 * @param par2 the index of the field.
+	 * @return the field data.
+	 */
+	Object getField(int par1, int par2);
+	
+	/**
+	 * Returns the data field at the specified index.
+	 * @param par1 the index.
+	 * @return the data field for constructing conveniences.
+	 */
+	IRow getRow(int par1);
+	
+	/**
+	 * Add the specified data field.
+	 * @param par1 the data field.
+	 * @return the data field for constructing conveniences.
+	 */
+	IRow addRow(IRow par1);
+	
+	/**
+	 * Returns all the fields of the table.
+	 * @return the fields.
+	 */
+	List<IRow> getRows();
+	
 }

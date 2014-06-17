@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.periodiccraft.pcm.api.data.EnumColumnType;
 import com.periodiccraft.pcm.api.data.IColumn;
+import com.periodiccraft.pcm.api.data.IRow;
 import com.periodiccraft.pcm.api.data.IDatabase;
 import com.periodiccraft.pcm.api.data.ITable;
 
@@ -12,7 +13,9 @@ public class Table implements ITable {
 
 	private String name;
 	private IDatabase parent;
+	
 	private List<IColumn> columns = new ArrayList<IColumn>();
+	private List<IRow> rows = new ArrayList<IRow>();
 	
 	public Table(IDatabase par, String par1) {
 		if (par1.length() > 0 && !par1.isEmpty()) {
@@ -83,6 +86,27 @@ public class Table implements ITable {
 	public IColumn addColumn(IColumn par1) {
 		columns.add(par1);
 		return par1;
+	}
+
+	@Override
+	public Object getField(int par1, int par2) {
+		return getRow(par1).getFields()[par2];
+	}
+
+	@Override
+	public IRow getRow(int par1) {
+		return rows.get(par1);
+	}
+
+	@Override
+	public IRow addRow(IRow par1) {
+		rows.add(par1);
+		return rows.get(rows.size() - 1);
+	}
+
+	@Override
+	public List<IRow> getRows() {
+		return rows;
 	}
 
 }
