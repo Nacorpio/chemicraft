@@ -11,11 +11,11 @@ import com.periodiccraft.pcm.PeriodicTabs;
 import com.periodiccraft.pcm.core.element.Atom;
 import com.periodiccraft.pcm.core.element.Element;
 import com.periodiccraft.pcm.core.element.IMolecule;
-import com.periodiccraft.pcm.core.registry.ResearchRegistry;
-import com.periodiccraft.pcm.core.registry.ResearchRegistry.Research;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
 import com.periodiccraft.pcm.helper.BiomeTemperature;
 import com.periodiccraft.pcm.helper.ChatUtil;
+import com.periodiccraft.pcm.research.ResearchRegistry;
+import com.periodiccraft.pcm.research.ResearchRegistry.Research;
 
 public class PeriodicElementItem extends PeriodicItem {
 

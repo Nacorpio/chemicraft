@@ -2,10 +2,10 @@ package com.periodiccraft.pcm.core.element;
 
 import net.minecraft.client.Minecraft;
 
-import com.periodiccraft.pcm.core.registry.ResearchRegistry;
-import com.periodiccraft.pcm.core.registry.ResearchRegistry.Research;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
 import com.periodiccraft.pcm.helper.ChatUtil;
+import com.periodiccraft.pcm.research.ResearchRegistry;
+import com.periodiccraft.pcm.research.ResearchRegistry.Research;
 
 public class Element extends Atom {
 
