@@ -18,7 +18,7 @@ public class moleculartable extends Block {
 	private IIcon moleculartop;
 	
 	@SideOnly(Side.CLIENT)
-	private IIcon molecularside;
+	private IIcon blockIcon;
 	
 	
 	public moleculartable() {
@@ -29,7 +29,7 @@ public class moleculartable extends Block {
 	}
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
-		return side == 1 ? this.moleculartop : this.molecularside;
+		return side == 1 ? this.moleculartop : this.blockIcon;
 		
 		
 	}
@@ -45,7 +45,7 @@ public class moleculartable extends Block {
 		if(!player.isSneaking()) {
 			player.openGui(PeriodicCraft.instance, PeriodicCraft.guiIDMolecularTable, world, x, y, z);
 			return true;
-		}else{
+	    } else {
 			return false;
 		}
 	}

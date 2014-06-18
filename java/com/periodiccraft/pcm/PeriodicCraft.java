@@ -324,22 +324,18 @@ public class PeriodicCraft {
 				diamond, 1000F);
 		/*
 		 IMolecule chloroform = new OrganicMolecule(1, "Chloroform",
-				    " H 		",
-				    " - 		",
-				    " C 		",
-				    " - 		",
-				   "Cl--------Cl",
-				    "    =		",
-				    "    Cl		"
-				    );
-				    */
+	
+	
+	    */
 		
 		IMolecule water = new SimpleMolecule(1, "Water", SubstanceRegistry
 				.getSubstance("Hydrogen").setAmount(2), SubstanceRegistry
 				.getSubstance("Oxygen").setAmount(1));
 		SubstanceRegistry.bindCompound(Items.water_bucket.getUnlocalizedName(),
 				water, 1000F);
-
+		
+		IMolecule coal = new SimpleMolecule(1, "Coal", SubstanceRegistry.getSubstance("Carbon").setAmount(5), SubstanceRegistry.getSubstance("Hydrogen").setAmount(2));
+		SubstanceRegistry.bindCompound(Items.coal.getUnlocalizedName(), coal, 100.0F);
 		// Organic Molecules
 		IMolecule methane = new OrganicMolecule(1, "Methane",
 				"  H  ",
