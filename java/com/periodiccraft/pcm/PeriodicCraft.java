@@ -58,8 +58,8 @@ public class PeriodicCraft {
 	public static Block LQ_Idle;
 	public static Block LQ_Active;
 	public static Block MolecularTable;
-	public static final int guiIDMolecularTable = 1;
-	public static final int guiIDLQ = 2;
+	public static final int guiIDMolecularTable = 0;
+	public static final int guiIDLQ = 1;
 
 	// Items
 	public static Item bookOfResearch;
