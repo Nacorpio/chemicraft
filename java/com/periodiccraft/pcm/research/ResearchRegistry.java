@@ -1,4 +1,4 @@
-package com.periodiccraft.pcm.core.registry;
+package com.periodiccraft.pcm.research;
 
 import java.util.HashMap;
 import java.util.Map;

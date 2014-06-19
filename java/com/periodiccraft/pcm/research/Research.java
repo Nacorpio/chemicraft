@@ -1,4 +1,4 @@
-package com.periodiccraft.pcm.core.registry.temp;
+package com.periodiccraft.pcm.research;
 
 public class Research {
 
@@ -55,6 +55,11 @@ public class Research {
 	public Research setAutoUnlock() {
 		isAutoUnlock = true;
 		return this;
+	}
+	
+	public boolean isHidden() {
+		return true;
+		
 	}
 	
 }

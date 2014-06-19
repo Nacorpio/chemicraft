@@ -8,11 +8,11 @@ import com.periodiccraft.pcm.core.element.Element;
 import com.periodiccraft.pcm.core.element.IMolecule;
 import com.periodiccraft.pcm.core.element.MoleculeStack;
 import com.periodiccraft.pcm.core.item.PeriodicItem;
-import com.periodiccraft.pcm.core.registry.ResearchRegistry;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
 import com.periodiccraft.pcm.helper.ChatUtil;
 import com.periodiccraft.pcm.helper.ChatUtil.Colors;
 import com.periodiccraft.pcm.helper.ChemUtil;
+import com.periodiccraft.pcm.research.ResearchRegistry;
 
 import net.java.games.input.Component.Identifier.Key;
 import net.minecraftforge.common.MinecraftForge;

@@ -19,5 +19,5 @@ public class PeriodicItem extends Item {
 		GameRegistry.registerItem(this, par1);
 		
 	}
-	
+
 }

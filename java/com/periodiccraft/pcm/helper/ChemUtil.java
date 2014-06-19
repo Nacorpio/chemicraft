@@ -19,6 +19,14 @@ public final class ChemUtil {
 		return par1.matches(STRUCT_FORMULA);
 	}
 	
+	public static final float kelvinToCelcius(float par1) {
+		return par1 - 273.15F;
+	}
+	
+	public static final float celciusToKelvin(float par1) {
+		return par1 + 273.15F;
+	}
+	
 	public static final String[] getStructuralDecompilation(String par1) {
 		
 		String[] result = new String[]{};
