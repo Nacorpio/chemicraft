@@ -312,9 +312,12 @@ public class PeriodicCraft {
 				"  H H  ");
 
 		IMolecule glucose = new OrganicMolecule(1, "Glucose",
-				"  H  H  H  H  H H  ", "  -  -  -  -  - -  ",
-				"H-C--C--C--C--C-C=O", "  -  -  -  -  -    ",
-				"  O  O  O  O  O    ", "  -  -  -  -  -    ",
+				"  H  H  H  H  H H  ", 
+				"  -  -  -  -  - -  ",
+				"H-C--C--C--C--C-C=O", 
+				"  -  -  -  -  -    ",
+				"  O  O  O  O  O    ", 
+				"  -  -  -  -  -    ",
 				"  H  H  H  H  H    ");
 
 		IMolecule cocaine = new OrganicMolecule(1, "Cocaine",
