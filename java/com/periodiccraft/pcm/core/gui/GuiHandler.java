@@ -5,7 +5,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 import com.periodiccraft.pcm.PeriodicCraft;
-import com.periodiccraft.pcm.core.guiblocks.TileEntityLQ;
 
 import cpw.mods.fml.common.network.IGuiHandler;
 

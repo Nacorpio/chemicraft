@@ -1,7 +1,5 @@
 package com.periodiccraft.pcm.core.gui;
 
-import com.periodiccraft.pcm.core.guiblocks.TileEntityLQ;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;

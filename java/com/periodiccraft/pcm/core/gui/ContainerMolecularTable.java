@@ -25,7 +25,7 @@ public class ContainerMolecularTable extends Container {
 	
 	
 	public ContainerMolecularTable(InventoryPlayer invPlayer, World world, int z, int y, int x) {
-		craftMatrix = new InventoryCrafting(this, 3, 3);
+		craftMatrix = new InventoryCrafting(this, 6, 6);
 		craftResult = new InventoryCraftResult();
 		worldObj = world;
 		posX = x;
@@ -96,19 +96,19 @@ public class ContainerMolecularTable extends Container {
 	
 	
 	
-    public ItemStack transferStackInSlot(EntityPlayer par1EntityPlayer, int par2)
+    public ItemStack transferStackInSlot(EntityPlayer entity, int i)
     
     {
     	
         ItemStack itemstack = null;
-        Slot slot = (Slot)this.inventorySlots.get(par2);
+        Slot slot = (Slot)this.inventorySlots.get(i);
 
         if (slot != null && slot.getHasStack())
         {
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
 
-            if (par2 == 0)
+            if (i == 0)
             {
                 if (!this.mergeItemStack(itemstack1, 10, 46, true))
                 {
@@ -117,14 +117,14 @@ public class ContainerMolecularTable extends Container {
 
                 slot.onSlotChange(itemstack1, itemstack);
             }
-            else if (par2 >= 10 && par2 < 37)
+            else if (i >= 10 && i < 37)
             {
                 if (!this.mergeItemStack(itemstack1, 37, 46, false))
                 {
                     return null;
                 }
             }
-            else if (par2 >= 37 && par2 < 46)
+            else if (i >= 37 && i < 46)
             {
                 if (!this.mergeItemStack(itemstack1, 10, 37, false))
                 {
@@ -150,7 +150,7 @@ public class ContainerMolecularTable extends Container {
                 return null;
             }
 
-            slot.onPickupFromSlot(par1EntityPlayer, itemstack1);
+            slot.onPickupFromSlot(entity, itemstack1);
         }
 
         return itemstack;

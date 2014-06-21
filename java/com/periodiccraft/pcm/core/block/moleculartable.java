@@ -43,7 +43,7 @@ public class moleculartable extends Block {
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float a, float b, float c) {
 		
 		if(!player.isSneaking()) {
-			player.openGui(PeriodicCraft.instance, PeriodicCraft.guiIDMolecularTable, world, x, y, z); 
+			player.openGui(PeriodicCraft.instance, PeriodicCraft.guiIDMolecularTable, world, x, y, z);; 
 			return true;
 	    } else {
 			return false;

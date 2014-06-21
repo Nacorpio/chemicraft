@@ -1,8 +1,9 @@
-package com.periodiccraft.pcm.core.guiblocks;
+package com.periodiccraft.pcm.core.block;
 
 import java.util.Random;
 
 import com.periodiccraft.pcm.PeriodicCraft;
+import com.periodiccraft.pcm.core.gui.TileEntityLQ;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;

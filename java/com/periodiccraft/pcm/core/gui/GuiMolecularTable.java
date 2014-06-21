@@ -18,7 +18,6 @@ public class GuiMolecularTable extends GuiContainer
 	private ResourceLocation texture = new ResourceLocation(PeriodicCraft.MODID + ":" + "textures/gui/molecular_crafting_table.png");
 	public GuiMolecularTable(InventoryPlayer invPlayer, World world, int x, int y, int z) {
 		super(new ContainerMolecularTable(invPlayer, world, x, y, z));
-		
 		this.xSize = 176;
 		this.ySize = 166;
 	}

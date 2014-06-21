@@ -1,4 +1,4 @@
-package com.periodiccraft.pcm.core.guiblocks;
+package com.periodiccraft.pcm.core.gui;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;

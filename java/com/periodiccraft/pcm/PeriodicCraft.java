@@ -23,14 +23,14 @@ import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.fluids.Fluid;
 
+import com.periodiccraft.pcm.core.block.LQClass;
 import com.periodiccraft.pcm.core.block.moleculartable;
 import com.periodiccraft.pcm.core.block.ores.PeriodicOre;
 import com.periodiccraft.pcm.core.element.Element;
 import com.periodiccraft.pcm.core.element.IMolecule;
 import com.periodiccraft.pcm.core.element.OrganicMolecule;
 import com.periodiccraft.pcm.core.element.SimpleMolecule;
-import com.periodiccraft.pcm.core.guiblocks.LQClass;
-import com.periodiccraft.pcm.core.guiblocks.TileEntityLQ;
+import com.periodiccraft.pcm.core.gui.TileEntityLQ;
 import com.periodiccraft.pcm.core.item.Ethanol;
 import com.periodiccraft.pcm.core.item.PeriodicElementItemUnknown;
 import com.periodiccraft.pcm.core.item.PeriodicItem;
@@ -51,7 +51,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class PeriodicCraft {
 
 	public static final String MODID = "pcm";
-	public static final String VERSION = "0.0.0.0.1";
+	public static final String VERSION = "0.0.0.0.1 Alpha";
 	
 
 	// Machines and Stuff

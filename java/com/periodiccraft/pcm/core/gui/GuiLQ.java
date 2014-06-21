@@ -3,7 +3,6 @@ package com.periodiccraft.pcm.core.gui;
 import org.lwjgl.opengl.GL11;
 
 import com.periodiccraft.pcm.PeriodicCraft;
-import com.periodiccraft.pcm.core.guiblocks.TileEntityLQ;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
