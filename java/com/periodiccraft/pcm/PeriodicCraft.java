@@ -16,6 +16,7 @@
 package com.periodiccraft.pcm;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -24,6 +25,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.fluids.Fluid;
+
 
 import com.periodiccraft.pcm.core.block.LQClass;
 import com.periodiccraft.pcm.core.block.ReinforcedIronClass;

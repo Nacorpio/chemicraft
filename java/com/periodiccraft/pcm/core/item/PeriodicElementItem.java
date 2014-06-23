@@ -20,12 +20,14 @@ import com.periodiccraft.pcm.research.ResearchRegistry.Research;
 public class PeriodicElementItem extends PeriodicItem {
 
 	private IMolecule substance;
+
 	
+
 	public PeriodicElementItem(String par1, IMolecule substance) {
 		
 		super(par1);
 		this.setCreativeTab(PeriodicCraft.tabPeriodic);	
-		
+	
 		if (!SubstanceRegistry.isCompoundBound(this.getUnlocalizedName())) {
 			SubstanceRegistry.bindCompound(this.getUnlocalizedName(), substance, 1000F);
 		}
@@ -63,5 +65,6 @@ public class PeriodicElementItem extends PeriodicItem {
 		}	
 	}
 }
+
 
 
