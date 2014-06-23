@@ -20,18 +20,12 @@ public class GuiHandler implements IGuiHandler {
 				if(entity instanceof TileEntityLQ) {
 					return new ContainerLQ(player.inventory, (TileEntityLQ) entity);
 			}	
-			return null;
+		
+			}
 		}
+		return null;
 	}
 		
-		if(ID == PeriodicCraft.guiIDMolecularTable) {
-			return ID == PeriodicCraft.guiIDMolecularTable && world.getBlock(x, y, z) == PeriodicCraft.MolecularTable ? new ContainerMolecularTable(player.inventory, world, x, y, z) : null;
-			}
-			
-		    return null;
-		    
-	}
-	
 	
 		
 
@@ -50,18 +44,11 @@ public class GuiHandler implements IGuiHandler {
 	     return new ContainerLQ(player.inventory, (TileEntityLQ) entity);
 	     }
 
-	 return null;
+	 	}
+	 }
+	return null;
 	 }
 }
-
-	if(ID == PeriodicCraft.guiIDMolecularTable) {
-		return ID == PeriodicCraft.guiIDMolecularTable && world.getBlock(x, y, z) == PeriodicCraft.MolecularTable ? new GuiMolecularTable(player.inventory, world, x, y, z) : null;
-		}
-
-		return null;
-
-		}
-	}
 	
 	
 	

@@ -1,4 +1,5 @@
 // TODO Please use NOTES
+
 // NOTE Way too much NOTES in here... And comments.
 //Put TODO and Notifications Here.
 
@@ -16,6 +17,7 @@ package com.periodiccraft.pcm;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -24,7 +26,7 @@ import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.fluids.Fluid;
 
 import com.periodiccraft.pcm.core.block.LQClass;
-import com.periodiccraft.pcm.core.block.moleculartable;
+import com.periodiccraft.pcm.core.block.ReinforcedIronClass;
 import com.periodiccraft.pcm.core.block.ores.PeriodicOre;
 import com.periodiccraft.pcm.core.element.Element;
 import com.periodiccraft.pcm.core.element.IMolecule;
@@ -54,11 +56,10 @@ public class PeriodicCraft {
 	public static final String VERSION = "0.0.0.0.1 Alpha";
 	
 
-	// Machines and Stuff
+	// Machines and Blocks
+	public static Block ReinforcedIron;
 	public static Block LQ_Idle;
 	public static Block LQ_Active;
-	public static Block MolecularTable;
-	public static final int guiIDMolecularTable = 0;
 	public static final int guiIDLQ = 1;
 
 	// Items
@@ -118,6 +119,10 @@ public class PeriodicCraft {
 
 		com.periodiccraft.pcm.EventHandler.instance = new com.periodiccraft.pcm.EventHandler();
 
+		//Blocks
+		ReinforcedIron = new ReinforcedIronClass().setBlockName("ReinforcedIron").setCreativeTab(tabPeriodic).setHardness(10.0F).setResistance(100.0F);
+		
+		
 		// Machines
 		LQ_Idle = new LQClass(false).setBlockName("LQIdle")
 				.setCreativeTab(CreativeTabs.tabBlock).setHardness(3.5F);
@@ -145,7 +150,6 @@ public class PeriodicCraft {
 				.setCreativeTab(tabResearch);
 
 		//Workbench
-		MolecularTable = new moleculartable().setBlockName("Molecular Crafting Table");
 	
 		
 		Ethanol = new Ethanol(0, 0.0F, false).setUnlocalizedName("Ethanol").setCreativeTab(
@@ -171,15 +175,15 @@ public class PeriodicCraft {
 		GameRegistry.registerItem(Ethanol, Ethanol.getUnlocalizedName()
 				.substring(5));
 		GameRegistry.registerTileEntity(TileEntityLQ.class, "tileLQ");
-		GameRegistry.registerBlock(MolecularTable, MolecularTable.getUnlocalizedName().substring(5));
+		GameRegistry.registerBlock(ReinforcedIron, ReinforcedIron
+				.getUnlocalizedName().substring(5));
 
 		// Generation
 		{
 			generator = new WrappedGenerator(
 					0,
 					
-					// new Instruction(block, max_height, blocks_per_vein,
-					// veins_per_chunk)
+					// new Instruction(Block block, int max_height, int blocks_per_vein, int veins_per_chunk)
 
 					/*
 					 * We gotta start balancing this soon enough.
@@ -469,7 +473,10 @@ public class PeriodicCraft {
 		ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(
 				new WeightedRandomChestContent(new ItemStack(unknownGas), 1,
 						10, 5));
-
+		
+		//Crafting Recipes
+		GameRegistry.addRecipe(new ItemStack(ReinforcedIron, 8), new Object[]{"AAA", "ABA", "AAA", 'A', new ItemStack(Blocks.iron_block), 'B', new ItemStack(Blocks.obsidian)});
+		GameRegistry.addRecipe(new ItemStack(LQ_Idle), new Object[]{"ABA", "BCB", "ABA", 'A', new ItemStack(PeriodicCraft.ReinforcedIron), 'B', new ItemStack(Blocks.glass), 'C', new ItemStack(Items.magma_cream)});
 	}
 
 }

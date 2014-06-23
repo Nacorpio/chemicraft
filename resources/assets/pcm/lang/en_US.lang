@@ -17,7 +17,7 @@ tile.blockMachine.name=Machine Block
 tile.oreBeryillium.name=Beryllium Ore
 tile.oreManganese.name=Manganese Ore
 tile.oreAluminum.name=Aluminum Ore
-
+tile.ReinforcedIron.name=Reinforced Iron Block
 item.Ethanol.name=Ethanol
 item.elementAluminum.name=Aluminum
 item.elementFluorine.name=Flourine
