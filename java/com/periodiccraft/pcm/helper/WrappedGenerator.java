@@ -4,10 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import com.periodiccraft.pcm.PeriodicCraft;
-
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import cpw.mods.fml.common.IWorldGenerator;
@@ -57,6 +56,15 @@ public class WrappedGenerator implements IWorldGenerator {
 			this.maxHeight = par2;
 			this.blocksPerVein = par3;
 			this.veinsPerChunk = par4;
+		}
+		
+		/**
+		 * Sets the biomes that this instruction will be run in.<br>
+		 * If you want the block to generate everywhere, don't use this.
+		 * @param par1 the biomes.
+		 */
+		public final void setBiomes(int... par1) {
+			this.biomeIds = par1;
 		}
 		
 		/**
@@ -161,7 +169,7 @@ public class WrappedGenerator implements IWorldGenerator {
 			return this.veinsPerChunk;
 		}
 		
-		public final boolean containsBiome(int par1) {
+		private final boolean containsBiome(int par1) {
 			for (int var: this.biomeIds) {
 				if (var == par1)
 					return true;
@@ -185,8 +193,10 @@ public class WrappedGenerator implements IWorldGenerator {
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		for (Instruction var: this.generations.values()) {
 			
+			BiomeGenBase b1 = world.provider.getBiomeGenForCoords(chunkX, chunkZ);
+			
 			int var1 = world.provider.dimensionId;
-			int var2 = world.provider.getBiomeGenForCoords(chunkX, chunkZ).biomeID;
+			int var2 = b1.biomeID;
 			
 			if (var1 == -1) {
 				if (var.nether) {	

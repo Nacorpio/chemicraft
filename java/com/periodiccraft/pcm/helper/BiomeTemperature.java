@@ -1,5 +1,7 @@
 package com.periodiccraft.pcm.helper;
 
+import net.minecraft.world.biome.BiomeGenBase;
+
 public class BiomeTemperature 
 {
 	public static float getDefaultTemperature()
@@ -9,7 +11,6 @@ public class BiomeTemperature
 	
 	public static float getTemperature(int biomeID)
 	{
-		//TODO implement that.
-		return getDefaultTemperature();
+		return BiomeGenBase.getBiome(biomeID).temperature;
 	}
 }
