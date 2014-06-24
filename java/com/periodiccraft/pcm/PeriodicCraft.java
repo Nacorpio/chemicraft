@@ -23,12 +23,16 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.fluids.Fluid;
 
 
+
+
+import com.periodiccraft.pcm.core.block.BlockReinforcedGlass;
 import com.periodiccraft.pcm.core.block.LQClass;
-import com.periodiccraft.pcm.core.block.ReinforcedIronClass;
+import com.periodiccraft.pcm.core.block.BlockReinforcedIron;
 import com.periodiccraft.pcm.core.block.ores.PeriodicOre;
 import com.periodiccraft.pcm.core.element.Element;
 import com.periodiccraft.pcm.core.element.IMolecule;
@@ -59,7 +63,9 @@ public class PeriodicCraft {
 	
 
 	// Machines and Blocks
-	public static Block ReinforcedIron;
+	public static Block blockReinforcedIron;
+	public static Block blockReinforcedGlass;
+	
 	public static Block LQ_Idle;
 	public static Block LQ_Active;
 	public static Block GasChamberCore;
@@ -124,8 +130,8 @@ public class PeriodicCraft {
 		com.periodiccraft.pcm.EventHandler.instance = new com.periodiccraft.pcm.EventHandler();
 
 		//Blocks
-		ReinforcedIron = new ReinforcedIronClass().setBlockName("ReinforcedIron").setCreativeTab(tabPeriodic).setHardness(10.0F).setResistance(100.0F);
-		
+		blockReinforcedIron = new BlockReinforcedIron().setBlockName("blockReinforcedIron").setCreativeTab(tabPeriodic).setHardness(10.0F).setResistance(100.0F);
+		blockReinforcedGlass = new BlockReinforcedGlass().setBlockName("blockReinforcedGlass").setCreativeTab(tabPeriodic).setHardness(10.0F).setResistance(100.0F).setStepSound(Block.soundTypeGlass);
 		
 		// Machines
 		LQ_Idle = new LQClass(false).setBlockName("LQIdle")
@@ -167,20 +173,15 @@ public class PeriodicCraft {
 		// Creative Tab(s)
 		tabPeriodicIcon = new TabPeriodicIcon()
 				.setUnlocalizedName("tabPeriodic");
-		
-		
-		
-		GameRegistry.registerItem(tabPeriodicIcon, tabPeriodicIcon
-				.getUnlocalizedName().substring(5));
-		GameRegistry.registerBlock(LQ_Idle, LQ_Idle.getUnlocalizedName()
-				.substring(5));
-		GameRegistry.registerBlock(LQ_Active, LQ_Active.getUnlocalizedName()
-				.substring(5));
-		GameRegistry.registerItem(Ethanol, Ethanol.getUnlocalizedName()
-				.substring(5));
+			
+		GameRegistry.registerItem(tabPeriodicIcon, tabPeriodicIcon.getUnlocalizedName().substring(5));
+		GameRegistry.registerBlock(LQ_Idle, LQ_Idle.getUnlocalizedName().substring(5));
+		GameRegistry.registerBlock(LQ_Active, LQ_Active.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(Ethanol, Ethanol.getUnlocalizedName().substring(5));
 		GameRegistry.registerTileEntity(TileEntityLQ.class, "tileLQ");
-		GameRegistry.registerBlock(ReinforcedIron, ReinforcedIron
-				.getUnlocalizedName().substring(5));
+		
+		GameRegistry.registerBlock(blockReinforcedIron, blockReinforcedIron.getUnlocalizedName().substring(5));
+		GameRegistry.registerBlock(blockReinforcedGlass, blockReinforcedGlass.getUnlocalizedName().substring(5));
 
 		// Generation
 		{
@@ -483,8 +484,9 @@ public class PeriodicCraft {
 						10, 5));
 		
 		//Crafting Recipes
-		GameRegistry.addRecipe(new ItemStack(ReinforcedIron, 8), new Object[]{"AAA", "ABA", "AAA", 'A', new ItemStack(Blocks.iron_block), 'B', new ItemStack(Blocks.obsidian)});
-		GameRegistry.addRecipe(new ItemStack(LQ_Idle), new Object[]{"ABA", "BCB", "ABA", 'A', new ItemStack(PeriodicCraft.ReinforcedIron), 'B', new ItemStack(Blocks.glass), 'C', new ItemStack(Items.magma_cream)});
+		GameRegistry.addRecipe(new ItemStack(blockReinforcedIron, 8), new Object[]{"AAA", "ABA", "AAA", 'A', new ItemStack(Blocks.iron_block), 'B', new ItemStack(Blocks.obsidian)});
+		GameRegistry.addRecipe(new ItemStack(LQ_Idle), new Object[]{"ABA", "BCB", "ABA", 'A', new ItemStack(PeriodicCraft.blockReinforcedIron), 'B', new ItemStack(Blocks.glass), 'C', new ItemStack(Items.magma_cream)});
+		
 	}
 
 }

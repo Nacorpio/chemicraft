@@ -4,10 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import com.periodiccraft.pcm.PeriodicCraft;
-
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import cpw.mods.fml.common.IWorldGenerator;
@@ -18,6 +17,7 @@ public class WrappedGenerator implements IWorldGenerator {
 	public static class Instruction {
 		
 		private Block blockType;
+		private int[] biomeIds = new int[]{};
 		
 		private int maxHeight = 64;
 		private int blocksPerVein = 7;
@@ -29,8 +29,22 @@ public class WrappedGenerator implements IWorldGenerator {
 		private boolean nether = false;
 		private boolean end = false;
 		
+		private boolean strict = false;
 		private boolean enabled = true;
 	
+		/**
+		 * Create a new generation instructions for the generator.
+		 * @param par1 the block type to use when generating.
+		 * @param par2 the maximum height the blocks will appear on (64 is surface).
+		 * @param par3 the maximum amount of blocks that can be generated in a vein.
+		 * @param par4 the amount of veins to generate in each chunk.
+		 * @param par5 the id's of the biomes to run this instruction in.
+		 */
+		public Instruction(Block par1, int par2, int par3, int par4, int... par5) {
+			this(par1, par2, par3, par4);
+			this.biomeIds = par5;
+		}
+		
 		/**
 		 * Create a new generation instructions for the generator.
 		 * @param par1 the block type to use when generating.
@@ -46,12 +60,23 @@ public class WrappedGenerator implements IWorldGenerator {
 		}
 		
 		/**
+		 * Sets the biomes that this instruction will be run in.<br>
+		 * If you want the block to generate everywhere, don't use this.
+		 * @param par1 the biomes.
+		 */
+		public final Instruction setBiomes(int... par1) {
+			this.biomeIds = par1;
+			return this;
+		}
+		
+		/**
 		 * Set whether this instruction should be ran when the world generation starts.<br>
 		 * Set to false if you want the instruction to be ignored by the wrapper.
 		 * @param par1 the value.
 		 */
-		public final void setEnabled(boolean par1) {
+		public final Instruction setEnabled(boolean par1) {
 			this.enabled = par1;
+			return this;
 		}
 		
 		/**
@@ -94,13 +119,17 @@ public class WrappedGenerator implements IWorldGenerator {
 		}
 		
 		/**
-		 * Allow the block to generate in the nether (1).
+		 * Allow the block to generate in the end (1).
 		 * @param par1 true/false.
 		 * @return the Instruction for structuring convenience.
 		 */
 		public final Instruction setEnd(boolean par1) {
 			this.end = par1;
 			return this;
+		}
+		
+		public final int[] getBiomes() {
+			return biomeIds;
 		}
 		
 		/**
@@ -117,6 +146,25 @@ public class WrappedGenerator implements IWorldGenerator {
 		 */
 		public final Block getBlockType() {
 			return this.blockType;
+		}
+		
+		/**
+		 * Set whether you want the instruction to generate from max height<br>
+		 * and down, or if you want it to generate on the max height ONLY.
+		 * @param par1 true if you want it to generate on max height only.<br>
+		 * Set to false if you want it to generate from max height and down.
+		 */
+		public final void setStrict(boolean par1) {
+			this.strict = par1;
+		}
+		
+		/**
+		 * Returns whether the generator should generate from the max height<br>
+		 * and down, or if it should generate on the max height ONLY.
+		 * @return true/false.
+		 */
+		public final boolean isStrict() {
+			return false;
 		}
 		
 		/**
@@ -143,6 +191,14 @@ public class WrappedGenerator implements IWorldGenerator {
 			return this.veinsPerChunk;
 		}
 		
+		private final boolean containsBiome(int par1) {
+			for (int var: this.biomeIds) {
+				if (var == par1)
+					return true;
+			}
+			return false;
+		}
+		
 	}
 	
 	private Map<String, Instruction> generations = new HashMap<String, Instruction>();
@@ -158,18 +214,38 @@ public class WrappedGenerator implements IWorldGenerator {
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		for (Instruction var: this.generations.values()) {
+			
+			BiomeGenBase b1 = world.provider.getBiomeGenForCoords(chunkX, chunkZ);
+			
 			int var1 = world.provider.dimensionId;
+			int var2 = b1.biomeID;
+			
 			if (var1 == -1) {
 				if (var.nether) {	
+					if (var.getBiomes().length > 0) {
+						if (var.containsBiome(var2))
+							generateInNether(var, world, random, chunkX * 16, chunkZ * 16);
+							return;
+					}
 					generateInNether(var, world, random, chunkX * 16, chunkZ * 16);
 				}
 			} else if (var1 == 0) {
 				if (var.overworld) {
-					generateInOverworld(var, world, random, chunkX * 16, chunkZ * 16);
+					if (var.getBiomes().length > 0) {
+						if (var.containsBiome(var2))
+							generateInOverworld(var, world, random, chunkX * 16, chunkZ * 16);
+							return;
+					}
+					generateInNether(var, world, random, chunkX * 16, chunkZ * 16);
 				}
 			} else if (var1 == 1) {
 				if (var.end) {
-					generateInEnd(var, world, random, chunkX * 16, chunkZ * 16);
+					if (var.getBiomes().length > 0) {
+						if (var.containsBiome(var2))
+							generateInEnd(var, world, random, chunkX * 16, chunkZ * 16);
+							return;
+					}
+					generateInNether(var, world, random, chunkX * 16, chunkZ * 16);
 				}
 			} else {
 				for (int v: var.getDimensions()) {
@@ -177,13 +253,14 @@ public class WrappedGenerator implements IWorldGenerator {
 						this.generateInDimension(var, world, random, chunkX * 16, chunkZ * 16);
 				}
 			}
+			
 		}
 	}
 
 	private void generateInDimension(Instruction par1, World world, Random random, int x, int z) {
 		for(int k = 0; k < par1.getVeinsPerChunk(); k++) {
 			int chunkX = x + random.nextInt(16);
-			int chunkY = random.nextInt(par1.getMaxHeight());
+			int chunkY = (par1.isStrict() ? par1.getMaxHeight() : random.nextInt(par1.getMaxHeight()));
 			int chunkZ = z + random.nextInt(16);
 			
 			(new WorldGenMinable(par1.getBlockType(), par1.getBlocksPerVein())).generate(world, random, chunkX, chunkY, chunkZ);
@@ -194,7 +271,7 @@ public class WrappedGenerator implements IWorldGenerator {
 	private void generateInEnd(Instruction par1, World world, Random random, int x, int z) {
 		for(int k = 0; k < par1.getVeinsPerChunk(); k++) {
 			int chunkX = x + random.nextInt(16);
-			int chunkY = random.nextInt(par1.getMaxHeight());
+			int chunkY = (par1.isStrict() ? par1.getMaxHeight() : random.nextInt(par1.getMaxHeight()));
 			int chunkZ = z + random.nextInt(16);
 			
 			(new WorldGenMinable(par1.getBlockType(), par1.getBlocksPerVein())).generate(world, random, chunkX, chunkY, chunkZ);
@@ -205,7 +282,7 @@ public class WrappedGenerator implements IWorldGenerator {
 	private void generateInOverworld(Instruction par1, World world, Random random, int x, int z) {
 		for(int k = 0; k < par1.getVeinsPerChunk(); k++) {
 			int chunkX = x + random.nextInt(16);
-			int chunkY = random.nextInt(par1.getMaxHeight());
+			int chunkY = (par1.isStrict() ? par1.getMaxHeight() : random.nextInt(par1.getMaxHeight()));
 			int chunkZ = z + random.nextInt(16);
 			
 			(new WorldGenMinable(par1.getBlockType(), par1.getBlocksPerVein())).generate(world, random, chunkX, chunkY, chunkZ);
@@ -216,7 +293,7 @@ public class WrappedGenerator implements IWorldGenerator {
 	private void generateInNether(Instruction par1, World world, Random random, int x, int z) {
 		for(int k = 0; k < par1.getVeinsPerChunk(); k++) {
 			int chunkX = x + random.nextInt(16);
-			int chunkY = random.nextInt(par1.getMaxHeight());
+			int chunkY = (par1.isStrict() ? par1.getMaxHeight() : random.nextInt(par1.getMaxHeight()));
 			int chunkZ = z + random.nextInt(16);
 			
 			(new WorldGenMinable(par1.getBlockType(), par1.getBlocksPerVein())).generate(world, random, chunkX, chunkY, chunkZ);
