@@ -17,7 +17,7 @@ public class WrappedGenerator implements IWorldGenerator {
 	public static class Instruction {
 		
 		private Block blockType;
-		private int[] biomeIds;
+		private int[] biomeIds = new int[]{};
 		
 		private int maxHeight = 64;
 		private int blocksPerVein = 7;
