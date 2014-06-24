@@ -11,21 +11,16 @@ import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 
-public class ReinforcedIronClass extends Block{
+public class BlockReinforcedIron extends Block{
 
-	public ReinforcedIronClass() {
+	public BlockReinforcedIron() {
 		super(Material.iron);
-		this.setBlockTextureName(PeriodicCraft.MODID + ":ReinforcedIron");
+		this.setBlockTextureName(PeriodicCraft.MODID + ":blockReinforcedIron");
 	}
 	
 	@SideOnly(Side.CLIENT)
 	public Block getBlockDropped(int i, Random random, int fortuneLevel) {
 		return Blocks.air;
-	}
-	
-	
-		
-	
-	
+	}	
 	
 }

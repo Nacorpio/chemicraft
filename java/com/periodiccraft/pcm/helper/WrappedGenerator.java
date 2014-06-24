@@ -64,8 +64,9 @@ public class WrappedGenerator implements IWorldGenerator {
 		 * If you want the block to generate everywhere, don't use this.
 		 * @param par1 the biomes.
 		 */
-		public final void setBiomes(int... par1) {
+		public final Instruction setBiomes(int... par1) {
 			this.biomeIds = par1;
+			return this;
 		}
 		
 		/**
@@ -73,8 +74,9 @@ public class WrappedGenerator implements IWorldGenerator {
 		 * Set to false if you want the instruction to be ignored by the wrapper.
 		 * @param par1 the value.
 		 */
-		public final void setEnabled(boolean par1) {
+		public final Instruction setEnabled(boolean par1) {
 			this.enabled = par1;
+			return this;
 		}
 		
 		/**
