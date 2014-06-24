@@ -62,8 +62,10 @@ public class PeriodicCraft {
 	public static Block ReinforcedIron;
 	public static Block LQ_Idle;
 	public static Block LQ_Active;
+	public static Block GasChamberCore;
+	public static Block GasChamberCover;
 	public static final int guiIDLQ = 1;
-
+	
 	// Items
 	public static Item bookOfResearch;
 	public static Item Ethanol;
@@ -271,6 +273,10 @@ public class PeriodicCraft {
 		new Element("Silicon", 14, "Si", 0xCCCCCC, Element.CATEGORY.METALOID,
 				14, 14, 14, 3265.0F, 1414.0F, 383.0F, 2.329F, 28.085F,
 				Element.STATE.SOLID);
+		
+		new Element("Phosphorus", 15, "P", 0xCCCCCC,
+				Element.CATEGORY.NON_METALS, 15, 16, 15, 280.0F, 44.1F, 51.9F,
+				1.82F, 30.97376F, Element.STATE.SOLID);
 
 		new Element("Argon", 18, "Ar", 0xFFFFFF, Element.CATEGORY.NOBLE_GASES,
 				18, 22, 18, -185.34F, -189.34F, 6.53F, 1.784F, 39.948F,
