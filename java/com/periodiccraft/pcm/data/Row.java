@@ -6,9 +6,10 @@ import com.periodiccraft.pcm.api.data.IColumn;
 import com.periodiccraft.pcm.api.data.IRow;
 import com.periodiccraft.pcm.api.data.IDatabase;
 import com.periodiccraft.pcm.api.data.IField;
+import com.periodiccraft.pcm.api.data.ISerializable;
 import com.periodiccraft.pcm.api.data.ITable;
 
-public class Row implements IRow {
+public class Row implements IRow, ISerializable {
 
 	private ITable parentTable;
 	private IDatabase parentDatabase;
@@ -47,6 +48,11 @@ public class Row implements IRow {
 			var1[i] = var2.getData(index);
 		}
 		return var1;
+	}
+
+	@Override
+	public String getSerializedString() {
+		return "";
 	}
 
 }

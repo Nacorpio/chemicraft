@@ -18,6 +18,7 @@ public class WrappedGenerator implements IWorldGenerator {
 	public static class Instruction {
 		
 		private Block blockType;
+		private int[] biomeIds;
 		
 		private int maxHeight = 64;
 		private int blocksPerVein = 7;
@@ -31,6 +32,19 @@ public class WrappedGenerator implements IWorldGenerator {
 		
 		private boolean enabled = true;
 	
+		/**
+		 * Create a new generation instructions for the generator.
+		 * @param par1 the block type to use when generating.
+		 * @param par2 the maximum height the blocks will appear on (64 is surface).
+		 * @param par3 the maximum amount of blocks that can be generated in a vein.
+		 * @param par4 the amount of veins to generate in each chunk.
+		 * @param par5 the id's of the biomes to run this instruction in.
+		 */
+		public Instruction(Block par1, int par2, int par3, int par4, int... par5) {
+			this(par1, par2, par3, par4);
+			this.biomeIds = par5;
+		}
+		
 		/**
 		 * Create a new generation instructions for the generator.
 		 * @param par1 the block type to use when generating.
@@ -103,6 +117,10 @@ public class WrappedGenerator implements IWorldGenerator {
 			return this;
 		}
 		
+		public final int[] getBiomes() {
+			return biomeIds;
+		}
+		
 		/**
 		 * Whether this generator instruction is enabled.
 		 * @return if the instruction is enabled.
@@ -143,6 +161,14 @@ public class WrappedGenerator implements IWorldGenerator {
 			return this.veinsPerChunk;
 		}
 		
+		public final boolean containsBiome(int par1) {
+			for (int var: this.biomeIds) {
+				if (var == par1)
+					return true;
+			}
+			return false;
+		}
+		
 	}
 	
 	private Map<String, Instruction> generations = new HashMap<String, Instruction>();
@@ -158,18 +184,36 @@ public class WrappedGenerator implements IWorldGenerator {
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		for (Instruction var: this.generations.values()) {
+			
 			int var1 = world.provider.dimensionId;
+			int var2 = world.provider.getBiomeGenForCoords(chunkX, chunkZ).biomeID;
+			
 			if (var1 == -1) {
 				if (var.nether) {	
+					if (var.getBiomes().length > 0) {
+						if (var.containsBiome(var2))
+							generateInNether(var, world, random, chunkX * 16, chunkZ * 16);
+							return;
+					}
 					generateInNether(var, world, random, chunkX * 16, chunkZ * 16);
 				}
 			} else if (var1 == 0) {
 				if (var.overworld) {
-					generateInOverworld(var, world, random, chunkX * 16, chunkZ * 16);
+					if (var.getBiomes().length > 0) {
+						if (var.containsBiome(var2))
+							generateInOverworld(var, world, random, chunkX * 16, chunkZ * 16);
+							return;
+					}
+					generateInNether(var, world, random, chunkX * 16, chunkZ * 16);
 				}
 			} else if (var1 == 1) {
 				if (var.end) {
-					generateInEnd(var, world, random, chunkX * 16, chunkZ * 16);
+					if (var.getBiomes().length > 0) {
+						if (var.containsBiome(var2))
+							generateInEnd(var, world, random, chunkX * 16, chunkZ * 16);
+							return;
+					}
+					generateInNether(var, world, random, chunkX * 16, chunkZ * 16);
 				}
 			} else {
 				for (int v: var.getDimensions()) {
@@ -177,6 +221,7 @@ public class WrappedGenerator implements IWorldGenerator {
 						this.generateInDimension(var, world, random, chunkX * 16, chunkZ * 16);
 				}
 			}
+			
 		}
 	}
 
