@@ -29,6 +29,7 @@ public class WrappedGenerator implements IWorldGenerator {
 		private boolean nether = false;
 		private boolean end = false;
 		
+		private boolean strict = false;
 		private boolean enabled = true;
 	
 		/**
@@ -116,7 +117,7 @@ public class WrappedGenerator implements IWorldGenerator {
 		}
 		
 		/**
-		 * Allow the block to generate in the nether (1).
+		 * Allow the block to generate in the end (1).
 		 * @param par1 true/false.
 		 * @return the Instruction for structuring convenience.
 		 */
@@ -143,6 +144,25 @@ public class WrappedGenerator implements IWorldGenerator {
 		 */
 		public final Block getBlockType() {
 			return this.blockType;
+		}
+		
+		/**
+		 * Set whether you want the instruction to generate from max height<br>
+		 * and down, or if you want it to generate on the max height ONLY.
+		 * @param par1 true if you want it to generate on max height only.<br>
+		 * Set to false if you want it to generate from max height and down.
+		 */
+		public final void setStrict(boolean par1) {
+			this.strict = par1;
+		}
+		
+		/**
+		 * Returns whether the generator should generate from the max height<br>
+		 * and down, or if it should generate on the max height ONLY.
+		 * @return true/false.
+		 */
+		public final boolean isStrict() {
+			return false;
 		}
 		
 		/**
@@ -238,7 +258,7 @@ public class WrappedGenerator implements IWorldGenerator {
 	private void generateInDimension(Instruction par1, World world, Random random, int x, int z) {
 		for(int k = 0; k < par1.getVeinsPerChunk(); k++) {
 			int chunkX = x + random.nextInt(16);
-			int chunkY = random.nextInt(par1.getMaxHeight());
+			int chunkY = (par1.isStrict() ? par1.getMaxHeight() : random.nextInt(par1.getMaxHeight()));
 			int chunkZ = z + random.nextInt(16);
 			
 			(new WorldGenMinable(par1.getBlockType(), par1.getBlocksPerVein())).generate(world, random, chunkX, chunkY, chunkZ);
@@ -249,7 +269,7 @@ public class WrappedGenerator implements IWorldGenerator {
 	private void generateInEnd(Instruction par1, World world, Random random, int x, int z) {
 		for(int k = 0; k < par1.getVeinsPerChunk(); k++) {
 			int chunkX = x + random.nextInt(16);
-			int chunkY = random.nextInt(par1.getMaxHeight());
+			int chunkY = (par1.isStrict() ? par1.getMaxHeight() : random.nextInt(par1.getMaxHeight()));
 			int chunkZ = z + random.nextInt(16);
 			
 			(new WorldGenMinable(par1.getBlockType(), par1.getBlocksPerVein())).generate(world, random, chunkX, chunkY, chunkZ);
@@ -260,7 +280,7 @@ public class WrappedGenerator implements IWorldGenerator {
 	private void generateInOverworld(Instruction par1, World world, Random random, int x, int z) {
 		for(int k = 0; k < par1.getVeinsPerChunk(); k++) {
 			int chunkX = x + random.nextInt(16);
-			int chunkY = random.nextInt(par1.getMaxHeight());
+			int chunkY = (par1.isStrict() ? par1.getMaxHeight() : random.nextInt(par1.getMaxHeight()));
 			int chunkZ = z + random.nextInt(16);
 			
 			(new WorldGenMinable(par1.getBlockType(), par1.getBlocksPerVein())).generate(world, random, chunkX, chunkY, chunkZ);
@@ -271,7 +291,7 @@ public class WrappedGenerator implements IWorldGenerator {
 	private void generateInNether(Instruction par1, World world, Random random, int x, int z) {
 		for(int k = 0; k < par1.getVeinsPerChunk(); k++) {
 			int chunkX = x + random.nextInt(16);
-			int chunkY = random.nextInt(par1.getMaxHeight());
+			int chunkY = (par1.isStrict() ? par1.getMaxHeight() : random.nextInt(par1.getMaxHeight()));
 			int chunkZ = z + random.nextInt(16);
 			
 			(new WorldGenMinable(par1.getBlockType(), par1.getBlocksPerVein())).generate(world, random, chunkX, chunkY, chunkZ);
