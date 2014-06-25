@@ -91,4 +91,15 @@ public class Position {
 		return "[" + x + ", " + y + ", " + z + "]";
 	}
 	
+	public boolean equals(Object par1) {
+		if (par1 == null) return false;
+		if (par1 instanceof Position) {
+			Position var1 = (Position) par1;
+			return var1.getX() == x &&
+				   var1.getY() == y &&
+				   var1.getZ() == z;
+		}
+		return par1.equals(this);
+	}
+	
 }

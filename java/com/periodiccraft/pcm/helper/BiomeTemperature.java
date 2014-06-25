@@ -17,6 +17,22 @@ public class BiomeTemperature
 		return BiomeGenBase.getBiome(biomeID).temperature;
 	}
 	
+	public static float getTemperature(World par1, int x, int z) {
+		return par1.getBiomeGenForCoords(x, z).temperature;
+	}
+	
+	public static float getTemperature(WorldPosition par1) {
+		return getTemperature(par1.getWorld(), par1);
+	}
+	
+	public static float getTemperature(World par1, Position par2) {
+		return par1.getBiomeGenForCoords(par2.getX(), par2.getZ()).temperature;
+	}
+	
+	public static float getTemperature(BiomeGenBase par1) {
+		return getTemperature(par1.biomeID);
+	}
+	
 	public static float getRainfall(int biomeID) {
 		return BiomeGenBase.getBiome(biomeID).getFloatRainfall();
 	}
@@ -29,8 +45,28 @@ public class BiomeTemperature
 		return par1.getTempCategory();
 	}
 	
-	public static boolean canRain(WorldPosition par2) {
+	public static boolean canSnow(BiomeGenBase par1) {
+		return par1.getEnableSnow();
+	}
+	
+	public static boolean canSnow(World par1, Position par2) {
+		return par1.getBiomeGenForCoords(par2.getX(), par2.getZ()).getEnableSnow();
+	}
+	
+	public static boolean canSnow(WorldPosition par1) {
+		return par1.getWorld().getBiomeGenForCoords(par1.getX(), par1.getX()).getEnableSnow();
+	}
+	
+	public static boolean isTakingRain(World par1, Position par2) {
+		return isTakingRain(new WorldPosition(par1, par2.getX(), par2.getY(), par2.getZ()));
+	}
+	
+	public static boolean isTakingRain(WorldPosition par2) {
 		return par2.getWorld().isRaining() && canSeeSky(par2);
+	}
+	
+	public static boolean canSeeSky(World par1, Position par2) {
+		return canSeeSky(new WorldPosition(par1, par2.getX(), par2.getY(), par2.getZ()));
 	}
 	
 	public static boolean canSeeSky(WorldPosition par2) {

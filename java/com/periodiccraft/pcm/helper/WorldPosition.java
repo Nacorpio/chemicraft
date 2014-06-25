@@ -113,4 +113,14 @@ public class WorldPosition extends Position {
 		return world;
 	}
 	
+	public final boolean equals(Object par1) {
+		if (par1 == null) return false;
+		if (par1 instanceof WorldPosition) {
+			WorldPosition var1 = (WorldPosition) par1;
+			return var1.getWorld().getWorldInfo().getWorldName().equals(world.getWorldInfo().getWorldName()) &&
+				   var1.getX() == getX() && var1.getY() == getY() && var1.getZ() == getZ();
+		}
+		return par1.equals(this);
+	}
+	
 }
