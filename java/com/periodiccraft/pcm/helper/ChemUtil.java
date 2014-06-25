@@ -101,6 +101,18 @@ public final class ChemUtil {
 		return false;
 	}
 	
+	public static final boolean isStackArrayEqualTo(MoleculeStack[] par1, MoleculeStack[] par2) {
+		boolean var1 = true;
+		if (par1.length != par2.length) return false;
+		for (int i = 0; i < par1.length; i++) {
+			if (par1[i].equals(par2[i])) {
+				continue;
+			}
+			var1 = false;
+		}
+		return var1;
+	}
+	
 	public static final boolean isStackEqualTo(MoleculeStack par1, MoleculeStack par2) {
 		return par1.equals(par2);
 	}

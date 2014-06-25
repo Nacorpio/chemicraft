@@ -36,6 +36,22 @@ public final class ChatUtil {
 	    
 	}
 	
+	public static final void sendChatMessage(String... par1) {
+		sendChatMessage(EnumChatFormatting.WHITE, par1);
+	}
+	
+	public static final void sendChatMessage(EnumChatFormatting par1, String... par2) {
+		String msg = "";
+		for (int i = 0; i < par2.length; i++) {
+			if (i < par2.length - 1) {
+				msg += par2[i] + "\n";
+			} else {
+				msg += par2[i];
+			}
+		}
+		sendChatMessage(par1, msg);
+	}
+	
 	public static final void sendChatMessage(EnumChatFormatting par1, String par2) {
 		sendChatMessage(par1 + par2);
 	}

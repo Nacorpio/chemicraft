@@ -1,6 +1,7 @@
 package com.periodiccraft.pcm.api.reaction;
 
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.potion.Potion;
 
 public interface IEffect {
 
@@ -28,6 +29,16 @@ public interface IEffect {
 	 * 
 	 */
 	void onEffect(IEffect par1, IReaction par2, EntityLiving par3, float par4, int par5);
+
+	
+	/***
+	 * 
+	 * @param potionID is what potion is used.
+	 * @return
+	 */
+	
+	int setEffect(int potionID);
+	
 
 	
 }
