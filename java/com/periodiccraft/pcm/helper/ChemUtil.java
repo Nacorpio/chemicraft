@@ -81,14 +81,6 @@ public final class ChemUtil {
 //		}
 //	}
 	
-	public static final boolean isCompound(IMolecule[] par1) {
-		if (par1.length == 1) {
-			// Only one or more of the SAME element.
-			return true;
-		}
-		return false;
-	}
-	
 	public static final String getFormula(IMolecule... par1) {
 		String formula = "";
 		int i = 0;

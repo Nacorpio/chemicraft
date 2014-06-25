@@ -17,6 +17,18 @@ public class BiomeTemperature
 		return BiomeGenBase.getBiome(biomeID).temperature;
 	}
 	
+	public static boolean isHighHumidity(World par1, int x, int z) {
+		return par1.getBiomeGenForCoords(x, z).isHighHumidity();
+	}
+	
+	public static boolean isHighHumidity(World par1, Position par2) {
+		return isHighHumidity(par1, par2.getX(), par2.getZ());
+	}
+	
+	public static boolean isHighHumidity(WorldPosition par1) {
+		return isHighHumidity(par1.getWorld(), par1.getX(), par1.getZ());
+	}
+	
 	public static float getTemperature(World par1, int x, int z) {
 		return par1.getBiomeGenForCoords(x, z).temperature;
 	}
@@ -67,6 +79,10 @@ public class BiomeTemperature
 	
 	public static boolean canSeeSky(World par1, Position par2) {
 		return canSeeSky(new WorldPosition(par1, par2.getX(), par2.getY(), par2.getZ()));
+	}
+	
+	public static boolean canSeeSky(World par1, int x, int y, int z) {
+		return canSeeSky(new WorldPosition(par1, x, y, z));
 	}
 	
 	public static boolean canSeeSky(WorldPosition par2) {
