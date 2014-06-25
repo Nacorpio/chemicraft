@@ -324,14 +324,8 @@ public class PeriodicCraft {
 				419.58F, 115.0F, 7.133F, 65.380F, Element.STATE.SOLID);
 
 
-		
-<<<<<<< HEAD
 		IReaction CopperOxidization = new Reaction("Reaction.COPPER_OXIDIZATION", null, null, null);
-=======
 		//Reactions
-		
-		
->>>>>>> 0c3b1ff3b7c4aa914cec92b7a0a8831053319542
 		
 
 		// NOTE Just for testing - The substances should be somewhere, getting
