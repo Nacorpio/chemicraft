@@ -16,8 +16,11 @@ public class BiomeTemperature
 	}
 	
 	public static boolean isRaining(boolean isRaining) {
+		
 		return isRaining;
 	}
+	
+	
 	
 	
 }

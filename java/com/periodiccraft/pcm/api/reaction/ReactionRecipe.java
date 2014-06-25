@@ -28,9 +28,9 @@ public class ReactionRecipe implements IReactionRecipe {
 		return this.input2;
 	}
 
+
 	@Override
-	public IMolecule[] getProduct() {
+	public IMolecule[] getOutcome() {
 		return this.output;
 	}
-
 }

@@ -1,6 +1,7 @@
 package com.periodiccraft.pcm.api.reaction;
 
 import com.periodiccraft.pcm.core.element.Atom;
+import com.periodiccraft.pcm.core.element.Element;
 import com.periodiccraft.pcm.core.element.IMolecule;
 import com.periodiccraft.pcm.core.registry.ReactionRegistry;
 import com.periodiccraft.pcm.helper.ChemUtil;
@@ -11,6 +12,7 @@ public class Reaction implements IReaction {
 	private IMolecule[] input2;
 	
 	private EnumReactionType type;
+	private Reaction deadlyReaction;
 	
 	public Reaction(IMolecule[] par1, IMolecule[] par2, EnumReactionType par3) {
 		input1 = par1;
@@ -59,7 +61,7 @@ public class Reaction implements IReaction {
 	public IMolecule[] react() {
 		if (ReactionRegistry.hasRecipe(input1, input2)) {
 			ReactionRecipe var1 = ReactionRegistry.getRecipe(input1, input2);
-			return var1.getProduct();
+			return var1.getOutcome();
 		}
 		return null;
 	}
@@ -68,16 +70,11 @@ public class Reaction implements IReaction {
 		return ChemUtil.getFormula(input1) + " + " + ChemUtil.getFormula(input2);
 	}
 
+
 	@Override
-	public boolean canOxidize(float temperature) {
+	public boolean canOxidize(boolean canOxidize) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
-	public float setOxidizationTemperature(float temperature) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
 }

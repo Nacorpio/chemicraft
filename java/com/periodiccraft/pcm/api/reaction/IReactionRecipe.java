@@ -8,6 +8,7 @@ public interface IReactionRecipe {
 	
 	IMolecule[] getInputTwo();
 	
-	IMolecule[] getProduct();
+	IMolecule[] getOutcome();
+	
 	
 }
