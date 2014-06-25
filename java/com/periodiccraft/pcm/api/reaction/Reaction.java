@@ -67,5 +67,17 @@ public class Reaction implements IReaction {
 	public final String getFormula() {
 		return ChemUtil.getFormula(input1) + " + " + ChemUtil.getFormula(input2);
 	}
+
+	@Override
+	public boolean canOxidize(float temperature) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public float setOxidizationTemperature(float temperature) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }
