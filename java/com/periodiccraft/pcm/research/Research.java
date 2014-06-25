@@ -62,4 +62,14 @@ public class Research {
 		
 	}
 	
+	public final boolean equals(Object par1) {
+		if (par1 == null) return false;
+		if (par1 instanceof Research) {
+			Research var1 = (Research) par1;
+			return var1.getCategory().equals(this.getCategory()) &&
+				   var1.getIdentifier() == identifier;
+		}
+		return par1.equals(this);
+	}
+	
 }

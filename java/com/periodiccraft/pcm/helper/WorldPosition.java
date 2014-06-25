@@ -109,6 +109,10 @@ public class WorldPosition extends Position {
 		return var1;
 	}
 	
+	public final boolean canSeeSky() {
+		return BiomeTemperature.canSeeSky(this);
+	}
+	
 	public final World getWorld() {
 		return world;
 	}

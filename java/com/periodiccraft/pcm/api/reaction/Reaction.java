@@ -9,16 +9,19 @@ import com.periodiccraft.pcm.helper.ChemUtil;
 
 public class Reaction implements IReaction {
 
+	private String name;
+	
 	private MoleculeStack input1;
 	private MoleculeStack input2;
 	
 	private IEffect effect;
 	private EnumReactionType type;
 	
-	public Reaction(MoleculeStack par1, MoleculeStack par2, EnumReactionType par3) {
-		input1 = par1;
-		input2 = par2;
-		type = par3;
+	public Reaction(String par1, MoleculeStack par2, MoleculeStack par3, EnumReactionType par4) {
+		name = par1;
+		input1 = par2;
+		input2 = par3;
+		type = par4;
 	}
 	
 	public final MoleculeStack getInput1() {
@@ -37,8 +40,7 @@ public class Reaction implements IReaction {
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return name;
 	}
 
 	@Override
@@ -48,13 +50,11 @@ public class Reaction implements IReaction {
 
 	@Override
 	public int getRequiredEnergyLevel() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int getEnergyOutcome() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -78,4 +78,17 @@ public class Reaction implements IReaction {
 		return false;
 	}
 
+	public final boolean equals(Object par1) {
+		if (par1 == null) return false;
+		if (par1 instanceof Reaction) {
+			Reaction var1 = (Reaction) par1;
+			return var1.getInput1().equals(this.input1) &&
+				   var1.getInput2().equals(this.input2) &&
+				   var1.getEnergyOutcome() == this.getEnergyOutcome() &&
+				   var1.getRequiredEnergyLevel() == this.getRequiredEnergyLevel() &&
+				   var1.getFormula().equals(this.getFormula());
+		}
+		return par1.equals(this);
+	}
+	
 }

@@ -325,9 +325,13 @@ public class PeriodicCraft {
 
 
 		
+<<<<<<< HEAD
+		IReaction CopperOxidization = new Reaction("Reaction.COPPER_OXIDIZATION", null, null, null);
+=======
 		//Reactions
 		
 		
+>>>>>>> 0c3b1ff3b7c4aa914cec92b7a0a8831053319542
 		
 
 		// NOTE Just for testing - The substances should be somewhere, getting

@@ -21,16 +21,24 @@ public class ReactionRecipe implements IReactionRecipe {
 		return this.input1;
 	}
 
-	
-	
 	@Override
 	public MoleculeStack getInputTwo() {
 		return this.input2;
 	}
 
-
 	@Override
 	public MoleculeStack[] getOutcome() {
 		return this.output;
 	}
+	
+	public final boolean equals(Object par1) {
+		if (par1 == null) return false;
+		if (par1 instanceof ReactionRecipe) {
+			ReactionRecipe var1 = (ReactionRecipe) par1;
+			return var1.getInputOne().equals(input1) &&
+				   var1.getInputTwo().equals(input2);
+		}
+		return par1.equals(this);
+	}
+	
 }
