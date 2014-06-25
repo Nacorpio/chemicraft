@@ -192,6 +192,15 @@ public class Element extends Atom {
 		
 	}
 	
+	public final boolean equals(Object par1) {
+		if (par1 instanceof Element) {
+			Element var1 = (Element) par1;
+			return var1.getNeutrons() == this.neutrons &&
+				   var1.getElectrons() == this.electrons &&
+				   var1.getProtons() == this.protons;
+		} 
+		return par1.equals(this);
+	}
 
 }
 	

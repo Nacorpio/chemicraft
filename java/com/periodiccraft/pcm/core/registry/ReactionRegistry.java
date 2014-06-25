@@ -4,8 +4,7 @@ import java.util.Collection;
 import java.util.HashMap;
 
 import com.periodiccraft.pcm.api.reaction.ReactionRecipe;
-import com.periodiccraft.pcm.core.element.Atom;
-import com.periodiccraft.pcm.core.element.IMolecule;
+import com.periodiccraft.pcm.core.element.MoleculeStack;
 import com.periodiccraft.pcm.helper.ChemUtil;
 
 public class ReactionRegistry {
@@ -16,9 +15,9 @@ public class ReactionRegistry {
 		recipes.put(par1, par2);
 	}
 	
-	public static final ReactionRecipe getRecipe(IMolecule[] par1, IMolecule[] par2) {
+	public static final ReactionRecipe getRecipe(MoleculeStack par1, MoleculeStack par2) {
 		for (ReactionRecipe var: getRecipes()) {
-			if (ChemUtil.isStackArrayEqualTo(var.getInputOne(), par1) && ChemUtil.isStackArrayEqualTo(var.getInputTwo(), par2)) {
+			if (var.getInputOne().equals(par1) && var.getInputTwo().equals(par2)) {
 				return var;
 			}
 		}
@@ -29,9 +28,9 @@ public class ReactionRegistry {
 		return recipes.get(par1);
 	}
 	
-	public static final boolean hasRecipe(IMolecule[] par1, IMolecule[] par2) {
+	public static final boolean hasRecipe(MoleculeStack par1, MoleculeStack par2) {
 		for (ReactionRecipe var: getRecipes()) {
-			if (ChemUtil.isStackArrayEqualTo(var.getInputOne(), par1) && ChemUtil.isStackArrayEqualTo(var.getInputTwo(), par2)) {
+			if (var.getInputOne().equals(par1) && var.getInputTwo().equals(par2)) {
 				return true;
 			}
 		}

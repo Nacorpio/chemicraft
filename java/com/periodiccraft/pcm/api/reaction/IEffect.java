@@ -1,12 +1,30 @@
 package com.periodiccraft.pcm.api.reaction;
 
-import com.periodiccraft.pcm.core.element.IMolecule;
+import net.minecraft.entity.EntityLiving;
 
-public interface IEffect extends IReaction { //Maybe.....IDK
+public interface IEffect {
 
-	public boolean hasEffect(IMolecule[] par1, IMolecule[] par2); //IDK about this either...
-	public String getName();
+	/**
+	 * Returns the name of the effect.
+	 * @return the name.
+	 */
+	String getName();
 	
-	//Edit Anything you want....
+	/**
+	 * Returns whether the effect is caused by a reaction.
+	 * @return true/false.
+	 */
+	boolean isReaction();
+	
+	/**
+	 * Calls what the effect does to the entity.
+	 * @param par1 the effect that occurs.
+	 * @param par2 the entity that the effect affects.
+	 * @param par3 the multiplier/strength of the effect.<br>
+	 * This parameter is optional, and doesn't have to be used.
+	 * @param par4 the amount of ticks to run this effect for.<br>
+	 * This will be divided into seconds within the game.
+	 */
+	void onEffect(IEffect par1, EntityLiving par2, float par3, int par4);
 	
 }

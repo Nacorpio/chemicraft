@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 
 import com.periodiccraft.pcm.core.element.Atom;
 import com.periodiccraft.pcm.core.element.IMolecule;
+import com.periodiccraft.pcm.core.element.MoleculeStack;
 
 public final class ChemUtil {
 	
@@ -88,7 +89,7 @@ public final class ChemUtil {
 		return false;
 	}
 	
-	public static final String getFormula(IMolecule[] par1) {
+	public static final String getFormula(IMolecule... par1) {
 		String formula = "";
 		int i = 0;
 		for (IMolecule var: par1) {
@@ -108,18 +109,7 @@ public final class ChemUtil {
 		return false;
 	}
 	
-	public static final boolean isStackArrayEqualTo(IMolecule[] par1, IMolecule[] par2) {
-		for (int i = 0; i < par1.length; i++) {
-			if (isStackEqualTo(par1[i], par2[i])) {
-				continue;
-			} else {
-				return false;
-			}
-		}
-		return true;
-	}
-	
-	public static final boolean isStackEqualTo(IMolecule par1, IMolecule par2) {
+	public static final boolean isStackEqualTo(MoleculeStack par1, MoleculeStack par2) {
 		return par1.equals(par2);
 	}
 	
