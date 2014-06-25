@@ -19,12 +19,15 @@ public interface IEffect {
 	/**
 	 * Calls what the effect does to the entity.
 	 * @param par1 the effect that occurs.
-	 * @param par2 the entity that the effect affects.
-	 * @param par3 the multiplier/strength of the effect.<br>
+	 * @param par2 the reaction that causes the effect
+	 * @param par3 the entity that the effect affects.
+	 * @param par4 the multiplier/strength of the effect.<br>
 	 * This parameter is optional, and doesn't have to be used.
-	 * @param par4 the amount of ticks to run this effect for.<br>
+	 * @param par5 the amount of ticks to run this effect for.<br>
 	 * This will be divided into seconds within the game.
+	 * 
 	 */
-	void onEffect(IEffect par1, EntityLiving par2, float par3, int par4);
+	void onEffect(IEffect par1, IReaction par2, EntityLiving par3, float par4, int par5);
+
 	
 }

@@ -7,6 +7,7 @@ public class Effect implements IEffect {
 
 	private String name;
 	
+	
 	public Effect(String par1) {
 		this.name = par1;
 	}
@@ -22,6 +23,6 @@ public class Effect implements IEffect {
 	}
 
 	@Override
-	public void onEffect(IEffect par1, EntityLiving par2, float par3, int par4) {}
+	public void onEffect(IEffect par1, IReaction par2, EntityLiving par3, float par4, int par5) {}
 
 }
