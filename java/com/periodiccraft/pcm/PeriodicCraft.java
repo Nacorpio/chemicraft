@@ -34,8 +34,10 @@ import net.minecraftforge.fluids.Fluid;
 
 
 
+
 import com.periodiccraft.pcm.api.reaction.IReaction;
 import com.periodiccraft.pcm.api.reaction.Reaction;
+import com.periodiccraft.pcm.api.reaction.ReactionRecipe;
 import com.periodiccraft.pcm.core.block.BlockReinforcedGlass;
 import com.periodiccraft.pcm.core.block.LQClass;
 import com.periodiccraft.pcm.core.block.BlockReinforcedIron;
@@ -323,7 +325,9 @@ public class PeriodicCraft {
 
 
 		
-		IReaction CopperOxidization = new Reaction(null, null, null);
+		//Reactions
+		
+		
 		
 
 		// NOTE Just for testing - The substances should be somewhere, getting
