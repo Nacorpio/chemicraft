@@ -67,6 +67,20 @@ public class WorldPosition extends Position {
 	}
 	
 	/**
+	 * Returns the specified amount of blocks at the given direction.
+	 * @param par1 the direction of the blocks to return.
+	 * @param par2 the amount of blocks.
+	 * @return all the blocks in the given direction.
+	 */
+	public final Block[] getBlocks(ForgeDirection par1, int par2) {
+		Block[] var1 = new Block[]{};
+		for (int i = 0; i < par2; i++) {
+			var1[i] = this.getBlock(par1, i);
+		}
+		return var1;
+	}
+	
+	/**
 	 * Returns the Block in the given direction, one hop away.
 	 * @param par1 the direction of the Block to return.
 	 * @return the Block in the given direction, one hop away. 
@@ -93,6 +107,10 @@ public class WorldPosition extends Position {
 			var1[i] = getBlock(ForgeDirection.values()[i]);
 		}
 		return var1;
+	}
+	
+	public final World getWorld() {
+		return world;
 	}
 	
 }
