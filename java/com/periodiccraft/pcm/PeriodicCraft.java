@@ -87,10 +87,11 @@ public class PeriodicCraft {
 	public static Item Ethanol;
 
 	// Fluids
-	public static PeriodicFluid mercury;
+
 	public static PeriodicFluid acid;
 	public static Block blockMercury;
-
+	public static PeriodicFluid Mercury = new PeriodicFluid(null, null,
+			blockMercury, 0, 0, 0, 0, "Mercury");
 	
 	// Ores
 	public static PeriodicOre oreLithium;
@@ -169,7 +170,7 @@ public class PeriodicCraft {
 		oreAluminum = new PeriodicOre("Aluminum", 4.0F);
 		
 		//Fluids
-		mercury = new PeriodicFluid(mercury, Material.water, blockMercury, 0, 0, 0, 0, "Hello");
+
 
 		// Items
 		bookOfResearch = new PeriodicItem("bookOfResearch")
