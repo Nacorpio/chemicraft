@@ -35,6 +35,7 @@ import net.minecraftforge.fluids.Fluid;
 
 
 
+
 import com.periodiccraft.pcm.api.reaction.IReaction;
 import com.periodiccraft.pcm.api.reaction.Reaction;
 import com.periodiccraft.pcm.api.reaction.ReactionRecipe;
@@ -46,6 +47,7 @@ import com.periodiccraft.pcm.core.element.Element;
 import com.periodiccraft.pcm.core.element.IMolecule;
 import com.periodiccraft.pcm.core.element.OrganicMolecule;
 import com.periodiccraft.pcm.core.element.SimpleMolecule;
+import com.periodiccraft.pcm.core.fluids.PeriodicFluid;
 import com.periodiccraft.pcm.core.gui.TileEntityLQ;
 import com.periodiccraft.pcm.core.item.Ethanol;
 import com.periodiccraft.pcm.core.item.PeriodicElementItemUnknown;
@@ -85,8 +87,11 @@ public class PeriodicCraft {
 	public static Item Ethanol;
 
 	// Fluids
-	public Fluid mercury = new Fluid("mercury");
+	public static PeriodicFluid mercury;
+	public static PeriodicFluid acid;
+	public static Block blockMercury;
 
+	
 	// Ores
 	public static PeriodicOre oreLithium;
 	public static PeriodicOre oreBoron;
@@ -162,6 +167,9 @@ public class PeriodicCraft {
 		oreCarbon = new PeriodicOre("oreCarbon", 4.5F);
 		oreBeryllium = new PeriodicOre("Beryllium", 3.5F);
 		oreAluminum = new PeriodicOre("Aluminum", 4.0F);
+		
+		//Fluids
+		mercury = new PeriodicFluid(mercury, Material.water, blockMercury, 0, 0, 0, 0, "Hello");
 
 		// Items
 		bookOfResearch = new PeriodicItem("bookOfResearch")

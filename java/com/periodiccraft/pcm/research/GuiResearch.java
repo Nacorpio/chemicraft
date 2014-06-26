@@ -54,7 +54,7 @@ public class GuiResearch extends Gui {
         GL11.glLoadIdentity();
         this.i = this.mine.displayWidth;
         this.j = this.mine.displayHeight;
-        ScaledResolution scaledresolution = new ScaledResolution(Minecraft.getMinecraft(), this.mine.displayWidth, this.mine.displayHeight);
+        ScaledResolution scaledresolution = new ScaledResolution(this.mine.gameSettings, this.mine.displayWidth, this.mine.displayHeight);
         this.i = scaledresolution.getScaledWidth();
         this.j = scaledresolution.getScaledHeight();
         GL11.glClear(GL11.GL_DEPTH_BUFFER_BIT);
