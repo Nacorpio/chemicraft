@@ -5,8 +5,8 @@ import java.awt.event.KeyAdapter;
 import org.lwjgl.input.Keyboard;
 
 import com.periodiccraft.pcm.core.element.Element;
-import com.periodiccraft.pcm.core.element.IMolecule;
-import com.periodiccraft.pcm.core.element.MoleculeStack;
+import com.periodiccraft.pcm.core.element.ICompound;
+import com.periodiccraft.pcm.core.element.SubstanceStack;
 import com.periodiccraft.pcm.core.item.PeriodicItem;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
 import com.periodiccraft.pcm.helper.ChatUtil;
@@ -35,7 +35,7 @@ public class EventHandler
 	public void onItemTooltip(ItemTooltipEvent event)
 	{
 		if(event.itemStack.getItem() instanceof PeriodicItem) return;
-		MoleculeStack m = SubstanceRegistry.getCompoundBinding(event.itemStack);
+		SubstanceStack m = SubstanceRegistry.getCompoundBinding(event.itemStack);
 		if(m == null) return;
 		//TODO Possibly also apply research to the molecule's name.
 		event.toolTip.add(m.getMass() + "g of");

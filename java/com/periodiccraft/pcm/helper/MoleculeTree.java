@@ -12,18 +12,20 @@ import javax.naming.directory.InvalidAttributesException;
 
 import com.periodiccraft.pcm.core.element.Atom;
 import com.periodiccraft.pcm.core.element.Element;
-import com.periodiccraft.pcm.core.element.IMolecule;
-import com.periodiccraft.pcm.core.element.SimpleMolecule;
+import com.periodiccraft.pcm.core.element.ICompound;
+import com.periodiccraft.pcm.core.element.Molecule;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
 
 public class MoleculeTree
 {	
 	private MoleculeNode root;
 	private int amount;
+	private int width;
+	private int height;
 	
-	public MoleculeTree(Atom rootData, int amount) 
+	public MoleculeTree(Atom rootData, int amount, int x, int y) 
 	{
-		root = new MoleculeNode(0, rootData, null);
+		root = new MoleculeNode(0, rootData, null, x, y);
 		this.amount = amount;
 	}
 	
@@ -34,18 +36,22 @@ public class MoleculeTree
 		for(String s : structure)
 		{
 			ArrayList<String> list2 = new ArrayList<String>();
-			Pattern p = Pattern.compile("([A-Z][a-z]*)|[=\\-#\\s]");
+			Pattern p = Pattern.compile("([\\(][A-Z][a-z]*([1-9]+[+-])[\\)])|([A-Z][a-z]*([1-9]+[+-])?)|[=\\-#\\s]");
 			Matcher m = p.matcher(s);
 			while(m.find())
 			{
 				String sub = m.group();
-				list2.add(sub);
+				list2.add(sub.replaceAll("[\\(\\)]", ""));
+				for(int i = 0; i < sub.length() - 1; i++)
+				{
+					list2.add(" ");
+				}
 			}
 			matrix.add(list2);
 		}
 		
-		int width = matrix.get(0).size();
-		int height = matrix.size();
+		this.width = matrix.get(0).size();
+		this.height = matrix.size();
 		
 		String firstAtom = null;
 		
@@ -63,8 +69,8 @@ public class MoleculeTree
 			}
 		}
 
-		Atom atom = SubstanceRegistry.getSubstanceBySymbol(firstAtom);
-		root = new MoleculeNode(0, atom, null);
+		Atom atom = getElement(firstAtom);
+		root = new MoleculeNode(0, atom, null, x, y);
 		ArrayList<Point> list = new ArrayList<Point>();
 		list.add(new Point(x, y));
 		structureTree(x, y, list, matrix, root);
@@ -72,98 +78,64 @@ public class MoleculeTree
 	
 	private boolean isElement(String e)
 	{
-		return e.matches("([A-Z][a-z]*)");
+		return e.matches("([A-Z][a-z]*([1-9]+[+-])?)");
 	}
 	
-	private boolean isValid(int x, int y, ArrayList<Point> list, ArrayList<ArrayList<String>> matrix)
+	private Atom getElement(String e)
+	{
+		int charge = 0;
+		if(e.endsWith("+") || e.endsWith("-"))
+		{
+			Matcher matcher = Pattern.compile("[1-9]").matcher(e);
+			matcher.find();
+			String sub = e.substring(matcher.start(), e.length() - 1);
+			charge = Integer.parseInt(sub) * (e.endsWith("-") ? -1 : 1);
+		}
+		Atom atom = SubstanceRegistry.getSubstanceBySymbol(e.replaceAll("[1-9+-]", ""));
+		atom.setCharge(charge);
+		return atom;
+	}
+	
+	private boolean isValid(int x, int y, ArrayList<ArrayList<String>> matrix)
 	{
 		if(x >= 0 && y >= 0 && x < matrix.get(0).size() && y < matrix.size())
 		{
-			return !list.contains(new Point(x, y));
+			return true;
 		}
 		return false;
+	}
+
+	private void structureTreePayload(int x, int y, int xChange, int yChange, ArrayList<Point> list, ArrayList<ArrayList<String>> matrix, MoleculeNode parent)
+	{
+		String cur;
+		if(isValid(x, y, matrix) && !list.contains(new Point(x, y)))
+		{
+			cur = matrix.get(y).get(x);
+			if(cur.matches("[=\\-#]"))
+			{
+				int binding = cur.matches("[\\-]") ? 1 : cur.matches("[=]") ? 2 : cur.matches("[#]") ? 3 : 0;
+				Point p = followBind(x, y, xChange, yChange, matrix);
+				if(isValid(p.x, p.y, matrix))
+				{
+					cur = matrix.get(p.y).get(p.x);			
+					MoleculeNode leaf = new MoleculeNode(binding, getElement(cur), parent, p.x, p.y);
+					parent.addLeaf(leaf);
+					if(!list.contains(p)) 
+					{
+						list.add(p);
+						structureTree(p.x, p.y, list, matrix, leaf);
+					}
+				}
+			}
+		}
 	}
 	
 	private void structureTree(int x, int y, ArrayList<Point> list, ArrayList<ArrayList<String>> matrix, MoleculeNode parent)
 	{
-		int x2, y2;
-		String cur;
-		
-		x2 = x - 1; y2 = y;
-		if(isValid(x2, y2, list, matrix))
-		{
-			cur = matrix.get(y2).get(x2);
-			if(cur.matches("[=\\-#]"))
-			{
-				int binding = cur.matches("[\\-]") ? 1 : cur.matches("[=]") ? 2 : cur.matches("[#]") ? 3 : 0;
-				Point p = followBind(x2, y2, -1, 0, matrix);
-				if(isValid(p.x, p.y, list, matrix))
-				{
-					cur = matrix.get(p.y).get(p.x);
-					list.add(p);
-					MoleculeNode leaf = new MoleculeNode(binding, SubstanceRegistry.getSubstanceBySymbol(cur), parent);
-					parent.addLeaf(leaf);
-					structureTree(p.x, p.y, list, matrix, leaf);
-				}
-			}
-		}
-		
-		x2 = x + 1; y2 = y;
-		if(isValid(x2, y2, list, matrix))
-		{
-			cur = matrix.get(y2).get(x2);
-			if(cur.matches("[=\\-#]"))
-			{
-				int binding = cur.matches("[\\-]") ? 1 : cur.matches("[=]") ? 2 : cur.matches("[#]") ? 3 : 0;
-				Point p = followBind(x2, y2, 1, 0, matrix);
-				if(isValid(p.x, p.y, list, matrix))
-				{
-					cur = matrix.get(p.y).get(p.x);
-					list.add(p);
-					MoleculeNode leaf = new MoleculeNode(binding, SubstanceRegistry.getSubstanceBySymbol(cur), parent);
-					parent.addLeaf(leaf);
-					structureTree(p.x, p.y, list, matrix, leaf);
-				}
-			}
-		}
-		
-		x2 = x; y2 = y + 1;
-		if(isValid(x2, y2, list, matrix))
-		{
-			cur = matrix.get(y2).get(x2);
-			if(cur.matches("[=\\-#]"))
-			{
-				int binding = cur.matches("[\\-]") ? 1 : cur.matches("[=]") ? 2 : cur.matches("[#]") ? 3 : 0;
-				Point p = followBind(x2, y2, 0, 1, matrix);
-				if(isValid(p.x, p.y, list, matrix))
-				{
-					cur = matrix.get(p.y).get(p.x);
-					list.add(p);
-					MoleculeNode leaf = new MoleculeNode(binding, SubstanceRegistry.getSubstanceBySymbol(cur), parent);
-					parent.addLeaf(leaf);
-					structureTree(p.x, p.y, list, matrix, leaf);
-				}
-			}
-		}
-		
-		x2 = x; y2 = y - 1;
-		if(isValid(x2, y2, list, matrix))
-		{
-			cur = matrix.get(y2).get(x2);
-			if(cur.matches("[=\\-#]"))
-			{
-				int binding = cur.matches("[\\-]") ? 1 : cur.matches("[=]") ? 2 : cur.matches("[#]") ? 3 : 0;
-				Point p = followBind(x2, y2, 0, -1, matrix);
-				if(isValid(p.x, p.y, list, matrix))
-				{
-					cur = matrix.get(p.y).get(p.x);
-					list.add(p);
-					MoleculeNode leaf = new MoleculeNode(binding, SubstanceRegistry.getSubstanceBySymbol(cur), parent);
-					parent.addLeaf(leaf);
-					structureTree(p.x, p.y, list, matrix, leaf);
-				}
-			}
-		}
+		structureTreePayload(x - 1, y, -1, 0, list, matrix, parent);
+		structureTreePayload(x + 1, y, 1, 0, list, matrix, parent);
+		structureTreePayload(x, y - 1, 0, -1, list, matrix, parent);
+		structureTreePayload(x, y + 1, 0, 1, list, matrix, parent);	
 	}
 	
 	private Point followBind(int x, int y, int xChange, int yChange, ArrayList<ArrayList<String>> matrix)
@@ -178,9 +150,9 @@ public class MoleculeTree
 		return new Point(x, y);
 	}
 	
-	public SimpleMolecule convertToSimpleMolecule()
+	public Molecule convertToSimpleMolecule()
 	{
-		return new SimpleMolecule(1, getAtoms(getRoot()));
+		return new Molecule(1, getAtoms(getRoot()));
 	}
 
 	public Atom[] getAtoms(MoleculeNode node)
@@ -223,13 +195,18 @@ public class MoleculeTree
 	    private MoleculeNode parent;
 	    private List<MoleculeNode> children;
 	    private int binding;
+	    //TODO (Vic): Could use those for rendering.
+	    private int xCoord;
+	    private int yCoord;
 	    
-		public MoleculeNode(int binding, Atom m, MoleculeNode parent)
+		public MoleculeNode(int binding, Atom m, MoleculeNode parent, int x, int y)
 	    {
 			children = new ArrayList<MoleculeNode>();
 			this.data = m;
 			this.parent = parent;
 			this.binding = binding;
+			this.xCoord = x;
+			this.yCoord = y;
 	    }
 		
 		public boolean isLeaf()

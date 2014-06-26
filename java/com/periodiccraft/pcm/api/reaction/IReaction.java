@@ -2,16 +2,16 @@ package com.periodiccraft.pcm.api.reaction;
 
 import net.minecraft.entity.player.EntityPlayer;
 
-import com.periodiccraft.pcm.core.element.MoleculeStack;
+import com.periodiccraft.pcm.core.element.SubstanceStack;
 
 public interface IReaction {
 	
-	public boolean canReact(MoleculeStack par1, MoleculeStack par2);
+	public boolean canReact(SubstanceStack par1, SubstanceStack par2);
 	public String getName();
 	public boolean canOxidize(boolean canOxidize);
 	public EnumReactionType getType();
 	public int getRequiredEnergyLevel();
 	public int getEnergyOutcome();
-	public MoleculeStack[] react(EntityPlayer par1);
+	public SubstanceStack[] react(EntityPlayer par1);
 	
 }
