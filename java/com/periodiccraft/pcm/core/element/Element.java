@@ -102,7 +102,7 @@ public class Element extends Atom {
 		this.category = category;
 
 
-		IMolecule m = new SimpleMolecule(1, this);
+		ICompound m = new Molecule(1, this);
 		
 		SubstanceRegistry.addSubstance(atomicNumber, this);
 		ResearchRegistry.addResearch(atomicNumber, new Research(this, Minecraft.getMinecraft().thePlayer));

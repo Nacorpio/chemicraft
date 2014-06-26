@@ -1,11 +1,11 @@
 package com.periodiccraft.pcm.core.element;
 
-public class MoleculeStack {
+public class SubstanceStack {
 	
-	private IMolecule molecule;
+	private ICompound molecule;
 	private float mass;
 	
-	public MoleculeStack(float mass, IMolecule molecule) {
+	public SubstanceStack(float mass, ICompound molecule) {
 		this.mass = mass;
 		this.molecule = molecule;
 	}
@@ -18,14 +18,14 @@ public class MoleculeStack {
 		return mass;
 	}
 	
-	public IMolecule getIMolecule() {
+	public ICompound getIMolecule() {
 		return molecule;
 	}
 	
 	public final boolean equals(Object par1) {
 		if (par1 == null) return false;
-		if (par1 instanceof MoleculeStack) {
-			MoleculeStack var1 = (MoleculeStack) par1;
+		if (par1 instanceof SubstanceStack) {
+			SubstanceStack var1 = (SubstanceStack) par1;
 			return var1.getIMolecule().getName().equals(molecule.getName()) &&
 				   var1.getIMolecule().getCount() == molecule.getCount() &&
 				   var1.getIMolecule().getFirstAtom().equals(molecule.getFirstAtom()) &&

@@ -10,7 +10,7 @@ import com.periodiccraft.pcm.PeriodicCraft;
 import com.periodiccraft.pcm.PeriodicTabs;
 import com.periodiccraft.pcm.core.element.Atom;
 import com.periodiccraft.pcm.core.element.Element;
-import com.periodiccraft.pcm.core.element.IMolecule;
+import com.periodiccraft.pcm.core.element.ICompound;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
 import com.periodiccraft.pcm.helper.BiomeTemperature;
 import com.periodiccraft.pcm.helper.ChatUtil;
@@ -19,11 +19,11 @@ import com.periodiccraft.pcm.research.ResearchRegistry.Research;
 
 public class PeriodicElementItem extends PeriodicItem {
 
-	private IMolecule substance;
+	private ICompound substance;
 
 	
 
-	public PeriodicElementItem(String par1, IMolecule substance) {
+	public PeriodicElementItem(String par1, ICompound substance) {
 		
 		super(par1);
 		this.setCreativeTab(PeriodicCraft.tabPeriodic);	
@@ -39,7 +39,7 @@ public class PeriodicElementItem extends PeriodicItem {
 	@Override
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		
-		IMolecule var1 = SubstanceRegistry.getCompoundBinding(getUnlocalizedName()).getIMolecule();
+		ICompound var1 = SubstanceRegistry.getCompoundBinding(getUnlocalizedName()).getIMolecule();
 		if(!var1.isCompound() && var1.getFirstAtom() instanceof Element)
 		{
 			Element e = (Element)var1.getFirstAtom();

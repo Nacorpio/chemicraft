@@ -12,8 +12,8 @@ import javax.naming.directory.InvalidAttributesException;
 
 import com.periodiccraft.pcm.core.element.Atom;
 import com.periodiccraft.pcm.core.element.Element;
-import com.periodiccraft.pcm.core.element.IMolecule;
-import com.periodiccraft.pcm.core.element.SimpleMolecule;
+import com.periodiccraft.pcm.core.element.ICompound;
+import com.periodiccraft.pcm.core.element.Molecule;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
 
 public class MoleculeTree
@@ -178,9 +178,9 @@ public class MoleculeTree
 		return new Point(x, y);
 	}
 	
-	public SimpleMolecule convertToSimpleMolecule()
+	public Molecule convertToSimpleMolecule()
 	{
-		return new SimpleMolecule(1, getAtoms(getRoot()));
+		return new Molecule(1, getAtoms(getRoot()));
 	}
 
 	public Atom[] getAtoms(MoleculeNode node)

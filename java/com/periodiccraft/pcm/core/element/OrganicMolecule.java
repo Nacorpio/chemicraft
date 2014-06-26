@@ -3,7 +3,7 @@ package com.periodiccraft.pcm.core.element;
 import com.periodiccraft.pcm.helper.BiomeTemperature;
 import com.periodiccraft.pcm.helper.MoleculeTree;
 
-public class OrganicMolecule implements IMolecule
+public class OrganicMolecule implements ICompound
 {
 	MoleculeTree moleculeTree;
 	private float temperature = BiomeTemperature.getDefaultTemperature();
@@ -43,7 +43,7 @@ public class OrganicMolecule implements IMolecule
 	}
 
 	@Override
-	public IMolecule setCount(int par1) {
+	public ICompound setCount(int par1) {
 		this.count = par1;
 		return this;
 	}

@@ -3,7 +3,7 @@ package com.periodiccraft.pcm.core.element;
 import com.periodiccraft.pcm.helper.ChatUtil;
 import com.periodiccraft.pcm.research.ResearchRegistry;
 
-public interface IMolecule {
+public interface ICompound {
 	
 	public boolean isCompound();
 
@@ -15,7 +15,7 @@ public interface IMolecule {
 	
 	public float getTemperature();
 	
-	public IMolecule setCount(int par1);
+	public ICompound setCount(int par1);
 	
 	public int getCount();
 

@@ -44,9 +44,9 @@ import com.periodiccraft.pcm.core.block.LQClass;
 import com.periodiccraft.pcm.core.block.BlockReinforcedIron;
 import com.periodiccraft.pcm.core.block.ores.PeriodicOre;
 import com.periodiccraft.pcm.core.element.Element;
-import com.periodiccraft.pcm.core.element.IMolecule;
+import com.periodiccraft.pcm.core.element.ICompound;
 import com.periodiccraft.pcm.core.element.OrganicMolecule;
-import com.periodiccraft.pcm.core.element.SimpleMolecule;
+import com.periodiccraft.pcm.core.element.Molecule;
 import com.periodiccraft.pcm.core.fluids.PeriodicFluid;
 import com.periodiccraft.pcm.core.gui.TileEntityLQ;
 import com.periodiccraft.pcm.core.item.Ethanol;
@@ -350,7 +350,7 @@ public class PeriodicCraft {
 		 */
 
 		// Simple Molecules
-		IMolecule diamond = new SimpleMolecule(2, "Diamond", SubstanceRegistry
+		ICompound diamond = new Molecule(2, "Diamond", SubstanceRegistry
 				.getSubstance("Carbon").setAmount(8));
 		SubstanceRegistry.bindCompound(Items.diamond.getUnlocalizedName(),
 				diamond, 1000F);
@@ -360,37 +360,37 @@ public class PeriodicCraft {
 	
 	    */
 		
-		IMolecule water = new SimpleMolecule(1, "Water", SubstanceRegistry
+		ICompound water = new Molecule(1, "Water", SubstanceRegistry
 				.getSubstance("Hydrogen").setAmount(2), SubstanceRegistry
 				.getSubstance("Oxygen").setAmount(1));
 		SubstanceRegistry.bindCompound(Items.water_bucket.getUnlocalizedName(),
 				water, 1000F);
 		
-		IMolecule coal = new SimpleMolecule(1, "Coal", SubstanceRegistry.getSubstance("Carbon").setAmount(5), SubstanceRegistry.getSubstance("Hydrogen").setAmount(2));
+		ICompound coal = new Molecule(1, "Coal", SubstanceRegistry.getSubstance("Carbon").setAmount(5), SubstanceRegistry.getSubstance("Hydrogen").setAmount(2));
 		SubstanceRegistry.bindCompound(Items.coal.getUnlocalizedName(), coal, 100.0F);
 		// Organic Molecules
-		IMolecule methane = new OrganicMolecule(1, "Methane",
+		ICompound methane = new OrganicMolecule(1, "Methane",
 				"  H  ",
 				"  -  ",
 				"H-C-H",
 				"  -  ",
 				"  H  ");
 
-		IMolecule ethanol = new OrganicMolecule(1, "Ethanol",
+		ICompound ethanol = new OrganicMolecule(1, "Ethanol",
 				"  H H    ",
 				"  - -    ",
 				"H-C-C-O-H",
 				"  - -    ",
 				"  H H    ");
 
-		IMolecule ethene = new OrganicMolecule(1, "Ethene",
+		ICompound ethene = new OrganicMolecule(1, "Ethene",
 				"  H H  ",
 				"  - -  ",
 				"H-C=C-H",
 				"  - -  ",
 				"  H H  ");
 
-		IMolecule glucose = new OrganicMolecule(1, "Glucose",
+		ICompound glucose = new OrganicMolecule(1, "Glucose",
 				"  H  H  H  H  H H  ", 
 				"  -  -  -  -  - -  ",
 				"H-C--C--C--C--C-C=O", 
@@ -399,7 +399,7 @@ public class PeriodicCraft {
 				"  -  -  -  -  -    ",
 				"  H  H  H  H  H    ");
 
-		IMolecule cocaine = new OrganicMolecule(1, "Cocaine",
+		ICompound cocaine = new OrganicMolecule(1, "Cocaine",
 				"             H          ",
 				"             -          ",
 				"           H-C-H        ",

@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.HashMap;
 
 import com.periodiccraft.pcm.api.reaction.ReactionRecipe;
-import com.periodiccraft.pcm.core.element.MoleculeStack;
+import com.periodiccraft.pcm.core.element.SubstanceStack;
 import com.periodiccraft.pcm.helper.ChemUtil;
 
 public class ReactionRegistry {
@@ -15,7 +15,7 @@ public class ReactionRegistry {
 		recipes.put(par1, par2);
 	}
 	
-	public static final ReactionRecipe getRecipe(MoleculeStack par1, MoleculeStack par2) {
+	public static final ReactionRecipe getRecipe(SubstanceStack par1, SubstanceStack par2) {
 		for (ReactionRecipe var: getRecipes()) {
 			if (var.getInputOne().equals(par1) && var.getInputTwo().equals(par2)) {
 				return var;
@@ -28,7 +28,7 @@ public class ReactionRegistry {
 		return recipes.get(par1);
 	}
 	
-	public static final boolean hasRecipe(MoleculeStack par1, MoleculeStack par2) {
+	public static final boolean hasRecipe(SubstanceStack par1, SubstanceStack par2) {
 		for (ReactionRecipe var: getRecipes()) {
 			if (var.getInputOne().equals(par1) && var.getInputTwo().equals(par2)) {
 				return true;

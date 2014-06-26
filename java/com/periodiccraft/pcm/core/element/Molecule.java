@@ -6,7 +6,7 @@ import com.periodiccraft.pcm.helper.BiomeTemperature;
 import com.periodiccraft.pcm.helper.ChatUtil;
 import com.periodiccraft.pcm.research.ResearchRegistry;
 
-public class SimpleMolecule implements IMolecule{
+public class Molecule implements ICompound{
 
 	private Atom[] atoms;
 	
@@ -16,7 +16,7 @@ public class SimpleMolecule implements IMolecule{
 	private String formula = "";
 	
 	
-	public SimpleMolecule(int count, Atom... contents) {
+	public Molecule(int count, Atom... contents) {
 		this.atoms = contents;
 		this.count = count;
 		this.formula += count > 1 ? count : "";
@@ -31,7 +31,7 @@ public class SimpleMolecule implements IMolecule{
 		}
 	}
 	
-	public SimpleMolecule(int count, String name, Atom... contents) {
+	public Molecule(int count, String name, Atom... contents) {
 		this(count, contents);
 		this.name = name;
 	}
@@ -62,7 +62,7 @@ public class SimpleMolecule implements IMolecule{
 	}
 	
 	@Override
-	public final IMolecule setCount(int par1) {
+	public final ICompound setCount(int par1) {
 		this.count = par1;
 		return this;
 	}

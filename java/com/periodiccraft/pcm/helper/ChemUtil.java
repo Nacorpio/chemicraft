@@ -4,8 +4,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.periodiccraft.pcm.core.element.Atom;
-import com.periodiccraft.pcm.core.element.IMolecule;
-import com.periodiccraft.pcm.core.element.MoleculeStack;
+import com.periodiccraft.pcm.core.element.ICompound;
+import com.periodiccraft.pcm.core.element.SubstanceStack;
 
 public final class ChemUtil {
 	
@@ -81,17 +81,17 @@ public final class ChemUtil {
 //		}
 //	}
 	
-	public static final String getFormula(IMolecule... par1) {
+	public static final String getFormula(ICompound... par1) {
 		String formula = "";
 		int i = 0;
-		for (IMolecule var: par1) {
+		for (ICompound var: par1) {
 			i++;
 			formula += var.getCount() + var.getFormula() + (i < par1.length ? " + " : "");
 		}
 		return formula;
 	}
 
-	public static final boolean stackContains(IMolecule par1, Atom par2) {
+	public static final boolean stackContains(ICompound par1, Atom par2) {
 		Atom[] atoms = par1.getAtoms();
 		for (int i = 0; i < atoms.length; i++) {
 			if (atoms[i].equals(par2)) {
@@ -101,7 +101,7 @@ public final class ChemUtil {
 		return false;
 	}
 	
-	public static final boolean isStackArrayEqualTo(MoleculeStack[] par1, MoleculeStack[] par2) {
+	public static final boolean isStackArrayEqualTo(SubstanceStack[] par1, SubstanceStack[] par2) {
 		boolean var1 = true;
 		if (par1.length != par2.length) return false;
 		for (int i = 0; i < par1.length; i++) {
@@ -113,7 +113,7 @@ public final class ChemUtil {
 		return var1;
 	}
 	
-	public static final boolean isStackEqualTo(MoleculeStack par1, MoleculeStack par2) {
+	public static final boolean isStackEqualTo(SubstanceStack par1, SubstanceStack par2) {
 		return par1.equals(par2);
 	}
 	

@@ -1,14 +1,14 @@
 package com.periodiccraft.pcm.api.reaction;
 
-import com.periodiccraft.pcm.core.element.MoleculeStack;
+import com.periodiccraft.pcm.core.element.SubstanceStack;
 
 public interface IReactionRecipe {
 
-	MoleculeStack getInputOne();
+	SubstanceStack getInputOne();
 	
-	MoleculeStack getInputTwo();
+	SubstanceStack getInputTwo();
 	
-	MoleculeStack[] getOutcome();
+	SubstanceStack[] getOutcome();
 	
 	
 }
