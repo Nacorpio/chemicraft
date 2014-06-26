@@ -169,7 +169,7 @@ public class PeriodicCraft {
 		oreAluminum = new PeriodicOre("Aluminum", 4.0F);
 		
 		//Fluids
-		mercury = new PeriodicFluid(mercury, Material.water, blockMercury, 0, 0, 0, 0, "Hello");
+//		mercury = new PeriodicFluid(mercury, Material.water, blockMercury, 0, 0, 0, 0, "Hello");
 
 		// Items
 		bookOfResearch = new PeriodicItem("bookOfResearch")
@@ -368,6 +368,7 @@ public class PeriodicCraft {
 		
 		ICompound coal = new Molecule(1, "Coal", SubstanceRegistry.getSubstance("Carbon").setAmount(5), SubstanceRegistry.getSubstance("Hydrogen").setAmount(2));
 		SubstanceRegistry.bindCompound(Items.coal.getUnlocalizedName(), coal, 100.0F);
+		
 		// Organic Molecules
 		ICompound methane = new OrganicMolecule(1, "Methane",
 				"  H  ",
@@ -433,15 +434,11 @@ public class PeriodicCraft {
 		 * OrganicMolecule(1, "Glucose", "          H   ", "          -   ",
 		 * "H-5*(-$R1-)C=O", "$R1=","H","-","C","-","O","-","H", ";" );
 		 */
-
 		System.out.println(ethanol);
 		System.out.println(methane);
 		System.out.println(ethene);
 		System.out.println(glucose);
 		System.out.println(cocaine);
-
-		SubstanceRegistry.bindCompound(Items.sugar.getUnlocalizedName(),
-				glucose, 50F);
 
 		/*
 		 * Compound quartz = new Compound(1, "Quartz", new

@@ -8,6 +8,10 @@ import net.minecraft.item.Item;
 
 public class Atom implements Cloneable {
 	
+	protected final int baseElectrons;
+	protected final int baseNeutrons;
+	protected final int baseProtons;
+	
 	protected int electrons;
 	protected int neutrons;
 	protected int protons;
@@ -24,6 +28,10 @@ public class Atom implements Cloneable {
 	
 	public Atom(int electrons, int neutrons, int protons, float boilingPoint, float meltingPoint, float heatOfVaporization, float density, float weight, STATE state)
 	{
+		this.baseElectrons = electrons;
+		this.baseNeutrons = neutrons;
+		this.baseProtons = protons;
+		
 		this.protons = electrons;
 		this.neutrons = neutrons;
 		this.protons = protons;
@@ -57,6 +65,12 @@ public class Atom implements Cloneable {
 	
 	public int getCharge() {
 		return protons - electrons;
+	}
+	
+	public void setCharge(int charge) {
+		electrons = baseElectrons;
+		electrons -= charge;
+		if(electrons < 0) throw new IllegalArgumentException("The number of electrons has to be > 0!");
 	}
 	
 	public final int getElectrons() {
