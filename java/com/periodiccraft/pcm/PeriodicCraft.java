@@ -39,6 +39,7 @@ import com.periodiccraft.pcm.core.element.Element;
 import com.periodiccraft.pcm.core.element.ICompound;
 import com.periodiccraft.pcm.core.element.Molecule;
 import com.periodiccraft.pcm.core.element.OrganicMolecule;
+import com.periodiccraft.pcm.core.element.SubstanceStack;
 import com.periodiccraft.pcm.core.fluids.PeriodicFluid;
 import com.periodiccraft.pcm.core.gui.TileEntityLQ;
 import com.periodiccraft.pcm.core.item.Ethanol;
@@ -50,6 +51,7 @@ import com.periodiccraft.pcm.creativetabs.TabPeriodicIcon;
 import com.periodiccraft.pcm.helper.WrappedGenerator;
 import com.periodiccraft.pcm.helper.WrappedGenerator.Instruction;
 import com.periodiccraft.pcm.items.UniversalIndicator;
+import com.periodiccraft.pcm.research.BookOfResearch;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -167,7 +169,11 @@ public class PeriodicCraft {
 
 		// Items
 		bookOfResearch = new PeriodicItem("bookOfResearch")
+				//.setUnlocalizedName("bookOfResearch")
 				.setCreativeTab(tabResearch);
+				//.setTextureName(PeriodicCraft.MODID + ":bookOfResearch");
+		//GameRegistry.registerItem(bookOfResearch, bookOfResearch
+				//.getUnlocalizedName().substring(5));
 
 		Ethanol = new Ethanol(0, 0.0F, false).setUnlocalizedName("Ethanol").setCreativeTab(
 				tabPeriodic);
@@ -325,6 +331,8 @@ public class PeriodicCraft {
 				419.58F, 115.0F, 7.133F, 65.380F, Element.STATE.SOLID);
 
 
+		//Register
+		
 		
 		//Reactions
 		IReaction CopperOxidization = new Reaction("Reaction.COPPER_OXIDIZATION", null, null, null);
@@ -344,7 +352,7 @@ public class PeriodicCraft {
 		*/
 
 		// Simple Molecules
-		ICompound diamond = new Molecule(2, "Diamond", SubstanceRegistry
+		ICompound diamond = new Molecule(1, "Diamond", SubstanceRegistry
 				.getElement("Carbon").setAmount(8));
 		SubstanceRegistry.bindCompound(Items.diamond.getUnlocalizedName(),
 				diamond, 1000F);		

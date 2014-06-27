@@ -295,6 +295,11 @@ public class Element {
 		}
 	}
 	
+	public int setPHLevel(int pH) {
+		this.pH = pH;
+		return this.pH;
+	}
+	
 }
 
 	

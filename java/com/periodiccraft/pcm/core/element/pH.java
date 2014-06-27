@@ -12,12 +12,7 @@ public class pH {
   * 
   */
 
-	private int pH;
-	
-	public int setPHLevel(int pH) {
-		this.pH = pH;
-		return this.pH;
-	}
+
 
 	
 }
