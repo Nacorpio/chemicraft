@@ -2,6 +2,7 @@ package com.periodiccraft.pcm.core.registry;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import net.minecraft.block.Block;
@@ -10,6 +11,7 @@ import net.minecraft.item.ItemStack;
 
 import com.periodiccraft.pcm.PeriodicCraft;
 import com.periodiccraft.pcm.core.element.Element;
+import com.periodiccraft.pcm.core.element.ElementWrapper;
 import com.periodiccraft.pcm.core.element.ICompound;
 import com.periodiccraft.pcm.core.element.SubstanceStack;
 import com.periodiccraft.pcm.core.item.PeriodicElementItem;
@@ -19,7 +21,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public final class SubstanceRegistry {
 
-	public static final Map<Integer, Element> substances = new HashMap<Integer, Element>();
+	public static final Map<Integer, ElementWrapper> substances = new HashMap<Integer, ElementWrapper>();
 	public static final Map<Integer, ICompound> compounds = new HashMap<Integer, ICompound>();
 	
 	public static final Map<String, SubstanceStack> compound_bindings = new HashMap<String, SubstanceStack>();
@@ -87,33 +89,40 @@ public final class SubstanceRegistry {
 	
 	//
 	
-	public static final void addSubstance(Element par1) {
-		addSubstance(substances.size() + 1, par1);
-	}
-	
-	public static final void addSubstance(int par1, Element par2) {
-		if (!hasSubstance(par1)) {
-			substances.put(par1, par2);
+	public static final void addElement(Element par1) {
+		if (!hasSubstance(par1.getAtomicNumber())) {
+			substances.put(par1.getAtomicNumber(), new ElementWrapper(par1));
 		}
 	}
 	
-	public static final Element getSubstance(int par1) {
-		return (Element) substances.get(par1).clone();
+	public static void addIsotope(Element base, Element par2) {
+		if(hasSubstance(base.getAtomicNumber())) {
+			substances.get(base.getAtomicNumber()).addIsotope(par2);
+		}
+		else throw new IllegalStateException("You have to register the base element first before you can add isotopes!");
 	}
 	
-	public static final Element getSubstance(String par1) {
-		for (Element var: getSubstances()) {
-			if (var.getName().equalsIgnoreCase(par1)) 
-				return (Element) var.clone();
+	public static List<Element> getIsotopes(Element e) {
+		return substances.get(e.getAtomicNumber()).getIsotopes();
+	}
+	
+	public static final Element getElement(int par1) {
+		return (Element) substances.get(par1).getBaseElement().clone();
+	}
+	
+	public static final Element getElement(String par1) {
+		for (ElementWrapper var : getSubstances()) {
+			if (var.getBaseElement().getName().equalsIgnoreCase(par1)) 
+				return (Element) var.getBaseElement().clone();
 		}
 		return null;
 	}
 	
 	//TODO Maybe we should do something like a multiKeyMap so we don't have to loop all the elements.
-	public static final Element getSubstanceBySymbol(String par1) {
-		for (Element var: getSubstances()) {
-			if (var.getSymbol().equalsIgnoreCase(par1)) 
-				return (Element) var.clone();
+	public static final Element getElementBySymbol(String par1) {
+		for (ElementWrapper var : getSubstances()) {
+			if (var.getBaseElement().getSymbol().equalsIgnoreCase(par1)) 
+				return (Element) var.getBaseElement().clone();
 		}
 		return null;
 	}
@@ -128,7 +137,7 @@ public final class SubstanceRegistry {
 		return substances.containsKey(par1);
 	}
 	
-	public static final Collection<Element> getSubstances() {
+	public static final Collection<ElementWrapper> getSubstances() {
 		return substances.values();
 	}
 	

@@ -135,7 +135,7 @@ public class Element {
 		
 		ICompound m = new Molecule(1, this);
 		
-		SubstanceRegistry.addSubstance(atomicNumber, this);
+		SubstanceRegistry.addElement(this);
 		ResearchRegistry.addResearch(atomicNumber, new Research(this, Minecraft.getMinecraft().thePlayer));
 		//TODO How much of it now?	
 		SubstanceRegistry.addItem("element" + this.name, m, 1000F);

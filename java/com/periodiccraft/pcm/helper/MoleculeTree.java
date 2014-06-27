@@ -90,7 +90,7 @@ public class MoleculeTree
 			String sub = e.substring(matcher.start(), e.length() - 1);
 			charge = Integer.parseInt(sub) * (e.endsWith("-") ? -1 : 1);
 		}
-		Element atom = SubstanceRegistry.getSubstanceBySymbol(e.replaceAll("[1-9+-]", ""));
+		Element atom = SubstanceRegistry.getElementBySymbol(e.replaceAll("[1-9+-]", ""));
 		atom.setCharge(charge);
 		return atom;
 	}
