@@ -10,7 +10,7 @@
  * TODO Redo the Compounds.
  * NOTE that every Compound(IMolecule) is 1kg. TODO maybe we should describe that when we are initializing it?
  * TODO Figure out which dungeon spawn works
- * TODO Fix the Issue Where Gases show up as liquids.....
+ * TODO EDIT THE TIERS....
  */
 
 package com.periodiccraft.pcm;
@@ -28,14 +28,6 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.fluids.Fluid;
 
-
-
-
-
-
-
-
-
 import com.periodiccraft.pcm.api.reaction.IReaction;
 import com.periodiccraft.pcm.api.reaction.Reaction;
 import com.periodiccraft.pcm.api.reaction.ReactionRecipe;
@@ -45,8 +37,8 @@ import com.periodiccraft.pcm.core.block.BlockReinforcedIron;
 import com.periodiccraft.pcm.core.block.ores.PeriodicOre;
 import com.periodiccraft.pcm.core.element.Element;
 import com.periodiccraft.pcm.core.element.ICompound;
-import com.periodiccraft.pcm.core.element.OrganicMolecule;
 import com.periodiccraft.pcm.core.element.Molecule;
+import com.periodiccraft.pcm.core.element.OrganicMolecule;
 import com.periodiccraft.pcm.core.fluids.PeriodicFluid;
 import com.periodiccraft.pcm.core.gui.TileEntityLQ;
 import com.periodiccraft.pcm.core.item.Ethanol;
@@ -57,7 +49,6 @@ import com.periodiccraft.pcm.creativetabs.TabPeriodic;
 import com.periodiccraft.pcm.creativetabs.TabPeriodicIcon;
 import com.periodiccraft.pcm.helper.WrappedGenerator;
 import com.periodiccraft.pcm.helper.WrappedGenerator.Instruction;
-
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -169,7 +160,7 @@ public class PeriodicCraft {
 		oreAluminum = new PeriodicOre("Aluminum", 4.0F);
 		
 		//Fluids
-//		mercury = new PeriodicFluid(mercury, Material.water, blockMercury, 0, 0, 0, 0, "Hello");
+		//mercury = new PeriodicFluid(mercury, Material.water, blockMercury, 0, 0, 0, 0, "Hello");
 
 		// Items
 		bookOfResearch = new PeriodicItem("bookOfResearch")
@@ -332,34 +323,29 @@ public class PeriodicCraft {
 				419.58F, 115.0F, 7.133F, 65.380F, Element.STATE.SOLID);
 
 
-		IReaction CopperOxidization = new Reaction("Reaction.COPPER_OXIDIZATION", null, null, null);
-		//Reactions
 		
-
-		// NOTE Just for testing - The substances should be somewhere, getting
-		// them from the SubstanceRegistry is impractical. Note that you have to
-		// .clone() them to create new instances.
-
-		/*
-		 * Compound quartz = new Compound(1, "Quartz", new
-		 * Stack<Atom>(SubstanceRegistry.getSubstance("Silicon").getAtom(), 1),
-		 * new Stack<Atom>(SubstanceRegistry.getSubstance("Oxygen").getAtom(),
-		 * 2));
-		 * SubstanceRegistry.bindCompound(Items.quartz.getUnlocalizedName(),
-		 * quartz);
-		 */
+		//Reactions
+		IReaction CopperOxidization = new Reaction("Reaction.COPPER_OXIDIZATION", null, null, null);
+		
+		/***
+		*
+		* NOTE Just for testing - The substances should be somewhere, getting
+		* them from the SubstanceRegistry is impractical. Note that you have to
+		* .clone() them to create new instances.
+		*
+		* IMolecule quartz = new SimpleMolecule(1, "Quartz", new
+		* Stack<Atom>(SubstanceRegistry.getSubstance("Silicon").getAtom(), 1),
+		* new Stack<Atom>(SubstanceRegistry.getSubstance("Oxygen").getAtom(),
+		* 2));
+		* SubstanceRegistry.bindCompound(Items.quartz.getUnlocalizedName(),
+		* quartz);
+		*/
 
 		// Simple Molecules
 		ICompound diamond = new Molecule(2, "Diamond", SubstanceRegistry
 				.getSubstance("Carbon").setAmount(8));
 		SubstanceRegistry.bindCompound(Items.diamond.getUnlocalizedName(),
-				diamond, 1000F);
-		/*
-		 IMolecule chloroform = new OrganicMolecule(1, "Chloroform",
-	
-	
-	    */
-		
+				diamond, 1000F);		
 		ICompound water = new Molecule(1, "Water", SubstanceRegistry
 				.getSubstance("Hydrogen").setAmount(2), SubstanceRegistry
 				.getSubstance("Oxygen").setAmount(1));
@@ -370,6 +356,7 @@ public class PeriodicCraft {
 		SubstanceRegistry.bindCompound(Items.coal.getUnlocalizedName(), coal, 100.0F);
 		
 		// Organic Molecules
+		
 		ICompound methane = new OrganicMolecule(1, "Methane",
 				"  H  ",
 				"  -  ",
@@ -419,28 +406,28 @@ public class PeriodicCraft {
 				"    -        -   =   -  ",
 				"    H        H   O   H  ");
 
-		/*
-		 * IMolecule chloroform = new OrganicMolecule(1, "Chloroform", " H ",
-		 * " - ", " C ", " - ", "Cl--------Cl", "    =", "    Cl" );
-		 */
 
 		// Organic Molecules
 		SubstanceRegistry.bindCompound(
 				PeriodicCraft.Ethanol.getUnlocalizedName(), ethanol, 1000F);
 
-		/*
+		/***
 		 * NOTE Maybe something like this? We would need a pre-parser for that.
 		 * Is the syntax understandable? IMolecule glucose = new
 		 * OrganicMolecule(1, "Glucose", "          H   ", "          -   ",
 		 * "H-5*(-$R1-)C=O", "$R1=","H","-","C","-","O","-","H", ";" );
 		 */
+
 		System.out.println(ethanol);
 		System.out.println(methane);
 		System.out.println(ethene);
 		System.out.println(glucose);
 		System.out.println(cocaine);
 
-		/*
+		SubstanceRegistry.bindCompound(Items.sugar.getUnlocalizedName(),
+				glucose, 50F);
+
+		/***
 		 * Compound quartz = new Compound(1, "Quartz", new
 		 * Stack<Atom>(SubstanceRegistry.getSubstance("Silicon").getAtom(), 1),
 		 * new Stack<Atom>(SubstanceRegistry.getSubstance("Oxygen").getAtom(),
@@ -483,7 +470,7 @@ public class PeriodicCraft {
 		 * wheat);
 		 */
 
-		/*
+		/***
 		 * Dungeon Spawns? WeightedRandomChestContent[] field_111189_a = new
 		 * WeightedRandomChestContent[] {new
 		 * WeightedRandomChestContent(unknownShard, 0, 5, 10, 10)};

@@ -20,6 +20,7 @@ tile.oreAluminum.name=Aluminum Ore
 tile.blockReinforcedIron.name=Reinforced Iron Block
 tile.blockReinforcedGlass.name=Reinforced Glass Block
 
+item.elementPhosphorus.name=Phosphorus Brick
 item.Ethanol.name=Ethanol
 item.elementAluminum.name=Aluminum
 item.elementFluorine.name=Flourine
