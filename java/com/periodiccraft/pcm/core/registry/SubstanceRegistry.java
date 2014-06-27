@@ -111,16 +111,16 @@ public final class SubstanceRegistry {
 	}
 	
 	public static final Element getElement(String par1) {
-		for (ElementWrapper var : getSubstances()) {
+		for (ElementWrapper var : getElements()) {
 			if (var.getBaseElement().getName().equalsIgnoreCase(par1)) 
-				return (Element) var.getBaseElement().clone();
+				return var.getBaseElement().clone();
 		}
 		return null;
 	}
 	
 	//TODO Maybe we should do something like a multiKeyMap so we don't have to loop all the elements.
 	public static final Element getElementBySymbol(String par1) {
-		for (ElementWrapper var : getSubstances()) {
+		for (ElementWrapper var : getElements()) {
 			if (var.getBaseElement().getSymbol().equalsIgnoreCase(par1)) 
 				return (Element) var.getBaseElement().clone();
 		}
@@ -137,7 +137,7 @@ public final class SubstanceRegistry {
 		return substances.containsKey(par1);
 	}
 	
-	public static final Collection<ElementWrapper> getSubstances() {
+	public static final Collection<ElementWrapper> getElements() {
 		return substances.values();
 	}
 	
