@@ -49,6 +49,8 @@ import com.periodiccraft.pcm.creativetabs.TabPeriodic;
 import com.periodiccraft.pcm.creativetabs.TabPeriodicIcon;
 import com.periodiccraft.pcm.helper.WrappedGenerator;
 import com.periodiccraft.pcm.helper.WrappedGenerator.Instruction;
+import com.periodiccraft.pcm.items.UniversalIndicator;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -76,6 +78,7 @@ public class PeriodicCraft {
 	// Items
 	public static Item bookOfResearch;
 	public static Item Ethanol;
+	public static Item UniversalIndicator;
 
 	// Fluids
 	public static PeriodicFluid mercury;
@@ -166,11 +169,10 @@ public class PeriodicCraft {
 		bookOfResearch = new PeriodicItem("bookOfResearch")
 				.setCreativeTab(tabResearch);
 
-		//Workbench
-	
-		
 		Ethanol = new Ethanol(0, 0.0F, false).setUnlocalizedName("Ethanol").setCreativeTab(
 				tabPeriodic);
+		
+		UniversalIndicator = new UniversalIndicator().setUnlocalizedName("UniversalIndicator").setCreativeTab(tabPeriodic);
 
 		// Unknown items
 		unknownShard = new PeriodicElementItemUnknown("unknownShard");

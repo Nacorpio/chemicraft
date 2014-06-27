@@ -108,6 +108,8 @@ public class Element {
 	protected int amount = 1;
 	
 	private STATE state;
+	private int pH;
+	
 	
 	public Element(String name, int atomicNumber, String symbol, int color, CATEGORY category, int electrons, int neutrons, int protons, float boilingPoint, float meltingPoint, float heatOfVaporization, float density, float weight, STATE state) 
 	{	
@@ -284,6 +286,16 @@ public class Element {
 		}
 		return null;
 	}
+	
+	public boolean hasPh(boolean b) {
+		if(this.state == STATE.SOLID || this.state == STATE.PLASMA) {
+			return false;
+		}else{
+			return true;
+		}
+	}
+	
 }
+
 	
 
