@@ -7,7 +7,7 @@ import com.periodiccraft.pcm.helper.ChatUtil;
 import com.periodiccraft.pcm.research.ResearchRegistry;
 import com.periodiccraft.pcm.research.ResearchRegistry.Research;
 
-public class Element {
+public class Element implements Cloneable {
 
 	public static enum CATEGORY {
 		
