@@ -37,10 +37,8 @@ import com.periodiccraft.pcm.core.block.BlockReinforcedIron;
 import com.periodiccraft.pcm.core.block.ores.PeriodicOre;
 import com.periodiccraft.pcm.core.element.Element;
 import com.periodiccraft.pcm.core.element.ICompound;
-import com.periodiccraft.pcm.core.element.IMolecule;
 import com.periodiccraft.pcm.core.element.Molecule;
 import com.periodiccraft.pcm.core.element.OrganicMolecule;
-import com.periodiccraft.pcm.core.element.SimpleMolecule;
 import com.periodiccraft.pcm.core.fluids.PeriodicFluid;
 import com.periodiccraft.pcm.core.gui.TileEntityLQ;
 import com.periodiccraft.pcm.core.item.Ethanol;
@@ -51,7 +49,6 @@ import com.periodiccraft.pcm.creativetabs.TabPeriodic;
 import com.periodiccraft.pcm.creativetabs.TabPeriodicIcon;
 import com.periodiccraft.pcm.helper.WrappedGenerator;
 import com.periodiccraft.pcm.helper.WrappedGenerator.Instruction;
-
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;

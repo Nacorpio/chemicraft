@@ -18,7 +18,7 @@ public class Ethanol extends ItemFood
 		
 	}
 
-	protected void onFoodEaten(ItemStack itemstack, World world, EntityPlayer player) {
+	public void onFoodEaten(ItemStack itemstack, World world, EntityPlayer player) {
 		player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 600, 4));
 		player.addPotionEffect(new PotionEffect(Potion.confusion.id, 600, 4));
 		player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 600, 4));
