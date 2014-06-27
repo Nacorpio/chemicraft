@@ -23,13 +23,13 @@ public class OrganicMolecule implements ICompound
 	}
 
 	@Override
-	public Atom getFirstAtom() {
+	public Element getFirstElement() {
 		return moleculeTree.getRoot().getValue();
 	}
 
 	@Override
-	public Atom[] getAtoms() {
-		return moleculeTree.getAtoms(moleculeTree.getRoot());
+	public Element[] getElements() {
+		return moleculeTree.getElements(moleculeTree.getRoot());
 	}
 
 	@Override

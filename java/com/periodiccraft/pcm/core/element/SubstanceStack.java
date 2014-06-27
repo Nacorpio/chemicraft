@@ -28,7 +28,7 @@ public class SubstanceStack {
 			SubstanceStack var1 = (SubstanceStack) par1;
 			return var1.getIMolecule().getName().equals(molecule.getName()) &&
 				   var1.getIMolecule().getCount() == molecule.getCount() &&
-				   var1.getIMolecule().getFirstAtom().equals(molecule.getFirstAtom()) &&
+				   var1.getIMolecule().getFirstElement().equals(molecule.getFirstElement()) &&
 				   var1.getIMolecule().getFormula().equals(molecule.getFormula());
 		}
 		return par1.equals(this);

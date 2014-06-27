@@ -8,7 +8,6 @@ import net.minecraft.item.ItemStack;
 
 import com.periodiccraft.pcm.PeriodicCraft;
 import com.periodiccraft.pcm.PeriodicTabs;
-import com.periodiccraft.pcm.core.element.Atom;
 import com.periodiccraft.pcm.core.element.Element;
 import com.periodiccraft.pcm.core.element.ICompound;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
@@ -40,9 +39,9 @@ public class PeriodicElementItem extends PeriodicItem {
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		
 		ICompound var1 = SubstanceRegistry.getCompoundBinding(getUnlocalizedName()).getIMolecule();
-		if(!var1.isCompound() && var1.getFirstAtom() instanceof Element)
+		if(!var1.isCompound())
 		{
-			Element e = (Element)var1.getFirstAtom();
+			Element e = var1.getFirstElement();
 			if (ResearchRegistry.hasResearch(e.getAtomicNumber())) {
 				Research r = ResearchRegistry.getResearch(e.getAtomicNumber()); 
 				par3List.add("Research: " + ChatUtil.Colors.green + (r.isComplete() ? "Complete" : r.getProgress() + "/100"));

@@ -7,9 +7,9 @@ public interface ICompound {
 	
 	public boolean isCompound();
 
-	public Atom getFirstAtom();
+	public Element getFirstElement();
 	
-	public Atom[] getAtoms();
+	public Element[] getElements();
 	
 	public void setTemperature(float par1);
 	

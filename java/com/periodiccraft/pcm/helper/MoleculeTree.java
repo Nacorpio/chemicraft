@@ -10,7 +10,6 @@ import java.util.regex.Pattern;
 
 import javax.naming.directory.InvalidAttributesException;
 
-import com.periodiccraft.pcm.core.element.Atom;
 import com.periodiccraft.pcm.core.element.Element;
 import com.periodiccraft.pcm.core.element.ICompound;
 import com.periodiccraft.pcm.core.element.Molecule;
@@ -23,7 +22,7 @@ public class MoleculeTree
 	private int width;
 	private int height;
 	
-	public MoleculeTree(Atom rootData, int amount, int x, int y) 
+	public MoleculeTree(Element rootData, int amount, int x, int y) 
 	{
 		root = new MoleculeNode(0, rootData, null, x, y);
 		this.amount = amount;
@@ -69,7 +68,7 @@ public class MoleculeTree
 			}
 		}
 
-		Atom atom = getElement(firstAtom);
+		Element atom = getElement(firstAtom);
 		root = new MoleculeNode(0, atom, null, x, y);
 		ArrayList<Point> list = new ArrayList<Point>();
 		list.add(new Point(x, y));
@@ -81,7 +80,7 @@ public class MoleculeTree
 		return e.matches("([A-Z][a-z]*([1-9]+[+-])?)");
 	}
 	
-	private Atom getElement(String e)
+	private Element getElement(String e)
 	{
 		int charge = 0;
 		if(e.endsWith("+") || e.endsWith("-"))
@@ -91,7 +90,7 @@ public class MoleculeTree
 			String sub = e.substring(matcher.start(), e.length() - 1);
 			charge = Integer.parseInt(sub) * (e.endsWith("-") ? -1 : 1);
 		}
-		Atom atom = SubstanceRegistry.getSubstanceBySymbol(e.replaceAll("[1-9+-]", ""));
+		Element atom = SubstanceRegistry.getSubstanceBySymbol(e.replaceAll("[1-9+-]", ""));
 		atom.setCharge(charge);
 		return atom;
 	}
@@ -152,36 +151,36 @@ public class MoleculeTree
 	
 	public Molecule convertToSimpleMolecule()
 	{
-		return new Molecule(1, getAtoms(getRoot()));
+		return new Molecule(1, getElements(getRoot()));
 	}
 
-	public Atom[] getAtoms(MoleculeNode node)
+	public Element[] getElements(MoleculeNode node)
 	{
-		ArrayList<Atom> list = new ArrayList<Atom>();
-		getAtomsRaw(node, list);
-		HashMap<Atom, Integer> map = new HashMap<Atom, Integer>();
+		ArrayList<Element> list = new ArrayList<Element>();
+		getElementsRaw(node, list);
+		HashMap<Element, Integer> map = new HashMap<Element, Integer>();
 		
-		for(Atom a : list)
+		for(Element e : list)
 		{
-			Integer i = map.get(a);
+			Integer i = map.get(e);
 			if(i == null) i = 1;
 			else i++;
-			map.put(a, i);
+			map.put(e, i);
 		}
 
 		list.clear();
-		for(Atom a : map.keySet())
+		for(Element a : map.keySet())
 		{
 			Integer amount = map.get(a);
 			list.add(a.clone().setAmount(amount));
 		}
-		return list.toArray(new Atom[list.size()]);
+		return list.toArray(new Element[list.size()]);
 	}
 	
-	private void getAtomsRaw(MoleculeNode node, List<Atom> list)
+	private void getElementsRaw(MoleculeNode node, List<Element> list)
 	{
 		list.add(node.getValue());
-		for(MoleculeNode n2 : node.children) getAtomsRaw(n2, list);
+		for(MoleculeNode n2 : node.children) getElementsRaw(n2, list);
 	}
 	
 	public MoleculeNode getRoot()
@@ -191,7 +190,7 @@ public class MoleculeTree
 	
 	public static class MoleculeNode
 	{
-		private Atom data;
+		private Element data;
 	    private MoleculeNode parent;
 	    private List<MoleculeNode> children;
 	    private int binding;
@@ -199,10 +198,10 @@ public class MoleculeTree
 	    private int xCoord;
 	    private int yCoord;
 	    
-		public MoleculeNode(int binding, Atom m, MoleculeNode parent, int x, int y)
+		public MoleculeNode(int binding, Element e, MoleculeNode parent, int x, int y)
 	    {
 			children = new ArrayList<MoleculeNode>();
-			this.data = m;
+			this.data = e;
 			this.parent = parent;
 			this.binding = binding;
 			this.xCoord = x;
@@ -214,12 +213,12 @@ public class MoleculeTree
 			return children.size() == 0;
 		}
 		
-		public void setValue(Atom m)
+		public void setValue(Element e)
 		{
-			this.data = m;
+			this.data = e;
 		}
 		
-		public Atom getValue()
+		public Element getValue()
 		{
 			return data;
 		}

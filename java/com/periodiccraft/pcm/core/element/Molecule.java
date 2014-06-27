@@ -8,7 +8,7 @@ import com.periodiccraft.pcm.research.ResearchRegistry;
 
 public class Molecule implements ICompound{
 
-	private Atom[] atoms;
+	private Element[] elements;
 	
 	private float temperature = BiomeTemperature.getDefaultTemperature();
 	private int count;
@@ -16,39 +16,35 @@ public class Molecule implements ICompound{
 	private String formula = "";
 	
 	
-	public Molecule(int count, Atom... contents) {
-		this.atoms = contents;
+	public Molecule(int count, Element... contents) {
+		this.elements = contents;
 		this.count = count;
 		this.formula += count > 1 ? count : "";
-		//NOTE The only case where an Atom is not an Element is when it is an Isotope or Ion. Somehow we have to compare it to the elements that were already registered to check which one. For now it's just "?"
 		//TODO Add charge to the formula?
-		for(Atom a : contents) {
-			if(a instanceof Element) {
-				formula += ((Element)a).getSymbol();
-			}
-			else formula += "?";
-			formula += a.getAmount() > 1 ? ChatUtil.getLowerValue(a.getAmount()) : "";
+		for(Element e : contents) {
+			formula += e.getSymbol();
+			formula += e.getAmount() > 1 ? ChatUtil.getLowerValue(e.getAmount()) : "";
 		}
 	}
 	
-	public Molecule(int count, String name, Atom... contents) {
+	public Molecule(int count, String name, Element... contents) {
 		this(count, contents);
 		this.name = name;
 	}
 	
 	@Override
 	public boolean isCompound() {
-		return atoms.length > 1;
+		return elements.length > 1;
 	}
 	
 	@Override
-	public Atom getFirstAtom() {
-		return atoms[0];
+	public Element getFirstElement() {
+		return elements[0];
 	}
 	
 	@Override
-	public final Atom[] getAtoms() {
-		return this.atoms;
+	public final Element[] getElements() {
+		return this.elements;
 	}
 	
 	@Override
@@ -84,12 +80,10 @@ public class Molecule implements ICompound{
 		String formula = "";
 		formula += count > 1 ? count : "";
 
-		for(Atom a : atoms) {
-			if(a instanceof Element && ResearchRegistry.hasResearched(((Element)a).getAtomicNumber(), null)) {
-				formula += ((Element)a).getSymbol();
-			}
+		for(Element e : elements) {
+			if(ResearchRegistry.hasResearched(e.getAtomicNumber(), null)) formula += e.getSymbol();
 			else formula += "?";
-			formula += a.getAmount() > 1 ? ChatUtil.getLowerValue(a.getAmount()) : "";
+			formula += e.getAmount() > 1 ? ChatUtil.getLowerValue(e.getAmount()) : "";
 		}
 		return formula;
 	}

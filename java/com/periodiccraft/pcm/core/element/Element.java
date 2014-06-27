@@ -7,7 +7,7 @@ import com.periodiccraft.pcm.helper.ChatUtil;
 import com.periodiccraft.pcm.research.ResearchRegistry;
 import com.periodiccraft.pcm.research.ResearchRegistry.Research;
 
-public class Element extends Atom {
+public class Element {
 
 	public static enum CATEGORY {
 		
@@ -91,29 +91,54 @@ public class Element extends Atom {
 	private CATEGORY category;	
 	private TIER tier = TIER.ONE;
 	
+	protected final int baseElectrons;
+	protected final int baseNeutrons;
+	protected final int baseProtons;
+	
+	protected int electrons;
+	protected int neutrons;
+	protected int protons;
+	
+	protected float boilingPoint;
+	protected float meltingPoint;
+	protected float heatOfVaporization;
+	protected float density;
+	protected float weight;
+	
+	protected int amount = 1;
+	
+	private STATE state;
+	
 	public Element(String name, int atomicNumber, String symbol, int color, CATEGORY category, int electrons, int neutrons, int protons, float boilingPoint, float meltingPoint, float heatOfVaporization, float density, float weight, STATE state) 
 	{	
-		super(electrons, neutrons, protons, boilingPoint, meltingPoint, heatOfVaporization, density, weight, state);
-		
 		this.atomicNumber = atomicNumber;
 		this.name = name;
 		this.symbol = symbol;
 		this.color = color;
 		this.category = category;
 
-
+		this.baseElectrons = electrons;
+		this.baseNeutrons = neutrons;
+		this.baseProtons = protons;
+		
+		this.protons = electrons;
+		this.neutrons = neutrons;
+		this.protons = protons;
+		
+		this.boilingPoint = boilingPoint;
+		this.meltingPoint = meltingPoint;
+		this.heatOfVaporization = heatOfVaporization;
+		this.density = density;
+		
+		this.weight = weight;
+		this.state = state;	
+		
 		ICompound m = new Molecule(1, this);
 		
 		SubstanceRegistry.addSubstance(atomicNumber, this);
 		ResearchRegistry.addResearch(atomicNumber, new Research(this, Minecraft.getMinecraft().thePlayer));
-		
-		//if (par9.equals(STATE.SOLID) || par9.equals(STATE.GAS) || par9.equals(STATE.PLASMA)) {
 		//TODO How much of it now?	
 		SubstanceRegistry.addItem("element" + this.name, m, 1000F);
-		//} else {
-			// LIQUID
-			// Add the liquid automatically, somehow.
-		//}	
 	}
 	
 	
@@ -140,7 +165,6 @@ public class Element extends Atom {
 		return this.category;
 	}
 	
-	//TODO Carbon is no Liquid.
 	public final STATE getState(float temperature) {
 
 		//return (((temperature < this.meltingPoint && temperature < this.boilingPoint) ? (temperature < this.heatOfVaporization ? STATE.SOLID : STATE.GAS) : STATE.LIQUID));
@@ -201,7 +225,65 @@ public class Element extends Atom {
 		} 
 		return par1.equals(this);
 	}
+	
+	@Override
+	public int hashCode() {
+		return protons * electrons * neutrons;
+	}
 
+	public Element setAmount(int amount)
+	{
+		this.amount = amount;
+		return this;
+	}
+	
+	public int getAmount() {
+		return amount;
+	}
+	
+	public final boolean isPositive() {
+		return protons > electrons;
+	}
+	
+	public final boolean isNegative() {
+		return electrons > protons;
+	}
+	
+	public int getCharge() {
+		return protons - electrons;
+	}
+	
+	public void setCharge(int charge) {
+		electrons = baseElectrons;
+		electrons -= charge;
+		if(electrons < 0) throw new IllegalArgumentException("The number of electrons has to be > 0!");
+	}
+	
+	public final int getElectrons() {
+		return this.electrons;
+	}
+	
+	public final int getNeutrons() {
+		return this.neutrons;
+	}
+	
+	public final int getProtons() {
+		return this.protons;
+	}
+	
+	public final float getWeight() {
+		return this.weight;
+	}
+	
+	@Override
+	public Element clone() {
+		try {
+			return (Element)super.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
 	
 

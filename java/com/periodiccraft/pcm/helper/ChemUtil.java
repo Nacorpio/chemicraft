@@ -3,7 +3,7 @@ package com.periodiccraft.pcm.helper;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.periodiccraft.pcm.core.element.Atom;
+import com.periodiccraft.pcm.core.element.Element;
 import com.periodiccraft.pcm.core.element.ICompound;
 import com.periodiccraft.pcm.core.element.SubstanceStack;
 
@@ -91,10 +91,10 @@ public final class ChemUtil {
 		return formula;
 	}
 
-	public static final boolean stackContains(ICompound par1, Atom par2) {
-		Atom[] atoms = par1.getAtoms();
-		for (int i = 0; i < atoms.length; i++) {
-			if (atoms[i].equals(par2)) {
+	public static final boolean stackContains(ICompound par1, Element par2) {
+		Element[] elements = par1.getElements();
+		for (int i = 0; i < elements.length; i++) {
+			if (elements[i].equals(par2)) {
 				return true;
 			} 
 		}
