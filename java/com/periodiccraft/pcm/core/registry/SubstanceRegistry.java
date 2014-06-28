@@ -104,7 +104,7 @@ public final class SubstanceRegistry {
 	}
 	
 	public static final Element getElement(int par1) {
-		return (Element) substances.get(par1).getBaseElement().clone();
+		return substances.get(par1).getBaseElement().clone();
 	}
 	
 	public static final Element getElement(String par1) {
@@ -119,7 +119,7 @@ public final class SubstanceRegistry {
 	public static final Element getElementBySymbol(String par1) {
 		for (ElementWrapper var : getElements()) {
 			if (var.getBaseElement().getSymbol().equalsIgnoreCase(par1)) 
-				return (Element) var.getBaseElement().clone();
+				return var.getBaseElement().clone();
 		}
 		return null;
 	}
