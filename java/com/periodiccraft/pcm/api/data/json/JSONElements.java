@@ -10,7 +10,7 @@ import com.google.gson.JsonParser;
 
 public class JSONElements {
 	
-	List<Entry<String, JsonElement>> entries = new ArrayList<Entry<String, JsonElement>>();
+	List<Entry<String, JsonElement>> entries = new ArrayList<>();
 	
 	public JSONElements(String par1) {
 		

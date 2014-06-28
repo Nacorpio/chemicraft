@@ -14,8 +14,8 @@ public class Table implements ITable {
 	private String name;
 	private IDatabase parent;
 	
-	private List<IColumn> columns = new ArrayList<IColumn>();
-	private List<IRow> rows = new ArrayList<IRow>();
+	private List<IColumn> columns = new ArrayList<>();
+	private List<IRow> rows = new ArrayList<>();
 	
 	public Table(IDatabase par, String par1) {
 		if (par1.length() > 0 && !par1.isEmpty()) {

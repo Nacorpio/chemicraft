@@ -11,7 +11,7 @@ import com.periodiccraft.pcm.api.data.ITable;
 public class Database implements IDatabase {
 
 	private String name;
-	private List<ITable> tables = new ArrayList<ITable>();
+	private List<ITable> tables = new ArrayList<>();
 	
 	private int columnLimit = 1000;
 	private int tableLimit = 20;

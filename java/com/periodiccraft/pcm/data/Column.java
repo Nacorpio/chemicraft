@@ -13,7 +13,7 @@ public class Column implements IColumn {
 
 	private String name;
 	private EnumColumnType type = EnumColumnType.STRING;
-	private List<IField> fields = new ArrayList<IField>();
+	private List<IField> fields = new ArrayList<>();
 	
 	private ITable parent;
 	

@@ -8,7 +8,7 @@ import com.periodiccraft.pcm.core.element.SubstanceStack;
 
 public class ReactionRegistry {
 	
-	private static HashMap<String, ReactionRecipe> recipes = new HashMap<String, ReactionRecipe>();
+	private static HashMap<String, ReactionRecipe> recipes = new HashMap<>();
 	
 	public static final void register(String par1, ReactionRecipe par2) {
 		recipes.put(par1, par2);

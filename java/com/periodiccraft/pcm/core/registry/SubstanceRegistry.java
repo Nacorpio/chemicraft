@@ -18,10 +18,10 @@ import com.periodiccraft.pcm.core.item.PeriodicItem;
 
 public final class SubstanceRegistry {
 
-	public static final Map<Integer, ElementWrapper> substances = new HashMap<Integer, ElementWrapper>();
-	public static final Map<Integer, ICompound> compounds = new HashMap<Integer, ICompound>();
+	public static final Map<Integer, ElementWrapper> substances = new HashMap<>();
+	public static final Map<Integer, ICompound> compounds = new HashMap<>();
 	
-	public static final Map<String, SubstanceStack> compound_bindings = new HashMap<String, SubstanceStack>();
+	public static final Map<String, SubstanceStack> compound_bindings = new HashMap<>();
 	
 	public static final void addItem(String par1, ICompound par2, float mass) {
 		if (par1.length() > 0 && !par1.isEmpty()) {

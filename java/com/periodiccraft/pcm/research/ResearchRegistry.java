@@ -75,7 +75,7 @@ public final class ResearchRegistry {
 		
 	}
 	
-	public static final Map<Integer, Research> researches = new HashMap<Integer, Research>();
+	public static final Map<Integer, Research> researches = new HashMap<>();
 	
 	public static final void addResearch(Element par1, Research par2) {
 		addResearch(par1.getAtomicNumber(), par2);
