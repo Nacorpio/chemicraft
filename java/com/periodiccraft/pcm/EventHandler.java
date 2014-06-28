@@ -1,25 +1,14 @@
 package com.periodiccraft.pcm;
 
-import java.awt.event.KeyAdapter;
-
-import org.lwjgl.input.Keyboard;
-
-import com.periodiccraft.pcm.core.element.Element;
-import com.periodiccraft.pcm.core.element.ICompound;
 import com.periodiccraft.pcm.core.element.SubstanceStack;
 import com.periodiccraft.pcm.core.item.PeriodicItem;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
-import com.periodiccraft.pcm.helper.ChatUtil;
 import com.periodiccraft.pcm.helper.ChatUtil.Colors;
-import com.periodiccraft.pcm.helper.ChemUtil;
-import com.periodiccraft.pcm.research.ResearchRegistry;
 
-import net.java.games.input.Component.Identifier.Key;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class EventHandler 
 {

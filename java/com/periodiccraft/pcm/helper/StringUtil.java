@@ -1,7 +1,5 @@
 package com.periodiccraft.pcm.helper;
 
-import com.sun.xml.internal.ws.util.StringUtils;
-
 public final class StringUtil {
 
 	public static String getBetween(String raw, String str1, String str2) {

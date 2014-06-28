@@ -2,12 +2,10 @@ package com.periodiccraft.pcm.core.item;
 
 import java.util.List;
 
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
 import com.periodiccraft.pcm.PeriodicCraft;
-import com.periodiccraft.pcm.PeriodicTabs;
 import com.periodiccraft.pcm.core.element.Element;
 import com.periodiccraft.pcm.core.element.ICompound;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;

@@ -8,10 +8,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.naming.directory.InvalidAttributesException;
-
 import com.periodiccraft.pcm.core.element.Element;
-import com.periodiccraft.pcm.core.element.ICompound;
 import com.periodiccraft.pcm.core.element.Molecule;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
 

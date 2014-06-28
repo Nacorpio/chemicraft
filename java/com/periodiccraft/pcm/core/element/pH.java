@@ -1,8 +1,6 @@
 package com.periodiccraft.pcm.core.element;
 
-import com.periodiccraft.pcm.core.element.Element.STATE;
-
-public class pH { 
+public class pH {
 	
 	
  /*

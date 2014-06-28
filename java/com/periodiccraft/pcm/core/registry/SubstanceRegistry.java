@@ -9,15 +9,12 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import com.periodiccraft.pcm.PeriodicCraft;
 import com.periodiccraft.pcm.core.element.Element;
 import com.periodiccraft.pcm.core.element.ElementWrapper;
 import com.periodiccraft.pcm.core.element.ICompound;
 import com.periodiccraft.pcm.core.element.SubstanceStack;
 import com.periodiccraft.pcm.core.item.PeriodicElementItem;
 import com.periodiccraft.pcm.core.item.PeriodicItem;
-
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public final class SubstanceRegistry {
 

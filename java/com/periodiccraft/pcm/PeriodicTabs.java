@@ -3,7 +3,6 @@ package com.periodiccraft.pcm;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 
 public final class PeriodicTabs {
 

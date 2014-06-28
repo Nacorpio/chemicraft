@@ -1,6 +1,5 @@
 package com.periodiccraft.pcm.api.reaction;
 
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 
 import com.periodiccraft.pcm.core.element.SubstanceStack;
