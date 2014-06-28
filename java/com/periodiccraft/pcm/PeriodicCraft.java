@@ -496,8 +496,8 @@ public class PeriodicCraft {
 						10, 5));
 		
 		//Crafting Recipes
-		GameRegistry.addRecipe(new ItemStack(blockReinforcedIron, 8), new Object[]{"AAA", "ABA", "AAA", 'A', new ItemStack(Blocks.iron_block), 'B', new ItemStack(Blocks.obsidian)});
-		GameRegistry.addRecipe(new ItemStack(LQ_Idle), new Object[]{"ABA", "BCB", "ABA", 'A', new ItemStack(PeriodicCraft.blockReinforcedIron), 'B', new ItemStack(Blocks.glass), 'C', new ItemStack(Items.magma_cream)});
+		GameRegistry.addRecipe(new ItemStack(blockReinforcedIron, 8), "AAA", "ABA", "AAA", 'A', new ItemStack(Blocks.iron_block), 'B', new ItemStack(Blocks.obsidian));
+		GameRegistry.addRecipe(new ItemStack(LQ_Idle), "ABA", "BCB", "ABA", 'A', new ItemStack(PeriodicCraft.blockReinforcedIron), 'B', new ItemStack(Blocks.glass), 'C', new ItemStack(Items.magma_cream));
 		
 	}
 
