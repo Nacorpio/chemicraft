@@ -26,7 +26,7 @@ public class ElementWrapper {
 	}
 	
 	public boolean containsElement(Element e) {
-		return baseElement.equals(e) ? true : isotopes.contains(e);
+		return baseElement.equals(e) || isotopes.contains(e);
 	}
 	
 	public boolean isBaseElement(Element e) {

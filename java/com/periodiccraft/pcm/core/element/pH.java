@@ -13,11 +13,7 @@ public class pH {
 
 	
 	public boolean isHarmful() {
-		if(pHlevel >= 6.81 || pHlevel <= 6.81) {
-			return true;
-		}else{
-			return false;
-		}
+        return pHlevel >= 6.81 || pHlevel <= 6.81;
 	}
 		
 }
