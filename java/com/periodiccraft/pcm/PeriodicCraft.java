@@ -168,12 +168,12 @@ public class PeriodicCraft {
 		//mercury = new PeriodicFluid(mercury, Material.water, blockMercury, 0, 0, 0, 0, "Hello");
 
 		// Items
-		bookOfResearch = new PeriodicItem("bookOfResearch")
-				//.setUnlocalizedName("bookOfResearch")
-				.setCreativeTab(tabResearch);
-				//.setTextureName(PeriodicCraft.MODID + ":bookOfResearch");
-		//GameRegistry.registerItem(bookOfResearch, bookOfResearch
-				//.getUnlocalizedName().substring(5));
+		bookOfResearch = new BookOfResearch()
+				.setUnlocalizedName("bookOfResearch")
+				.setCreativeTab(tabResearch)
+				.setTextureName(PeriodicCraft.MODID + ":bookOfResearch");
+		GameRegistry.registerItem(bookOfResearch, bookOfResearch
+				.getUnlocalizedName().substring(5));
 
 		Ethanol = new Ethanol(0, 0.0F, false).setUnlocalizedName("Ethanol").setCreativeTab(
 				tabPeriodic);
