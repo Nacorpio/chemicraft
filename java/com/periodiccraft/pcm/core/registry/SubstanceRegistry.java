@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.periodiccraft.pcm.util.MultiKeyHashMap;
+import com.periodiccraft.pcm.util.MultiKeyMap;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -18,7 +20,7 @@ import com.periodiccraft.pcm.core.item.PeriodicItem;
 
 public final class SubstanceRegistry {
 
-	public static final Map<Integer, ElementWrapper> substances = new HashMap<>();
+	public static final MultiKeyMap<Integer, String, ElementWrapper> substances = new MultiKeyHashMap<>();
 	public static final Map<Integer, ICompound> compounds = new HashMap<>();
 	
 	public static final Map<String, SubstanceStack> compound_bindings = new HashMap<>();
@@ -88,50 +90,43 @@ public final class SubstanceRegistry {
 	
 	public static final void addElement(Element par1) {
 		if (!hasSubstance(par1.getAtomicNumber())) {
-			substances.put(par1.getAtomicNumber(), new ElementWrapper(par1));
+			substances.put(par1.getAtomicNumber(), par1.getSymbol(), new ElementWrapper(par1));
 		}
 	}
 	
 	public static void addIsotope(Element base, Element par2) {
 		if(hasSubstance(base.getAtomicNumber())) {
-			substances.get(base.getAtomicNumber()).addIsotope(par2);
+			substances.getByKey1(base.getAtomicNumber()).addIsotope(par2);
 		}
 		else throw new IllegalStateException("You have to register the base element first before you can add isotopes!");
 	}
 	
 	public static List<Element> getIsotopes(Element e) {
-		return substances.get(e.getAtomicNumber()).getIsotopes();
+		return substances.getByKey1(e.getAtomicNumber()).getIsotopes();
 	}
 	
 	public static final Element getElement(int par1) {
-		return substances.get(par1).getBaseElement().clone();
+		return substances.getByKey1(par1).getBaseElement().clone();
 	}
-	
+
 	public static final Element getElement(String par1) {
 		for (ElementWrapper var : getElements()) {
-			if (var.getBaseElement().getName().equalsIgnoreCase(par1)) 
+			if (var.getBaseElement().getName().equalsIgnoreCase(par1))
 				return var.getBaseElement().clone();
 		}
 		return null;
 	}
 	
-	//TODO Maybe we should do something like a multiKeyMap so we don't have to loop all the elements.
 	public static final Element getElementBySymbol(String par1) {
-		for (ElementWrapper var : getElements()) {
-			if (var.getBaseElement().getSymbol().equalsIgnoreCase(par1)) 
-				return var.getBaseElement().clone();
-		}
-		return null;
+		return substances.getByKey2(par1).getBaseElement().clone();
 	}
-	
-	//
 	
 	public static final int getCount() {
 		return substances.size();
 	}
 	
 	public static final boolean hasSubstance(int par1) {
-		return substances.containsKey(par1);
+		return substances.containsKey1(par1);
 	}
 	
 	public static final Collection<ElementWrapper> getElements() {
