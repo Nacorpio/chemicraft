@@ -1,7 +1,6 @@
 package com.periodiccraft.pcm.api.reaction;
 
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.potion.Potion;
 
 public interface IEffect {
 

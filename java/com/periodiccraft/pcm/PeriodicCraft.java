@@ -21,12 +21,9 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
 
-import com.periodiccraft.pcm.api.reaction.Effect;
-import com.periodiccraft.pcm.api.reaction.IEffect;
 import com.periodiccraft.pcm.api.reaction.IReaction;
 import com.periodiccraft.pcm.api.reaction.Reaction;
 import com.periodiccraft.pcm.core.block.BlockReinforcedGlass;
@@ -501,8 +498,8 @@ public class PeriodicCraft {
 						10, 5));
 		
 		//Crafting Recipes
-		GameRegistry.addRecipe(new ItemStack(blockReinforcedIron, 8), new Object[]{"AAA", "ABA", "AAA", 'A', new ItemStack(Blocks.iron_block), 'B', new ItemStack(Blocks.obsidian)});
-		GameRegistry.addRecipe(new ItemStack(LQ_Idle), new Object[]{"ABA", "BCB", "ABA", 'A', new ItemStack(PeriodicCraft.blockReinforcedIron), 'B', new ItemStack(Blocks.glass), 'C', new ItemStack(Items.magma_cream)});
+		GameRegistry.addRecipe(new ItemStack(blockReinforcedIron, 8), "AAA", "ABA", "AAA", 'A', new ItemStack(Blocks.iron_block), 'B', new ItemStack(Blocks.obsidian));
+		GameRegistry.addRecipe(new ItemStack(LQ_Idle), "ABA", "BCB", "ABA", 'A', new ItemStack(PeriodicCraft.blockReinforcedIron), 'B', new ItemStack(Blocks.glass), 'C', new ItemStack(Items.magma_cream));
 		
 	}
 

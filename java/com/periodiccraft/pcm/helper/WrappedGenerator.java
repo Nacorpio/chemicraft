@@ -201,7 +201,7 @@ public class WrappedGenerator implements IWorldGenerator {
 		
 	}
 	
-	private Map<String, Instruction> generations = new HashMap<String, Instruction>();
+	private Map<String, Instruction> generations = new HashMap<>();
 	
 	public WrappedGenerator(int par1, Instruction... par2) {
 		GameRegistry.registerWorldGenerator(this, par1);

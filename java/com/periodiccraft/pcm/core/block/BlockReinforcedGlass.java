@@ -2,7 +2,6 @@ package com.periodiccraft.pcm.core.block;
 
 import com.periodiccraft.pcm.PeriodicCraft;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockGlass;
 import net.minecraft.block.material.Material;
 

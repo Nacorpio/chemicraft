@@ -61,8 +61,7 @@ public final class ChatUtil {
 	}
 	
 	private static IChatComponent createEIChatComponent(String string) {
-		ChatComponentText EIComponent = new ChatComponentText(string);
-		return EIComponent;
+		return new ChatComponentText(string);
 	}
 	
 	public static String getLowerValue(int value) 

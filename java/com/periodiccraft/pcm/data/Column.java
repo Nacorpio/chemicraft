@@ -1,6 +1,7 @@
 package com.periodiccraft.pcm.data;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import com.periodiccraft.pcm.api.data.EnumColumnType;
@@ -12,7 +13,7 @@ public class Column implements IColumn {
 
 	private String name;
 	private EnumColumnType type = EnumColumnType.STRING;
-	private List<IField> fields = new ArrayList<IField>();
+	private List<IField> fields = new ArrayList<>();
 	
 	private ITable parent;
 	
@@ -47,9 +48,7 @@ public class Column implements IColumn {
 	
 	@Override
 	public IField[] addFields(IField... par1) {
-		for (IField var: par1) {
-			fields.add(var);
-		}
+        Collections.addAll(fields, par1);
 		return par1;
 	}
 

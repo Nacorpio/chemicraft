@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ElementWrapper {
 	
-	private ArrayList<Element> isotopes = new ArrayList<Element>();
+	private ArrayList<Element> isotopes = new ArrayList<>();
 	private Element baseElement;
 	
 	public ElementWrapper(Element e) {
@@ -26,7 +26,7 @@ public class ElementWrapper {
 	}
 	
 	public boolean containsElement(Element e) {
-		return baseElement.equals(e) ? true : isotopes.contains(e);
+		return baseElement.equals(e) || isotopes.contains(e);
 	}
 	
 	public boolean isBaseElement(Element e) {

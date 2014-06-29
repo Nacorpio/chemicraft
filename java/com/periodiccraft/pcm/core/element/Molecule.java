@@ -1,7 +1,5 @@
 package com.periodiccraft.pcm.core.element;
 
-import java.util.TreeMap;
-
 import com.periodiccraft.pcm.helper.BiomeTemperature;
 import com.periodiccraft.pcm.helper.ChatUtil;
 import com.periodiccraft.pcm.research.ResearchRegistry;

@@ -8,10 +8,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.naming.directory.InvalidAttributesException;
-
 import com.periodiccraft.pcm.core.element.Element;
-import com.periodiccraft.pcm.core.element.ICompound;
 import com.periodiccraft.pcm.core.element.Molecule;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
 
@@ -31,10 +28,10 @@ public class MoleculeTree
 	//TODO When dealing with Elements that are longer then just 1 letter, it should automatically insert whitespaces to push the matrix in place.
 	public MoleculeTree(String... structure)
 	{	
-		ArrayList<ArrayList<String>> matrix = new ArrayList<ArrayList<String>>();
+		ArrayList<ArrayList<String>> matrix = new ArrayList<>();
 		for(String s : structure)
 		{
-			ArrayList<String> list2 = new ArrayList<String>();
+			ArrayList<String> list2 = new ArrayList<>();
 			Pattern p = Pattern.compile("([\\(][A-Z][a-z]*([1-9]+[+-])[\\)])|([A-Z][a-z]*([1-9]+[+-])?)|[=\\-#\\s]");
 			Matcher m = p.matcher(s);
 			while(m.find())
@@ -70,7 +67,7 @@ public class MoleculeTree
 
 		Element atom = getElement(firstAtom);
 		root = new MoleculeNode(0, atom, null, x, y);
-		ArrayList<Point> list = new ArrayList<Point>();
+		ArrayList<Point> list = new ArrayList<>();
 		list.add(new Point(x, y));
 		structureTree(x, y, list, matrix, root);
 	}
@@ -97,12 +94,8 @@ public class MoleculeTree
 	
 	private boolean isValid(int x, int y, ArrayList<ArrayList<String>> matrix)
 	{
-		if(x >= 0 && y >= 0 && x < matrix.get(0).size() && y < matrix.size())
-		{
-			return true;
-		}
-		return false;
-	}
+        return x >= 0 && y >= 0 && x < matrix.get(0).size() && y < matrix.size();
+    }
 
 	private void structureTreePayload(int x, int y, int xChange, int yChange, ArrayList<Point> list, ArrayList<ArrayList<String>> matrix, MoleculeNode parent)
 	{
@@ -156,9 +149,9 @@ public class MoleculeTree
 
 	public Element[] getElements(MoleculeNode node)
 	{
-		ArrayList<Element> list = new ArrayList<Element>();
+		ArrayList<Element> list = new ArrayList<>();
 		getElementsRaw(node, list);
-		HashMap<Element, Integer> map = new HashMap<Element, Integer>();
+		HashMap<Element, Integer> map = new HashMap<>();
 		
 		for(Element e : list)
 		{
@@ -200,7 +193,7 @@ public class MoleculeTree
 	    
 		public MoleculeNode(int binding, Element e, MoleculeNode parent, int x, int y)
 	    {
-			children = new ArrayList<MoleculeNode>();
+			children = new ArrayList<>();
 			this.data = e;
 			this.parent = parent;
 			this.binding = binding;

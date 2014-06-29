@@ -1,6 +1,5 @@
 package com.periodiccraft.pcm.api.reaction;
 
-import com.periodiccraft.pcm.core.element.ICompound;
 import com.periodiccraft.pcm.core.element.SubstanceStack;
 
 public class ReactionRecipe implements IReactionRecipe {
