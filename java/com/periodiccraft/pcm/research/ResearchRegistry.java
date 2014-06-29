@@ -87,8 +87,8 @@ public final class ResearchRegistry {
 		}
 	}
 	
-	public static final Research getResearch(int par1) {
-		return researches.get(par1);
+	public static final Research getResearch(double d) {
+		return researches.get(d);
 	}
 	
 	public static final boolean hasResearch(int par1) {

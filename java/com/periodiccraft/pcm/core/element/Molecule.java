@@ -14,7 +14,7 @@ public class Molecule implements ICompound{
 	private int count;
 	private String name;
 	private String formula = "";
-	
+	private double pH;
 	
 	public Molecule(int count, Element... contents) {
 		this.elements = contents;
@@ -32,6 +32,8 @@ public class Molecule implements ICompound{
 		this.name = name;
 	}
 	
+
+
 	@Override
 	public boolean isCompound() {
 		return elements.length > 1;
@@ -96,5 +98,10 @@ public class Molecule implements ICompound{
 	@Override
 	public String getName() {
 		return name;
+	}
+	
+	public double setPHLevel(double Ph) {
+		this.pH = Ph;
+		return this.pH;
 	}
 }

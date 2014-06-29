@@ -287,7 +287,7 @@ public class Element implements Cloneable {
 		return null;
 	}
 	
-	public boolean hasPh(boolean b) {
+	public boolean hasPh() {
 		if(this.state == STATE.SOLID || this.state == STATE.PLASMA) {
 			return false;
 		}else{
@@ -306,6 +306,10 @@ public class Element implements Cloneable {
 		}else{
 			return false;
 		}
+	}
+	
+	public double getPhLevel() {
+		return pH;
 	}
 	
 }
