@@ -490,10 +490,10 @@ public class PeriodicCraft {
 		 * WeightedRandomChestContent(unknownShard, 0, 5, 10, 10)};
 		 */
 
-		ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(
+		ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(
 				new WeightedRandomChestContent(new ItemStack(unknownShard), 1,
 						10, 5));
-		ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(
+		ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(
 				new WeightedRandomChestContent(new ItemStack(unknownIngot), 1,
 						10, 5));
 		ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(

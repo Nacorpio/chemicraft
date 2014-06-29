@@ -64,7 +64,7 @@ public class PeriodicElementItem extends PeriodicItem {
 			}
 			
 			//Ph Levels
-			//Research 0 for Testing
+			/**Research 0 for Testing
 			if(e.hasPh() == true && ResearchRegistry.getResearch(e.getPhLevel()).getProgress() == 0 && e.getPhLevel() >= 7.00) {
 				par3List.add("PH: " + ChatUtil.Colors.dark_green + e.getPhLevel());
 			}else if(e.hasPh() == true && ResearchRegistry.getResearch(e.getPhLevel()).getProgress() == 0 && e.getPhLevel() <= 5.00){
@@ -74,6 +74,8 @@ public class PeriodicElementItem extends PeriodicItem {
 			}
 			
 		}	
+		*/
+		}
 	}
 }
 
