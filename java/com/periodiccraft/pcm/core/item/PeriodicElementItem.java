@@ -43,7 +43,7 @@ public class PeriodicElementItem extends PeriodicItem {
 		{
 			Element e = var1.getFirstElement();
 			if (ResearchRegistry.hasResearch(e.getAtomicNumber())) {
-				Research r = ResearchRegistry.getResearch(e.getAtomicNumber()); 
+				Research r = ResearchRegistry.getResearch(e.getAtomicNumber());
 				par3List.add("Research: " + ChatUtil.Colors.green + (r.isComplete() ? "Complete" : r.getProgress() + "/100"));
 			}	
 				
@@ -63,18 +63,18 @@ public class PeriodicElementItem extends PeriodicItem {
 				par3List.add("Atomic Weight: " + ChatUtil.Colors.blue + e.getWeight());
 			}
 			
-			//Ph Levels
-			/**Research 0 for Testing
 			if(e.hasPh() == true && ResearchRegistry.getResearch(e.getPhLevel()).getProgress() == 0 && e.getPhLevel() >= 7.00) {
 				par3List.add("PH: " + ChatUtil.Colors.dark_green + e.getPhLevel());
+				
 			}else if(e.hasPh() == true && ResearchRegistry.getResearch(e.getPhLevel()).getProgress() == 0 && e.getPhLevel() <= 5.00){
 				par3List.add("PH: " + ChatUtil.Colors.dark_red + e.getPhLevel());
-			}else{
+				
+			}else{				
 				par3List.add("PH: " + ChatUtil.Colors.dark_blue + e.getPhLevel());
 			}
 			
-		}	
-		*/
+		
+		
 		}
 	}
 }
