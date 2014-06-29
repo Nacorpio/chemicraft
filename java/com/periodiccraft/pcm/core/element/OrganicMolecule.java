@@ -9,6 +9,7 @@ public class OrganicMolecule implements ICompound
 	private float temperature = BiomeTemperature.getDefaultTemperature();
 	private int count;
 	private String name;
+	private double pH;
 	
 	public OrganicMolecule(int count, String name, String... structure) 
 	{
@@ -78,4 +79,5 @@ public class OrganicMolecule implements ICompound
 	{
 		return "OrganicMolecule[name=\"" + getName() + "\"" + ", structure=\"" + moleculeTree.getRoot().toString() + "\"]";
 	}
+
 }

@@ -108,7 +108,7 @@ public class Element implements Cloneable {
 	protected int amount = 1;
 	
 	private STATE state;
-	private int pH;
+	private double pH;
 	
 	
 	public Element(String name, int atomicNumber, String symbol, int color, CATEGORY category, int electrons, int neutrons, int protons, float boilingPoint, float meltingPoint, float heatOfVaporization, float density, float weight, STATE state) 
@@ -287,13 +287,25 @@ public class Element implements Cloneable {
 		return null;
 	}
 	
-	public boolean hasPh(boolean b) {
+	public boolean hasPh() {
         return !(this.state == STATE.SOLID || this.state == STATE.PLASMA);
 	}
 	
-	public int setPHLevel(int pH) {
-		this.pH = pH;
+	public double setPHLevel(double Ph) {
+		this.pH = Ph;
 		return this.pH;
+	}
+	
+	public boolean isHarmful() {
+		if(pH >= 2.81 || pH <= 7.21) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	public double getPhLevel() {
+		return pH;
 	}
 	
 }

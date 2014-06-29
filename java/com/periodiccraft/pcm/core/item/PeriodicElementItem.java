@@ -41,10 +41,11 @@ public class PeriodicElementItem extends PeriodicItem {
 		{
 			Element e = var1.getFirstElement();
 			if (ResearchRegistry.hasResearch(e.getAtomicNumber())) {
-				Research r = ResearchRegistry.getResearch(e.getAtomicNumber()); 
+				Research r = ResearchRegistry.getResearch(e.getAtomicNumber());
 				par3List.add("Research: " + ChatUtil.Colors.green + (r.isComplete() ? "Complete" : r.getProgress() + "/100"));
 			}	
-			
+				
+
 			
 			par3List.add("Symbol: " + ChatUtil.Colors.green + e.getSymbol());
 			par3List.add("State: " + ChatUtil.Colors.green + e.getState(BiomeTemperature.getDefaultTemperature()).getText());
@@ -59,7 +60,20 @@ public class PeriodicElementItem extends PeriodicItem {
 			if(ResearchRegistry.getResearch(e.getAtomicNumber()).getProgress() >= 50) {
 				par3List.add("Atomic Weight: " + ChatUtil.Colors.blue + e.getWeight());
 			}
-		}	
+			
+			if(e.hasPh() == true && ResearchRegistry.getResearch(e.getPhLevel()).getProgress() == 0 && e.getPhLevel() >= 7.00) {
+				par3List.add("PH: " + ChatUtil.Colors.dark_green + e.getPhLevel());
+				
+			}else if(e.hasPh() == true && ResearchRegistry.getResearch(e.getPhLevel()).getProgress() == 0 && e.getPhLevel() <= 5.00){
+				par3List.add("PH: " + ChatUtil.Colors.dark_red + e.getPhLevel());
+				
+			}else{				
+				par3List.add("PH: " + ChatUtil.Colors.dark_blue + e.getPhLevel());
+			}
+			
+		
+		
+		}
 	}
 }
 
