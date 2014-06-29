@@ -335,8 +335,10 @@ public class PeriodicCraft {
 		 * Note That some Reactions only have a input output. Not an effect.
 		 */
 		//Reactions
-		IReaction CopperOxidization = new Reaction("Reaction.COPPER_OXIDIZATION", null, null, null);
-
+		
+		IReaction CopperRust = new Reaction("Reaction.COPPER_OXIDIZATION", null, null, null);
+		IReaction IronRust = new Reaction("Reaction.IRON_OXIDIZATION", null, null, null);
+		
 		
 		
 		/***
