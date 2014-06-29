@@ -6,12 +6,14 @@ import net.minecraft.potion.Potion;
 
 public class Effect implements IEffect {
 
-	private String name;
-	private int potionID;
+	protected String name;
+	protected IReaction reaction;
+	protected Potion potionID;
 	
-	public Effect(String par1, int par2) {
+	public Effect(String par1, IReaction par2, Potion par3) {
 		this.name = par1;
-		this.potionID = par2;
+		this.reaction = par2;
+		this.potionID = par3;
 	}
 	
 	@Override

@@ -8,10 +8,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.naming.directory.InvalidAttributesException;
-
 import com.periodiccraft.pcm.core.element.Element;
-import com.periodiccraft.pcm.core.element.ICompound;
 import com.periodiccraft.pcm.core.element.Molecule;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
 
@@ -97,12 +94,8 @@ public class MoleculeTree
 	
 	private boolean isValid(int x, int y, ArrayList<ArrayList<String>> matrix)
 	{
-		if(x >= 0 && y >= 0 && x < matrix.get(0).size() && y < matrix.size())
-		{
-			return true;
-		}
-		return false;
-	}
+        return x >= 0 && y >= 0 && x < matrix.get(0).size() && y < matrix.size();
+    }
 
 	private void structureTreePayload(int x, int y, int xChange, int yChange, ArrayList<Point> list, ArrayList<ArrayList<String>> matrix, MoleculeNode parent)
 	{

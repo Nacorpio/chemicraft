@@ -1,8 +1,5 @@
 package com.periodiccraft.pcm.core.element;
 
-import com.periodiccraft.pcm.helper.ChatUtil;
-import com.periodiccraft.pcm.research.ResearchRegistry;
-
 public interface ICompound {
 	
 	public boolean isCompound();

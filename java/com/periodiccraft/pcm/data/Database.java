@@ -30,8 +30,7 @@ public class Database implements IDatabase {
 	
 	@Override
 	public String getSerializedString() {
-		String str = "";
-		return str;
+		return "";
 	}
 
 	@Override

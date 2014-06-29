@@ -4,10 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import org.apache.commons.lang3.CharSet;
-
-import com.google.common.io.Files;
-
 public final class JSONDebug {
 
 	public static void main(String[] args) throws FileNotFoundException {

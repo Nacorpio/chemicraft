@@ -93,11 +93,11 @@ public final class ChemUtil {
 
 	public static final boolean stackContains(ICompound par1, Element par2) {
 		Element[] elements = par1.getElements();
-		for (int i = 0; i < elements.length; i++) {
-			if (elements[i].equals(par2)) {
-				return true;
-			} 
-		}
+        for (Element element : elements) {
+            if (element.equals(par2)) {
+                return true;
+            }
+        }
 		return false;
 	}
 	

@@ -16,24 +16,19 @@
 package com.periodiccraft.pcm;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.ChestGenHooks;
-import net.minecraftforge.fluids.Fluid;
 
 import com.periodiccraft.pcm.api.reaction.IReaction;
 import com.periodiccraft.pcm.api.reaction.Reaction;
-import com.periodiccraft.pcm.api.reaction.ReactionRecipe;
 import com.periodiccraft.pcm.core.block.BlockReinforcedGlass;
-import com.periodiccraft.pcm.core.block.LQClass;
 import com.periodiccraft.pcm.core.block.BlockReinforcedIron;
+import com.periodiccraft.pcm.core.block.LQClass;
 import com.periodiccraft.pcm.core.block.ores.PeriodicOre;
 import com.periodiccraft.pcm.core.element.Element;
 import com.periodiccraft.pcm.core.element.ICompound;
@@ -43,13 +38,13 @@ import com.periodiccraft.pcm.core.fluids.PeriodicFluid;
 import com.periodiccraft.pcm.core.gui.TileEntityLQ;
 import com.periodiccraft.pcm.core.item.Ethanol;
 import com.periodiccraft.pcm.core.item.PeriodicElementItemUnknown;
-import com.periodiccraft.pcm.core.item.PeriodicItem;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
 import com.periodiccraft.pcm.creativetabs.TabPeriodic;
 import com.periodiccraft.pcm.creativetabs.TabPeriodicIcon;
 import com.periodiccraft.pcm.helper.WrappedGenerator;
 import com.periodiccraft.pcm.helper.WrappedGenerator.Instruction;
 import com.periodiccraft.pcm.items.UniversalIndicator;
+import com.periodiccraft.pcm.research.BookOfResearch;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -166,8 +161,12 @@ public class PeriodicCraft {
 		//mercury = new PeriodicFluid(mercury, Material.water, blockMercury, 0, 0, 0, 0, "Hello");
 
 		// Items
-		bookOfResearch = new PeriodicItem("bookOfResearch")
-				.setCreativeTab(tabResearch);
+		bookOfResearch = new BookOfResearch()
+				.setUnlocalizedName("bookOfResearch")
+				.setCreativeTab(tabResearch)
+				.setTextureName(PeriodicCraft.MODID + ":bookOfResearch");
+		GameRegistry.registerItem(bookOfResearch, bookOfResearch
+				.getUnlocalizedName().substring(5));
 
 		Ethanol = new Ethanol(0, 0.0F, false).setUnlocalizedName("Ethanol").setCreativeTab(
 				tabPeriodic);
@@ -319,15 +318,25 @@ public class PeriodicCraft {
 		new Element("Copper", 29, "Cu", 0xCD6600,
 				Element.CATEGORY.TRANSITION_METALS, 29, 35, 29, 2562.0F,
 				1084.62F, 158.180F, 8.96F, 63.546F, Element.STATE.SOLID);
-		 
+		
 		new Element("Zinc", 30, "Zn", 0xCCCCCC,
 				Element.CATEGORY.TRANSITION_METALS, 30, 35, 30, 907.0F,
 				419.58F, 115.0F, 7.133F, 65.380F, Element.STATE.SOLID);
 
 
-		
+	
+		/***
+		 * 
+		 * Would this work?
+		 * TODO Get one reaction working.
+		 * Note That some Reactions only have a input output. Not an effect.
+		 */
 		//Reactions
-		IReaction CopperOxidization = new Reaction("Reaction.COPPER_OXIDIZATION", null, null, null);
+		
+		IReaction CopperRust = new Reaction("Reaction.COPPER_OXIDIZATION", null, null, null);
+		IReaction IronRust = new Reaction("Reaction.IRON_OXIDIZATION", null, null, null);
+		
+		
 		
 		/***
 		*
@@ -344,7 +353,7 @@ public class PeriodicCraft {
 		*/
 
 		// Simple Molecules
-		ICompound diamond = new Molecule(2, "Diamond", SubstanceRegistry
+		ICompound diamond = new Molecule(1, "Diamond", SubstanceRegistry
 				.getElement("Carbon").setAmount(8));
 		SubstanceRegistry.bindCompound(Items.diamond.getUnlocalizedName(),
 				diamond, 1000F);		
@@ -478,10 +487,10 @@ public class PeriodicCraft {
 		 * WeightedRandomChestContent(unknownShard, 0, 5, 10, 10)};
 		 */
 
-		ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(
+		ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(
 				new WeightedRandomChestContent(new ItemStack(unknownShard), 1,
 						10, 5));
-		ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(
+		ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(
 				new WeightedRandomChestContent(new ItemStack(unknownIngot), 1,
 						10, 5));
 		ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(
@@ -489,8 +498,8 @@ public class PeriodicCraft {
 						10, 5));
 		
 		//Crafting Recipes
-		GameRegistry.addRecipe(new ItemStack(blockReinforcedIron, 8), new Object[]{"AAA", "ABA", "AAA", 'A', new ItemStack(Blocks.iron_block), 'B', new ItemStack(Blocks.obsidian)});
-		GameRegistry.addRecipe(new ItemStack(LQ_Idle), new Object[]{"ABA", "BCB", "ABA", 'A', new ItemStack(PeriodicCraft.blockReinforcedIron), 'B', new ItemStack(Blocks.glass), 'C', new ItemStack(Items.magma_cream)});
+		GameRegistry.addRecipe(new ItemStack(blockReinforcedIron, 8), "AAA", "ABA", "AAA", 'A', new ItemStack(Blocks.iron_block), 'B', new ItemStack(Blocks.obsidian));
+		GameRegistry.addRecipe(new ItemStack(LQ_Idle), "ABA", "BCB", "ABA", 'A', new ItemStack(PeriodicCraft.blockReinforcedIron), 'B', new ItemStack(Blocks.glass), 'C', new ItemStack(Items.magma_cream));
 		
 	}
 

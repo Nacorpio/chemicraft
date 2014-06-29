@@ -6,7 +6,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
 import com.periodiccraft.pcm.PeriodicCraft;
-import com.periodiccraft.pcm.helper.ChatUtil;
 
 public class PeriodicElementItemUnknown extends PeriodicElementItem {
 
