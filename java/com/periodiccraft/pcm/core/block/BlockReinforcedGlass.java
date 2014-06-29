@@ -5,6 +5,7 @@ import com.periodiccraft.pcm.PeriodicCraft;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGlass;
 import net.minecraft.block.material.Material;
+import net.minecraft.world.World;
 
 public class BlockReinforcedGlass extends BlockGlass {
 
@@ -16,5 +17,4 @@ public class BlockReinforcedGlass extends BlockGlass {
 	public final String getTextureName() {
 		return PeriodicCraft.MODID + ":blockReinforcedGlass";
 	}
-	
 }
