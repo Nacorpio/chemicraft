@@ -61,10 +61,10 @@ public class PeriodicElementItem extends PeriodicItem {
 				par3List.add("Atomic Weight: " + ChatUtil.Colors.blue + e.getWeight());
 			}
 			
-			if(e.hasPh() == true && ResearchRegistry.getResearch(e.getPhLevel()).getProgress() == 0 && e.getPhLevel() >= 7.00) {
+			if(e.hasPh() == true && ResearchRegistry.getResearch(e.getAtomicNumber()).getProgress() == 0 && e.getPhLevel() >= 7.00) {
 				par3List.add("PH: " + ChatUtil.Colors.dark_green + e.getPhLevel());
 				
-			}else if(e.hasPh() == true && ResearchRegistry.getResearch(e.getPhLevel()).getProgress() == 0 && e.getPhLevel() <= 5.00){
+			}else if(e.hasPh() == true && ResearchRegistry.getResearch(e.getAtomicNumber()).getProgress() == 0 && e.getPhLevel() <= 5.00){
 				par3List.add("PH: " + ChatUtil.Colors.dark_red + e.getPhLevel());
 				
 			}else{				
