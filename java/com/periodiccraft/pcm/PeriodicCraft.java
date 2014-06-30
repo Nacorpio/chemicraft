@@ -356,12 +356,12 @@ public class PeriodicCraft {
 		ICompound diamond = new Molecule(1, "Diamond", SubstanceRegistry
 				.getElement("Carbon").setAmount(8));
 		SubstanceRegistry.bindCompound(Items.diamond.getUnlocalizedName(),
-				diamond, 1000F);		
+				diamond, 500F);		
 		ICompound water = new Molecule(1, "Water", SubstanceRegistry
 				.getElement("Hydrogen").setAmount(2), SubstanceRegistry
-				.getElement("Oxygen").setAmount(1));
+				.getElement("Oxygen").setAmount(1));;
 		SubstanceRegistry.bindCompound(Items.water_bucket.getUnlocalizedName(),
-				water, 1000F);
+				water, 2000F);
 		
 		ICompound coal = new Molecule(1, "Coal", SubstanceRegistry.getElement("Carbon").setAmount(5), SubstanceRegistry.getElement("Hydrogen").setAmount(2));
 		SubstanceRegistry.bindCompound(Items.coal.getUnlocalizedName(), coal, 100.0F);

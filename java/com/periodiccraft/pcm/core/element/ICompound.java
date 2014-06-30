@@ -23,4 +23,8 @@ public interface ICompound {
 	public boolean hasName();
 	
 	public String getName();
+	
+	public double setPHLevel(double par1);
+
 }
+

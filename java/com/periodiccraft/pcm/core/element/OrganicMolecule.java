@@ -79,5 +79,10 @@ public class OrganicMolecule implements ICompound
 	{
 		return "OrganicMolecule[name=\"" + getName() + "\"" + ", structure=\"" + moleculeTree.getRoot().toString() + "\"]";
 	}
+	
+	@Override
+	public double setPHLevel(double par1) {
+		return par1;
+	}
 
 }

@@ -98,8 +98,10 @@ public class Molecule implements ICompound{
 		return name;
 	}
 	
-	public double setPHLevel(double Ph) {
-		this.pH = Ph;
-		return this.pH;
+	@Override
+	public double setPHLevel(double par1) {
+		return par1;
 	}
+
+
 }

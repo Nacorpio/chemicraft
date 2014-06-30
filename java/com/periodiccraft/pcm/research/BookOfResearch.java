@@ -8,10 +8,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.world.World;
 
-public class BookOfResearch extends ItemWritableBook {
+public class BookOfResearch extends Item {
 
 	public BookOfResearch() {
-		
+		this.setMaxStackSize(1);
 	}
 }
 	
