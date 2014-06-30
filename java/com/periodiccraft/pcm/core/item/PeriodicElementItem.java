@@ -7,7 +7,9 @@ import net.minecraft.item.ItemStack;
 
 import com.periodiccraft.pcm.PeriodicCraft;
 import com.periodiccraft.pcm.core.element.Element;
+import com.periodiccraft.pcm.core.element.Element.STATE;
 import com.periodiccraft.pcm.core.element.ICompound;
+import com.periodiccraft.pcm.core.element.pH;
 import com.periodiccraft.pcm.core.registry.SubstanceRegistry;
 import com.periodiccraft.pcm.helper.BiomeTemperature;
 import com.periodiccraft.pcm.helper.ChatUtil;
@@ -17,7 +19,8 @@ import com.periodiccraft.pcm.research.ResearchRegistry.Research;
 public class PeriodicElementItem extends PeriodicItem {
 
 	private ICompound substance;
-
+	private pH ph;
+	private STATE state;
 	
 
 	public PeriodicElementItem(String par1, ICompound substance) {
@@ -60,16 +63,21 @@ public class PeriodicElementItem extends PeriodicItem {
 			if(ResearchRegistry.getResearch(e.getAtomicNumber()).getProgress() >= 50) {
 				par3List.add("Atomic Weight: " + ChatUtil.Colors.blue + e.getWeight());
 			}
-			
-			if(e.hasPh() == true && ResearchRegistry.getResearch(e.getAtomicNumber()).getProgress() == 0 && e.getPhLevel() >= 7.00) {
-				par3List.add("PH: " + ChatUtil.Colors.dark_green + e.getPhLevel());
+		
+			/** TODO Someone Fix This.
+			if(ph.hasPh() == true && ResearchRegistry.getResearch(e.getAtomicNumber()).getProgress() == 0 && ph.getPhLevel() >= 7.00) {
+				par3List.add("PH: " + ChatUtil.Colors.dark_green + ph.getPhLevel());
 				
-			}else if(e.hasPh() == true && ResearchRegistry.getResearch(e.getAtomicNumber()).getProgress() == 0 && e.getPhLevel() <= 5.00){
-				par3List.add("PH: " + ChatUtil.Colors.dark_red + e.getPhLevel());
+			}else if(ph.hasPh() == true && ResearchRegistry.getResearch(e.getAtomicNumber()).getProgress() == 0 && ph.getPhLevel() <= 5.00){
+				par3List.add("PH: " + ChatUtil.Colors.dark_red + ph.getPhLevel());
 				
-			}else{				
-				par3List.add("PH: " + ChatUtil.Colors.dark_blue + e.getPhLevel());
+			}else if(ph.hasPh() == true && ResearchRegistry.getResearch(e.getAtomicNumber()).getProgress() == 0 && ph.getPhLevel() <= 5.00 && ph.getPhLevel() >= 7.00){				
+				par3List.add("PH: " + ChatUtil.Colors.dark_blue + ph.getPhLevel());
+				
+			}else{
+				
 			}
+			*/
 			
 		
 		

@@ -287,26 +287,6 @@ public class Element implements Cloneable {
 		return null;
 	}
 	
-	public boolean hasPh() {
-		if(this.state == STATE.SOLID || this.state == STATE.PLASMA) {
-			return false;
-		} else {
-			return true;
-			}
-	}
-		
-	
-	public boolean isHarmful() {
-		if(pH >= 2.81 || pH <= 7.21) {
-			return true;
-		}else{
-			return false;
-		}
-	}
-	
-	public double getPhLevel() {
-		return pH;
-	}
 	
 }
 
