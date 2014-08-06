@@ -16,7 +16,7 @@ public class EventHandler
 	
 	EventHandler()
 	{
-		MinecraftForge.EVENT_BUS.register(this);
+		MinecraftForge.EVENT_BUS.register(this); //test
 		FMLCommonHandler.instance().bus().register(this);
 	}
 	
